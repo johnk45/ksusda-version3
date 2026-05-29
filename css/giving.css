@@ -1,0 +1,578 @@
+/* =========================================================
+   ADVENTIST GIVING — Donation Page Styles
+   Matches AdventistGiving.org / donate / ANPINV layout
+   ========================================================= */
+
+/* ---------- Reset & Base ---------- */
+.giving-page-body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', 'Noto Sans', Arial, sans-serif;
+  background: #f4f5f7;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ---------- HEADER ---------- */
+.ag-header {
+  background: #1a2538;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.ag-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+}
+.ag-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+.ag-logo-icon { height: 28px; }
+.ag-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.ag-logo-title { font-size: 0.95rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.ag-logo-sub { font-size: 0.6rem; letter-spacing: 1.5px; opacity: 0.55; text-transform: uppercase; }
+.ag-header-nav { display: flex; gap: 20px; align-items: center; }
+.ag-nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background .2s;
+}
+.ag-nav-link:hover, .ag-nav-link.active { background: rgba(255,255,255,.12); }
+
+/* ---------- CHURCH NAME BANNER ---------- */
+.ag-church-banner {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 28px 20px 22px;
+}
+.ag-church-name {
+  margin: 0 0 4px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.ag-church-address {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ---------- OFFERING OF THE WEEK ---------- */
+.ag-offering-week {
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+}
+.ag-offering-week-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ag-ow-left {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.85rem; color: #333;
+}
+.ag-ow-desc { color: #666; margin-left: 8px; font-weight: 400; }
+.ag-ow-link {
+  color: #006B75;
+  font-size: 0.78rem;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: color .2s;
+}
+.ag-ow-link:hover { color: #005A63; text-decoration: underline; }
+
+/* ---------- MAIN LAYOUT ---------- */
+.ag-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+.ag-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ---------- M-PESA SECTION ---------- */
+.ag-mpesa-section {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 2px solid #4caf50;
+}
+.ag-mpesa-header {
+  background: #4caf50;
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+.mpesa-logo { height: 28px; filter: brightness(0) invert(1); }
+.ag-mpesa-body {
+  padding: 20px;
+}
+.ag-mpesa-body label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+.mpesa-phone-row {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.mpesa-phone-row:focus-within {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76,175,80,.15);
+}
+.mpesa-prefix {
+  background: #f5f5f5;
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #333;
+  border-right: 2px solid #ddd;
+  user-select: none;
+}
+.mpesa-phone-row input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: transparent;
+}
+.mpesa-hint {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* ---------- CATEGORY CARDS ---------- */
+.ag-category-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.ag-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #006B75 0%, #008a8a 100%);
+  color: #fff;
+}
+.ag-category-header h2 {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.ag-cat-icon { width: 22px; height: 22px; flex-shrink: 0; }
+.ag-category-header .ag-cat-icon { fill: #fff; }
+
+/* Tithe row */
+.ag-tithe-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+}
+.ag-cat-label {
+  display: flex; align-items: center; gap: 10px;
+}
+.ag-cat-label .ag-cat-icon { fill: #006B75; }
+.ag-cat-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #006B75;
+  text-transform: uppercase;
+}
+
+/* Item rows */
+.ag-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 16px;
+}
+.ag-item-row:last-child { border-bottom: none; }
+.ag-item-label {
+  font-size: 0.88rem;
+  color: #444;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Amount inputs */
+.ag-amount-input {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  min-width: 150px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.ag-amount-input:focus-within {
+  border-color: #006B75;
+  box-shadow: 0 0 0 3px rgba(0,107,117,.12);
+}
+.ag-currency {
+  padding: 10px 10px;
+  background: #f8f8f8;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #888;
+  border-right: 2px solid #ddd;
+  user-select: none;
+}
+.ag-input {
+  border: none;
+  outline: none;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 80px;
+  text-align: right;
+  background: transparent;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.ag-input::-webkit-outer-spin-button,
+.ag-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* ---------- SIDEBAR ---------- */
+.ag-sidebar { position: relative; }
+.ag-sidebar-sticky {
+  position: sticky;
+  top: 80px;
+}
+.ag-jump-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.ag-jump-title {
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+.ag-jump-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background .15s;
+}
+.ag-jump-item:last-child { border-bottom: none; }
+.ag-jump-item:hover { background: #f7fafa; }
+.ag-jump-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.ag-jump-bar { width: 4px; height: 22px; border-radius: 2px; }
+.ag-jump-icon { width: 16px; height: 16px; }
+.ag-jump-amount {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #006B75;
+  white-space: nowrap;
+}
+
+/* Total Card */
+.ag-total-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  padding: 20px;
+  text-align: center;
+}
+.ag-total-amount {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+.ag-total-amount strong {
+  display: block;
+  font-size: 1.6rem;
+  color: #222;
+  margin-top: 4px;
+}
+.ag-continue-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 24px;
+  background: #006B75;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.ag-continue-btn:hover { background: #005A63; }
+.ag-continue-btn:active { transform: scale(0.98); }
+
+/* ---------- STK PUSH MODAL ---------- */
+.ag-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.ag-modal-overlay.show { display: flex; }
+.ag-modal {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden;
+  animation: modalIn .3s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.ag-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #4caf50;
+  color: #fff;
+  padding: 16px 20px;
+}
+.ag-modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+.ag-modal-body {
+  padding: 24px;
+}
+
+/* Modal states */
+.modal-summary { margin-bottom: 20px; }
+.modal-summary h3 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  color: #333;
+}
+.modal-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.modal-summary-table tr { border-bottom: 1px solid #eee; }
+.modal-summary-table td { padding: 8px 0; }
+.modal-summary-table td:last-child { text-align: right; font-weight: 600; color: #006B75; }
+.modal-total-row td {
+  border-top: 2px solid #333;
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.modal-total-row td:last-child { color: #222; }
+
+.modal-phone-confirm {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.modal-phone-confirm label {
+  font-weight: 600;
+  font-size: 0.82rem;
+  display: block;
+  margin-bottom: 6px;
+}
+.modal-phone-confirm input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.modal-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background .2s;
+}
+.modal-btn-primary:hover { background: #43a047; }
+.modal-btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.modal-status {
+  text-align: center;
+  padding: 30px 10px;
+}
+.modal-status .spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #eee;
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.modal-status p { color: #555; font-size: 0.95rem; }
+.modal-status.success p { color: #2e7d32; }
+.modal-status.error p { color: #c62828; }
+.modal-status .status-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+/* ---------- FOOTER ---------- */
+.ag-footer {
+  background: #1a2538;
+  color: #fff;
+  padding: 30px 24px 0;
+}
+.ag-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.ag-footer-logo { display: flex; align-items: center; gap: 12px; }
+.ag-footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.ag-footer-links a {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color .2s;
+}
+.ag-footer-links a:hover { color: #fff; }
+.ag-footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+  padding: 14px 0;
+}
+.ag-footer-bottom p {
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,.4);
+}
+.ag-footer-bottom a { color: rgba(255,255,255,.5); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .ag-layout {
+    grid-template-columns: 1fr;
+  }
+  .ag-sidebar-sticky {
+    position: static;
+  }
+  .ag-sidebar { order: -1; }
+}
+
+@media (max-width: 768px) {
+  .ag-church-name { font-size: 1.5rem; }
+  .ag-church-banner { padding: 20px 16px; }
+  .ag-offering-week-inner { flex-direction: column; text-align: center; }
+  .ag-header-inner { padding: 0 16px; }
+  .ag-main { padding: 16px 12px 60px; }
+  .ag-item-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ag-amount-input { width: 100%; min-width: unset; }
+  .ag-input { width: 100%; text-align: left; }
+  .ag-jump-left span { font-size: 0.65rem; }
+  .ag-tithe-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .ag-tithe-row .ag-amount-input { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .ag-header-nav { gap: 8px; }
+  .ag-nav-link { font-size: 0.7rem; padding: 4px 8px; }
+  .ag-church-name { font-size: 1.2rem; }
+  .ag-category-header h2 { font-size: 0.75rem; }
+}
