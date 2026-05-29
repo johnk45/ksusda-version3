@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give to KUSDA Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="image/assetss/kisii sda logo.png"
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        :root {
+            --primary-color: #00004d;
+            --primary-light: #6666ff;
+            --mpesa-green: #000099;
+            --airtel-red: #ED1C24;
+            --paypal-blue: #003087;
+            --orange: #FF6600;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --dark-color: #343a40;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+           background: linear-gradient(135deg, #001f3f 0%, #0f172a 100%);
+            color: #ffffff;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .progress-steps:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .step-circle.active {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .step-circle.completed {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-color);
+            text-align: center;
+        }
+
+        .step-label.active {
+            color: var(--primary-color);
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-title {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .amount-input-group {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .currency-symbol {
+            padding: 15px 20px;
+            
+            background-color: #f8f9fa;
+            border-right: 2px solid #ddd;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .amount-input {
+            flex: 1;
+            border: none;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .amount-input:focus {
+            outline: none;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .payment-method {
+            padding: 20px 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            background-color: white;
+        }
+
+        .payment-method:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(42, 110, 63, 0.05);
+        }
+
+        .payment-method.mpesa.selected {
+            border-color: var(--mpesa-green);
+            background-color: rgba(50, 205, 50, 0.1);
+        }
+
+        .payment-method.airtel.selected {
+            border-color: var(--airtel-red);
+            background-color: rgba(237, 28, 36, 0.1);
+        }
+
+        .payment-method.paypal.selected {
+            border-color: var(--paypal-blue);
+            background-color: rgba(0, 48, 135, 0.1);
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mpesa-icon {
+            color: var(--mpesa-green);
+        }
+
+        .airtel-icon {
+            color: var(--airtel-red);
+        }
+
+        .paypal-icon {
+            color: var(--paypal-blue);
+        }
+
+        .card-icon {
+            color: var(--primary-color);
+        }
+
+        .bank-icon {
+            color: #6c757d;
+        }
+
+        /* Payment Form Sections */
+        .payment-details {
+            display: none;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .payment-details.active {
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 16px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 110, 63, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-mpesa {
+            background-color: var(--mpesa-green);
+            color: white;
+        }
+
+        .btn-mpesa:hover {
+            background-color: #2db82d;
+        }
+
+        .btn-airtel {
+            background-color: var(--airtel-red);
+            color: white;
+        }
+
+        .btn-airtel:hover {
+            background-color: #d11a21;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .button-group .btn {
+            flex: 1;
+        }
+
+        /* Success Message */
+        .success-message {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .success-message h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--gray-color);
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body{
+                font-size:0.85rem;
+            }
+            .header{
+                padding:15px 10px;
+            }
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            .header p{
+                font-size:0.85rem;
+            }
+            .currency-symbol{padding:8px 15px;}
+            .amount-input{font-size:0.85rem;font-weight:600;}
+            .form-control{padding:30px;}
+            .payment-method{padding:10px 10px;}
+            
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-steps:before {
+                left: 15%;
+                right: 15%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Support KSUSDA Church</h1>
+            <p>Your gift makes a difference in sharing the Gospel and serving our community</p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="progress-step">
+                <div class="step-circle active" id="step1-circle">1</div>
+                <div class="step-label active">Your Details</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-circle" id="step2-circle">2</div>
+                <div class="step-label">Payment Method</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-circle" id="step3-circle">3</div>
+                <div class="step-label">Complete</div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Step 1: Donor Information -->
+            <div class="form-step active" id="step1">
+                <h2 class="form-title"><i class="fas fa-user-circle"></i> Your Information</h2>
+                
+                <div class="form-group">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" class="form-control" id="donorName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" id="donorEmail" placeholder="you@example.com" required>
+                    <small style="color: var(--gray-color); display: block; margin-top: 5px;">We'll send your receipt to this email</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Donation Amount *</label>
+                    <div class="amount-input-group">
+                        <div class="currency-symbol">KES</div>
+                        <input type="number" class="amount-input" id="donationAmount" placeholder="Enter amount" min="10" step="1" required>
+                    </div>
+                    <small style="color: var(--gray-color); display: block; margin-top: 5px;">Minimum donation: KES 10</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Purpose of Donation (Optional)</label>
+                    <select class="form-control" id="donationPurpose">
+                        <option value="general">General Fund (Tithes & Offerings)</option>
+                        <option value="missions">Missions & Outreach</option>
+                        <option value="youth">Youth Ministry</option>
+                        <option value="building">Building Fund</option>
+                        <option value="benevolence">Benevolence Fund</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" id="nextToPayment">
+                    Continue to Payment <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Step 2: Payment Method -->
+            <div class="form-step" id="step2">
+                <h2 class="form-title"><i class="fas fa-credit-card"></i> Choose Payment Method</h2>
+                
+                <div class="payment-methods">
+                    <div class="payment-method mpesa selected" data-method="mpesa">
+                        <div class="payment-icon">
+                            <i class="fas fa-mobile-alt mpesa-icon"></i>
+                        </div>
+                        <div>
+                            <h4>M-fPesa</h4>
+                            <small>Mobile Money</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method airtel" data-method="airtel">
+                        <div class="payment-icon">
+                            <i class="fas fa-mobile airtel-icon"></i>
+                        </div>
+                        <div>
+                            <h4>Airtel Money</h4>
+                            <small>Mobile Money</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method" data-method="card">
+                        <div class="payment-icon">
+                            <i class="far fa-credit-card card-icon"></i>
+                        </div>
+                        <div>
+                            <h4>Credit/Debit Card</h4>
+                            <small>Visa, MasterCard</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method" data-method="bank">
+                        <div class="payment-icon">
+                            <i class="fas fa-university bank-icon"></i>
+                        </div>
+                        <div>
+                            <h4>Bank Transfer</h4>
+                            <small>Direct Deposit</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method paypal" data-method="paypal">
+                        <div class="payment-icon">
+                            <i class="fab fa-paypal paypal-icon"></i>
+                        </div>
+                        <div>
+                            <h4>PayPal</h4>
+                            <small>International</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- M-Pesa Payment Details -->
+                <div class="payment-details active" id="mpesaDetails">
+                    <h3><i class="fas fa-info-circle"></i> Pay with M-Pesa</h3>
+                    <p>Enter your M-Pesa registered phone number below. You'll receive a payment request on your phone.</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">M-Pesa Phone Number *</label>
+                        <div class="amount-input-group">
+                            <div class="currency-symbol">+254</div>
+                            <input type="tel" class="amount-input" id="mpesaPhone" placeholder="7XX XXX XXX" required>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary" id="backToInfo">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-mpesa" id="processMpesa">
+                            <i class="fas fa-mobile-alt"></i> Pay with M-Pesa
+                        </button>
+                    </div>*
+                </div>
+
+                <!-- Airtel Money Payment Details -->
+                <div class="payment-details" id="airtelDetails">
+                    <h3><i class="fas fa-info-circle"></i> Pay with Airtel Money</h3>
+                    <p>Enter your Airtel Money registered phone number below.</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Airtel Money Phone Number *</label>
+                        <div class="amount-input-group">
+                            <div class="currency-symbol">+254</div>
+                            <input type="tel" class="amount-input" id="airtelPhone" placeholder="7XX XXX XXX" required>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary" id="backToInfo2">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-airtel" id="processAirtel">
+                            <i class="fas fa-mobile"></i> Pay with Airtel Money
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card Payment Details -->
+                <div class="payment-details" id="cardDetails">
+                    <h3><i class="fas fa-credit-card"></i> Pay with Card</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Name on Card *</label>
+                        <input type="text" class="form-control" id="cardName" placeholder="John Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Card Number *</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">Expiry Date *</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">CVV *</label>
+                            <input type="text" class="form-control" id="cardCvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary" id="backToInfo3">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-primary" id="processCard">
+                            <i class="fas fa-lock"></i> Pay with Card
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer Details -->
+                <div class="payment-details" id="bankDetails">
+                    <h3><i class="fas fa-university"></i> Bank Transfer</h3>
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: var(--border-radius); margin-bottom: 20px;">
+                        <p><strong>Bank:</strong> Equity Bank Kenya</p>
+                        <p><strong>Account Name:</strong> KUSDA Church</p>
+                        <p><strong>Account Number:</strong> 1234567890</p>
+                        <p><strong>Branch:</strong> Nairobi Main</p>
+                        <p><strong>Swift Code:</strong> EQBLKENA</p>
+                        <p><strong>Reference:</strong> Your Name + "Donation"</p>
+                    </div>
+                    
+                    <p>After making the transfer, click the button below to confirm. We'll send your receipt via email.</p>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary" id="backToInfo4">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-primary" id="confirmBank">
+                            <i class="fas fa-check-circle"></i> I've Made the Transfer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PayPal Details -->
+                <div class="payment-details" id="paypalDetails">
+                    <h3><i class="fab fa-paypal"></i> Pay with PayPal</h3>
+                    <p>You will be redirected to PayPal to complete your payment securely.</p>
+                    
+                    <div id="paypal-button-container" style="margin: 20px 0;"></div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary" id="backToInfo5">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Success -->
+            <div class="form-step" id="step3">
+                <div class="success-message">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Thank You for Your Generosity!</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;">Your donation has been processed successfully.</p>
+                    
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: var(--border-radius); margin: 20px 0; text-align: left;">
+                        <p><strong>Transaction ID:</strong> <span id="successTransactionId">MP123456789</span></p>
+                        <p><strong>Amount:</strong> KES <span id="successAmount">1,000</span></p>
+                        <p><strong>Payment Method:</strong> <span id="successMethod">M-Pesa</span></p>
+                        <p><strong>Date:</strong> <span id="successDate">Today</span></p>
+                    </div>
+                    
+                    <p>A receipt has been sent to <strong id="successEmail">you@example.com</strong></p>
+                    
+                    <div class="button-group" style="max-width: 300px; margin: 30px auto;">
+                        <button class="btn btn-primary" id="makeAnotherDonation">
+                            <i class="fas fa-plus"></i> Make Another Donation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><i class="fas fa-lock"></i> Secure & Encrypted Transactions</p>
+            <p>Need help? Contact us at <strong>giving@ksusda.org</strong> or call <strong>+254 7913 023 16</strong></p>
+        </div>
+    </div>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+   <script>
+    // DOM Elements
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const stepCircles = document.querySelectorAll('.step-circle');
+    const stepLabels = document.querySelectorAll('.step-label');
+    const paymentMethods = document.querySelectorAll('.payment-method');
+    const paymentDetails = document.querySelectorAll('.payment-details');
+    
+    // Form Elements
+    const donorNameInput = document.getElementById('donorName');
+    const donorEmailInput = document.getElementById('donorEmail');
+    const donationAmountInput = document.getElementById('donationAmount');
+    const donationPurposeSelect = document.getElementById('donationPurpose');
+    
+    // Buttons
+    const nextToPaymentBtn = document.getElementById('nextToPayment');
+    const backToInfoBtns = document.querySelectorAll('[id^="backToInfo"]');
+    const processMpesaBtn = document.getElementById('processMpesa');
+    const processAirtelBtn = document.getElementById('processAirtel');
+    const processCardBtn = document.getElementById('processCard');
+    const confirmBankBtn = document.getElementById('confirmBank');
+    const makeAnotherDonationBtn = document.getElementById('makeAnotherDonation');
+    
+    // Success Display Elements
+    const successTransactionId = document.getElementById('successTransactionId');
+    const successAmount = document.getElementById('successAmount');
+    const successMethod = document.getElementById('successMethod');
+    const successEmail = document.getElementById('successEmail');
+    const successDate = document.getElementById('successDate');
+    
+    // State Variables
+    let currentStep = 1;
+    let selectedPaymentMethod = 'mpesa';
+    let donorInfo = {};
+    let donationData = {};
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set today's date
+        const today = new Date();
+        successDate.textContent = today.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Format phone number inputs
+        formatPhoneInput('mpesaPhone');
+        formatPhoneInput('airtelPhone');
+        
+        // Format card inputs
+        formatCardInput('cardNumber');
+        formatCardExpiry('cardExpiry');
+    });
+
+    // Helper Functions
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function formatPhoneInput(inputId) {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g, '');
+            });
+        }
+    }
+
+    function formatCardInput(inputId) {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g, '').replace(/(\d{4})/g, '$1 ').trim();
+            });
+        }
+    }
+
+    function formatCardExpiry(inputId) {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.addEventListener('input', function(e) {
+                let value = this.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    this.value = value.slice(0,2) + '/' + value.slice(2,4);
+                } else {
+                    this.value = value;
+                }
+            });
+        }
+    }
+
+    // Step Navigation
+    function goToStep(step) {
+        // Hide all steps
+        document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+        
+        // Show current step
+        document.getElementById(`step${step}`).classList.add('active');
+        
+        // Update circles
+        for (let i = 1; i <= 3; i++) {
+            const circle = document.getElementById(`step${i}-circle`);
+            const label = document.querySelectorAll('.step-label')[i-1];
+            
+            if (i < step) {
+                circle.classList.add('completed');
+                circle.classList.remove('active');
+                label.classList.remove('active');
+            } else if (i === step) {
+                circle.classList.add('active');
+                circle.classList.remove('completed');
+                label.classList.add('active');
+            } else {
+                circle.classList.remove('active', 'completed');
+                label.classList.remove('active');
+            }
+        }
+        
+        currentStep = step;
+    }
+
+    // Payment Method Selection
+    paymentMethods.forEach(method => {
+        method.addEventListener('click', function() {
+            paymentMethods.forEach(m => m.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedPaymentMethod = this.dataset.method;
+            
+            // Show corresponding payment details
+            paymentDetails.forEach(detail => detail.classList.remove('active'));
+            document.getElementById(`${selectedPaymentMethod}Details`).classList.add('active');
+        });
+    });
+
+    // Next to Payment Step
+    nextToPaymentBtn.addEventListener('click', function() {
+        // Validate step 1
+        if (!donorNameInput.value.trim()) {
+            alert('Please enter your name');
+            donorNameInput.focus();
+            return;
+        }
+        
+        if (!donorEmailInput.value.trim() || !isValidEmail(donorEmailInput.value)) {
+            alert('Please enter a valid email address');
+            donorEmailInput.focus();
+            return;
+        }
+        
+        const amount = parseFloat(donationAmountInput.value);
+        if (!amount || amount < 10) {
+            alert('Please enter an amount of KES 10 or more');
+            donationAmountInput.focus();
+            return;
+        }
+        
+        // Save donor info
+        donorInfo = {
+            name: donorNameInput.value.trim(),
+            email: donorEmailInput.value.trim(),
+            amount: amount,
+            purpose: donationPurposeSelect.value
+        };
+        
+        // Go to step 2
+        goToStep(2);
+    });
+
+    // Back to Info Step
+    backToInfoBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            goToStep(1);
+        });
+    });
+
+    // Process M-Pesa Payment
+    // Process M-Pesa Payment
+processMpesaBtn.addEventListener('click', async function() {
+    const phoneInput = document.getElementById('mpesaPhone').value.trim();
+    
+    if (!phoneInput) {
+        alert('Please enter your M-Pesa phone number');
+        return;
+    }
+    
+    // Validate phone number
+    const cleanPhone = phoneInput.replace(/\D/g, '');
+    if (cleanPhone.length < 9 || cleanPhone.length > 10) {
+        alert('Please enter a valid 10-digit phone number (e.g., 0712345678)');
+        return;
+    }
+    
+    // Get donor info - make sure these IDs match your HTML
+    const name = document.getElementById('donorName').value.trim();
+    const email = document.getElementById('donorEmail').value.trim();
+    const amount = parseFloat(document.getElementById('donationAmount').value);
+    const purpose = document.getElementById('donationPurpose').value;
+    
+    // Validate all fields
+    if (!name) {
+        alert('Please enter your name');
+        document.getElementById('donorName').focus();
+        return;
+    }
+    
+    if (!email || !isValidEmail(email)) {
+        alert('Please enter a valid email address');
+        document.getElementById('donorEmail').focus();
+        return;
+    }
+    
+    if (!amount || amount < 10) {
+        alert('Please enter an amount of KES 10 or more');
+        document.getElementById('donationAmount').focus();
+        return;
+    }
+    
+    // Show processing state
+    const originalText = processMpesaBtn.innerHTML;
+    processMpesaBtn.innerHTML = '<span class="spinner"></span> Processing...';
+    processMpesaBtn.disabled = true;
+    
+    try {
+        // Use the full path to your API
+        const apiUrl = '/KUSDA/BACKEND/payment-system/api/mpesa-process.php';
+        
+        console.log('Sending request to:', apiUrl);
+        console.log('Data:', { name, email, amount, purpose, phone: cleanPhone });
+        
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'initiate_mpesa',
+                name: name,
+                email: email,
+                amount: amount,
+                purpose: purpose,
+                phone: cleanPhone
+            })
+        });
+        
+        // Get response text first
+        const responseText = await response.text();
+        console.log('Raw response:', responseText);
+        
+        // Try to parse as JSON
+        let data;
+        try {
+            data = JSON.parse(responseText);
+        } catch (e) {
+            console.error('JSON parse error:', e);
+            throw new Error('Server returned invalid response. Check console for details.');
+        }
+        
+        if (data.success) {
+            alert('✅ ' + data.message);
+            
+            // Update success page
+            if (document.getElementById('successTransactionId')) {
+                document.getElementById('successTransactionId').textContent = data.transaction_id;
+            }
+            if (document.getElementById('successAmount')) {
+                document.getElementById('successAmount').textContent = 'KES ' + data.amount.toLocaleString();
+            }
+            if (document.getElementById('successMethod')) {
+                document.getElementById('successMethod').textContent = 'M-Pesa';
+            }
+            if (document.getElementById('successEmail')) {
+                document.getElementById('successEmail').textContent = email;
+            }
+            
+            // Go to step 3 (success page)
+            if (typeof goToStep === 'function') {
+                goToStep(3);
+            }
+        } else {
+            alert('❌ ' + (data.message || 'Unknown error'));
+            processMpesaBtn.innerHTML = originalText;
+            processMpesaBtn.disabled = false;
+        }
+    } catch (error) {
+        console.error('Full error:', error);
+        alert('Network error: ' + error.message + '\n\nCheck browser console (F12) for details.');
+        processMpesaBtn.innerHTML = originalText;
+        processMpesaBtn.disabled = false;
+    }
+});
+
+// Email validation helper
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+    // Make Another Donation
+    makeAnotherDonationBtn.addEventListener('click', function() {
+        // Reset form
+        donorNameInput.value = '';
+        donorEmailInput.value = '';
+        donationAmountInput.value = '';
+        document.getElementById('mpesaPhone').value = '';
+        
+        // Go back to step 1
+        goToStep(1);
+    });
+
+    // Airtel Money (Coming Soon)
+    processAirtelBtn.addEventListener('click', function() {
+        alert('Airtel Money integration coming soon!');
+    });
+
+    // Card Payment (Coming Soon)
+    processCardBtn.addEventListener('click', function() {
+        alert('Card payments coming soon!');
+    });
+
+    // Bank Transfer (Coming Soon)
+    confirmBankBtn.addEventListener('click', function() {
+        alert('Bank transfer confirmation coming soon!');
+    });
+</script>

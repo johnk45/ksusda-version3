@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Design</title>
+    <style>
+
+       *{
+        padding:0;
+        margin:0;
+       }
+        .main{
+width:100%;
+background: linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(image/html.jpeg);
+background-position: center;
+background-size: cover;
+height:109vh;
+        }
+        .navbar{
+            width:1200px;
+            height:75px;
+            margin:auto;
+
+        }
+        .logo{
+            color:#ff7200;
+            font-size:35px;
+            font-family: Arial, sans-serif;
+            padding-left:10px;
+            padding-top:10px;
+            float:left;
+        }
+        .menu{
+           width:400px;
+           float:left;
+           height:70px;
+           
+        }
+         ul{
+          float:left;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        
+        }
+        ul li {
+list-style: none;
+margin-left:62px;
+margin-top:27px;
+font-size: 14px;
+text-transform: uppercase;
+        }
+        ul li a{
+            text-decoration: none;
+            color:#fff;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+        ul li a:hover{
+            color:#ff7200;
+        }
+        .search{
+            width:330px;
+            float:left;
+            margin-left:270px;
+        }
+        .srch{
+            font-family: 'Times New Roman';
+            width:200px;
+            height:40px;
+            background: transparent;
+            border:1px solid #ff7200;
+            color:#fff;
+            font-size: 15px;
+            padding:10px;
+            border-bottom-left-radius:5px;
+            border-top-left-radius: 5px;
+        }
+        .search .btn{
+            width:100px;
+            height:40px;
+            background: #ff7200;
+            border:2px solid #ff7200;
+            margin-top: 13px;
+            color:#fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+           
+            
+        }
+        .btn:focus{
+            outline:none
+        }
+        .srch:focus{
+            outline:none;
+        }
+        .content{
+            width:1200px;
+            height:auto;
+            margin:auto;
+            color:white;
+            position:relative;
+        }
+        .content .paragraph{
+            padding-left:20px;
+            padding-bottom:25px;
+            font-family:Arial;
+            letter-spacing:1.2px;
+            line-height: 30px;
+        }
+        .content h1{
+            font-family: 'Times New Roman';
+            font-size:50px;
+            padding-left: 20px;
+            margin-top:9%;
+            letter-spacing: 2px;
+        }
+        .content .cn{
+            width:160px;
+            height:40px;
+            background: #ff7200;
+            border:none;
+            margin-bottom:10px;
+            margin-left:20px;
+            font-size: 18px;
+            cursor:pointer;
+            border-radius: 5px;
+            transition:0.4s ease;
+        }
+        .content .cn a{
+            text-decoration: none;
+            color:#000;
+            transition:.3s ease;
+        }
+        .cn:hover{
+            background: #fff;
+            
+        }
+        .content span{
+            color:#ff7200;
+            font-size: 60px;;
+        }
+
+        .form{
+            width:250px;
+            height:380px;
+            padding:25px;
+            position: absolute;
+            background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+            top:100px;
+            left:870px;
+            
+           
+            
+        }
+        .form h2{
+            width:220px;
+            font-family: sans-serif;
+            text-align: center;
+            color:#ff7200;
+            font-size: 22px;
+            background: #fff;
+            border-radius: 10px;
+            margin:2px;
+            padding:8px;
+        }
+        .form input{
+            width:240px;
+            height:35px;
+            background: transparent;
+            border-bottom: 1px solid #ff7200;
+            border-top:none;
+            border-right:none;
+            border-left: none;
+            color:white;
+            font-size:15px;
+            letter-spacing:1px;
+            margin-top:30px;
+            font-family:sans-serif;
+        }
+        .form input:focus{
+            outline:none;
+        }
+        ::placeholder{
+            color:#fff;
+            font-family:arial;
+        }
+        .btnn{
+            width:240px;
+            height:40px;
+            background:#ff7200;
+            border:none;
+            color:#fff;
+            font-family:Arial;            
+            margin-top:30px;
+            font-size:18px;
+            border-radius:10px;
+            cursor:pointer;
+            color:#fff;
+            transition:0.4s ease-in-out;
+        }
+        .btnn:hover{
+            background:#f9f9f9;
+            color:#ff7200;
+        }
+.btnn a{
+    text-decoration:none;
+    font-weight:bold;
+    color:#000;
+}
+.form .link{
+    font-family:Arial, Helvetica , sans-serif;
+    font-size:17px;
+    padding-top:20px;
+    text-align:center;
+    color:#fff;
+}
+.form .link a{
+    text-decoration:none;
+    color:#ff7200;
+}
+.liw{
+    padding-top: 15px;
+    padding-bottom:10px;
+    text-align:center;
+    color:#cccc;
+}
+.explore{
+    margin-top:20px;
+    margin-bottom:0px;
+    background: #000;
+    background-size: cover;
+    width:100%;
+    height:200px;
+    color:#ff7200;
+    font-weight: bold;
+}
+.explore h2{
+    color:#ff7200;
+    font-size:24px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">JTECH</h2>
+            </div>
+
+           <div class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact </a></li>                   
+   </ul>
+</div>
+           <div class="search">
+            <input type="search"class="srch" name="" placeholder="Type To Text">
+             <button class="btn">Search</button>
+           </div>
+        </div>
+        <div class="content">
+            <h1>Jtech Softwares & <br><span>Analysis</span><br><span>Design</span></h1>
+            <p class="paragraph">JTech company is a software company founded by John Katana in the Year 2025 .<br><span style="color:#ff7200;font-weight:bold;font-size: 24px;">Katana </span>  saw that there is a need to have a software company in Kenya that<br> will focus in building Softwares for Organisations,Institutions and firms.</p>
+
+            <button class="cn"><a href="#">JOIN US</a></button>
+        </div>
+        <div class="form">
+            <h2>Login Here</h2>
+            <input type="email" name="email" placeholder="Enter Email Here">
+            <input type="password" name="password" placeholder="Enter Password Here">
+          <button class="btnn"><a href="#">Login</a></button>
+
+          <p class="link">Don't have an account<br>
+          <a href="#">Sign Up</a> here</p></p>
+          <p class="liw">Login in with</p>
+        </div>
+
+       
+    </div>
+
+    <section class="explore">
+        <h2>Get To Know More About Jtech Company</h2>
+        <div class="menu" style="color:#ff7200;">
+            <ul style="color:#ff7200">
+                <li><a href="how.html">How It started</a></li>
+                <li><a href="how.html">How It work</a></li>
+                <li><a href="how.html">What are its Functionality</a></li>
+                <li><a href="how.html">More</a></li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
