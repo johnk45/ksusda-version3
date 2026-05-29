@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ministry Admin — Manage photos, livestream, and content">
+  <title>Ministry Admin — Kisii University SDA Church</title>
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body class="admin-body">
+
+  <div id="authGuard" style="display:none;">
+    <header class="admin-header">
+      <div class="admin-header-left">
+        <a href="index.html" class="admin-logo">
+          <div class="admin-logo-icon">⛪</div>
+          <div class="admin-logo-text">KU SDA <span>Admin</span></div>
+        </a>
+        <span class="admin-badge" id="ministryBadge">Ministry</span>
+      </div>
+      <div class="admin-header-right">
+        <a href="index.html" class="admin-btn admin-btn-ghost">← Dashboard</a>
+        <a href="../index.html" class="admin-btn admin-btn-ghost">🌐 <span>View Site</span></a>
+        <button class="admin-btn admin-btn-ghost" onclick="AdminApp.logout()">🚪 <span>Logout</span></button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <h1 class="admin-page-title" id="pageTitle">Ministry Management</h1>
+      <p class="admin-page-subtitle" id="pageSubtitle">Manage photos, livestream, and content for this ministry.</p>
+
+      <!-- ===== PHOTO GALLERY SECTION ===== -->
+      <div class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">📸 Photo Gallery</h2>
+          <span id="photoCount" style="color:var(--admin-text-muted);font-size:0.82rem;">0 photos</span>
+        </div>
+        <div class="admin-section-body">
+          <!-- Upload Area -->
+          <div class="admin-upload-area" id="uploadArea">
+            <input type="file" accept="image/*" multiple class="admin-upload-input" id="photoInput">
+            <div class="admin-upload-icon">📁</div>
+            <div class="admin-upload-text">Click or drag photos here to upload</div>
+            <div class="admin-upload-hint">Supports JPG, PNG, GIF • Max 5MB per photo</div>
+          </div>
+
+          <!-- Description input for upload -->
+          <div style="margin-top:1rem;display:flex;gap:0.75rem;align-items:flex-end;" id="uploadControls" class="upload-hidden">
+            <div style="flex:1;">
+              <label class="admin-form-label" for="photoDescription">Photo Description</label>
+              <input type="text" id="photoDescription" class="admin-form-input" placeholder="Enter a description for the selected photo(s)...">
+            </div>
+            <button class="admin-btn admin-btn-primary" id="uploadBtn">⬆️ Upload</button>
+            <button class="admin-btn admin-btn-ghost" id="cancelUploadBtn">Cancel</button>
+          </div>
+          <div id="uploadPreview" style="margin-top:1rem;display:none;">
+            <p class="admin-form-label">Preview</p>
+            <div id="previewGrid" style="display:flex;gap:0.5rem;flex-wrap:wrap;"></div>
+          </div>
+
+          <!-- Photo Grid -->
+          <div style="margin-top:1.5rem;">
+            <div class="admin-photo-grid" id="photoGrid">
+              <!-- Rendered by JS -->
+            </div>
+            <p id="noPhotosMsg" style="text-align:center;color:var(--admin-text-dim);padding:2rem 0;font-size:0.9rem;">No photos uploaded yet. Use the upload area above to get started.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LIVESTREAM SECTION ===== -->
+      <div class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">📺 Livestream Management</h2>
+          <span class="admin-livestream-status" id="livestreamStatus">
+            <span class="admin-livestream-dot"></span>
+            <span id="livestreamStatusText">Offline</span>
+          </span>
+        </div>
+        <div class="admin-section-body">
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="livestreamUrl">Livestream URL</label>
+            <input type="url" id="livestreamUrl" class="admin-form-input" placeholder="https://youtube.com/watch?v=... or https://facebook.com/...">
+            <p style="font-size:0.75rem;color:var(--admin-text-dim);margin-top:0.4rem;">Paste a YouTube or Facebook Live URL. It will be auto-converted to embed format.</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.88rem;">
+              <input type="checkbox" id="livestreamActive" style="width:18px;height:18px;accent-color:var(--admin-primary);">
+              Set as Active / Live Now
+            </label>
+          </div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="admin-btn admin-btn-primary" id="saveLivestreamBtn">💾 Save Livestream</button>
+            <button class="admin-btn admin-btn-ghost" id="clearLivestreamBtn">🗑️ Clear</button>
+          </div>
+          <div class="admin-livestream-preview" id="livestreamPreview" style="display:none;">
+            <!-- Preview iframe injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MINISTRY INFO SECTION ===== -->
+      <div class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">📝 Ministry Notes</h2>
+        </div>
+        <div class="admin-section-body">
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="ministryNotes">Internal Notes / Announcements</label>
+            <textarea id="ministryNotes" class="admin-form-textarea" rows="4" placeholder="Add any internal notes, upcoming event details, or announcements for this ministry..."></textarea>
+          </div>
+          <button class="admin-btn admin-btn-primary" id="saveNotesBtn">💾 Save Notes</button>
+        </div>
+      </div>
+
+      <!-- ===== QUICK ACTIONS ===== -->
+      <div class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">⚡ Quick Actions</h2>
+        </div>
+        <div class="admin-section-body" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a id="viewMinistryLink" href="#" class="admin-btn admin-btn-ghost" target="_blank">🌐 View Ministry Page</a>
+          <button class="admin-btn admin-btn-ghost" id="exportDataBtn">📋 Export Data</button>
+          <button class="admin-btn admin-btn-danger admin-btn-sm" id="clearAllBtn" style="margin-left:auto;">🗑️ Clear All Data</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Edit Description Modal -->
+  <div class="admin-modal-overlay" id="editModal">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Edit Photo Description</h3>
+        <button class="admin-modal-close" id="editModalClose">&times;</button>
+      </div>
+      <div class="admin-modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="editDescription">Description</label>
+          <input type="text" id="editDescription" class="admin-form-input" placeholder="Enter new description...">
+          <input type="hidden" id="editPhotoId">
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button class="admin-btn admin-btn-ghost" id="editCancelBtn">Cancel</button>
+        <button class="admin-btn admin-btn-primary" id="editSaveBtn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Auth check
+      if (!AdminApp.isAuthenticated()) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      // Get ministry slug from URL
+      var params = new URLSearchParams(window.location.search);
+      var slug = params.get('ministry');
+      if (!slug) { window.location.href = 'index.html'; return; }
+
+      // Find ministry info
+      var ministryInfo = null;
+      AdminApp.MINISTRIES.forEach(function (m) { if (m.slug === slug) ministryInfo = m; });
+      if (!ministryInfo) { window.location.href = 'index.html'; return; }
+
+      // Show page
+      document.getElementById('authGuard').style.display = 'block';
+      document.getElementById('ministryBadge').textContent = ministryInfo.name;
+      document.getElementById('pageTitle').textContent = ministryInfo.name;
+      document.getElementById('pageSubtitle').textContent = 'Manage photos, livestream, and content for ' + ministryInfo.name + '.';
+      document.title = ministryInfo.name + ' Admin — Kisii University SDA Church';
+      document.getElementById('viewMinistryLink').href = '../ministries/' + slug + '.html';
+
+      var pendingFiles = [];
+
+      // --- Load existing data ---
+      function loadData() {
+        var data = AdminApp.getMinistryData(slug);
+        renderPhotos(data.photos);
+        renderLivestream(data.livestream);
+        document.getElementById('ministryNotes').value = data.notes || '';
+      }
+
+      // --- Photo Gallery ---
+      var photoInput = document.getElementById('photoInput');
+      var uploadControls = document.getElementById('uploadControls');
+      var uploadPreview = document.getElementById('uploadPreview');
+      var previewGrid = document.getElementById('previewGrid');
+      var uploadArea = document.getElementById('uploadArea');
+
+      // Drag and drop
+      uploadArea.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+      });
+      uploadArea.addEventListener('dragleave', function () {
+        uploadArea.classList.remove('dragover');
+      });
+      uploadArea.addEventListener('drop', function (e) {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        if (e.dataTransfer.files.length > 0) {
+          handleFiles(e.dataTransfer.files);
+        }
+      });
+
+      photoInput.addEventListener('change', function () {
+        if (photoInput.files.length > 0) {
+          handleFiles(photoInput.files);
+        }
+      });
+
+      function handleFiles(files) {
+        pendingFiles = Array.from(files);
+        uploadControls.classList.remove('upload-hidden');
+        uploadControls.style.display = 'flex';
+        uploadPreview.style.display = 'block';
+        previewGrid.innerHTML = '';
+
+        pendingFiles.forEach(function (file) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.cssText = 'width:80px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--admin-border);';
+            previewGrid.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      document.getElementById('uploadBtn').addEventListener('click', function () {
+        if (pendingFiles.length === 0) return;
+        var desc = document.getElementById('photoDescription').value.trim();
+        var uploaded = 0;
+        var total = pendingFiles.length;
+
+        pendingFiles.forEach(function (file) {
+          AdminApp.fileToBase64(file, function (base64, error) {
+            if (error) {
+              AdminApp.showToast(error, 'error');
+            } else if (base64) {
+              AdminApp.addPhoto(slug, base64, desc);
+            }
+            uploaded++;
+            if (uploaded === total) {
+              AdminApp.showToast(total + ' photo(s) uploaded successfully!', 'success');
+              resetUpload();
+              loadData();
+            }
+          });
+        });
+      });
+
+      document.getElementById('cancelUploadBtn').addEventListener('click', resetUpload);
+
+      function resetUpload() {
+        pendingFiles = [];
+        photoInput.value = '';
+        document.getElementById('photoDescription').value = '';
+        uploadControls.style.display = 'none';
+        uploadControls.classList.add('upload-hidden');
+        uploadPreview.style.display = 'none';
+        previewGrid.innerHTML = '';
+      }
+
+      function renderPhotos(photos) {
+        var grid = document.getElementById('photoGrid');
+        var noMsg = document.getElementById('noPhotosMsg');
+        document.getElementById('photoCount').textContent = photos.length + ' photo' + (photos.length !== 1 ? 's' : '');
+
+        if (photos.length === 0) {
+          grid.innerHTML = '';
+          noMsg.style.display = 'block';
+          return;
+        }
+
+        noMsg.style.display = 'none';
+        grid.innerHTML = '';
+
+        photos.forEach(function (photo, idx) {
+          var item = document.createElement('div');
+          item.className = 'admin-photo-item';
+          item.innerHTML =
+            '<img src="' + photo.src + '" alt="' + AdminApp.escapeHtml(photo.description) + '" class="admin-photo-img">' +
+            '<div class="admin-photo-info">' +
+              '<p class="admin-photo-desc">' + (AdminApp.escapeHtml(photo.description) || '<em style="color:var(--admin-text-dim)">No description</em>') + '</p>' +
+              '<div class="admin-photo-actions">' +
+                '<button class="admin-btn admin-btn-ghost admin-btn-sm admin-btn-icon" title="Move Up" data-action="up" data-id="' + photo.id + '">↑</button>' +
+                '<button class="admin-btn admin-btn-ghost admin-btn-sm admin-btn-icon" title="Move Down" data-action="down" data-id="' + photo.id + '">↓</button>' +
+                '<button class="admin-btn admin-btn-ghost admin-btn-sm admin-btn-icon" title="Edit" data-action="edit" data-id="' + photo.id + '">✏️</button>' +
+                '<button class="admin-btn admin-btn-danger admin-btn-sm admin-btn-icon" title="Delete" data-action="delete" data-id="' + photo.id + '">🗑️</button>' +
+              '</div>' +
+            '</div>';
+          grid.appendChild(item);
+        });
+
+        // Attach events
+        grid.querySelectorAll('[data-action]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var action = this.getAttribute('data-action');
+            var pid = this.getAttribute('data-id');
+            if (action === 'delete') {
+              if (confirm('Delete this photo?')) {
+                AdminApp.removePhoto(slug, pid);
+                AdminApp.showToast('Photo deleted', 'success');
+                loadData();
+              }
+            } else if (action === 'edit') {
+              openEditModal(pid);
+            } else if (action === 'up' || action === 'down') {
+              AdminApp.movePhoto(slug, pid, action);
+              loadData();
+            }
+          });
+        });
+      }
+
+      // --- Edit Modal ---
+      var editModal = document.getElementById('editModal');
+      function openEditModal(photoId) {
+        var data = AdminApp.getMinistryData(slug);
+        var photo = data.photos.find(function (p) { return p.id === photoId; });
+        if (!photo) return;
+        document.getElementById('editPhotoId').value = photoId;
+        document.getElementById('editDescription').value = photo.description || '';
+        editModal.classList.add('active');
+      }
+
+      document.getElementById('editModalClose').addEventListener('click', function () { editModal.classList.remove('active'); });
+      document.getElementById('editCancelBtn').addEventListener('click', function () { editModal.classList.remove('active'); });
+      document.getElementById('editSaveBtn').addEventListener('click', function () {
+        var pid = document.getElementById('editPhotoId').value;
+        var desc = document.getElementById('editDescription').value.trim();
+        AdminApp.updatePhotoDescription(slug, pid, desc);
+        AdminApp.showToast('Description updated', 'success');
+        editModal.classList.remove('active');
+        loadData();
+      });
+
+      // --- Livestream ---
+      function renderLivestream(ls) {
+        var urlInput = document.getElementById('livestreamUrl');
+        var activeCheck = document.getElementById('livestreamActive');
+        var statusEl = document.getElementById('livestreamStatus');
+        var statusText = document.getElementById('livestreamStatusText');
+        var previewEl = document.getElementById('livestreamPreview');
+
+        urlInput.value = (ls && ls.url) || '';
+        activeCheck.checked = (ls && ls.active) || false;
+
+        if (ls && ls.active) {
+          statusEl.className = 'admin-livestream-status active';
+          statusText.textContent = 'Live';
+        } else {
+          statusEl.className = 'admin-livestream-status inactive';
+          statusText.textContent = 'Offline';
+        }
+
+        if (ls && ls.url) {
+          var embedUrl = AdminApp.convertToEmbed(ls.url);
+          previewEl.innerHTML = '<iframe src="' + embedUrl + '" allowfullscreen></iframe>';
+          previewEl.style.display = 'block';
+        } else {
+          previewEl.style.display = 'none';
+        }
+      }
+
+      document.getElementById('saveLivestreamBtn').addEventListener('click', function () {
+        var url = document.getElementById('livestreamUrl').value.trim();
+        var active = document.getElementById('livestreamActive').checked;
+        AdminApp.updateLivestream(slug, url, active);
+        AdminApp.showToast('Livestream settings saved!', 'success');
+        loadData();
+      });
+
+      document.getElementById('clearLivestreamBtn').addEventListener('click', function () {
+        AdminApp.updateLivestream(slug, '', false);
+        AdminApp.showToast('Livestream cleared', 'success');
+        loadData();
+      });
+
+      // --- Notes ---
+      document.getElementById('saveNotesBtn').addEventListener('click', function () {
+        var data = AdminApp.getMinistryData(slug);
+        data.notes = document.getElementById('ministryNotes').value;
+        AdminApp.saveMinistryData(slug, data);
+        AdminApp.showToast('Notes saved!', 'success');
+      });
+
+      // --- Quick Actions ---
+      document.getElementById('exportDataBtn').addEventListener('click', function () {
+        var data = AdminApp.getMinistryData(slug);
+        var json = JSON.stringify(data, null, 2);
+        var blob = new Blob([json], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = slug + '-data.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        AdminApp.showToast('Data exported!', 'success');
+      });
+
+      document.getElementById('clearAllBtn').addEventListener('click', function () {
+        if (confirm('Are you sure you want to clear ALL data for ' + ministryInfo.name + '? This cannot be undone!')) {
+          localStorage.removeItem('ministry_' + slug);
+          AdminApp.showToast('All data cleared for ' + ministryInfo.name, 'success');
+          loadData();
+        }
+      });
+
+      // Initialize
+      loadData();
+    });
+  </script>
+</body>
+</html>

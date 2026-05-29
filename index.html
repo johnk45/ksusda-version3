@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kisii University Seventh-day Adventist Church — To Know Jesus Fully, To Reflect His Character Clearly, To Share His Message Joyfully.">
+  <title>Kisii University Seventh-day Adventist Church</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+  <style>
+    @media (max-width: 600px) {
+      .hero {
+        background-position: center;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+      }
+      .buttons .button-card {
+        flex: 1 1 auto;
+        min-width: auto !important;
+        max-width: none !important;
+        width: 100% !important;
+      }
+      .buttons .section-sm {
+        padding: 1rem 0;
+      }
+      .buttons .link-box {
+        width: 100%;
+        margin: 0.4rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" role="banner">
+    <!-- Top bar: Logo + Giving + Social -->
+    <div class="header-top">
+      <div class="header-logo">
+        <a href="index.html" aria-label="Kisii University SDA Church Home">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
+          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
+        </a>
+      </div>
+      <div class="header-right-top">
+        <a href="giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">
+          ❤️ Giving
+        </a>
+        <div class="header-social-icons">
+          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Ksusdachurch2025" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Navigation bar -->
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <div class="desktop-nav">
+        <div class="nav-item">
+          <a href="about/index.html">About Us <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="about/giving.html">Giving</a>
+            <a href="about/history.html">History</a>
+            <a href="about/in-the-news.html">In the News</a>
+            <a href="about/our-pastor.html">Our Pastor</a>
+            <a href="about/sabbath-services.html">Sabbath Services</a>
+            <a href="about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="about/worship-with-us.html">Worship With Us</a>
+            <a href="about/potluck.html">Potluck & Fellowship</a>
+            <a href="about/special-events.html">Special Events</a>
+            <a href="about/schools.html">Schools & Education</a>
+            <a href="about/nearby-churches.html">Nearby SDA Churches</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="resources/index.html">Resources <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="resources/index.html">All Resources</a>
+            <a href="resources/churchblog.html">Church Blog</a>
+            <a href="resources/bible-study-guides.html">Bible Study Guides</a>
+            <a href="resources/health-guides.html">Health &amp; Wellness</a>
+            <a href="resources/devotional.html">Daily Devotional</a>
+            <a href="resources/downloads.html">Downloads &amp; Forms</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="events.html">Calendar</a>
+        </div>
+         <div class="nav-item">
+          <a href="sermons.php">Sermons</a>
+        </div>
+        <div class="nav-item">
+          <a href="ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="ministries/community-outreach.html">Community Outreach</a>
+            <a href="ministries/health.html">Health Ministry</a>
+            <a href="ministries/youth-and-children.html">Youth & Children</a>
+            <a href="ministries/bible-studies.html">Bible Studies</a>
+            <a href="ministries/evangelism.html">Evangelism</a>
+            <a href="ministries/new-zion.html">New Zion</a>
+            <a href="ministries/christ-messengers.html">Christ Messengers</a>
+            <a href="ministries/first-fruits.html">First Fruits</a>
+            <a href="ministries/the-sentinels.html">The Sentinels</a>
+            <a href="ministries/hom.html">HOM — Hands On Mission</a>
+          </div>
+        </div>
+        
+        <div class="nav-item">
+          <a href="giving.html">Online Giving</a>
+        </div>
+        <div class="nav-item">
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <!-- Inline Search -->
+      <div class="header-search-inline" role="search">
+        <form action="search.html" method="get">
+          <input type="text" name="s" placeholder="Search..." aria-label="Search">
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== SLIDE-IN MENU ===== -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
+    <div class="menu-header">
+      <button class="menu-close-btn" aria-label="Close Menu">&times;</button>
+    </div>
+    <div class="menu-search">
+      <form action="search.html" method="get">
+        <input type="text" name="s" placeholder="Search..." aria-label="Search">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+    <div class="menu-giving">
+      <a href="giving.html" class="giving-pill">❤️ Giving</a>
+    </div>
+    <div class="menu-nav">
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a>
+          <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="about/giving.html">Giving</a>
+          <a href="about/history.html">History</a>
+          <a href="about/in-the-news.html">In the News</a>
+          <a href="about/our-pastor.html">Our Pastor</a>
+          <a href="about/sabbath-services.html">Sabbath Services</a>
+          <a href="about/what-sda-believe.html">What SDAs Believe</a>
+          <a href="about/worship-with-us.html">Worship With Us</a>
+          <a href="about/potluck.html">Potluck & Fellowship</a>
+          <a href="about/special-events.html">Special Events</a>
+          <a href="about/schools.html">Schools & Education</a>
+          <a href="about/nearby-churches.html">Nearby SDA Churches</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="events.html" class="menu-nav-link">Calendar</a>
+      </div>
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a>
+          <button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="ministries/community-outreach.html">Community Outreach</a>
+          <a href="ministries/health.html">Health Ministry</a>
+          <a href="ministries/youth-and-children.html">Youth & Children</a>
+          <a href="ministries/bible-studies.html">Bible Studies</a>
+          <a href="ministries/evangelism.html">Evangelism</a>
+          <a href="ministries/new-zion.html">New Zion</a>
+          <a href="ministries/christ-messengers.html">Christ Messengers</a>
+          <a href="ministries/first-fruits.html">First Fruits</a>
+          <a href="ministries/the-sentinels.html">The Sentinels</a>
+          <a href="ministries/hom.html">HOM — Hands On Mission</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="giving.html" class="menu-nav-link">Online Giving</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="contact.html" class="menu-nav-link">Contact Us</a>
+      </div>
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="events.html" style="color:inherit;text-decoration:none;flex:1;">Events</a>
+          <button class="menu-chevron" aria-label="Expand Events submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="events.html">Upcoming Events</a>
+          <a href="about/special-events.html">Special Events</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="announcements.html" class="menu-nav-link">Announcements</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="livestream.html" class="menu-nav-link">Livestream</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="bulletin.html" class="menu-nav-link">Bulletin</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="food.html" class="menu-nav-link">Food Assistance</a>
+      </div>
+    </div>
+    <div class="menu-footer">
+      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1600&q=80');">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to the Kisii University Seventh-day Adventist Church</h1>
+    </div>
+  </section>
+
+  <!-- ===== FIND US BAR ===== -->
+  <section class="findus-bar">
+    <div class="findus-inner">
+      <div class="findus-tab">Find Us</div>
+      <div class="findus-content">
+        <!-- Location -->
+        <div class="findus-block">
+          <div class="fi-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <h5>Located in Kisii, Kenya</h5>
+            <p>Kisii University Campus<br>Kisii, Kenya</p>
+            <a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank" class="findus-directions">Get Directions →</a>
+          </div>
+        </div>
+        <!-- Phone -->
+        <div class="findus-block">
+          <div class="fi-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <h5>Call Us</h5>
+            <a href="tel:+254700000000">+254 700 000 000</a>
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="findus-block">
+          <div class="fi-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <h5>Email Us</h5>
+            <a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a>
+          </div>
+        </div>
+      </div>
+      <!-- Map -->
+      <div class="findus-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7!2d34.7667!3d-0.6833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b507b18e4b68f%3A0x68e0b8e0e8e4e8e0!2sKisii%20University!5e0!3m2!1sen!2ske!4v1" allowfullscreen loading="lazy" title="Map to Kisii University"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WELCOME TEXT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <p>
+          We're so glad you're here. Located on the Kisii University campus, our church is more than just a place of worship — it's a warm and welcoming family of faith. Whether you're a student, staff member, or visitor, we'd love for you to join our community.
+        </p>
+        <p>
+          To learn more about our beliefs and mission, please visit our <a href="about/index.html">About Us</a> page. Better yet, come experience it in person! We invite you to join us for Bible study, worship, and prayer as we grow together in faith and love.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<div class="buttons d-flex flex-wrap gap-20 justify-center mb-4" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-bottom:1.5rem;">
+  <div class="button-card" style="flex:1 1 10px;">
+    <div class="section-sm" style="padding-top: 0;">
+      <div class="container">
+        <a href="prayer_wall.php" class="link-box" style="display:block; width:100%; text-align:center;">Prayer Wall</a>
+      </div>
+    </div>
+  </div>
+  <div class="button-card" style="flex:1 1 10px;">
+    <div class="section-sm" style="padding-top: 0;">
+      <div class="container">
+        <a href="giving.html" class="link-box" style="display:block; width:100%; text-align:center;">Online Giving</a>
+      </div>
+    </div>
+  </div>
+  <div class="button-card" style="flex:1 1 10px;">
+    <div class="section-sm" style="padding-top: 0;">
+      <div class="container">
+        <a href="leadership.html" class="link-box" style="display:block; width:100%; text-align:center;">Meet Leadership</a>
+      </div>
+    </div>
+  </div>
+  <div class="button-card" style="flex:1 1 10px;">
+    <div class="section-sm" style="padding-top: 0;">
+      <div class="container">
+        <a href="request_membership.php" class="link-box" style="display:block; width:100%; text-align:center;">Request Membership</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- ===== BULLETIN & SCHEDULE LINK ===== -->
+  <section class="section-sm" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-block">
+        <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem;"><a href="bulletin.html" style="color: var(--text-dark);">Bulletin</a></h4>
+        <p>Weekly Schedule of Gatherings can be Found <a href="about/index.html">Here</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORSHIP WITH US ===== -->
+  <section class="section" style="background: var(--off-white);">
+    <div class="container">
+      <div class="content-block" style="max-width: 900px;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Worship with Us at Kisii University Seventh-day Adventist Church</h2>
+        <p>
+          We're delighted to offer worship services both in person and online to stay connected with you! Join us via <strong>LIVESTREAM</strong> every Sabbath at <strong>10:00 a.m.</strong> — your presence, whether near or far, means so much to us.
+        </p>
+        <p>
+          Our dedicated pastor and staff are here to support you, even remotely. If you need assistance or have any questions, please visit our <a href="contact.html">Contact Us</a> page or call us at <a href="tel:+254700000000">+254 700 000 000</a>.
+        </p>
+        <p>
+          Let's come together to worship and grow in faith — we can't wait to share this special time with you!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION STATEMENT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="mission-block">
+        <h3>It is the Mission of the Kisii University Seventh-day Adventist Church</h3>
+        <ul>
+          <li>To Know Jesus Fully</li>
+          <li>To Reflect His Character Clearly</li>
+          <li>To Share His Message Joyfully</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORLDWIDE CHURCH FAMILY ===== -->
+  <section class="section worldwide-section">
+    <div class="container">
+      <h2 class="section-title">A WORLDWIDE CHURCH FAMILY</h2>
+      <p>
+        The Seventh-day Adventist Church is a mainstream Protestant church with approximately 22 million members worldwide. The Adventist Church operates 173 hospitals and sanitariums and more than 7,500 schools around the world. The Adventist Development and Relief Agency (ADRA) works within communities in more than 130 countries to provide community development and disaster relief.
+      </p>
+      <a href="https://www.adventist.org/en/service/" target="_blank" class="learn-more-link">LEARN MORE</a> About Seventh-day Adventists
+    </div>
+  </section>
+
+  <!-- ===== BLESSINGS ===== -->
+  <section class="blessings-section">
+    <div class="container">
+      <h2>May you find many blessings<br>and many friends here.</h2>
+      <p>Also you can explore the church gallery <a href="gallery.html">here</a> and as well enjoying our <a href="music.html">music</a></p>
+    </div>
+  </section>
+  
+  <!-- ===== 4-CARD GRID ===== -->
+  <section>
+    <div class="card-grid">
+      <a href="about/index.html" class="card-link">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="About Us" loading="lazy">
+        </div>
+        <div class="card-overlay">
+          <h3>About Us</h3>
+        </div>
+      </a>
+      <a href="events.html" class="card-link">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="Events" loading="lazy">
+        </div>
+        <div class="card-overlay">
+          <h3>Events</h3>
+        </div>
+      </a>
+      <a href="ministries/index.html" class="card-link">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80" alt="Ministries" loading="lazy">
+        </div>
+        <div class="card-overlay">
+          <h3>Ministries</h3>
+        </div>
+      </a>
+      <a href="contact.html" class="card-link">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&q=80" alt="Contact Us" loading="lazy">
+        </div>
+        <div class="card-overlay">
+          <h3>Contact Us</h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-info">
+          <h4>Kisii University Seventh-day Adventist Church</h4>
+          <p>
+            <a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br>
+            <a href="tel:+254700000000">+254 700 000 000</a>
+          </p>
+          <p style="margin-top: 0.25rem;">
+            <a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a>
+          </p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook
+            </a>
+            <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube
+            </a>
+          </div>
+        </div>
+        <div class="footer-sda-logo">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== COOKIE BANNER ===== -->
+  <div class="cookie-banner" role="alert">
+    <div class="cookie-inner">
+      <p>This site uses cookies to provide you with the best web experience.</p>
+      <div class="cookie-buttons">
+        <button class="cookie-accept">Accept</button>
+        <button class="cookie-reject">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

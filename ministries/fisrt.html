@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="First Fruits Ministry — Kisii University SDA Church. Honoring God with our first and best through stewardship and gratitude.">
+  <meta name="keywords" content="First Fruits, Ministry, Kisii University SDA Church, Stewardship, Gratitude, Financial Literacy, Spiritual Growth">
+  <link rel="canonical" href="https://ksusda.org/ministries/first-fruits.html">
+  <link rel="alternate" href="https://ksusda.org/ministries/first-fruits.html" hreflang="en">
+  <!-- Bootstrap 5 + Icons + Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <title>First Fruits — Kisii University SDA Church</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+  <style>
+    /* modern overrides + stats animation + responsive */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+    /* hero enhancement */
+    .hero-page {
+      position: relative;
+    }
+    .hero-page::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 100%);
+      z-index: 1;
+    }
+    .hero-page .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-title {
+      font-weight: 800;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      letter-spacing: -0.02em;
+    }
+    .hero-cta {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-glow {
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+    /* stats section modern */
+    .impact-stats {
+      background: linear-gradient(120deg, #1e3c2c 0%, #2a5f3a 100%);
+      border-radius: 28px;
+      padding: 3rem 1.5rem;
+      margin: 3rem 0;
+      color: white;
+      text-align: center;
+    }
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.8rem;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 1.8rem 2rem;
+      min-width: 160px;
+      transition: 0.2s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .stat-number {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    /* testimonials carousel modern */
+    .testimonials-section {
+      background: #fefaf5;
+      border-radius: 32px;
+      padding: 2rem 1.5rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem;
+      margin: 0.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: 0.2s;
+      border: 1px solid #f0e4d5;
+    }
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #2c3e2b;
+    }
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: #8b5a2b;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background-color: #8b5a2b;
+      border-radius: 50%;
+      padding: 1.2rem;
+    }
+    /* resource downloads cards */
+    .resource-card {
+      border: none;
+      border-radius: 20px;
+      transition: all 0.2s;
+      height: 100%;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .resource-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.1);
+    }
+    .resource-icon {
+      font-size: 2.2rem;
+      background: #f2e8db;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      color: #2c5f2d;
+    }
+    /* floating whatsapp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: 0.2s;
+      border: none;
+      backdrop-filter: blur(2px);
+    }
+    .whatsapp-float i {
+      font-size: 1.6rem;
+    }
+    .whatsapp-float:hover {
+      background-color: #20b859;
+      transform: scale(1.02);
+      color: white;
+    }
+    /* FAQ original stays */
+    .faq-section {
+      margin: 2rem 0;
+    }
+    .faq-container {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      background: #fff;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: #f9f5ef;
+    }
+    .faq-question h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c5f2d;
+    }
+    .faq-toggle {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #9b6a3c;
+      transition: transform 0.3s ease;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+      background: #fefaf5;
+      padding: 0 1.5rem;
+    }
+    .faq-answer p {
+      margin: 0;
+      padding: 0 0 1.2rem 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 1.5rem;
+    }
+    .faq-item.active .faq-answer p {
+      padding-top: 0.5rem;
+      padding-bottom: 1.2rem;
+    }
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+    /* mobile friendly adjustments */
+    @media (max-width: 768px) {
+      .stat-number {
+        font-size: 2.2rem;
+      }
+      .stat-card {
+        padding: 1.2rem 1rem;
+        min-width: 120px;
+      }
+      .hero-cta .btn {
+        width: auto;
+        font-size: 0.85rem;
+      }
+      .whatsapp-float span {
+        display: none;
+      }
+      .whatsapp-float {
+        padding: 12px;
+        border-radius: 50px;
+        right: 20px;
+        bottom: 20px;
+      }
+      .whatsapp-float i {
+        margin-right: 0;
+        font-size: 1.8rem;
+      }
+    }
+    /* card grid modern */
+    .card-grid-modern {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .lead-card {
+      border-radius: 20px;
+    }
+    .breadcrumb a {
+      text-decoration: none;
+    }
+    .bg-soft-cream {
+      background-color: #fef9f0;
+    }
+    .btn-outline-gold {
+      border-color: #c9974b;
+      color: #7a4c1d;
+    }
+    .btn-outline-gold:hover {
+      background: #c9974b;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header header-solid" role="banner">
+    <div class="header-top"><div class="header-logo"><a href="../index.html" aria-label="Kisii University SDA Church Home"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img"><span class="logo-text">Kisii University Seventh-day Adventist Church</span></a></div><div class="header-right-top"><a href="../giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">❤️ Giving</a><div class="header-social-icons"><a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div></div></div>
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <div class="desktop-nav">
+        <div class="nav-item"><a href="../about/index.html">About Us <span class="chevron-down">▾</span></a><div class="desktop-dropdown"><a href="../about/giving.html">Giving</a><a href="../about/history.html">History</a><a href="../about/in-the-news.html">In the News</a><a href="../about/our-pastor.html">Our Pastor</a><a href="../about/sabbath-services.html">Sabbath Services</a><a href="../about/what-sda-believe.html">What SDAs Believe</a><a href="../about/worship-with-us.html">Worship With Us</a><a href="../about/potluck.html">Potluck &amp; Fellowship</a><a href="../about/special-events.html">Special Events</a><a href="../about/schools.html">Schools &amp; Education</a><a href="../about/nearby-churches.html">Nearby SDA Churches</a></div></div>
+        <div class="nav-item"><a href="../events.html">Calendar</a></div>
+        <div class="nav-item"><a href="index.html">Ministries <span class="chevron-down">▾</span></a><div class="desktop-dropdown"><a href="community-outreach.html">Community Outreach</a><a href="health.html">Health Ministry</a><a href="youth-and-children.html">Youth &amp; Children</a><a href="bible-studies.html">Bible Studies</a><a href="evangelism.html">Evangelism</a><a href="new-zion.html">New Zion</a><a href="christ-messengers.html">Christ Messengers</a><a href="first-fruits.html">First Fruits</a><a href="the-sentinels.html">The Sentinels</a><a href="hom.html">HOM — Hands On Mission</a></div></div>
+        <div class="nav-item"><a href="../giving.html">Online Giving</a></div>
+        <div class="nav-item"><a href="../contact.html">Contact Us</a></div>
+      </div>
+      <div class="nav-actions"><button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></div>
+      <div class="header-search-inline" role="search"><form action="../search.html" method="get"><input type="text" name="s" placeholder="Search..." aria-label="Search"><button type="submit" aria-label="Search">🔍</button></form></div>
+    </nav>
+  </header>
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
+    <div class="menu-header"><button class="menu-close-btn" aria-label="Close Menu">&times;</button></div>
+    <div class="menu-search"><form action="../search.html" method="get"><input type="text" name="s" placeholder="Search..." aria-label="Search"><button type="submit" aria-label="Search">🔍</button></form></div>
+    <div class="menu-giving"><a href="../giving.html" class="giving-pill">❤️ Giving</a></div>
+    <div class="menu-nav"><div class="menu-nav-item"><div class="menu-nav-link"><a href="../about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a><button class="menu-chevron" aria-label="Expand About Us submenu">▼</button></div><div class="menu-submenu"><a href="../about/giving.html">Giving</a><a href="../about/history.html">History</a><a href="../about/in-the-news.html">In the News</a><a href="../about/our-pastor.html">Our Pastor</a><a href="../about/sabbath-services.html">Sabbath Services</a><a href="../about/what-sda-believe.html">What SDAs Believe</a><a href="../about/worship-with-us.html">Worship With Us</a><a href="../about/potluck.html">Potluck &amp; Fellowship</a><a href="../about/special-events.html">Special Events</a><a href="../about/schools.html">Schools &amp; Education</a><a href="../about/nearby-churches.html">Nearby SDA Churches</a></div></div><div class="menu-nav-item"><a href="../events.html" class="menu-nav-link">Calendar</a></div><div class="menu-nav-item"><div class="menu-nav-link"><a href="index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a><button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button></div><div class="menu-submenu"><a href="community-outreach.html">Community Outreach</a><a href="health.html">Health Ministry</a><a href="youth-and-children.html">Youth &amp; Children</a><a href="bible-studies.html">Bible Studies</a><a href="evangelism.html">Evangelism</a><a href="new-zion.html">New Zion</a><a href="christ-messengers.html">Christ Messengers</a><a href="first-fruits.html">First Fruits</a><a href="the-sentinels.html">The Sentinels</a><a href="hom.html">HOM — Hands On Mission</a></div></div><div class="menu-nav-item"><a href="../giving.html" class="menu-nav-link">Online Giving</a></div><div class="menu-nav-item"><a href="../contact.html" class="menu-nav-link">Contact Us</a></div><div class="menu-nav-item"><a href="../announcements.html" class="menu-nav-link">Announcements</a></div><div class="menu-nav-item"><a href="../livestream.html" class="menu-nav-link">Livestream</a></div><div class="menu-nav-item"><a href="../bulletin.html" class="menu-nav-link">Bulletin</a></div><div class="menu-nav-item"><a href="../food.html" class="menu-nav-link">Food Assistance</a></div></div>
+    <div class="menu-footer"><a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
+  </nav>
+
+  <!-- ENHANCED HERO SECTION with CTA -->
+  <section class="hero hero-page" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=80'); background-size: cover; background-position: center;" role="banner">
+    <div class="hero-content text-center">
+      <h1 class="hero-title display-4 fw-bold">First Fruits Ministry</h1>
+      <p class="fs-5 mt-3 opacity-75">Honoring God with our first and best — faithful stewardship, gratitude, and generosity.</p>
+      <div class="hero-cta">
+        <a href="#join" class="btn btn-light btn-lg btn-glow rounded-pill px-4"><i class="fas fa-hand-holding-heart me-2"></i>Join Ministry</a>
+        <a href="#resources" class="btn btn-outline-light btn-lg rounded-pill px-4"><i class="fas fa-download me-2"></i>Free Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <nav class="breadcrumb mt-3" aria-label="Breadcrumb">
+      <a href="../index.html" class="text-decoration-none">Home</a> <span class="mx-1">›</span> <a href="index.html" class="text-decoration-none">Ministries</a> <span class="mx-1">›</span> <span class="text-muted">First Fruits</span>
+    </nav>
+  </div>
+
+  <section class="page-content">
+    <div class="page-layout ministry-layout">
+      <aside class="ministry-gallery-sidebar" role="complementary">
+        <div class="ministry-gallery" id="ministry-gallery" data-ministry="first-fruits">
+          <h3 class="gallery-title"><i class="fas fa-images me-2"></i>Photo Gallery</h3>
+          <div class="gallery-grid" id="gallery-grid"></div>
+          <p class="gallery-empty" id="gallery-empty">No photos yet. Check back soon!</p>
+        </div>
+        <nav class="sidebar-nav" aria-label="Ministries Navigation">
+          <div class="sidebar-nav-title fw-bold">Ministries</div>
+          <a href="community-outreach.html">Community Outreach</a><a href="health.html">Health Ministry</a><a href="youth-and-children.html">Youth &amp; Children</a><a href="bible-studies.html">Bible Studies</a><a href="evangelism.html">Evangelism</a><a href="new-zion.html">New Zion</a><a href="christ-messengers.html">Christ Messengers</a><a href="first-fruits.html">First Fruits</a><a href="the-sentinels.html">The Sentinels</a><a href="hom.html">HOM — Hands On Mission</a>
+        </nav>
+      </aside>
+      <main class="page-main" role="main">
+        <h1 class="display-6">First Fruits</h1>
+        <p class="lead">The First Fruits Ministry is grounded in the biblical principle of giving God our very best — the first and finest of what we have. Inspired by Proverbs 3:9 — "Honor the Lord with your wealth, with the firstfruits of all your crops" — this ministry teaches and models faithful stewardship as an act of worship and trust in God's provision.</p>
+        
+        <!-- IMPACT STATS SECTION (animated counters) -->
+        <div class="impact-stats">
+          <h2 class="h3 fw-bold mb-2"><i class="fas fa-chart-line me-2"></i> Our Kingdom Impact</h2>
+          <p class="opacity-75">Through faithful first fruits giving, God has moved powerfully.</p>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-number" data-target="156">0</div><div class="stat-label">Students Supported</div></div>
+            <div class="stat-card"><div class="stat-number" data-target="487500">0</div><div class="stat-label">KES Given (2025)</div></div>
+            <div class="stat-card"><div class="stat-number" data-target="14">0</div><div class="stat-label">Outreaches Completed</div></div>
+            <div class="stat-card"><div class="stat-number" data-target="8">0</div><div class="stat-label">Missions Launched</div></div>
+          </div>
+        </div>
+
+        <!-- TESTIMONIALS CAROUSEL (Bootstrap) -->
+        <div class="testimonials-section">
+          <h2 class="text-center mb-4"><i class="fas fa-comment-dots me-2 text-success"></i> What Members Say</h2>
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><div class="testimonial-card text-center"><i class="fas fa-quote-left fa-2x text-muted mb-3 opacity-50"></i><p class="testimonial-text">"First Fruits changed my perspective on giving. I now see it as joyful worship, not obligation. God has blessed my studies abundantly!"</p><p class="testimonial-author">— Mercy A., Nursing Student</p></div></div>
+              <div class="carousel-item"><div class="testimonial-card text-center"><i class="fas fa-quote-left fa-2x text-muted mb-3 opacity-50"></i><p class="testimonial-text">"Through this ministry I learned to save, tithe, and even support a fellow student. The financial literacy workshops are life-changing."</p><p class="testimonial-author">— Collins O., Finance & Steward</p></div></div>
+              <div class="carousel-item"><div class="testimonial-card text-center"><i class="fas fa-quote-left fa-2x text-muted mb-3 opacity-50"></i><p class="testimonial-text">"Being part of Gospel Campaigns and seeing the harvest—there's no greater joy. First Fruits gave me purpose."</p><p class="testimonial-author">— Dorine O., Music Director</p></div></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+
+        <!-- RESOURCE DOWNLOADS SECTION -->
+        <h2 id="resources" class="mt-4 mb-3"><i class="fas fa-download me-2"></i> Free Stewardship Resources</h2>
+        <div class="row g-4 mb-5">
+          <div class="col-md-6 col-lg-3"><div class="resource-card card p-3 h-100"><div class="resource-icon"><i class="fas fa-file-pdf"></i></div><h5>Biblical Budget Guide</h5><p class="small text-muted">Learn to manage your finances God's way.</p><a href="#" class="btn btn-sm btn-outline-gold rounded-pill" onclick="alert('📥 Download started: Budget Guide (PDF)'); return false;"><i class="fas fa-download"></i> Download PDF</a></div></div>
+          <div class="col-md-6 col-lg-3"><div class="resource-card card p-3 h-100"><div class="resource-icon"><i class="fas fa-calendar-week"></i></div><h5>First Fruits Tracker</h5><p class="small text-muted">Excel template to track your giving.</p><a href="#" class="btn btn-sm btn-outline-gold rounded-pill" onclick="alert('📥 Download tracker spreadsheet'); return false;"><i class="fas fa-download"></i> Get Template</a></div></div>
+          <div class="col-md-6 col-lg-3"><div class="resource-card card p-3 h-100"><div class="resource-icon"><i class="fas fa-chalkboard-user"></i></div><h5>Stewardship Devotional</h5><p class="small text-muted">30-day plan on biblical generosity.</p><a href="#" class="btn btn-sm btn-outline-gold rounded-pill" onclick="alert('📥 Devotional ebook ready'); return false;"><i class="fas fa-download"></i> Download</a></div></div>
+          <div class="col-md-6 col-lg-3"><div class="resource-card card p-3 h-100"><div class="resource-icon"><i class="fas fa-hand-holding-usd"></i></div><h5>Tithe Calculator</h5><p class="small text-muted">Simple guide to faithful giving.</p><a href="#" class="btn btn-sm btn-outline-gold rounded-pill" onclick="alert('📥 Calculator sheet ready'); return false;"><i class="fas fa-download"></i> Download</a></div></div>
+        </div>
+
+        <!-- Weekly Programs, Focus areas (preserved) -->
+        <div class="ministry-section-card bg-soft-cream p-4 rounded-4 mb-4"><h2 class="ministry-section-title"><i class="fas fa-calendar-alt me-2"></i> Weekly Programs</h2><table class="table table-borderless"><thead><tr><th>Day</th><th>Time</th><th>Activity</th></tr></thead><tbody><tr><td><i class="fas fa-music me-2"></i> Thursday</td><td>6:30 PM – 8:30 PM</td><td>Song Training (LH 1)</td></tr><tr><td><i class="fas fa-microphone"></i> Friday</td><td>5:00 PM – 6:30 PM</td><td>Song Polishing (LH 1)</td></tr><tr><td><i class="fas fa-book"></i> Sunday</td><td>2:00 PM – 4:00 PM</td><td>Bible Study (LH 1)</td></tr></tbody></table></div>
+
+        <!-- FAQ section (working accordion) -->
+        <h2 class="mt-4"><i class="fas fa-question-circle me-2"></i> First Fruit Departments</h2>
+        <section class="faq-section"><div class="faq-container"><div class="faq-item"><div class="faq-question"><h3>Welfare Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Responsible for the well-being of our members. We provide support during times of need, organize social events, and ensure that everyone feels cared for.</p></div></div><div class="faq-item"><div class="faq-question"><h3>Health Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Focuses on physical and mental well-being through health education, wellness programs, and support services.</p></div></div><div class="faq-item"><div class="faq-question"><h3>Spiritual Development</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Nurturing spiritual growth through Bible studies, prayer meetings, and deepening faith.</p></div></div><div class="faq-item"><div class="faq-question"><h3>Music Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Training Thurs 6:30–8:30 PM, polishing Fri 5:00–6:30 PM at LH1.</p></div></div><div class="faq-item"><div class="faq-question"><h3>Gospel Campaign Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Evangelism, outreach, revival meetings, and spreading Christ's message.</p></div></div></div></section>
+
+        <!-- Join Form section -->
+        <div class="join-form-section mt-5" id="join"><h3><i class="fas fa-hand-holding-heart"></i> Join First Fruit Ministry</h3><form id="joinMinistryForm"><div class="row g-3"><div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div><div class="col-md-6"><input type="tel" class="form-control" placeholder="Phone Number"></div><div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address"></div><div class="col-md-6"><select class="form-select"><option>Preferred Family</option><option>Amazing Grace</option><option>Christ Abiders</option></select></div><div class="col-12"><textarea class="form-control" placeholder="Interest or department?"></textarea></div><div class="col-12"><button type="submit" class="btn btn-success px-4"><i class="fas fa-pray"></i> Join Our Ministry</button></div></div></form></div>
+      </main>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Chatbot Button -->
+  <a href="https://wa.me/254712345678?text=Hello%20First%20Fruits%20Ministry%2C%20I%20want%20to%20learn%20more%20about%20stewardship%20and%20giving." class="whatsapp-float" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> <span>Chat with us</span>
+  </a>
+
+  <footer class="site-footer mt-5" role="contentinfo"><div class="container"><div class="footer-main"><div class="footer-info"><h4>Kisii University SDA Church</h4><p>Kisii University Campus, Kisii, Kenya<br>+254 700 000 000<br><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p><div class="footer-social"><a href="#">Facebook</a> | <a href="#">YouTube</a></div></div><div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="SDA Logo" style="height: 50px;"></div></div><div class="footer-bottom text-center mt-3"><p>© 2026 Kisii University Seventh-day Adventist Church.</p></div></div></footer>
+  <button class="back-to-top" id="backToTopBtn" style="display: none;">↑</button>
+
+  <!-- Scripts: Bootstrap JS for carousel + stats counter -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/ministry-page.js"></script>
+  <script src="../js/ministry-gallery.js"></script>
+  <script>
+    // Stats counter with animation on view
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+    function animateNumbers() {
+      if (animated) return;
+      statNumbers.forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        if (!target) return;
+        let current = 0;
+        const increment = target / 60;
+        const update = () => {
+          current += increment;
+          if (current < target) {
+            el.innerText = Math.floor(current).toLocaleString();
+            requestAnimationFrame(update);
+          } else {
+            el.innerText = target.toLocaleString();
+          }
+        };
+        update();
+      });
+      animated = true;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { animateNumbers(); observer.disconnect(); }
+      });
+    }, { threshold: 0.3 });
+    const statsSection = document.querySelector('.impact-stats');
+    if (statsSection) observer.observe(statsSection);
+    
+    // FAQ accordion (only interactive piece)
+    const faqItems = document.querySelectorAll('.faq-item');
+    function initFaq() {
+      faqItems.forEach(item => {
+        const q = item.querySelector('.faq-question');
+        if (!q) return;
+        q.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => { if (i !== item && i.classList.contains('active')) { i.classList.remove('active'); i.querySelector('.faq-toggle').textContent = '+'; } });
+          if (!isActive) { item.classList.add('active'); item.querySelector('.faq-toggle').textContent = '×'; }
+          else { item.classList.remove('active'); item.querySelector('.faq-toggle').textContent = '+'; }
+        });
+        q.setAttribute('tabindex', '0');
+        q.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); } });
+      });
+    }
+    initFaq();
+  </script>
+</body>
+</html>
+```

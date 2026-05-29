@@ -1,0 +1,30 @@
+```gitignore id="p8v3wn"
+# Videos
+*.mp4
+
+# ZIP files
+*.zip
+
+# Logs
+*.log
+
+# SQL backups
+*.sql
+*.gz
+
+# Uploads
+uploads/
+
+# Screenshots
+SCREENSHOTS TO REFER FROM/
+
+# Backups
+backups/
+
+# Cache
+.cache/
+
+# OS
+Thumbs.db
+.DS_Store
+```

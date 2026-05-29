@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weekly sermon summaries and church blog — Kisii University Seventh-day Adventist Church.">
+  <title>Sermon Blog | Kisii University SDA Church</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/resources.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+  <meta name="description" content="Health and Spiritual Wellness - Biblical principles on diet, appetite control, and physical health">
+    <meta name="author" content="KUSDA Ministry">
+    <title>Health and Spiritual Wellness - Biblical Perspectives</title>
+  
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5a6c7d;
+            --secondary-color: #7a8fa0;
+            --accent-color: #4a9fb5;
+            --dark-color: #1a1a1a;
+            --light-color: #f9f9f9;
+            --text-color: #2c3e50;
+            --border-color: #ecf0f1;
+        }
+
+
+        .contain {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+       
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        
+        /* Main Content */
+        main {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            color: var(--dark-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Paragraph Styles */
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        p:first-of-type {
+            font-weight: 500;
+            font-size: 1.05em;
+            color: var(--dark-color);
+        }
+
+        /* Scripture Box */
+        .scripture {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.08) 0%, rgba(46, 204, 113, 0.08) 100%);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: #2c3e50;
+            line-height: 1.9;
+        }
+
+        .scripture .reference {
+            display: block;
+            text-align: right;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 12px;
+            font-style: normal;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .highlight strong {
+            color: #d39e00;
+        }
+
+        /* Key Points */
+        .key-points {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .key-points li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .key-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Card Layout */
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 15px rgba(90, 108, 125, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .card h4 {
+            font-size: 1.3em;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        /* Quote Styles */
+        .quote {
+            border-left: 4px solid var(--accent-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            background-color: #fef5f5;
+            border-radius: 4px;
+            font-style: italic;
+            color: #c0392b;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .column {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .column h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f0f8f5;
+        }
+
+        /* Emphasis Styles */
+        strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .emphasis {
+            background: linear-gradient(120deg, rgba(39, 174, 96, 0.1), rgba(46, 204, 113, 0.1));
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+       
+
+        /* Removed social links styles */
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            main {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .scripture {
+                padding: 15px 20px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="resources-page has-solid-header" data-resource-page="churchblog">
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header header-solid" role="banner">
+    <!-- Top bar: Logo + Giving + Social -->
+    <div class="header-top">
+      <div class="header-logo">
+        <a href="../index.html" aria-label="Kisii University SDA Church Home">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
+          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
+        </a>
+      </div>
+      <div class="header-right-top">
+        <a href="../giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">
+          ❤️ Giving
+        </a>
+        <div class="header-social-icons">
+          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Navigation bar -->
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <div class="desktop-nav">
+        <div class="nav-item">
+          <a href="../about/index.html">About Us <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="../about/giving.html">Giving</a>
+            <a href="../about/history.html">History</a>
+            <a href="../about/in-the-news.html">In the News</a>
+            <a href="../about/our-pastor.html">Our Pastor</a>
+            <a href="../about/sabbath-services.html">Sabbath Services</a>
+            <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="../about/worship-with-us.html">Worship With Us</a>
+            <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+            <a href="../about/special-events.html">Special Events</a>
+            <a href="../about/schools.html">Schools &amp; Education</a>
+            <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="index.html">Resources <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="index.html">All Resources</a>
+            <a href="churchblog.html">Church Blog</a>
+            <a href="bible-study-guides.html">Bible Study Guides</a>
+            <a href="health-guides.html">Health &amp; Wellness</a>
+            <a href="devotional.html">Daily Devotional</a>
+            <a href="downloads.html">Downloads &amp; Forms</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="../events.html">Calendar</a>
+        </div>
+        <div class="nav-item">
+          <a href="../ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="../ministries/community-outreach.html">Community Outreach</a>
+            <a href="../ministries/health.html">Health Ministry</a>
+            <a href="../ministries/youth-and-children.html">Youth &amp; Children</a>
+            <a href="../ministries/bible-studies.html">Bible Studies</a>
+            <a href="../ministries/evangelism.html">Evangelism</a>
+            <a href="../ministries/new-zion.html">New Zion</a>
+            <a href="../ministries/christ-messengers.html">Christ Messengers</a>
+            <a href="../ministries/first-fruits.html">First Fruits</a>
+            <a href="../ministries/the-sentinels.html">The Sentinels</a>
+            <a href="../ministries/hom.html">HOM — Hands On Mission</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="../giving.html">Online Giving</a>
+        </div>
+        <div class="nav-item">
+          <a href="../contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <!-- Inline Search -->
+      <div class="header-search-inline" role="search">
+        <form action="../search.html" method="get">
+          <input type="text" name="s" placeholder="Search..." aria-label="Search">
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== SLIDE-IN MENU ===== -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
+    <div class="menu-header">
+      <button class="menu-close-btn" aria-label="Close Menu">&times;</button>
+    </div>
+    <div class="menu-search">
+      <form action="../search.html" method="get">
+        <input type="text" name="s" placeholder="Search..." aria-label="Search">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+    <div class="menu-giving">
+      <a href="../giving.html" class="giving-pill">❤️ Giving</a>
+    </div>
+    <div class="menu-nav">
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="../about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a>
+          <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="../about/giving.html">Giving</a>
+          <a href="../about/history.html">History</a>
+          <a href="../about/in-the-news.html">In the News</a>
+          <a href="../about/our-pastor.html">Our Pastor</a>
+          <a href="../about/sabbath-services.html">Sabbath Services</a>
+          <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+          <a href="../about/worship-with-us.html">Worship With Us</a>
+          <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+          <a href="../about/special-events.html">Special Events</a>
+          <a href="../about/schools.html">Schools &amp; Education</a>
+          <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="index.html" class="menu-nav-link">All Resources</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="churchblog.html" class="menu-nav-link">Church Blog</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="bible-study-guides.html" class="menu-nav-link">Bible Study Guides</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="devotional.html" class="menu-nav-link">Daily Devotional</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../events.html" class="menu-nav-link">Calendar</a>
+      </div>
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="../ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a>
+          <button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="../ministries/community-outreach.html">Community Outreach</a>
+          <a href="../ministries/health.html">Health Ministry</a>
+          <a href="../ministries/youth-and-children.html">Youth &amp; Children</a>
+          <a href="../ministries/bible-studies.html">Bible Studies</a>
+          <a href="../ministries/evangelism.html">Evangelism</a>
+          <a href="../ministries/new-zion.html">New Zion</a>
+          <a href="../ministries/christ-messengers.html">Christ Messengers</a>
+          <a href="../ministries/first-fruits.html">First Fruits</a>
+          <a href="../ministries/the-sentinels.html">The Sentinels</a>
+          <a href="../ministries/hom.html">HOM — Hands On Mission</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../giving.html" class="menu-nav-link">Online Giving</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../contact.html" class="menu-nav-link">Contact Us</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../announcements.html" class="menu-nav-link">Announcements</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../livestream.html" class="menu-nav-link">Livestream</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../bulletin.html" class="menu-nav-link">Bulletin</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../food.html" class="menu-nav-link">Food Assistance</a>
+      </div>
+    </div>
+    <div class="menu-footer">
+      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+    <div class="contain">
+        <!-- Header -->
+        <header style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(90, 108, 125, 0.2);
+            top:100px;">
+            <h1 style="font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Health and Spiritual Wellness</h1>
+            <p class="subtitle">Biblical Principles on Diet, Appetite, and Physical Health</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#appetite">Appetite Control</a></li>
+                <li><a href="#brain">Mind & Body</a></li>
+                <li><a href="#daniel">Daniel's Example</a></li>
+                <li><a href="#principles">Key Principles</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Overview Section -->
+            <section id="overview">
+                <h2>Biblical Foundation</h2>
+                
+                <p>The Bible presents a profound connection between physical health and spiritual wellness. During the antitypical day of atonement, when individuals are being accounted worthy or unworthy of eternal life, we are called to exercise mastery over our appetites and desires.</p>
+
+                <div class="scripture">
+                    <p>"Take heed to yourselves, lest at any time your hearts be overcharged with surfeiting, and drunkenness, and cares of this life, and so that day come upon you unawares…. Watch ye therefore, and pray always that ye may be accounted worthy to escape all these things that shall come to pass, and to stand before the Son of man."</p>
+                    <span class="reference">Luke 21:34-36</span>
+                </div>
+
+                <p>The prophet Isaiah provides a vivid description of the contrast between those who heed God's call and those who ignore it:</p>
+
+                <div class="scripture">
+                    <p>"In that day did the Lord God of hosts call to weeping, and to mourning, and to baldness, and to girding with sackcloth: and behold, joy and gladness, slaying oxen, and killing sheep, eating flesh and drinking wine: let us eat and drink; for to morrow we shall die."</p>
+                    <span class="reference">Isaiah 22:12-13</span>
+                </div>
+            </section>
+
+            <!-- Appetite Control Section -->
+            <section id="appetite">
+                <h2>Mastery Over Appetite</h2>
+
+                <p>God calls His people to be masters of their appetites, not slaves to them. This distinction is crucial for spiritual development and maintaining a clear mind for discerning divine truth.</p>
+
+                <h3>What is Surfeiting?</h3>
+                <p><strong>Surfeiting</strong> is taking too freely of food, whether it be good or bad. It refers to overindulgence and excessive consumption, even of wholesome foods.</p>
+
+                <h3>What is Drunkenness?</h3>
+                <p><strong>Drunkenness</strong> in this context refers to partaking of improper foods—those that are injurious to health and cloud the mind. The glutton and drunkard are classified together in Scripture:</p>
+
+                <div class="scripture">
+                    <p>"Be not among winebibbers; among riotous eaters of flesh; for the drunkard and the glutton shall come to poverty."</p>
+                    <span class="reference">Proverbs 23:20-21</span>
+                </div>
+
+                <div class="highlight">
+                    <strong>Key Point:</strong> One can becloud the mind and ruin the health by overeating of even the best of food. Both quantity and quality of food matter.
+                </div>
+
+                <h3>The Rule for Eating</h3>
+                <p>Scripture provides practical guidance on consuming even good foods:</p>
+
+                <div class="key-points">
+                    <ul>
+                        <li><strong>"My son, eat thou honey, because it is good."</strong> - Proverbs 24:13</li>
+                        <li><strong>"Hast thou found honey? eat so much as is sufficient for thee."</strong> - Proverbs 25:16</li>
+                        <li><strong>"It is not good to eat much honey."</strong> - Proverbs 25:27</li>
+                    </ul>
+                </div>
+
+                <p>These three texts establish a rule for eating: consume only good foods, and only <span class="emphasis">so much as is sufficient</span>. Those who follow this principle will enjoy good health and a clear mind.</p>
+
+                <div class="quote">
+                    <strong>"Our first parents failed on the test of appetite, but where they failed, Christ triumphed. It is possible for a Christian, with the indwelling Christ in the heart, to be complete master of his appetite—to abstain from all food that is injurious, however much the natural appetite may crave it."</strong>
+                </div>
+            </section>
+
+            <!-- Brain and Body Connection -->
+            <section id="brain">
+                <h2>The Mind-Body Connection</h2>
+
+                <p>Understanding how appetite affects our mental and spiritual capacity is essential for spiritual wellness.</p>
+
+                <div class="two-column">
+                    <div class="column">
+                        <h4>Impact on the Nervous System</h4>
+                        <p>The brain nerves that communicate with the entire system are the only medium through which Heaven can communicate to us and affect our inmost life. Whatever disturbs the circulation of the electric currents in the nervous system lessens the strength of vital powers and deadens the sensibilities of the mind.</p>
+                    </div>
+                    <div class="column">
+                        <h4>Spiritual Consequences</h4>
+                        <p>When the brain is clouded by improper diet, spiritual perception is dimmed. God desires His people to have clear minds to comprehend divine truth and follow His work in the heavenly sanctuary.</p>
+                    </div>
+                </div>
+
+                <h3>The Role of Flesh Meat</h3>
+                <p>The use of flesh meat strengthens the lower propensities and excites them to increased activity. Parents who allow their children to eat meat freely, use butter and eggs excessively, will likely see:</p>
+
+                <div class="key-points">
+                    <ul>
+                        <li>Disease in various forms</li>
+                        <li>Impaired physical health</li>
+                        <li>Weakened mental capacity</li>
+                        <li>Diminished spirituality</li>
+                        <li>Increased excitation of base passions</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <strong>Important:</strong> Man is built up from what he eats. Parents should discard everything that endangers the moral and physical health of their children.
+                </div>
+            </section>
+
+            <!-- Daniel's Example -->
+            <section id="daniel">
+                <h2>The Daniel Fast: A Model for Health</h2>
+
+                <p>The prophet Daniel provides an excellent example of using dietary discipline to achieve spiritual clarity and understanding:</p>
+
+                <div class="scripture">
+                    <p>"In those days I Daniel was mourning three full weeks. I ate no pleasant bread, neither came flesh nor wine in my mouth, neither did I anoint myself at all, till three whole weeks were fulfilled."</p>
+                    <span class="reference">Daniel 10:2-3</span>
+                </div>
+
+                <h3>Understanding Daniel's Approach</h3>
+                <p>When Daniel wanted to understand a vision, he engaged in what we now call a "Daniel Fast." But importantly, <strong>he did not stop eating entirely</strong>. Instead, he ate clean, wholesome foods to maintain a clear brain for receiving divine understanding.</p>
+
+                <div class="card">
+                    <h4>The Daniel Fast Today</h4>
+                    <p>Today, God calls His people to a similar practice—not a complete fast from eating, but a conscious choice to eat only foods that promote mental clarity and spiritual receptivity. This allows us to:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li>Maintain physical strength</li>
+                        <li>Achieve mental clarity</li>
+                        <li>Enhance spiritual perception</li>
+                        <li>Prepare for eternal life</li>
+                    </ul>
+                </div>
+
+                <div class="scripture">
+                    <p>"In the third year of Cyrus king of Persia a thing was revealed unto Daniel, whose name was called Belteshazzar; and the thing was true, but the time appointed was long: and he understood the thing, and had understanding of the vision."</p>
+                    <span class="reference">Daniel 10:1</span>
+                </div>
+            </section>
+
+            <!-- Key Principles Section -->
+            <section id="principles">
+                <h2>Essential Health Principles</h2>
+
+                <h3>Christ's Example</h3>
+                <p>Jesus Christ was tested on appetite from childhood. The prophet Isaiah says:</p>
+
+                <div class="scripture">
+                    <p>"Butter and honey shall He eat, that He may know to refuse the evil, and choose the good."</p>
+                    <span class="reference">Isaiah 7:15</span>
+                </div>
+
+                <p>Jesus ate according to Biblical rules, which developed in Him spiritual strength and power to discern between good and evil. His manner of eating became a model for all believers.</p>
+
+                <h3>God's Purpose for Our Health</h3>
+                <div class="scripture">
+                    <p>"Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth."</p>
+                    <span class="reference">3 John 2</span>
+                </div>
+
+                <p>God desires His people to have good health with souls free from condemnation. Satan, on the other hand, delights in beclouding the brain and destroying health.</p>
+
+                <h3>Testing Times and Divine Care</h3>
+                <p>Those who practice simple diet and develop fixed habits of wholesome eating during their probation will be sustained even in times of drought:</p>
+
+                <div class="highlight">
+                    <strong>"Their bread and water will be sure, and habits of simple diet have become so fixed during their time of probation that though there may be a drought, God can feed them as He did Israel in the wilderness."</strong>
+                </div>
+
+                <!-- Comparison Table -->
+                <h3>Comparison: Mastery vs. Slavery to Appetite</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Mastery Over Appetite</th>
+                            <th>Slavery to Appetite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Clear, sharp mind</td>
+                            <td>Clouded, sluggish thinking</td>
+                        </tr>
+                        <tr>
+                            <td>Spiritual perception heightened</td>
+                            <td>Spiritual blindness</td>
+                        </tr>
+                        <tr>
+                            <td>Good physical health</td>
+                            <td>Various diseases and ailments</td>
+                        </tr>
+                        <tr>
+                            <td>Control of base passions</td>
+                            <td>Excitement of base appetites</td>
+                        </tr>
+                        <tr>
+                            <td>Prepared for eternity</td>
+                            <td>Unfit for God's kingdom</td>
+                        </tr>
+                        <tr>
+                            <td>Blessed with divine wisdom</td>
+                            <td>Deceived by seducing spirits</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Warnings Section -->
+            <section>
+                <h2>Solemn Warnings</h2>
+
+                <div class="scripture">
+                    <p>"Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith, giving heed to seducing spirits, and doctrines of devils."</p>
+                    <span class="reference">1 Timothy 4:1-2</span>
+                </div>
+
+                <p>In these last days, many will be deceived about what foods are permissible. However, Scripture assures us:</p>
+
+                <div class="scripture">
+                    <p>"For every creature of God is good, and nothing to be refused, if it be received with thanksgiving: for it is sanctified by the word of God and prayer."</p>
+                    <span class="reference">1 Timothy 4:4-5</span>
+                </div>
+
+                <div class="key-points">
+                    <ul>
+                        <li>Those who practice intemperance will be "consumed together" says the Lord</li>
+                        <li>The indulgence of appetite clouds the mind and separates us from God</li>
+                        <li>Intemperance in eating is as serious a sin as drunkenness</li>
+                        <li>Only through Christ's indwelling power can we achieve complete mastery</li>
+                    </ul>
+                </div>
+
+                <div class="quote">
+                    <strong>"Satan delights in beclouding the brain and destroying the health. All who will fulfil the antitype will be masters of their appetites, that they may prepare to meet the Saviour when He comes to the earth as King of kings and Lord of lords."</strong>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section>
+                <h2>Conclusion</h2>
+
+                <div class="card">
+                    <h4>A Call to Holistic Health</h4>
+                    <p>The biblical message on health is clear: we are called to be masters of our appetites, not slaves to them. This mastery isn't about legalism or deprivation—it's about freedom. When we control what we eat and how much we eat, we free our minds to commune with God, comprehend spiritual truths, and prepare ourselves for eternity.</p>
+                    <p style="margin-top: 15px;">By following the examples of Daniel and Christ, by understanding the connection between our physical habits and spiritual capacity, and by trusting in God's power working through us, we can achieve the wholeness—physical, mental, and spiritual—that God desires for His people.</p>
+                </div>
+            </section>
+        </main>
+</div>
+        <!-- Footer -->
+       <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-info">
+          <h4>Kisii University Seventh-day Adventist Church</h4>
+          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank" rel="noopener">Kisii University Campus, Kisii, Kenya</a></p>
+          <p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p>
+        </div>
+        <div class="footer-sda-logo">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="color:white;">Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/resources-nav.js"></script>
+</body>
+</html>
+
+    
+</body>
+</html>
