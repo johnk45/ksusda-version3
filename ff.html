@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth text-base">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austine Ouko | Corporate Accounting & Fintech Platform</title>
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Corporate Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background:
+            radial-gradient(circle at top, rgba(251, 191, 36, 0.08), transparent 18%),
+            linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .soft-surface {
+            background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,250,252,0.92));
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+        }
+        .dark .soft-surface {
+            background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(30,41,59,0.94));
+            border-color: rgba(148,163,184,0.16);
+            box-shadow: 0 14px 30px rgba(2, 6, 23, 0.35);
+        }
+        .hover-lift { transition: transform 180ms ease, box-shadow 180ms ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 18px 28px rgba(15, 23, 42, 0.12); }
+    </style>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-amber-500/30">
+
+    <!-- READING PROGRESS BAR -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 z-50 transition-all duration-700" style="width: 0%"></div>
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="sticky top-0 z-40 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex flex-col">
+                    <a href="#" class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                        AUSTINE <span class="text-amber-500 font-serif font-semibold">OUKO</span>
+                    </a>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold dark:text-slate-400">Accounting & Growth</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="text-sm font-medium hover:text-amber-500 transition">About</a>
+                    <a href="#services" class="text-sm font-medium hover:text-amber-500 transition">Services</a>
+                    <a href="#tools" class="text-sm font-medium hover:text-amber-500 transition">FinTools</a>
+                    <a href="#blog" class="text-sm font-medium hover:text-amber-500 transition">Insights</a>
+                    <a href="#study-hub" class="text-sm font-medium hover:text-amber-500 transition">Study Hub</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-amber-500 transition">Contact</a>
+                    
+                    <span class="h-4 w-px bg-slate-300 dark:bg-slate-700"></span>
+
+                    <!-- Search Trigger (Bar) -->
+                    <div class="relative w-40">
+                        <input type="text" id="blog-search" placeholder="Search..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-full bg-slate-100 dark:bg-slate-900 border border-transparent focus:border-amber-500/50 focus:outline-none transition">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+                    </div>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 text-slate-600 dark:text-slate-300 hover:text-amber-500 transition">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile controls wrapper -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="p-2 text-slate-600 dark:text-slate-300">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block"></i>
+                    </button>
+                    <button id="menu-btn" class="text-slate-700 dark:text-slate-200 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-slate-950/95 border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-4 shadow-xl">
+            <div class="relative mb-4">
+                <input type="text" id="blog-search-mobile" placeholder="Search insights..." class="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-slate-100 dark:bg-slate-900 border-none focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400"></i>
+            </div>
+            <a href="#about" class="block text-base font-medium">About</a>
+            <a href="#services" class="block text-base font-medium">Services</a>
+            <a href="#tools" class="block text-base font-medium">FinTools</a>
+            <a href="#blog" class="block text-base font-medium">Insights</a>
+            <a href="#study-hub" class="block text-base font-medium">Study Hub</a>
+            <a href="#contact" class="block text-base font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] flex items-center justify-center py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-25 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070')] bg-cover bg-center mix-blend-luminosity"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/90 to-slate-900/50 z-0"></div>
+        <div class="absolute top-1/4 left-1/10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-8">
+            <span class="inline-block px-4 py-1.5 border border-amber-500/40 bg-amber-500/10 rounded-full text-xs font-semibold tracking-widest text-amber-400 uppercase">
+                Accounting Insights & Business Growth
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight font-serif max-w-4xl mx-auto leading-tight">
+                Welcome to Austine Ouko <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500">Business Blog</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+                A clean, easy-to-follow hub for strategy, accounting insights, and business clarity—designed to help visitors find what they need in seconds.
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-3 pt-2 text-sm text-slate-200/90">
+                <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">Fast navigation</span>
+                <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">Clear insights</span>
+                <span class="px-3 py-1.5 rounded-full border border-white/10 bg-white/5">Modern layout</span>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+                <a href="#blog" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-semibold rounded-xl shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5 transition duration-200 text-center">Start reading</a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-medium rounded-xl backdrop-blur-sm transition text-center">Contact now</a>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-4 pt-6 text-left">
+                <a href="#services" class="soft-surface hover-lift rounded-2xl p-5 text-slate-900 dark:text-white block">
+                    <div class="text-amber-500 text-lg mb-2"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.2em]">Explore services</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-300 mt-1">Jump straight into the most useful sections with one click.</p>
+                </a>
+                <a href="#blog" class="soft-surface hover-lift rounded-2xl p-5 text-slate-900 dark:text-white block">
+                    <div class="text-amber-500 text-lg mb-2"><i class="fa-solid fa-newspaper"></i></div>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.2em]">Read insights</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-300 mt-1">Browse featured business and accounting thought pieces quickly.</p>
+                </a>
+                <a href="#contact" class="soft-surface hover-lift rounded-2xl p-5 text-slate-900 dark:text-white block">
+                    <div class="text-amber-500 text-lg mb-2"><i class="fa-solid fa-comments"></i></div>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.2em]">Get in touch</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-300 mt-1">An easy contact path keeps the next step simple and clear.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-10">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-5 relative mx-auto max-w-sm lg:max-w-none w-full">
+                <div class="absolute inset-0 bg-gradient-to-tr from-amber-500 to-yellow-300 rounded-3xl rotate-3 scale-102 shadow-xl opacity-20 dark:opacity-10"></div>
+                <div class="relative bg-slate-200 dark:bg-slate-800 aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-900">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964" alt="Austine Ouko" class="w-full h-full object-cover object-top grayscale-[30%] hover:grayscale-0 transition duration-500">
+                </div>
+            </div>
+            <div class="lg:col-span-7 space-y-6">
+                <div class="space-y-2">
+                    <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Corporate Profile</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-serif tracking-tight">Bridging Academic Excellence with Strategic Market Analysis</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed font-light">
+                    I am Austine Ouko, an advanced corporate accounting student and visionary finance macro-blogger. My operational approach blends quantitative accounting methodologies with deep structural micro-consulting to assist emerging entrepreneurs in optimizing fiscal transparency.
+                </p>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed font-light">
+                    The page is structured to guide readers naturally from overview to services, insights, and contact—keeping the experience intuitive, welcoming, and easy to scan.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                    <div class="soft-surface rounded-2xl p-5">
+                        <p class="text-[10px] uppercase tracking-[0.25em] text-amber-500 font-semibold">Why it feels easy</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Short sections, clear labels, and a simple flow make the page more user-friendly on first visit.</p>
+                    </div>
+                    <div class="soft-surface rounded-2xl p-5">
+                        <p class="text-[10px] uppercase tracking-[0.25em] text-amber-500 font-semibold">Modern look</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Rounded cards, soft gradients, and subtle motion give the layout a polished, contemporary finish.</p>
+                    </div>
+                </div>
+                <div class="pt-4 space-y-3">
+                    <h4 class="text-sm font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500">Target Core Proficiencies</h4>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-1.5 bg-slate-200/60 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-md border border-slate-300/40 dark:border-slate-800"><i class="fa-solid fa-chart-line text-amber-500 mr-1.5"></i> Financial Analysis</span>
+                        <span class="px-3.5 py-1.5 bg-slate-200/60 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-md border border-slate-300/40 dark:border-slate-800"><i class="fa-solid fa-gavel text-amber-500 mr-1.5"></i> Corporate Taxation</span>
+                        <span class="px-3.5 py-1.5 bg-slate-200/60 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-md border border-slate-300/40 dark:border-slate-800"><i class="fa-solid fa-seedling text-amber-500 mr-1.5"></i> Entrepreneurship</span>
+                        <span class="px-3.5 py-1.5 bg-slate-200/60 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-md border border-slate-300/40 dark:border-slate-800"><i class="fa-solid fa-shield-halved text-amber-500 mr-1.5"></i> Auditing Frameworks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS SECTION -->
+    <section class="py-16 bg-slate-900 text-white border-y border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="space-y-1">
+                <div class="text-3xl sm:text-4xl font-bold font-serif text-amber-400">15K+</div>
+                <div class="text-xs uppercase font-medium tracking-widest text-slate-400">Monthly Readers</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-3xl sm:text-4xl font-bold font-serif text-amber-400">48+</div>
+                <div class="text-xs uppercase font-medium tracking-widest text-slate-400">Articles Published</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-3xl sm:text-4xl font-bold font-serif text-amber-400">250+</div>
+                <div class="text-xs uppercase font-medium tracking-widest text-slate-400">Business Tips Shared</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-3xl sm:text-4xl font-bold font-serif text-amber-400">1.2K+</div>
+                <div class="text-xs uppercase font-medium tracking-widest text-slate-400">Student Community</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE TOOLS SECTION (NEW) -->
+    <section id="tools" class="py-24 bg-slate-100 dark:bg-slate-900/20 border-b border-slate-200/60 dark:border-slate-900 scroll-mt-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
+                <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Interactive Toolkits</span>
+                <h2 class="text-3xl font-bold font-serif tracking-tight">FinTech Calculators</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm font-light">Real-time modular sandboxes built to map micro-enterprise cost behaviors and local tax parameters instantly.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <!-- Tool 1: Break-Even Calculator -->
+                <div class="bg-white dark:bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-md space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500"><i class="fa-solid fa-calculator"></i></div>
+                        <div>
+                            <h3 class="text-lg font-bold">SME Break-Even Analyzer</h3>
+                            <p class="text-xs text-slate-400">Calculate the exact unit volume needed to cover costs.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-xs font-medium">
+                        <div>
+                            <label class="block text-slate-400 mb-1.5">Total Fixed Costs (Monthly Expenses)</label>
+                            <input type="number" id="be-fixed" value="20000" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md focus:outline-none focus:border-amber-500 transition">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-slate-400 mb-1.5">Selling Price Per Unit</label>
+                                <input type="number" id="be-price" value="150" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md focus:outline-none focus:border-amber-500 transition">
+                            </div>
+                            <div>
+                                <label class="block text-slate-400 mb-1.5">Variable Cost Per Unit</label>
+                                <input type="number" id="be-variable" value="70" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md focus:outline-none focus:border-amber-500 transition">
+                            </div>
+                        </div>
+                        <button onclick="calculateBreakEven()" class="w-full py-2.5 bg-slate-900 dark:bg-slate-800 text-amber-400 font-bold uppercase tracking-wider rounded-md text-[10px] hover:bg-slate-800 border border-transparent hover:border-amber-500/30 transition">Process Metrics</button>
+                    </div>
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl text-center space-y-1">
+                        <p class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Target Break-Even Point</p>
+                        <div class="text-2xl font-bold font-serif text-amber-500"><span id="be-result">250</span> <span class="text-xs font-sans font-medium text-slate-400">Units / Month</span></div>
+                    </div>
+                </div>
+
+                <!-- Tool 2: Income Tax Estimator -->
+                <div class="bg-white dark:bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-md space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500"><i class="fa-solid fa-coins"></i></div>
+                        <div>
+                            <h3 class="text-lg font-bold">Tax Exposure Estimator</h3>
+                            <p class="text-xs text-slate-400">Baseline individual income metrics (Standard Individual Scale).</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-xs font-medium">
+                        <div>
+                            <label class="block text-slate-400 mb-1.5">Gross Monthly Income (KES)</label>
+                            <input type="number" id="tax-income" value="50000" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md focus:outline-none focus:border-amber-500 transition">
+                        </div>
+                        <button onclick="calculateTax()" class="w-full py-2.5 bg-slate-900 dark:bg-slate-800 text-amber-400 font-bold uppercase tracking-wider rounded-md text-[10px] hover:bg-slate-800 border border-transparent hover:border-amber-500/30 transition">Run Tax Matrix</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl text-center">
+                            <p class="text-[9px] uppercase font-bold tracking-wider text-slate-400 mb-0.5">Estimated Tax</p>
+                            <div class="text-sm font-bold text-slate-800 dark:text-slate-200">KES <span id="tax-result">4,634</span></div>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl text-center">
+                            <p class="text-[9px] uppercase font-bold tracking-wider text-slate-400 mb-0.5">Net Take-Home</p>
+                            <div class="text-sm font-bold text-amber-500">KES <span id="tax-net">45,366</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-slate-50 dark:bg-slate-950 scroll-mt-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
+                <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Consulting Architecture</span>
+                <h2 class="text-3xl font-bold font-serif tracking-tight">Structured Professional Offerings</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 group hover:border-amber-500 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl group-hover:bg-amber-500 group-hover:text-slate-950 transition duration-300 mb-4">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Financial Insights</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed font-light">Iterative variance calculation methodologies tracking operational operational friction models.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 group hover:border-amber-500 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl group-hover:bg-amber-500 group-hover:text-slate-950 transition duration-300 mb-4">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Business Strategy</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed font-light">Bespoke operational design structures targeted at high-growth student micro-ventures.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 group hover:border-amber-500 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl group-hover:bg-amber-500 group-hover:text-slate-950 transition duration-300 mb-4">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Budget Frameworks</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed font-light">Granular corporate asset allocation plans built to secure operational working liquidity.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 group hover:border-amber-500 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl group-hover:bg-amber-500 group-hover:text-slate-950 transition duration-300 mb-4">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Accounting Tutorials</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed font-light">Interactive systematic structured walk-through arrays handling advanced GAAP systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED BLOG SECTION (UPGRADED WITH LIVE FILTER) -->
+    <section id="blog" class="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-10">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+            <div class="space-y-2">
+                <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Curated Intelligence</span>
+                <h2 class="text-3xl font-bold font-serif tracking-tight">Recent Editorial Releases</h2>
+            </div>
+            
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                <button onclick="filterCategory('all', this)" class="cat-btn px-4 py-2 bg-amber-500 text-slate-950 rounded-full transition shadow-sm">All</button>
+                <button onclick="filterCategory('corporate scale', this)" class="cat-btn px-4 py-2 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-amber-500/10 transition">Corporate</button>
+                <button onclick="filterCategory('micro capital', this)" class="cat-btn px-4 py-2 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-amber-500/10 transition">Micro Capital</button>
+                <button onclick="filterCategory('automation', this)" class="cat-btn px-4 py-2 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-amber-500/10 transition">Automation</button>
+                <button onclick="filterCategory('sme systems', this)" class="cat-btn px-4 py-2 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-amber-500/10 transition">SME Systems</button>
+            </div>
+        </div>
+
+        <div id="blog-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Article 1 -->
+            <article class="blog-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070" alt="Growth" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider rounded">Corporate Scale</span>
+                        <span class="absolute top-3 right-3 px-2 py-0.5 bg-slate-900/40 text-white text-[9px] font-medium rounded-full"><i class="fa-regular fa-clock mr-1"></i>4 min</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-amber-500 transition">How Accounting Helps Businesses Grow</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs line-clamp-3 font-light">Discover the tactical metrics, visibility vectors, and reporting parameters required to transform modern ledger balances.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0"><hr class="border-slate-100 dark:border-slate-800 mb-4"><a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-500 dark:text-amber-400 hover:underline">Read Analysis</a></div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="blog-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070" alt="Tips" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider rounded">Micro Capital</span>
+                        <span class="absolute top-3 right-3 px-2 py-0.5 bg-slate-900/40 text-white text-[9px] font-medium rounded-full"><i class="fa-regular fa-clock mr-1"></i>3 min</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-amber-500 transition">Top Financial Tips for University Students</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs line-clamp-3 font-light">An instructional diagnostic framework optimized for balancing limited university cash allowances and micro-savings.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0"><hr class="border-slate-100 dark:border-slate-800 mb-4"><a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-500 dark:text-amber-400 hover:underline">Read Analysis</a></div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="blog-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2070" alt="Future" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider rounded">Automation</span>
+                        <span class="absolute top-3 right-3 px-2 py-0.5 bg-slate-900/40 text-white text-[9px] font-medium rounded-full"><i class="fa-regular fa-clock mr-1"></i>5 min</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-amber-500 transition">The Future of Digital Accounting</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs line-clamp-3 font-light">Analyzing cloud-native accounting algorithms, algorithmic audits, and automated frameworks.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0"><hr class="border-slate-100 dark:border-slate-800 mb-4"><a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-500 dark:text-amber-400 hover:underline">Read Analysis</a></div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="blog-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015" alt="SME" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider rounded">SME Systems</span>
+                        <span class="absolute top-3 right-3 px-2 py-0.5 bg-slate-900/40 text-white text-[9px] font-medium rounded-full"><i class="fa-regular fa-clock mr-1"></i>4 min</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-amber-500 transition">How to Manage Small Business Finances</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs line-clamp-3 font-light">A technical breakdown map guiding dynamic pricing structures and operational overhead protection parameters.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0"><hr class="border-slate-100 dark:border-slate-800 mb-4"><a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-500 dark:text-amber-400 hover:underline">Read Analysis</a></div>
+            </article>
+        </div>
+    </section>
+
+    <!-- STUDY HUB PORTAL SECTION (NEW) -->
+    <section id="study-hub" class="py-24 bg-slate-100 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/80 scroll-mt-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
+                <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Knowledge Vault</span>
+                <h2 class="text-3xl font-bold font-serif tracking-tight">Academic Resource Hub</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm font-light">A synchronized workspace mapping core global reporting metrics and structural definitions.</p>
+            </div>
+
+            <div class="space-y-3 max-w-3xl mx-auto">
+                <!-- Accordion Card 1 -->
+                <div class="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden transition duration-300">
+                    <button onclick="toggleAccordion('acc-1')" class="w-full px-6 py-4 flex justify-between items-center text-left font-bold text-sm tracking-tight hover:text-amber-500 transition">
+                        <span>Structural Divergences: GAAP vs. IFRS Metrical Mapping</span>
+                        <i id="icon-acc-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="acc-1" class="hidden px-6 pb-6 text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed space-y-3 border-t border-slate-100 dark:border-slate-900 pt-4">
+                        <p>While **GAAP** (Generally Accepted Accounting Principles) is heavily rules-based and explicitly leveraged within US frameworks, **IFRS** (International Financial Reporting Standards) relies on broad principles used internationally.</p>
+                        <table class="w-full border-collapse text-left my-2 text-[11px]">
+                            <thead>
+                                <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">
+                                    <th class="pb-2 font-semibold">Parameter</th>
+                                    <th class="pb-2 font-semibold">US GAAP</th>
+                                    <th class="pb-2 font-semibold">IFRS Framework</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-900 text-slate-500">
+                                <tr><td class="py-2 font-medium text-slate-700 dark:text-slate-300">Inventory Setup</td><td class="py-2">LIFO Allowed</td><td class="py-2">LIFO Strictly Prohibited</td></tr>
+                                <tr><td class="py-2 font-medium text-slate-700 dark:text-slate-300">Asset Revaluation</td><td class="py-2">Not Permitted</td><td class="py-2">Allowed under strict parameters</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Accordion Card 2 -->
+                <div class="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden transition duration-300">
+                    <button onclick="toggleAccordion('acc-2')" class="w-full px-6 py-4 flex justify-between items-center text-left font-bold text-sm tracking-tight hover:text-amber-500 transition">
+                        <span>The Mechanics of the Three-Statement Mathematical Equation</span>
+                        <i id="icon-acc-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="acc-2" class="hidden px-6 pb-6 text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed space-y-2 border-t border-slate-100 dark:border-slate-900 pt-4">
+                        <p>To evaluate corporate structural solvency, analysts link the Income Statement, Balance Sheet, and Cash Flow ledger into a singular unified matrix:</p>
+                        <p class="font-mono bg-slate-50 dark:bg-slate-900 p-2.5 rounded text-amber-500 dark:text-amber-400 text-center text-[11px]">Assets = Liabilities + Owner's Equity</p>
+                        <p>Net income transfers directly from the Income Statement into Retained Earnings on the Balance Sheet, acting as the foundation for the Cash Flow statement's operational starting vector.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Market Verification</span>
+            <h2 class="text-3xl font-bold font-serif tracking-tight">Endorsements</h2>
+        </div>
+        <div class="relative bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 sm:p-12 rounded-3xl shadow-xl space-y-6">
+            <div class="text-amber-500 text-3xl font-serif">“</div>
+            <div id="testimonial-slider" class="min-h-24">
+                <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg italic font-light" id="testimonial-quote">Loading telemetry...</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-300 font-bold text-slate-800 flex items-center justify-center text-xs" id="testimonial-avatar">..</div>
+                    <div>
+                        <h4 class="text-sm font-bold" id="testimonial-author">Loading...</h4>
+                        <p class="text-[11px] text-slate-400" id="testimonial-role">Loading...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-4">
+                <button onclick="prevTestimonial()" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-amber-500/10 hover:text-amber-500 flex items-center justify-center transition text-xs"><i class="fa-solid fa-arrow-left"></i></button>
+                <button onclick="nextTestimonial()" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-amber-500/10 hover:text-amber-500 flex items-center justify-center transition text-xs"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-slate-100 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800 scroll-mt-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-2">
+                        <span class="text-amber-500 dark:text-amber-400 font-bold tracking-wider text-xs uppercase">Intake Link</span>
+                        <h2 class="text-3xl font-bold font-serif tracking-tight">Initiate Analytical Consultation</h2>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm font-light">Reach out to discuss customized research assignments, micro-enterprise audits, or campus financial strategy panels.</p>
+                    </div>
+                    <div class="space-y-4 text-sm font-light">
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/50 dark:border-slate-800">
+                            <div class="text-amber-500 text-lg"><i class="fa-solid fa-envelope-open"></i></div>
+                            <div>
+                                <h5 class="font-bold text-xs uppercase text-slate-400">Secure Direct Mail</h5>
+                                <a href="mailto:austine.ouko@portfolio.com" class="hover:underline text-slate-700 dark:text-slate-300">austine.ouko@portfolio.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden h-44 bg-slate-300 dark:bg-slate-900 relative">
+                        <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=600')] bg-cover bg-center mix-blend-difference"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center glass bg-white/40">
+                            <i class="fa-solid fa-map-location-dot text-xl text-amber-500 mb-1"></i>
+                            <h4 class="text-xs font-bold uppercase tracking-wider">Operational Nexus Base</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Nairobi Headquarters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white dark:bg-slate-950 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+                    <form id="contact-gate" class="space-y-5">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Legal Identity</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-amber-500 transition">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Electronic Mail Address</label>
+                                <input type="email" required placeholder="john@enterprise.com" class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-amber-500 transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Core Content Telemetry</label>
+                            <textarea rows="4" required placeholder="Specify operational targets..." class="w-full px-4 py-3 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-amber-500 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs uppercase tracking-widest rounded-lg transition shadow-md">
+                            Transmit Communications <i class="fa-solid fa-paper-plane ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER ARCHITECTURE -->
+    <footer class="bg-slate-950 text-slate-400 text-xs font-light border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center space-y-4">
+            <p>&copy; 2026 Austine Ouko. All professional insights reserved.</p>
+            <div class="flex justify-center gap-6 text-base text-slate-500">
+                <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT RUNTIME LAYER -->
+    <script>
+        // DOM ELEMENTS
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+        const searchBars = [document.getElementById('blog-search'), document.getElementById('blog-search-mobile')];
+        const blogCards = document.querySelectorAll('.blog-card');
+        const progressBar = document.getElementById('progress-bar');
+
+        // 1. Reading Progress Bar Engine
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        });
+
+        // 2. Mobile Navigation Logic
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 3. Light/Dark Mode Management System
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        themeToggles.forEach(btn => {
+            if(!btn) return;
+            btn.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+        });
+
+        // 4. Advanced Dynamic Category Filter System
+        function filterCategory(category, targetButton) {
+            // Reset button states
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-4 py-2 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-amber-500/10 transition";
+            });
+            // Set active button state
+            targetButton.className = "cat-btn px-4 py-2 bg-amber-500 text-slate-950 rounded-full transition shadow-sm";
+
+            // Card handling
+            blogCards.forEach(card => {
+                const cardBadge = card.querySelector('span').textContent.toLowerCase().trim();
+                if (category === 'all' || cardBadge === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // 5. Native Text Search System
+        searchBars.forEach(bar => {
+            if(!bar) return;
+            bar.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                blogCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const text = card.querySelector('p').textContent.toLowerCase();
+                    card.style.display = (title.includes(query) || text.includes(query)) ? "flex" : "none";
+                });
+            });
+        });
+
+        // 6. Interactive Financial Calculations
+        function calculateBreakEven() {
+            const fixed = parseFloat(document.getElementById('be-fixed').value) || 0;
+            const price = parseFloat(document.getElementById('be-price').value) || 0;
+            const variable = parseFloat(document.getElementById('be-variable').value) || 0;
+            const margin = price - variable;
+            const result = margin > 0 ? Math.ceil(fixed / margin) : 0;
+            document.getElementById('be-result').textContent = result.toLocaleString();
+        }
+
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('tax-income').value) || 0;
+            let tax = 0;
+            
+            // Standard progressive tax scale matching current dynamic local bounds
+            if (income > 24000) {
+                if (income <= 32333) tax += (income - 24000) * 0.25;
+                else {
+                    tax += 8333 * 0.25;
+                    if (income <= 500000) tax += (income - 32333) * 0.30;
+                    else {
+                        tax += 467667 * 0.30;
+                        if (income <= 800000) tax += (income - 500000) * 0.325;
+                        else tax += (300000 * 0.325) + ((income - 800000) * 0.35);
+                    }
+                }
+            }
+            // Add basic dynamic insurance/personal relief abstraction layer
+            const finalTax = Math.max(0, Math.ceil(tax - 2400)); 
+            document.getElementById('tax-result').textContent = finalTax.toLocaleString();
+            document.getElementById('tax-net').textContent = Math.ceil(income - finalTax).toLocaleString();
+        }
+
+        // 7. Study Hub Portal Dropdowns Logic
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            el.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // 8. Testimonial Rotator Engine
+        const endorsements = [
+            { quote: "Austine's break-even metrics completely changed how we managed our seed capital accounting.", author: "Erick Mwangi", role: "Founder, Apex FinTech Solutions", avatar: "EM" },
+            { quote: "The clarity of the taxation framework metrics saved our processing team hours of compliance confusion.", author: "Sarah Amondi", role: "COO, GreenTech Agri-Hub", avatar: "SA" }
+        ];
+        let currentIdx = 0;
+        function renderTestimonial() {
+            const data = endorsements[currentIdx];
+            document.getElementById('testimonial-quote').textContent = `“${data.quote}”`;
+            document.getElementById('testimonial-author').textContent = data.author;
+            document.getElementById('testimonial-role').textContent = data.role;
+            document.getElementById('testimonial-avatar').textContent = data.avatar;
+        }
+        function nextTestimonial() { currentIdx = (currentIdx + 1) % endorsements.length; renderTestimonial(); }
+        function prevTestimonial() { currentIdx = (currentIdx - 1 + endorsements.length) % endorsements.length; renderTestimonial(); }
+        renderTestimonial();
+
+        // 9. Form Submission Handler Mocking
+        document.getElementById('contact-gate').addEventListener('submit', (e) => {
+            e.preventDefault(); alert("✨ Telemetry successfully logged into Austine's review queue."); e.target.reset();
+        });
+    </script>
+</body>
+</html>

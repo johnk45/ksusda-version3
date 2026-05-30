@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/resources.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+  <link rel="icon" type="image/png" href="../images/kisiilogo.png">
   <meta name="description" content="Nothing Can Separate - A story about God's unconditional love">
     <meta name="author" content="KUSDA Ministry">
     <title>Nothing Can Separate - God's Unconditional Love</title>
@@ -39,6 +39,7 @@
             color: var(--black);
             line-height: 1.8;
             font-size: 16px;
+            font-family:  'Noto Sans', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         .contain {
@@ -63,6 +64,8 @@
             margin-bottom: 10px;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Cormorant Garamond', Georgia, 'Times New Roman',serif;
+
         }
 
         section .subtitle {
@@ -92,6 +95,7 @@
             padding-bottom: 8px;
             border-bottom: 2px solid var(--accent-red);
             font-weight: bold;
+            font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
         }
 
         /* Paragraph Styles */
@@ -514,24 +518,39 @@
             </div>
         </div>
 </div>
-        <!-- Footer -->
-       <footer class="site-footer" role="contentinfo">
+         <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+      <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-main">
         <div class="footer-info">
           <h4>Kisii University Seventh-day Adventist Church</h4>
-          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank" rel="noopener">Kisii University Campus, Kisii, Kenya</a></p>
+          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254700000000">+254 700 000 000</a></p>
           <p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+            <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a>
+          </div>
         </div>
-        <div class="footer-sda-logo">
-          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;">
-        </div>
+        <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div>
       </div>
       <div class="footer-bottom">
-        <p style="color:#fff;">Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
+        <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
       </div>
     </div>
   </footer>
+  <div class="cookie-banner" role="alert">
+    <div class="cookie-inner">
+      <p>This site uses cookies to provide you with the best web experience.</p>
+      <div class="cookie-buttons"><button class="cookie-accept">Accept</button><button class="cookie-reject">Reject</button></div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
 
   <script src="../js/main.js"></script>
   <script src="../js/resources-nav.js"></script>

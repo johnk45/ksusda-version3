@@ -49,7 +49,7 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta name="description" content="Announcements — Kisii University Seventh-day Adventist Church. Stay informed about upcoming programs, events, and church news.">
   <title>Announcements — Kisii University SDA Church</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+  <link rel="icon" type="image/png" href="../images/kisiilogo.png">
 </head>
 <body>
 
@@ -142,16 +142,11 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Announcements - Kisii University SDA Church</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        
         body {
             background: #f8f9fa;
+            font-size: 16px;
+            font-family: inherit;
         }
         html{
             scroll-behavior:smooth;
@@ -165,7 +160,6 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         
         .navbar-brand {
-              font-family: 'Poppins', sans-serif;
             font-size: clamp(1.2rem, 4vw, 1.8rem);
             font-weight: 700;
             background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%);
@@ -515,7 +509,7 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background: #0f172a;
             color: #e2e8f0;
             padding: 60px 20px 20px;
-            font-family: 'Poppins', sans-serif;
+            font-family: inherit;
         }
         
         .footer h5 {

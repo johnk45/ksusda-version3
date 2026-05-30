@@ -1,4 +1,3 @@
-
 <?php
 // reports.php - Fixed preview functionality
 require_once '../UPGRADED KSUSDA WEBSITE/admin/config/database.php';
@@ -73,24 +72,15 @@ function getFileIconClass($file_type) {
 // Get site URL for absolute paths
 $site_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . '/church_ms/';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Church Reports — Kisii University Seventh-day Adventist Church. Access our latest reports and publications.">
-  <title>Reports — Kisii University SDA Church</title>
+  <meta name="description" content="Contact Us — Kisii University Seventh-day Adventist Church. Reach out to us via phone, email, or visit our campus.">
+  <title>Contact Us — Kisii University SDA Church</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
-  <style>
-    .site-footer a {
-      text-decoration: none;
-    }
-    .site-footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
 
@@ -194,15 +184,90 @@ $site_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP
              font-family: 'Poppins', sans-serif;
       color: #222;
       line-height: 1.6;
-      background: #f9f9f9;
+      background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9);
       background-size: 400% 400%;
-}
-      
+        }
+        header{
+               background: linear-gradient(135deg, #001f3f 0%, #0f172a 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content{
+             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+         
+        }
+.logo-text {
+            margin-left:1rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+        .logo-text:hover {
+            background: linear-gradient(135deg, #089cf1 0%, #f37406 50%, #07f068 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color:transparent;
 
+        }
 
        
 
-        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #f5f5f5;
+        }
+
+        .nav-links a.active {
+            color: #f5f5f5;
+        }
+        .nav-links a:hover{color:#f9f9f9;}
+        .nav-links a.active{
+            color:#f9f9f9;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
+        }
+           .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
         .page-header {
             background: linear-gradient(rgba(22, 66, 91, 0.85), rgba(22, 66, 91, 0.9)), url('image/church\ audotorium.jpg');
             background-size: cover;
@@ -405,7 +470,29 @@ $site_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP
 <body>
 
 <!-- Navigation -->
- 
+ <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">              
+             <a class="logo-text" href="about.html">KSUSDA Church</a>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="reports.php" class="active">Reports</a>
+                    <a href="dashboard.php">Dashboard</a>
+                    <a href="logout.php">Logout</a>
+                    <a href="#Ministry.html">Ministries</a>
+                    <a href="#about.html">About</a>
+                    <a href="#contact32.html">Contact</a>
+                </nav>
+                
+            </div>
+        </div>
+    </header>
 
 <!-- Page Header -->
 <section class="page-header">
@@ -562,146 +649,118 @@ $site_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP
     </div>
 </div>
 
-<footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-info">
-          <h4>Kisii University Seventh-day Adventist Church</h4>
-          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254700000000">+254 700 000 000</a></p>
-          <p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
-            <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a>
-          </div>
-        </div>
-        <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div>
-      </div>
-      <div class="footer-bottom">
-        <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
-        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
-      </div>
-    </div>
-  </footer>
-  <div class="cookie-banner" role="alert">
-    <div class="cookie-inner">
-      <p>This site uses cookies to provide you with the best web experience.</p>
-      <div class="cookie-buttons"><button class="cookie-accept">Accept</button><button class="cookie-reject">Reject</button></div>
-    </div>
-  </div>
-  <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
+<script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-      if (mobileMenuBtn && navLinks) {
-          mobileMenuBtn.addEventListener('click', () => {
-              navLinks.classList.toggle('active');
-              mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
-                  ? '<i class="fas fa-times"></i>'
-                  : '<i class="fas fa-bars"></i>';
-          });
-      }
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click',()=>{
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    }
 
-  
-  function previewReport(reportId, fileType, filePath) {
-      document.getElementById('downloadFromPreview').href = 'download_report.php?id=' + reportId;
-      const fullPath = new URL(filePath, window.location.href).href;
-      let previewHtml = '';
+    
+function previewReport(reportId, fileType, filePath) {
+    document.getElementById('downloadFromPreview').href = 'download_report.php?id=' + reportId;
+    const fullPath = new URL(filePath, window.location.href).href;
+    let previewHtml = '';
 
-      switch(fileType.toLowerCase()) {
-          case 'pdf': {
-              const pdfUrl = `${encodeURI(fullPath)}#toolbar=1&navpanes=1&scrollbar=1`;
-              previewHtml = `
-                  <iframe src="${pdfUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
-              `;
-              break;
-          }
+    switch(fileType.toLowerCase()) {
+        case 'pdf': {
+            const pdfUrl = `${encodeURI(fullPath)}#toolbar=1&navpanes=1&scrollbar=1`;
+            previewHtml = `
+                <iframe src="${pdfUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
+            `;
+            break;
+        }
 
-          case 'jpg':
-          case 'jpeg':
-          case 'png':
-          case 'gif':
-          case 'webp':
-              previewHtml = `
-                  <div class="text-center p-4">
-                      <img src="${encodeURI(fullPath)}" class="preview-image" style="max-width:100%; max-height:75vh;" alt="Report Image">
-                  </div>
-              `;
-              break;
+        case 'jpg':
+        case 'jpeg':
+        case 'png':
+        case 'gif':
+        case 'webp':
+            previewHtml = `
+                <div class="text-center p-4">
+                    <img src="${encodeURI(fullPath)}" class="preview-image" style="max-width:100%; max-height:75vh;" alt="Report Image">
+                </div>
+            `;
+            break;
 
-          case 'doc':
-          case 'docx': {
-              const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullPath)}&embedded=true`;
-              previewHtml = `
-                  <iframe src="${googleViewerUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
-                  <div class="alert alert-info m-3">
-                      <i class="fas fa-info-circle"></i>
-                      For the best viewing experience, <a href="${fullPath}" target="_blank">open in a new tab</a> or download the file.
-                  </div>
-              `;
-              break;
-          }
+        case 'doc':
+        case 'docx': {
+            const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullPath)}&embedded=true`;
+            previewHtml = `
+                <iframe src="${googleViewerUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
+                <div class="alert alert-info m-3">
+                    <i class="fas fa-info-circle"></i>
+                    For the best viewing experience, <a href="${fullPath}" target="_blank">open in a new tab</a> or download the file.
+                </div>
+            `;
+            break;
+        }
 
-          case 'xls':
-          case 'xlsx': {
-              const sheetsViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullPath)}&embedded=true`;
-              previewHtml = `
-                  <iframe src="${sheetsViewerUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
-                  <div class="alert alert-info m-3">
-                      <i class="fas fa-info-circle"></i>
-                      <a href="${fullPath}" target="_blank">Click here to open in a new tab</a> for better viewing.
-                  </div>
-              `;
-              break;
-          }
+        case 'xls':
+        case 'xlsx': {
+            const sheetsViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullPath)}&embedded=true`;
+            previewHtml = `
+                <iframe src="${sheetsViewerUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
+                <div class="alert alert-info m-3">
+                    <i class="fas fa-info-circle"></i>
+                    <a href="${fullPath}" target="_blank">Click here to open in a new tab</a> for better viewing.
+                </div>
+            `;
+            break;
+        }
 
-          case 'txt':
-              fetch(encodeURI(fullPath))
-                  .then(response => response.text())
-                  .then(text => {
-                      const textContent = document.getElementById('previewContent');
-                      textContent.innerHTML = `
-                          <pre style="padding:20px; background:#f5f5f5; margin:0; white-space:pre-wrap; word-wrap:break-word; max-height:75vh; overflow:auto;">${escapeHtml(text)}</pre>
-                      `;
-                  })
-                  .catch(() => {
-                      document.getElementById('previewContent').innerHTML = `
-                          <div class="preview-fallback">
-                              <i class="fas fa-exclamation-triangle"></i>
-                              <h5>Unable to load preview</h5>
-                              <p>There was an error loading this file.</p>
-                              <a href="${encodeURI(fullPath)}" class="btn btn-primary" download>Download File</a>
-                          </div>
-                      `;
-                  });
-              new bootstrap.Modal(document.getElementById('previewModal')).show();
-              return;
+        case 'txt':
+            fetch(encodeURI(fullPath))
+                .then(response => response.text())
+                .then(text => {
+                    const textContent = document.getElementById('previewContent');
+                    textContent.innerHTML = `
+                        <pre style="padding:20px; background:#f5f5f5; margin:0; white-space:pre-wrap; word-wrap:break-word; max-height:75vh; overflow:auto;">${escapeHtml(text)}</pre>
+                    `;
+                })
+                .catch(() => {
+                    document.getElementById('previewContent').innerHTML = `
+                        <div class="preview-fallback">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h5>Unable to load preview</h5>
+                            <p>There was an error loading this file.</p>
+                            <a href="${encodeURI(fullPath)}" class="btn btn-primary" download>Download File</a>
+                        </div>
+                    `;
+                });
+            new bootstrap.Modal(document.getElementById('previewModal')).show();
+            return;
 
-          default:
-              previewHtml = `
-                  <div class="preview-fallback">
-                      <i class="fas fa-file-alt"></i>
-                      <h5>Preview Not Available</h5>
-                      <p>This file type (${fileType.toUpperCase()}) cannot be previewed in the browser.</p>
-                      <a href="${encodeURI(fullPath)}" class="btn btn-primary" download>
-                          <i class="fas fa-download"></i> Download File
-                      </a>
-                  </div>
-              `;
-      }
+        default:
+            previewHtml = `
+                <div class="preview-fallback">
+                    <i class="fas fa-file-alt"></i>
+                    <h5>Preview Not Available</h5>
+                    <p>This file type (${fileType.toUpperCase()}) cannot be previewed in the browser.</p>
+                    <a href="${encodeURI(fullPath)}" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download File
+                    </a>
+                </div>
+            `;
+    }
 
-      document.getElementById('previewContent').innerHTML = previewHtml;
-      new bootstrap.Modal(document.getElementById('previewModal')).show();
-  }
+    document.getElementById('previewContent').innerHTML = previewHtml;
+    new bootstrap.Modal(document.getElementById('previewModal')).show();
+}
 
-  function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-  }
-  </script>
-</body>
-</html>
+// Helper function to escape HTML
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+</script>
+

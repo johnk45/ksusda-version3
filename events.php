@@ -135,7 +135,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
   <meta name="description" content="Calendar & Events — Kisii University Seventh-day Adventist Church. Stay up to date with Sabbath services, prayer meetings, and special programs.">
   <title>Calendar & Events — Kisii University SDA Church</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+  <link rel="icon" type="image/png" href="../images/kisiilogo.png">
   <style>
     .site-footer a {
       text-decoration: none;

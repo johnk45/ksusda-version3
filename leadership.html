@@ -7,7 +7,463 @@
   <meta name="description" content="Contact Us — Kisii University Seventh-day Adventist Church. Reach out to us via phone, email, or visit our campus.">
   <title>Contact Us — Kisii University SDA Church</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+    <link rel="icon" type="image/png" href="../images/kisiilogo.png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:  'Noto Sans', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .root{
+  --teal-dark: #005A63;
+  --teal-darker: #004950;
+  --teal-light: #008C99
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.3rem;
+        }
+
+        
+
+        /* Leadership Hero Section */
+        .leadership-hero {
+             background: linear-gradient(10deg, #005a63 0%, #004950 50%);
+              --teal: #006B75;
+;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leadership-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .leadership-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .leadership-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-family: 'Cormorant Garamond', Georgia, 'Times New Roman',serif;
+            font-weight: 700;
+           color:#fff;
+        }
+
+        .leadership-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.8;
+              font-family:  'Noto Sans', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Search & Filter Section */
+        .leadership-search {
+            background: white;
+            padding: 30px;
+            margin: -30px 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-box input,
+        .search-box select {
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input:focus,
+        .search-box select:focus {
+            outline: none;
+            border-color: #004950;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 8px 16px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: #004950;
+            color: white;
+            border-color: #004950;
+        }
+
+        /* Leadership Structure */
+        .leadership-structure {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1e3c72;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #2a5298;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .leader-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #004950;
+            position: relative;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #004950 0%, #04484e 100%);
+        }
+
+        .leader-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover .leader-img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: 25px;
+        }
+
+        .leader-name {
+            font-size: 1.4rem;
+            color: #004950;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .leader-position {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .leader-department {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .leader-card > .leader-info > p:last-of-type {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .leader-contact {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #475569;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #004950;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: #004950;
+            width: 20px;
+            text-align: center;
+        }
+
+        .leader-social {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .leader-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            color: #004950;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .leader-social a:hover {
+            background: #004950;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Leadership Groups */
+        .leadership-group {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .group-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+            border-radius: 12px;
+            border-left: 4px solid #004950;
+        }
+
+        .group-icon {
+            background: linear-gradient(135deg, #004950 0%, #054248 100%);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            flex-shrink: 0;
+        }
+
+        .group-title h3 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 5px;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+        }
+
+        .group-title p {
+            color: #64748b;
+            margin-top: 5px;
+            font-size: 0.95rem;
+        }
+
+        /* Elder & Deacon Lists */
+        .member-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .member-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #004950;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #004950 0%, #0a4146 100%);
+        }
+
+        .member-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .member-role {
+            color: #004950;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .member-responsibility {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .member-item .image {
+            margin: 0 0 12px 0;
+        }
+
+        .member-item .image img {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #004950;
+
+        }
+
+
+     
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body{font-size: 0.85rem;}
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                position: relative;
+            }
+            
+            .leadership-hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .leadership-hero p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            h1,h2,h3{font-size:1.2rem;}
+            .church-name h1{font-size:1rem;}
+           
+        }
+    </style>
+  
 </head>
 <body>
 
@@ -91,660 +547,8 @@
       <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
     </div>
   </nav>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leadership - Kisii University SDA Church</title>
-    <link rel="icon" type="image/jpg" href="image/assetss/kisiilogo.png">
-    <link rel="stylesheet" href="image/assetss/header.css">
-    <link rel="stylesheet" href="assests/style.css">
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.3rem;
-        }
-
-        
-
-        /* Leadership Hero Section */
-        .leadership-hero {
-             background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(12, 74, 110, 0.85) 100%), url('image/ksuda.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-            margin-bottom: 40px;
-            border-radius: 0 0 20px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .leadership-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .leadership-hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .leadership-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .leadership-hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.95;
-            line-height: 1.8;
-        }
-
-        /* Search & Filter Section */
-        .leadership-search {
-            background: white;
-            padding: 30px;
-            margin: -30px 20px 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .search-box input,
-        .search-box select {
-            padding: 12px 15px;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .search-box input:focus,
-        .search-box select:focus {
-            outline: none;
-            border-color: #38bdf8;
-            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
-        }
-
-        .filter-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .filter-tag {
-            padding: 8px 16px;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .filter-tag:hover,
-        .filter-tag.active {
-            background: #38bdf8;
-            color: white;
-            border-color: #38bdf8;
-        }
-
-        /* Leadership Structure */
-        .leadership-structure {
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #1e3c72;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            display: inline-block;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: #2a5298;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .leader-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-top: 4px solid #38bdf8;
-            position: relative;
-        }
-
-        .leader-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
-        }
-
-        .leader-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
-        }
-
-        .leader-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-            transition: transform 0.3s ease;
-        }
-
-        .leader-card:hover .leader-img {
-            transform: scale(1.05);
-        }
-
-        .leader-info {
-            padding: 25px;
-        }
-
-        .leader-name {
-            font-size: 1.4rem;
-            color: #38bdf8;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .leader-position {
-            color: #1e293b;
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .leader-department {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .leader-card > .leader-info > p:last-of-type {
-            color: #475569;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .leader-contact {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: #475569;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item:hover {
-            color: #38bdf8;
-        }
-
-        .contact-item i {
-            margin-right: 10px;
-            color: #38bdf8;
-            width: 20px;
-            text-align: center;
-        }
-
-        .leader-social {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .leader-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: #f1f5f9;
-            border-radius: 50%;
-            color: #38bdf8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-        }
-
-        .leader-social a:hover {
-            background: #38bdf8;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Leadership Groups */
-        .leadership-group {
-            margin-bottom: 50px;
-            animation: fadeInUp 0.6s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .group-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 25px;
-            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
-            border-radius: 12px;
-            border-left: 4px solid #38bdf8;
-        }
-
-        .group-icon {
-            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
-            color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 25px;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-            flex-shrink: 0;
-        }
-
-        .group-title h3 {
-            font-size: 1.8rem;
-            color: #1e293b;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-
-        .group-title p {
-            color: #64748b;
-            margin-top: 5px;
-            font-size: 0.95rem;
-        }
-
-        /* Elder & Deacon Lists */
-        .member-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .member-item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid #38bdf8;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .member-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
-        }
-
-        .member-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
-        }
-
-        .member-name {
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-
-        .member-role {
-            color: #38bdf8;
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .member-responsibility {
-            font-size: 0.9rem;
-            color: #64748b;
-            line-height: 1.5;
-        }
-
-        .member-item .image {
-            margin: 0 0 12px 0;
-        }
-
-        .member-item .image img {
-            height: 50px;
-            width: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #38bdf8;
-        }
-
-
-      .footer {
-  background: #0f172a;
-  color: #e2e8f0;
-  padding: 60px 20px 20px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.footer h2 {
-  color: #38bdf8;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.footer h3 {
-  color: #38bdf8;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-
-.footer-about p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #cbd5e1;
-}
-
-.footer-links ul,
-.footer-resources ul,
-.social-icons {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li,
-.footer-resources li {
-  margin-bottom: 8px;
-}
-
-.footer a {
-  color: #cbd5e1;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer a:hover {
-  color: #38bdf8;
-}
-
-.social-icons ul {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  list-style: none;
-}
-
-.social-icons img {
-  transition: transform 0.3s ease;
-
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-.footer-bottom {
-  text-align: center;
-  font-size: 14px;
-  color: #94a3b8;
-  margin-top: 30px;
-}
-
-.footer-bottom hr {
-  border: none;
-  border-top: 1px solid #1e293b;
-  margin: 20px 0;
-}
-
-.footer-legal {
-  color: #38bdf8;
-  margin: 0 5px;
-  text-decoration: none;
-}
-
-.footer-legal:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom span {
-  color: #38bdf8;
-}
-
-.mobile-menu-btn {
-    display: none;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left:0.5rem;
-}
-
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body{font-size: 0.85rem;}
-            .header-content {
-                flex-direction: row;
-                justify-content: space-between;
-                position: relative;
-            }
-            
-            .leadership-hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .leadership-hero p {
-                font-size: 1rem;
-                padding: 0 15px;
-            }
-            h1,h2,h3{font-size:1.2rem;}
-            .church-name h1{font-size:1rem;}
-            .nav-links{
-        display: none !important;
-        flex-direction: column;
-        background: #031831;
-        position: absolute;
-        top: 90px;
-        right: 4%;
-        width: 90px;
-        gap:5px;
-        text-align: center;
-        z-index: 101;
-
-            }
-            .nav-links.active{
-                display:flex !important;
-            }
-            .mobile-menu-btn{
-                display: flex !important;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
-                padding: 10px;
-                border-radius: 5px;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            .mobile-menu-btn.active i:before {
-                content: '\f00d'; /* X icon */
-            }
-            .church-logo{
-                height:40px;
-                width:auto;
-                left:0;
-                top:10px;
-            }
-            .nav-links a{
-                display: block;
-                padding: 10px 10px;
-                color: white;
-                text-decoration: none;
-            }
-            .nav-links.active a{
-                color:white;
-                background:transparent;
-            }
-            .bar{
-                margin:2px 0;
-                background:white;
-                right:0;
-            }
-            .group-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .group-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            .footer-container{
-                display:grid;
-                grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-                gap:10px;
-            }
-            .footer-container h2,h3{
-                font-size: 1.2rem;
-            }
-            .footer-container p{
-                font-size: 0.9rem;
-            }
-            .social-icons img{
-                width:20px;
-                height:20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .leadership-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .member-list {
-                grid-template-columns: 1fr;
-            }
-            .social-icons img{
-                width:10px;
-                height:10px;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+ 
+ 
   
 
    
@@ -752,7 +556,7 @@
     <!-- Leadership Hero Section -->
     <section class="leadership-hero">
         <div class="container">
-            <h1><i class="fas fa-people-group mr-3"></i>Our Church Leadership</h1>
+            <h1>Our Church Leadership</h1>
             <p>Meet the dedicated servants who guide our spiritual journey and oversee the ministries of Kisii University SDA Church. Our leadership structure follows biblical principles of service and stewardship.</p>
         </div>
     </section>
@@ -1154,26 +958,34 @@
     </button>
 
 
-    <!-- ===== FOOTER ===== -->
-  <footer class="ag-footer">
-    <div class="ag-footer-inner">
-      <div class="ag-footer-logo">
-        <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Adventist Logo" style="height:36px;filter:brightness(0) invert(1)">
-        <div>
-          <span class="ag-logo-title" style="font-size:0.85rem">ADVENTIST<span style="font-weight:300">GIVING</span></span><br>
-          <span style="font-size:0.65rem;opacity:0.6;letter-spacing:1px">KISII UNIVERSITY SDA CHURCH</span>
+      <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-info">
+          <h4>Kisii University Seventh-day Adventist Church</h4>
+          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254700000000">+254 700 000 000</a></p>
+          <p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+            <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a>
+          </div>
         </div>
+        <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div>
       </div>
-      <div class="ag-footer-links">
-        <a href="index.html">HOMEPAGE</a>
-        <a href="contact.html">CONTACT US</a>
-        <a href="about/giving.html">GIVING INFO</a>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
       </div>
-    </div>
-    <div class="ag-footer-bottom">
-      <p>Copyright &copy;2014-2026. Kisii University SDA Church. All rights reserved. <a href="#">Privacy Policy</a></p>
     </div>
   </footer>
+  <div class="cookie-banner" role="alert">
+    <div class="cookie-inner">
+      <p>This site uses cookies to provide you with the best web experience.</p>
+      <div class="cookie-buttons"><button class="cookie-accept">Accept</button><button class="cookie-reject">Reject</button></div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+
 
   <script src="js/giving.js"></script>
 </body>

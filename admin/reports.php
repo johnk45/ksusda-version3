@@ -1,97 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Us — Kisii University Seventh-day Adventist Church. Reach out to us via phone, email, or visit our campus.">
-  <title>Contact Us — Kisii University SDA Church</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
-</head>
-<body>
-
-  <header class="site-header header-solid" role="banner">
-    <div class="header-top">
-      <div class="header-logo">
-        <a href="index.html" aria-label="Kisii University SDA Church Home">
-          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
-          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
-        </a>
-      </div>
-      <div class="header-right-top">
-        <a href="giving.html" class="giving-pill giving-pill-desktop">❤️ Giving</a>
-        <div class="header-social-icons">
-          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <nav class="header-nav" aria-label="Primary Navigation">
-      <div class="desktop-nav">
-        <div class="nav-item">
-          <a href="about/index.html">About Us <span class="chevron-down">▾</span></a>
-          <div class="desktop-dropdown">
-            <a href="about/giving.html">Giving</a><a href="about/history.html">History</a><a href="about/in-the-news.html">In the News</a><a href="about/our-pastor.html">Our Pastor</a><a href="about/sabbath-services.html">Sabbath Services</a><a href="about/what-sda-believe.html">What SDAs Believe</a><a href="about/worship-with-us.html">Worship With Us</a><a href="about/potluck.html">Potluck &amp; Fellowship</a><a href="about/special-events.html">Special Events</a><a href="about/schools.html">Schools &amp; Education</a><a href="about/nearby-churches.html">Nearby SDA Churches</a>
-          </div>
-        </div>
-        <div class="nav-item"><a href="events.html">Calendar</a></div>
-        <div class="nav-item">
-          <a href="ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
-          <div class="desktop-dropdown">
-            <a href="ministries/community-outreach.html">Community Outreach</a><a href="ministries/health.html">Health Ministry</a><a href="ministries/youth-and-children.html">Youth &amp; Children</a><a href="ministries/bible-studies.html">Bible Studies</a><a href="ministries/evangelism.html">Evangelism</a>
-            <a href="ministries/new-zion.html">New Zion</a>
-            <a href="ministries/christ-messengers.html">Christ Messengers</a>
-            <a href="ministries/first-fruits.html">First Fruits</a>
-            <a href="ministries/the-sentinels.html">The Sentinels</a>
-            <a href="ministries/hom.html">HOM — Hands On Mission</a>
-          </div>
-        </div>
-        <div class="nav-item"><a href="giving.html">Online Giving</a></div>
-        <div class="nav-item"><a href="contact.html">Contact Us</a></div>
-      </div>
-      <div class="nav-actions">
-        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-      </div>
-      <div class="header-search-inline" role="search">
-        <form action="search.html" method="get"><input type="text" name="s" placeholder="Search..." aria-label="Search"><button type="submit" aria-label="Search">🔍</button></form>
-      </div>
-    </nav>
-  </header>
-  <div class="menu-overlay" aria-hidden="true"></div>
-  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
-    <div class="menu-header"><button class="menu-close-btn" aria-label="Close Menu">&times;</button></div>
-    <div class="menu-search"><form action="search.html" method="get"><input type="text" name="s" placeholder="Search..." aria-label="Search"><button type="submit" aria-label="Search">🔍</button></form></div>
-    <div class="menu-giving"><a href="giving.html" class="giving-pill">❤️ Giving</a></div>
-    <div class="menu-nav">
-      <div class="menu-nav-item">
-        <div class="menu-nav-link"><a href="about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a><button class="menu-chevron" aria-label="Expand About Us submenu">▼</button></div>
-        <div class="menu-submenu"><a href="about/giving.html">Giving</a><a href="about/history.html">History</a><a href="about/in-the-news.html">In the News</a><a href="about/our-pastor.html">Our Pastor</a><a href="about/sabbath-services.html">Sabbath Services</a><a href="about/what-sda-believe.html">What SDAs Believe</a><a href="about/worship-with-us.html">Worship With Us</a><a href="about/potluck.html">Potluck &amp; Fellowship</a><a href="about/special-events.html">Special Events</a><a href="about/schools.html">Schools &amp; Education</a><a href="about/nearby-churches.html">Nearby SDA Churches</a></div>
-      </div>
-      <div class="menu-nav-item"><a href="events.html" class="menu-nav-link">Calendar</a></div>
-      <div class="menu-nav-item">
-        <div class="menu-nav-link"><a href="ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a><button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button></div>
-        <div class="menu-submenu"><a href="ministries/community-outreach.html">Community Outreach</a><a href="ministries/health.html">Health Ministry</a><a href="ministries/youth-and-children.html">Youth &amp; Children</a><a href="ministries/bible-studies.html">Bible Studies</a><a href="ministries/evangelism.html">Evangelism</a>
-          <a href="ministries/new-zion.html">New Zion</a>
-          <a href="ministries/christ-messengers.html">Christ Messengers</a>
-          <a href="ministries/first-fruits.html">First Fruits</a>
-          <a href="ministries/the-sentinels.html">The Sentinels</a>
-          <a href="ministries/hom.html">HOM — Hands On Mission</a></div>
-      </div>
-      <div class="menu-nav-item"><a href="giving.html" class="menu-nav-link">Online Giving</a></div>
-      <div class="menu-nav-item"><a href="contact.html" class="menu-nav-link">Contact Us</a></div>
-      <div class="menu-nav-item"><a href="announcements.html" class="menu-nav-link">Announcements</a></div>
-      <div class="menu-nav-item"><a href="livestream.html" class="menu-nav-link">Livestream</a></div>
-      <div class="menu-nav-item"><a href="bulletin.html" class="menu-nav-link">Bulletin</a></div>
-      <div class="menu-nav-item"><a href="food.html" class="menu-nav-link">Food Assistance</a></div>
-    </div>
-    <div class="menu-footer">
-      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-    </div>
-  </nav>
-
-
 <?php
 // reports.php - Fixed preview functionality
 require_once 'config/database.php';
@@ -598,7 +504,7 @@ $site_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP
                         </div>
                         <div class="col-auto">
                             <div class="d-flex gap-2">
-                                <button class="btn btn-preview btn-sm" onclick="previewReport(<?php echo (int)$report['report_id']; ?>, <?php echo json_encode($report['file_type']); ?>, <?php echo json_encode($report['file_path']); ?>)">
+                                <button class="btn btn-preview btn-sm" onclick="previewReport(<?php echo $report['report_id']; ?>, '<?php echo $report['file_type']; ?>', '<?php echo addslashes($report['file_path']); ?>')">
                                     <i class="fas fa-eye"></i> Preview
                                 </button>
                                 <a href="download_report.php?id=<?php echo $report['report_id']; ?>" class="btn btn-download btn-sm">
@@ -658,29 +564,34 @@ $site_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
 
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click',()=>{
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
-                ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-    }
+    mobileMenuBtn.addEventListener('click',()=>{
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+        ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
 
     
 function previewReport(reportId, fileType, filePath) {
+    // Update download link
     document.getElementById('downloadFromPreview').href = 'download_report.php?id=' + reportId;
-    const fullPath = new URL(filePath, window.location.href).href;
+    
+    // Get the base URL for absolute paths
+    const baseUrl = window.location.origin + window.location.pathname.replace('reports.php', '');
+    const fullPath = filePath.startsWith('/') ? filePath : baseUrl + filePath;
+    
     let previewHtml = '';
-
-    switch(fileType.toLowerCase()) {
-        case 'pdf': {
-            const pdfUrl = `${encodeURI(fullPath)}#toolbar=1&navpanes=1&scrollbar=1`;
+    
+    // Handle different file types
+    switch(fileType) {
+        case 'pdf':
             previewHtml = `
-                <iframe src="${pdfUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
+                <iframe src="${fullPath}#toolbar=1&navpanes=1&scrollbar=1" 
+                        class="preview-iframe" 
+                        style="width:100%; height:75vh; border:none;">
+                </iframe>
             `;
             break;
-        }
-
+            
         case 'jpg':
         case 'jpeg':
         case 'png':
@@ -688,39 +599,49 @@ function previewReport(reportId, fileType, filePath) {
         case 'webp':
             previewHtml = `
                 <div class="text-center p-4">
-                    <img src="${encodeURI(fullPath)}" class="preview-image" style="max-width:100%; max-height:75vh;" alt="Report Image">
+                    <img src="${fullPath}" class="preview-image" style="max-width:100%; max-height:75vh;" alt="Report Image">
                 </div>
             `;
             break;
-
+            
         case 'doc':
-        case 'docx': {
+        case 'docx':
+            // Try Google Docs Viewer for Word files
             const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullPath)}&embedded=true`;
             previewHtml = `
-                <iframe src="${googleViewerUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
+                <iframe src="${googleViewerUrl}" 
+                        class="preview-iframe" 
+                        style="width:100%; height:75vh; border:none;">
+                </iframe>
                 <div class="alert alert-info m-3">
-                    <i class="fas fa-info-circle"></i>
-                    For the best viewing experience, <a href="${fullPath}" target="_blank">open in a new tab</a> or download the file.
+                    <i class="fas fa-info-circle"></i> 
+                    For the best viewing experience, 
+                    <a href="${fullPath}" target="_blank">click here to open in a new tab</a> 
+                    or download the file.
                 </div>
             `;
             break;
-        }
-
+            
         case 'xls':
-        case 'xlsx': {
+        case 'xlsx':
+            // Use Google Sheets Viewer for Excel files
             const sheetsViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullPath)}&embedded=true`;
             previewHtml = `
-                <iframe src="${sheetsViewerUrl}" class="preview-iframe" style="width:100%; height:75vh; border:none;"></iframe>
+                <iframe src="${sheetsViewerUrl}" 
+                        class="preview-iframe" 
+                        style="width:100%; height:75vh; border:none;">
+                </iframe>
                 <div class="alert alert-info m-3">
-                    <i class="fas fa-info-circle"></i>
-                    <a href="${fullPath}" target="_blank">Click here to open in a new tab</a> for better viewing.
+                    <i class="fas fa-info-circle"></i> 
+                    <a href="${fullPath}" target="_blank">Click here to open in a new tab</a> 
+                    for better viewing.
                 </div>
             `;
             break;
-        }
-
+            
         case 'txt':
-            fetch(encodeURI(fullPath))
+            // Fetch and display text file content
+            fetch(fullPath)
                 .then(response => response.text())
                 .then(text => {
                     const textContent = document.getElementById('previewContent');
@@ -728,33 +649,36 @@ function previewReport(reportId, fileType, filePath) {
                         <pre style="padding:20px; background:#f5f5f5; margin:0; white-space:pre-wrap; word-wrap:break-word; max-height:75vh; overflow:auto;">${escapeHtml(text)}</pre>
                     `;
                 })
-                .catch(() => {
+                .catch(error => {
                     document.getElementById('previewContent').innerHTML = `
                         <div class="preview-fallback">
                             <i class="fas fa-exclamation-triangle"></i>
                             <h5>Unable to load preview</h5>
                             <p>There was an error loading this file.</p>
-                            <a href="${encodeURI(fullPath)}" class="btn btn-primary" download>Download File</a>
+                            <a href="${fullPath}" class="btn btn-primary" download>Download File</a>
                         </div>
                     `;
                 });
-            new bootstrap.Modal(document.getElementById('previewModal')).show();
-            return;
-
+            return; // Exit early since we're using async fetch
+            
         default:
             previewHtml = `
                 <div class="preview-fallback">
                     <i class="fas fa-file-alt"></i>
                     <h5>Preview Not Available</h5>
                     <p>This file type (${fileType.toUpperCase()}) cannot be previewed in the browser.</p>
-                    <a href="${encodeURI(fullPath)}" class="btn btn-primary" download>
+                    <a href="${fullPath}" class="btn btn-primary" download>
                         <i class="fas fa-download"></i> Download File
                     </a>
                 </div>
             `;
     }
-
-    document.getElementById('previewContent').innerHTML = previewHtml;
+    
+    if(previewHtml) {
+        document.getElementById('previewContent').innerHTML = previewHtml;
+    }
+    
+    // Show modal
     new bootstrap.Modal(document.getElementById('previewModal')).show();
 }
 

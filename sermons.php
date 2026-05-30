@@ -189,7 +189,7 @@ sort($topics);
   <meta name="description" content="Sermons — Kisii University Seventh-day Adventist Church. Listen to inspiring messages and teachings from our pastor.">
   <title>Sermons— Kisii University SDA Church</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
+    <link rel="icon" type="image/png" href="../images/kisiilogo.png">
   <style>
     .site-footer a {
       text-decoration: none;
