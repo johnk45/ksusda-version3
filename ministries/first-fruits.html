@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="First Fruit Ministry at Kisii University SDA Church — our tradition of sharing meals and building community.">
   <title>First Fruit Ministry — Kisii University SDA Church</title>
-  <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛪</text></svg>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     
     
     <style>
@@ -305,36 +305,88 @@
             margin-top: 5px;
         }
         
-        /* Leaders List (no photos, compact) */
+        /* Leaders List Section */
+        .leader-simple-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
         .leader-simple-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #e2e8f0;
-            flex-wrap: wrap;
+            flex-direction: column;
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .leader-simple-item:hover {
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+            transform: translateY(-6px);
         }
         
         .leader-simple-name {
             font-weight: 700;
-            min-width: 160px;
+            font-size: 1.15rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .leader-simple-name i {
+            color: #38bdf8;
+            font-size: 1.4rem;
         }
         
         .leader-simple-role {
-            color: #38bdf8;
-            font-size: 0.85rem;
-            min-width: 140px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1.25rem;
+            max-width: fit-content;
+        }
+        
+        .leader-simple-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid #e2e8f0;
         }
         
         .leader-simple-contacts a {
-            color: #64748b;
-            margin: 0 6px;
-            transition: 0.2s;
+            color: #475569;
             text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .leader-simple-contacts a i {
+            color: #38bdf8;
+            min-width: 16px;
+            text-align: center;
         }
         
         .leader-simple-contacts a:hover {
             color: #38bdf8;
+            padding-left: 0.5rem;
         }
         
         /* Join Form */
@@ -535,20 +587,23 @@
         }
         
         .faq-container {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
+            display: grid;
+            gap: 1.5rem;
         }
         
         .faq-item {
-            border-bottom: 1px solid #e2e8f0;
-            padding: 1.5rem 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
         
-        .faq-item:last-child {
-            border-bottom: none;
+        .faq-item:hover {
+            box-shadow: 0 8px 24px rgba(56, 189, 248, 0.12);
+            border-color: #38bdf8;
+            transform: translateY(-2px);
         }
         
         .faq-question {
@@ -556,48 +611,76 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: 0.2s;
+            padding: 1.75rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            transition: all 0.3s ease;
+            user-select: none;
         }
         
-        .faq-question:hover h3 {
-            color: #38bdf8;
+        .faq-question:hover {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e8eef5 100%);
         }
         
         .faq-question h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: #0f172a;
             margin: 0;
-            transition: 0.2s;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            flex: 1;
         }
         
         .faq-toggle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #38bdf8;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-            min-width: 40px;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            min-width: 50px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 12px;
+            margin-left: 1rem;
         }
         
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #64748b;
-            line-height: 1.6;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: #475569;
+            line-height: 1.8;
+            background: #ffffff;
+            padding: 0 1.75rem;
         }
         
         .faq-answer p {
-            margin: 1rem 0 0 0;
+            margin: 0;
             padding: 0;
+            font-size: 0.95rem;
+        }
+        
+        .faq-item.active .faq-question {
+            background: linear-gradient(135deg, #e0f2fe 0%, #cce7ff 100%);
+            border-bottom: 2px solid #38bdf8;
+        }
+        
+        .faq-item.active .faq-question h3 {
+            color: #0369a1;
+            font-weight: 700;
         }
         
         .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
+            background: #38bdf8;
+            color: white;
+            transform: rotate(45deg) scale(1.1);
         }
         
         .faq-item.active .faq-answer {
-            max-height: 500px;
+            max-height: 600px;
+            padding: 1.75rem;
         }
 
         @media (max-width: 768px) {
@@ -605,6 +688,10 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 8px;
+            }
+            .leader-simple-list {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1.5rem;
             }
             .section-title {
                 font-size: 1.5rem;
@@ -618,6 +705,20 @@
             .faq-question h3 {
                 font-size: 1rem;
             }
+            .faq-question {
+                padding: 1.25rem;
+            }
+            .faq-toggle {
+                min-width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+            .faq-answer {
+                padding: 0 1.25rem;
+            }
+            .faq-item.active .faq-answer {
+                padding: 1.25rem;
+            }
             .section-card {
                 padding: 1.5rem;
             }
@@ -626,12 +727,6 @@
             }
             .join-form-card {
                 padding: 1.5rem;
-            }
-            .faq-container {
-                padding: 1rem;
-            }
-            .faq-item {
-                padding: 1rem 0;
             }
             .footer {
                 padding: 2rem 0 1rem;
@@ -657,23 +752,49 @@
                 font-size: 1.25rem;
                 padding-left: 0.75rem;
             }
+            .leader-simple-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .leader-simple-item {
+                padding: 1.25rem;
+            }
             .leader-simple-name {
-                min-width: 100%;
+                font-size: 1rem;
             }
             .leader-simple-role {
-                min-width: 100%;
+                font-size: 0.75rem;
+                padding: 0.3rem 0.75rem;
             }
             .leader-simple-contacts {
-                min-width: 100%;
+                gap: 0.5rem;
+                padding-top: 1rem;
+            }
+            .leader-simple-contacts a {
+                font-size: 0.85rem;
             }
             .faq-question {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
                 gap: 10px;
+                padding: 1rem;
+            }
+            .faq-question h3 {
+                font-size: 0.95rem;
+                flex: 1;
             }
             .faq-toggle {
-                align-self: flex-end;
-                margin-top: -30px;
+                min-width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+                margin-left: 0;
+                margin-top: 0;
+            }
+            .faq-answer {
+                padding: 0 1rem;
+            }
+            .faq-item.active .faq-answer {
+                padding: 1rem;
             }
             .carousel-item {
                 padding: 1.5rem 1rem;
@@ -689,6 +810,51 @@
             .carousel-item p {
                 font-size: 0.75rem;
                 max-width: 100%;
+            }
+        }
+
+        /* Chat with Us Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: linear-gradient(135deg, #25D366 0%, #1EBE4B 100%);
+            color: #ffffff;
+            padding: 0.95rem 1.2rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 18px 40px rgba(37, 211, 102, 0.24);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            z-index: 1100;
+        }
+
+        .whatsapp-float i {
+            font-size: 1.15rem;
+            min-width: 1.4rem;
+            text-align: center;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 48px rgba(37, 211, 102, 0.28);
+            background: linear-gradient(135deg, #1EBE4B 0%, #22C55E 100%);
+        }
+
+        .whatsapp-float span {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                padding: 0.95rem;
+                border-radius: 50%;
+            }
+            .whatsapp-float span {
+                display: none;
             }
         }
       
@@ -875,7 +1041,7 @@
     <!-- Hero Section -->
     <section class="ministry-hero">
         <div class="container">
-            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left me-2"></i> Back to Ministries</a>
+            
             <h1>First Fruit Ministry</h1>
             <p class="lead fs-4">Empowering young people through spiritual growth, fellowship, and leadership development</p>
         </div>
@@ -975,7 +1141,51 @@
             </div>
         </section>
 
-        
+        <section class="section fade-in">
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-hands-helping me-2 text-primary"></i>Why Join First Fruits?</h2>
+                <p class="text-muted mb-4">Experience spiritual growth, leadership training, and community service in a welcoming ministry family.</p>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="mb-3 display-6 text-primary"><i class="fas fa-seedling"></i></div>
+                                <h3 class="h5">Spiritual Growth</h3>
+                                <p class="text-muted">Build your faith through Bible study, prayer, and meaningful worship experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="mb-3 display-6 text-primary"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <h3 class="h5">Leadership Training</h3>
+                                <p class="text-muted">Grow your leadership skills through ministry roles, mentoring, and team-led projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="mb-3 display-6 text-primary"><i class="fas fa-hands-helping"></i></div>
+                                <h3 class="h5">Community Service</h3>
+                                <p class="text-muted">Serve others through outreach, welfare support, and gospel campaigns that impact lives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="mb-3 display-6 text-primary"><i class="fas fa-users"></i></div>
+                                <h3 class="h5">Belonging & Fellowship</h3>
+                                <p class="text-muted">Connect with friends, mentors, and ministry families who share your values.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
   <section class="faq-section fade-in">
     <h2 class="section-title text-center mb-4">First Fruit Ministry Departments</h2>
     <p class="text-center mb-5" style="max-width: 700px; margin: 0 auto; color: #666;">See our Departments Information</p>
@@ -1054,6 +1264,8 @@
   </section>
   
 
+  
+
         <!-- Section: All Leaders (without profile images, only name + contacts) -->
         <div id="leaders-section" class="section-card">
             <h2 class="section-title"><i class="fas fa-user-friends me-2 text-primary"></i> First Fruit Leadership Team</h2>
@@ -1081,26 +1293,25 @@
             </div>
         </div>
 
-        <!-- Form for a Member to Join -->
-        <div id="join" class="join-form-card">
-            <h3 class="mb-3 text-center"><i class="fas fa-hand-peace me-2"></i> Join First Fruit Ministry</h3>
-            <p class="text-center text-white-50 mb-4">Become part of our vibrant youth community. Fill the form and we'll connect you to a family group.</p>
-            <form id="joinMinistryForm">
-                <div class="row g-3">
-                    <div class="col-md-6"><input type="text" class="form-control" id="fullName" placeholder="Full Name" required></div>
-                    <div class="col-md-6"><input type="tel" class="form-control" id="phone" placeholder="Phone Number"></div>
-                    <div class="col-md-6"><input type="email" class="form-control" id="email" placeholder="Email Address"></div>
-                    <div class="col-md-6">
-                        <select class="form-select" id="preferredFamily">
-                            <option value="">Select Preferred Family</option>
-                            <option>Amazing Grace</option><option>Christ Abiders</option><option>Zion Preachers</option><option>Happiness</option>
-                        </select>
-                    </div>
-                    <div class="col-12"><textarea class="form-control" rows="2" placeholder="Any specific interest or department? (optional)"></textarea></div>
-                    <div class="col-12"><button type="submit" class="btn btn-primary w-100"><i class="fas fa-praying-hands me-2"></i> Join Ministry Family</button></div>
-                </div>
-            </form>
+        
+        <!-- Join Form -->
+        <div class="join-form-section" id="join">
+          <h3><i class="fas fa-hand-holding-heart me-2"></i> Become a Messenger</h3>
+          <p class="join-subtitle">Every believer is called to be a messenger of Christ. Fill the form to join the mission.</p>
+          <form id="joinMinistryForm" data-ministry="Christ Messengers">
+            <div class="join-form-grid">
+              <div><input type="text" id="joinFullName" placeholder="Full Name" required></div>
+              <div><input type="tel" placeholder="Phone Number"></div>
+              <div><input type="email" placeholder="Email Address"></div>
+              <div><select><option value="">Select Area of Interest</option><option>Public Preaching</option><option>Door-to-Door</option><option>Literature</option><option>Digital Evangelism</option></select></div>
+              <div class="full-width"><textarea placeholder="Any previous experience or specific questions? (optional)"></textarea></div>
+              <div class="join-form-submit"><button type="submit"><i class="fas fa-hand-holding-heart me-2"></i> Join the Mission</button></div>
+            </div>
+          </form>
         </div>
+
+        <!-- Form for a Member to Join -->
+        
     </div>
 </main>
 
@@ -1110,50 +1321,22 @@
     </button>
 
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <h4><i class="fas fa-seedling me-2"></i> First Fruit Ministry</h4>
-                <p>Empowering university students to live for Christ, grow in leadership, and impact the world with the gospel.</p>
-                <div class="social-icons mt-3">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4">
-                <h4>Quick Links</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="index.html">Home</a></li>
-                    <li class="mb-2"><a href="Ministry.html">Ministries</a></li>
-                    <li class="mb-2"><a href="#join">Join Us</a></li>
-                    <li class="mb-2"><a href="#leaders-section">Leadership</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-4">
-                <h4>Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt me-2"></i> Kisii University, Main Campus</p>
-                <p><i class="fas fa-phone me-2"></i> +254 791 302 316</p>
-                <p><i class="fas fa-envelope me-2"></i> firstfruit@ksusda.org</p>
-            </div>
-            <div class="col-lg-3 col-md-4">
-                <h4>Meeting Times</h4>
-                <p><i class="fas fa-church me-2"></i> Thursday 6:30 PM (Song Training)</p>
-                <p><i class="fas fa-bible me-2"></i> Sunday 2:00 PM (Bible Study)</p>
-                
-            </div>
-        </div>
-        <div class="footer-bottom text-center pt-4 mt-4 border-top border-secondary">
-            <p>&copy; 2025 - <script>document.write(new Date().getFullYear())</script> First Fruit Ministry | Kisii University SDA Church | All Rights Reserved</p>
-        </div>
-    </div>
-</footer>
+<!-- WhatsApp Floating Chatbot Button -->
+  <a href="https://wa.me/254791302316?text=Hello%20First%20Fruits%20Ministry%2C%20I%20want%20to%20learn%20more%20about%20stewardship%20and%20giving." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us">
+    <i class="fab fa-whatsapp"></i> <span>Chat with us</span>
+  </a>
 
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-info"><h4>Kisii University Seventh-day Adventist Church</h4><p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254700000000">+254 700 000 000</a></p><p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p><div class="footer-social"><a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a><a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a></div></div>
+        <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div>
+      </div>
+      <div class="footer-bottom"><p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p><p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p></div>
+    </div>
+  </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assests/script.js"></script>
+<script src="../js/main.js"></script>
 <script>
     // Sliding Cards Animation
     const slidingEvents = document.getElementById('slidingEvents');
