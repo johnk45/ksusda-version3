@@ -52,6 +52,7 @@
         <a href="giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">
           ❤️ Giving
         </a>
+        <button id="colorSwitchBtn" class="theme-toggle-btn" aria-label="Switch page colors" title="Switch page colors"><i class="fas fa-palette"></i></button>
         <div class="header-social-icons">
           <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -270,7 +271,7 @@
       </div>
       <!-- Map -->
       <div class="findus-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7!2d34.7667!3d-0.6833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b507b18e4b68f%3A0x68e0b8e0e8e4e8e0!2sKisii%20University!5e0!3m2!1sen!2ske!4v1" allowfullscreen loading="lazy" title="Map to Kisii University"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.7624561332173!2d34.78065499271838!3d-0.6948639230876783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b3f1a00b4bc3d%3A0x40486692f48ef1bf!2sDr%20Sagini%20Hall%2C%20Kisii%20University%20main%20campus!5e0!3m2!1sen!2ske!4v1780387066045!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -463,5 +464,30 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('colorSwitchBtn');
+      var themeKey = 'ksusdaColorMode';
+      function applyMode(mode) {
+        document.documentElement.classList.toggle('theme-alt', mode === 'alt');
+        if (btn) {
+          btn.textContent = mode === 'alt' ? '☀️' : '🎨';
+          btn.setAttribute('aria-label', mode === 'alt' ? 'Use default colors' : 'Use alternate colors');
+        }
+      }
+      function initMode() {
+        var saved = localStorage.getItem(themeKey) || 'default';
+        applyMode(saved);
+      }
+      document.addEventListener('DOMContentLoaded', initMode);
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var next = document.documentElement.classList.contains('theme-alt') ? 'default' : 'alt';
+          localStorage.setItem(themeKey, next);
+          applyMode(next);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

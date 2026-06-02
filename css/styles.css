@@ -26,6 +26,24 @@
   --font-body: 'Noto Sans', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
   --max-width: 1200px;
   --header-height: 110px;
+  --theme-toggle-bg: #0f172a;
+  --theme-toggle-border: rgba(255,255,255,0.28);
+  --theme-toggle-hover: rgba(255,255,255,0.14);
+}
+
+.theme-alt {
+  --teal: #b67d2d;
+  --teal-dark: #8c5f24;
+  --teal-darker: #5e3f19;
+  --teal-light: #dbaa6b;
+  --white: #f9f7f0;
+  --cream: #fff3db;
+  --off-white: #fbf2e7;
+  --text-dark: #2f2416;
+  --text-body: #4d4034;
+  --text-muted: #7a6d5f;
+  --text-light: #9e8f7d;
+  --border-light: #dfd0b8;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -239,6 +257,20 @@ body.has-solid-header { padding-top: var(--header-height); }
   transition: var(--transition);
 }
 .nav-icon-btn:hover { background: rgba(255,255,255,0.1); }
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--theme-toggle-border);
+  background: var(--theme-toggle-bg);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.theme-toggle-btn:hover { background: var(--theme-toggle-hover); }
 
 /* Inline search */
 .header-search-inline {
