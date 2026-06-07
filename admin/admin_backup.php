@@ -32,20 +32,48 @@ if(isset($_GET['delete']) && isset($_GET['file'])) {
 }
 
 // Handle download backup
+// Handle download backup
 if(isset($_GET['download']) && isset($_GET['file'])) {
-    $file = __DIR__ . '/backups/' . basename($_GET['file']);
-    if(file_exists($file)) {
+    // 🔥 TRY MULTIPLE POSSIBLE LOCATIONS
+    $filename = basename($_GET['file']);
+    
+    $possible_paths = [
+        dirname(__DIR__) . '/backups/' . $filename,  // Main backups folder
+        __DIR__ . '/backups/' . $filename,           // Admin/backups folder
+        __DIR__ . '/../backups/' . $filename,        // Alternative relative path
+        $_SERVER['DOCUMENT_ROOT'] . '/UPGRADED KSUSDA WEBSITE/backups/' . $filename,
+        $_SERVER['DOCUMENT_ROOT'] . '/UPGRADED KSUSDA WEBSITE/admin/backups/' . $filename
+    ];
+    
+    $file_found = false;
+    foreach ($possible_paths as $path) {
+        if (file_exists($path)) {
+            $file_found = $path;
+            break;
+        }
+    }
+    
+    if ($file_found) {
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . basename($file) . '"');
-        header('Content-Length: ' . filesize($file));
-        readfile($file);
+        header('Content-Disposition: attachment; filename="' . basename($file_found) . '"');
+        header('Content-Length: ' . filesize($file_found));
+        header('Cache-Control: private, max-age=0, must-revalidate');
+        readfile($file_found);
         exit();
+    } else {
+        // Show error with debug info
+        $error = "File not found: " . $filename . "<br>";
+        $error .= "Searched in:<br>";
+        foreach ($possible_paths as $path) {
+            $error .= "- " . $path . " (exists: " . (file_exists($path) ? 'Yes' : 'No') . ")<br>";
+        }
     }
 }
 
 $backups = $backupManager->getBackups();
 ?>
 
+<!-- Rest of your HTML remains the same -->
 <style>
     .backup-stats {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

@@ -115,10 +115,18 @@ if(!isset($_SESSION)) session_start();
     </a>
 </li>
 <li class="nav-item">
+<a href="profile.php" class="nav-link">
+    <i class="fas fa-user-circle"></i> My Profile
+</a>
+                    </li>
+<li class="nav-item">
     <a class="nav-link" href="prayer_request.php">
         <i class="fas fa-pen"></i> Submit Prayer
     </a>
 </li>
+<a href="settings.php" class="nav-link">
+    <i class="fas fa-cog"></i> Settings
+</a>
 
     <a href="logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i>Logout</a>
  </nav>

@@ -10,9 +10,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   
   <style>
+    .hero-content{
+      
+    }
     @media (max-width: 600px) {
       .hero {
         background-position: center;
+        background-image: url(images/church\ audotorium.jpg);
+        background-size: cover;
+        min-height: 40vh;
+        backface-visibility: visible;
       }
       .buttons {
         display: flex;
@@ -226,9 +233,23 @@
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1600&q=80');">
+  <section class="hero" style="background: linear-gradient(transparent, rgba(50, 53, 57, 0.85)), url('images/church\ audotorium.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--white);
+      text-shadow: 0 0 2px 4px #003366;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;">
     <div class="hero-content">
       <h1 class="hero-title">Welcome to the Kisii University Seventh-day Adventist Church</h1>
+    
     </div>
   </section>
 
@@ -452,6 +473,12 @@
     </div>
   </footer>
 
+<!--countdown box-->
+<div class="countdown-box" id="countdownBox">
+  Sabbath begins in:<br><span id="countdown"></span>
+</div>
+
+
   <!-- ===== COOKIE BANNER ===== -->
   <div class="cookie-banner" role="alert">
     <div class="cookie-inner">
@@ -488,6 +515,33 @@
         });
       }
     })();
+
+
+    
+// ---- Sabbath Countdown ----
+  function getNextSabbath() {
+  const now = new Date();
+  let daysUntilFriday = (5- now.getDay() + 7) % 7;
+  if (daysUntilFriday === 0 && now.getHours() >= 18) daysUntilFriday = 7;
+  const sabbathStart = new Date(now);
+  sabbathStart.setDate(now.getDate() + daysUntilFriday);
+  sabbathStart.setHours(18, 0, 0, 0); // 6 PM Friday
+  return sabbathStart;
+  }
+  
+  function updateCountdown() {
+  const now = new Date();
+  const sabbath = getNextSabbath();
+  const diff = sabbath - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  document.getElementById("countdown").textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+  
   </script>
 </body>
 </html>

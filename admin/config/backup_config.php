@@ -1,6 +1,6 @@
 <?php
 /**
- * backup_config.php - Central backup configuration
+ * config/backup_config.php - Fixed Backup Manager
  */
 
 class BackupManager {
@@ -13,61 +13,136 @@ class BackupManager {
         $database = new Database();
         $this->db = $database->getConnection();
         
-        // Create backup directories
-        $this->backup_dir = __DIR__ . '/../backups/';
+        // 🔥 FIXED PATH - Use absolute path from project root
+        $this->backup_dir = dirname(__DIR__) . '/backups/';
         $this->log_file = $this->backup_dir . 'backup_log.txt';
         
+        // Create backup directory if not exists
         if (!file_exists($this->backup_dir)) {
             mkdir($this->backup_dir, 0777, true);
         }
     }
     
     /**
-     * Create a database backup
+     * Create a database backup using PHP method (no mysqldump required)
      */
     public function createBackup($triggered_by = 'system') {
         $date = date('Y-m-d_H-i-s');
         $filename = "church_backup_{$date}.sql";
         $filepath = $this->backup_dir . $filename;
         
-        // Get database credentials from your database.php
-        $db_config = $this->getDbConfig();
-        
-        // Create backup using mysqldump if available
-        $command = sprintf(
-            'mysqldump --user=%s --password=%s --host=%s %s > %s 2>&1',
-            escapeshellarg($db_config['user']),
-            escapeshellarg($db_config['pass']),
-            escapeshellarg($db_config['host']),
-            escapeshellarg($db_config['name']),
-            escapeshellarg($filepath)
-        );
-        
-        exec($command, $output, $return_var);
-        
-        if ($return_var === 0 && file_exists($filepath)) {
+        try {
+            // Get all tables
+            $tables = [];
+            $stmt = $this->db->query("SHOW TABLES");
+            while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+                $tables[] = $row[0];
+            }
+            
+            if (empty($tables)) {
+                return ['success' => false, 'error' => 'No tables found in database'];
+            }
+            
+            // Open file for writing
+            $handle = fopen($filepath, 'w');
+            if (!$handle) {
+                return ['success' => false, 'error' => 'Cannot create backup file. Check folder permissions.'];
+            }
+            
+            // Write header
+            fwrite($handle, "-- Church Management System Backup\n");
+            fwrite($handle, "-- Date: " . date('Y-m-d H:i:s') . "\n");
+            fwrite($handle, "-- Database: " . $this->db->query("SELECT DATABASE()")->fetchColumn() . "\n");
+            fwrite($handle, "-- Tables: " . implode(', ', $tables) . "\n\n");
+            fwrite($handle, "SET FOREIGN_KEY_CHECKS=0;\n\n");
+            
+            // Backup each table
+            foreach ($tables as $table) {
+                // Get table structure
+                $create = $this->db->query("SHOW CREATE TABLE `$table`")->fetch(PDO::FETCH_ASSOC);
+                fwrite($handle, "DROP TABLE IF EXISTS `$table`;\n");
+                fwrite($handle, $create['Create Table'] . ";\n\n");
+                
+                // Get table data
+                $rows = $this->db->query("SELECT * FROM `$table`");
+                $rowCount = $rows->rowCount();
+                
+                if ($rowCount > 0) {
+                    // Get column names
+                    $columns = [];
+                    for ($i = 0; $i < $rows->columnCount(); $i++) {
+                        $col = $rows->getColumnMeta($i);
+                        $columns[] = "`{$col['name']}`";
+                    }
+                    $columns_str = implode(", ", $columns);
+                    
+                    $batch = [];
+                    $counter = 0;
+                    while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
+                        $values = [];
+                        foreach ($row as $value) {
+                            if ($value === null) {
+                                $values[] = "NULL";
+                            } else {
+                                $values[] = $this->db->quote($value);
+                            }
+                        }
+                        $batch[] = "(" . implode(", ", $values) . ")";
+                        $counter++;
+                        
+                        // Insert in batches of 100 rows for better performance
+                        if ($counter % 100 == 0) {
+                            fwrite($handle, "INSERT INTO `$table` ($columns_str) VALUES \n" . implode(",\n", $batch) . ";\n");
+                            $batch = [];
+                        }
+                    }
+                    
+                    // Write remaining rows
+                    if (!empty($batch)) {
+                        fwrite($handle, "INSERT INTO `$table` ($columns_str) VALUES \n" . implode(",\n", $batch) . ";\n");
+                    }
+                    fwrite($handle, "\n");
+                }
+            }
+            
+            fwrite($handle, "SET FOREIGN_KEY_CHECKS=1;\n");
+            fclose($handle);
+            
+            // Check if file was created successfully
+            if (!file_exists($filepath) || filesize($filepath) == 0) {
+                return ['success' => false, 'error' => 'Backup file is empty'];
+            }
+            
             // Compress the file
-            $gz_filepath = $filepath . '.gz';
-            $fp = gzopen($gz_filepath, 'wb9');
-            gzwrite($fp, file_get_contents($filepath));
-            gzclose($fp);
-            unlink($filepath); // Remove uncompressed
+            if (function_exists('gzopen')) {
+                $gz_filepath = $filepath . '.gz';
+                $content = file_get_contents($filepath);
+                $fp = gzopen($gz_filepath, 'wb9');
+                gzwrite($fp, $content);
+                gzclose($fp);
+                unlink($filepath); // Remove uncompressed
+                $filepath = $gz_filepath;
+                $filesize = filesize($gz_filepath);
+            } else {
+                $filesize = filesize($filepath);
+            }
             
             // Log the backup
-            $this->logBackup($filename . '.gz', filesize($gz_filepath), $triggered_by);
+            $this->logBackup(basename($filepath), $filesize, $triggered_by);
             
             // Clean old backups (keep last 10)
             $this->cleanOldBackups();
             
             return [
                 'success' => true,
-                'filename' => $filename . '.gz',
-                'filesize' => filesize($gz_filepath),
-                'filepath' => $gz_filepath
+                'filename' => basename($filepath),
+                'filesize' => $filesize,
+                'filepath' => $filepath
             ];
+            
+        } catch (Exception $e) {
+            return ['success' => false, 'error' => $e->getMessage()];
         }
-        
-        return ['success' => false, 'error' => 'Backup failed'];
     }
     
     /**
@@ -115,7 +190,10 @@ class BackupManager {
         if (count($backups) > 10) {
             $to_delete = array_slice($backups, 10);
             foreach ($to_delete as $backup) {
-                unlink($this->backup_dir . $backup['filename']);
+                $filepath = $this->backup_dir . $backup['filename'];
+                if (file_exists($filepath)) {
+                    unlink($filepath);
+                }
             }
         }
     }
@@ -126,19 +204,6 @@ class BackupManager {
     private function logBackup($filename, $size, $triggered_by) {
         $log_entry = date('Y-m-d H:i:s') . " | {$triggered_by} | {$filename} | " . round($size/1024, 2) . " KB\n";
         file_put_contents($this->log_file, $log_entry, FILE_APPEND);
-    }
-    
-    /**
-     * Get database configuration
-     */
-    private function getDbConfig() {
-        // Read from your database.php file
-        return [
-            'user' => 'root',
-            'pass' => '',
-            'host' => 'localhost',
-            'name' => 'church_db'
-        ];
     }
 }
 ?>
