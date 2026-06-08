@@ -7,9 +7,9 @@
   <title>Medical Missionary | Kisii University SDA Church</title>
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  
   <style>
     :root {
       --teal: #006B75;
@@ -116,7 +116,7 @@
       min-height: 500px;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,75,80,0.75)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&fit=crop') center/cover;
+      background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,75,80,0.75)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&amp;fit=crop') center/cover;
     }
     .hero-content { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; color: white; }
     .hero-content h1 { font-size: 3rem; color: white; }
@@ -293,9 +293,7 @@
       align-items: center;
       gap: 1rem;
       box-shadow: var(--shadow);
-      transition: var(--transition);
     }
-    .resource-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
     .resource-card i { font-size: 2rem; color: var(--teal); }
     .download-btn {
       background: var(--teal);
@@ -305,9 +303,7 @@
       border-radius: 20px;
       cursor: pointer;
       margin-top: 5px;
-      transition: var(--transition);
     }
-    .download-btn:hover { background: var(--teal-dark); transform: scale(1.02); }
     
     .faq-container { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; }
     .faq-item {
@@ -356,6 +352,9 @@
       width: 90%;
       border-radius: 24px;
       padding: 2rem;
+    }
+    @media (max-width: 500px) {
+      .modal-container { padding: 1.5rem; }
     }
     .form-control {
       width: 100%;
@@ -566,7 +565,67 @@
 </footer>
 
 <script>
-// ==================== DATA ====================
+// Medical Missionary Department Website - Complete Script
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>]/g, function(m) {
+    if (m === '&') return '&amp;';
+    if (m === '<') return '&lt;';
+    if (m === '>') return '&gt;';
+    return m;
+  });
+}
+
+function downloadResource(name) {
+  alert('Downloading "' + name + '"...\n\nPDF would be available in production.\n\nThis is a demo version.');
+}
+
+function printRemedy(name, description, ingredients) {
+  try {
+    var win = window.open('', '_blank');
+    if (!win) {
+      alert("Please allow popups to print this remedy");
+      return;
+    }
+    win.document.write('<!DOCTYPE html><html><head><title>' + name + ' - Natural Remedy</title>');
+    win.document.write('<style>body{font-family:Arial;padding:20px;max-width:800px;margin:0 auto}h1{color:#006B75}</style>');
+    win.document.write('</head><body>');
+    win.document.write('<h1>' + name + '</h1>');
+    win.document.write('<p><strong>Description:</strong> ' + description + '</p>');
+    win.document.write('<p><strong>Ingredients/Method:</strong> ' + ingredients + '</p>');
+    win.document.write('<hr><p><em>Kisii University SDA - Medical Missionary Department</em></p>');
+    
+    
+    win.print();
+  } catch(error) {
+    alert('Unable to print. Please try again.');
+  }
+}
+
+function openBookingModal() {
+  document.getElementById('appointmentModal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('appointmentModal').classList.remove('active');
+}
+
+function toggleFaq(element) {
+  var faqItem = element.closest('.faq-item');
+  if (!faqItem) return;
+  faqItem.classList.toggle('active');
+  var icon = element.querySelector('.faq-icon');
+  if (icon) icon.textContent = faqItem.classList.contains('active') ? '-' : '+';
+}
+
+function closeDisclaimer() {
+  var banner = document.getElementById('disclaimerBanner');
+  if (banner) banner.style.display = 'none';
+  localStorage.setItem('disclaimerClosed', 'true');
+}
+
+// Data
 var leadersData = [
   { name: "Moffat Omondi", role: "Head of Department", qualification: "Department Coordinator", photo: "https://randomuser.me/api/portraits/men/32.jpg", status: "online" },
   { name: "Ruth Kemunto", role: "MM Secretary", qualification: "Minutes & Documentation", photo: "https://randomuser.me/api/portraits/women/68.jpg", status: "online" },
@@ -577,35 +636,33 @@ var leadersData = [
 ];
 
 var remediesData = [
-  { id: 1, name: "Ginger Tea for Digestion", category: "digestive", description: "Aids digestion, reduces bloating and nausea.", ingredients: "Fresh ginger, honey, warm water", img: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=200&fit=crop" },
+  { id: 1, name: "Ginger Tea for Digestion", category: "digestive", description: "Aids digestion, reduces bloating and nausea.", ingredients: "Fresh ginger root, honey, warm water", img: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=200&fit=crop" },
   { id: 2, name: "Honey Lemon Cough Syrup", category: "respiratory", description: "Soothes throat, reduces coughing naturally.", ingredients: "Honey, lemon, warm water", img: "https://images.unsplash.com/photo-1584365685547-9a5fb6f3a70c?w=400&h=200&fit=crop" },
   { id: 3, name: "Aloe Vera for Skin", category: "skin", description: "Heals burns, wounds, and skin infections.", ingredients: "Fresh aloe vera gel", img: "https://images.unsplash.com/photo-1535324492437-d8dea70a38a3?w=400&h=200&fit=crop" },
   { id: 4, name: "Peppermint for Headaches", category: "stress", description: "Relieves tension headaches and stress.", ingredients: "Peppermint essential oil", img: "https://images.unsplash.com/photo-1595535873420-a599195b3f4a?w=400&h=200&fit=crop" },
-  { id: 5, name: "Turmeric Anti-inflammatory", category: "immune", description: "Reduces inflammation and joint pain.", ingredients: "Turmeric powder, black pepper", img: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=200&fit=crop" },
-  { id: 6, name: "Chamomile Sleep Aid", category: "stress", description: "Promotes relaxation and better sleep.", ingredients: "Chamomile flowers", img: "https://images.unsplash.com/photo-1595535873420-a599195b3f4a?w=400&h=200&fit=crop" }
+  { id: 5, name: "Turmeric Golden Milk", category: "immune", description: "Reduces inflammation and boosts immunity.", ingredients: "Turmeric, black pepper, warm milk", img: "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=400&h=200&fit=crop" },
+  { id: 6, name: "Chamomile Sleep Tea", category: "stress", description: "Promotes relaxation and better sleep.", ingredients: "Chamomile flowers, hot water", img: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=400&h=200&fit=crop" }
 ];
 
-// PDF Resources with actual file paths - UPDATE THESE PATHS TO YOUR ACTUAL PDF FILES
 var resourcesData = [
-  { name: "Natural Remedies Handbook", icon: "fas fa-book-medical", pages: 45, size: "2.1 MB", filename: "natural-remedies-handbook.pdf" },
-  { name: "First Aid Guide", icon: "fas fa-band-aid", pages: 28, size: "1.5 MB", filename:"natural-remedies.pdf" },
-  { name: "Weekly Healthy Meal Plan", icon: "fas fa-utensils", pages: 12, size: "0.8 MB", filename: "weekly-meal-plan.pdf" },
-  { name: "NEWSTART Lifestyle Guide", icon: "fas fa-heartbeat", pages: 38, size: "1.9 MB", filename: "newstart-guide.pdf" }
+  { name: "Natural Remedies Handbook", icon: "fas fa-book-medical", pages: 45, size: "2.1 MB" },
+  { name: "First Aid Guide", icon: "fas fa-band-aid", pages: 28, size: "1.5 MB" },
+  { name: "Weekly Healthy Meal Plan", icon: "fas fa-utensils", pages: 12, size: "0.8 MB" },
+  { name: "NEWSTART Lifestyle Guide", icon: "fas fa-heartbeat", pages: 38, size: "1.9 MB" }
 ];
 
-// ==================== RENDER FUNCTIONS ====================
 function loadLeaders() {
   var container = document.getElementById('leadersGrid');
   if (!container) return;
   var html = '';
   for (var i = 0; i < leadersData.length; i++) {
-    var leader = leadersData[i];
+    var l = leadersData[i];
     html += '<div class="leader-card">';
-    html += '<img src="' + leader.photo + '" class="leader-photo" alt="' + leader.name + '">';
-    html += '<h4>' + leader.name + '</h4>';
-    html += '<p style="color: var(--teal); font-weight: bold;">' + leader.role + '</p>';
-    html += '<p class="small text-muted">' + leader.qualification + '</p>';
-    html += '<span class="' + (leader.status === 'online' ? 'status-online' : 'status-busy') + '">' + (leader.status === 'online' ? 'Available' : 'In Meeting') + '</span><br>';
+    html += '<img src="' + l.photo + '" class="leader-photo" alt="' + l.name + '">';
+    html += '<h4>' + l.name + '</h4>';
+    html += '<p style="color: var(--teal); font-weight: bold;">' + l.role + '</p>';
+    html += '<p class="small text-muted">' + l.qualification + '</p>';
+    html += '<span class="' + (l.status === 'online' ? 'status-online' : 'status-busy') + '">' + (l.status === 'online' ? 'Available' : 'In Meeting') + '</span><br>';
     html += '<button class="book-btn" onclick="openBookingModal()"><i class="fas fa-calendar me-1"></i>Book Appointment</button>';
     html += '</div>';
   }
@@ -622,51 +679,33 @@ function renderRemedies() {
   for (var i = 0; i < remediesData.length; i++) {
     var r = remediesData[i];
     if (currentFilter !== 'all' && r.category !== currentFilter) continue;
-    if (currentSearch) {
-      var searchLower = currentSearch.toLowerCase();
-      if (r.name.toLowerCase().indexOf(searchLower) === -1 && r.description.toLowerCase().indexOf(searchLower) === -1) continue;
+    if (currentSearch && currentSearch.trim() !== '') {
+      var s = currentSearch.toLowerCase().trim();
+      if (r.name.toLowerCase().indexOf(s) === -1 && r.description.toLowerCase().indexOf(s) === -1) continue;
     }
     filtered.push(r);
   }
-  
   if (filtered.length === 0) {
-    grid.innerHTML = '<div style="text-align:center; grid-column:1/-1; padding:2rem;">No remedies found. Try a different search.</div>';
+    grid.innerHTML = '<div style="text-align:center;grid-column:1/-1;padding:2rem;">No remedies found.</div>';
     return;
   }
-  
   var html = '';
   for (var i = 0; i < filtered.length; i++) {
-    var remedy = filtered[i];
+    var r = filtered[i];
+    var safeName = r.name.replace(/'/g, "\\'");
+    var safeDesc = r.description.replace(/'/g, "\\'");
+    var safeIng = r.ingredients.replace(/'/g, "\\'");
     html += '<div class="remedy-card">';
-    html += '<div class="remedy-img" style="background-image: url(\'' + remedy.img + '\')"></div>';
+    html += '<div class="remedy-img" style="background-image: url(\'' + r.img + '\')"></div>';
     html += '<div class="remedy-content">';
-    html += '<span class="remedy-category">' + remedy.category + '</span>';
-    html += '<h4>' + remedy.name + '</h4>';
-    html += '<p class="small">' + remedy.description + '</p>';
-    html += '<p class="small text-muted"><i class="fas fa-mortar-pestle"></i> ' + remedy.ingredients + '</p>';
-    html += '<button class="print-btn" onclick="printRemedy(\'' + remedy.name.replace(/'/g, "\\'") + '\', \'' + remedy.description.replace(/'/g, "\\'") + '\', \'' + remedy.ingredients.replace(/'/g, "\\'") + '\')"><i class="fas fa-print"></i> Print / Save PDF</button>';
+    html += '<span class="remedy-category">' + r.category + '</span>';
+    html += '<h4>' + r.name + '</h4>';
+    html += '<p class="small">' + r.description + '</p>';
+    html += '<p class="small text-muted"><i class="fas fa-mortar-pestle"></i> ' + r.ingredients + '</p>';
+    html += '<button class="print-btn" onclick="printRemedy(\'' + safeName + '\', \'' + safeDesc + '\', \'' + safeIng + '\')"><i class="fas fa-print"></i> Print / Save PDF</button>';
     html += '</div></div>';
   }
   grid.innerHTML = html;
-}
-
-function printRemedy(name, description, ingredients) {
-  var win = window.open('', '_blank');
-  if (!win) {
-    alert("Please allow popups to print");
-    return;
-  }
-  win.document.write('<html><head><title>' + name + ' - Natural Remedy</title>');
-  win.document.write('<style>body{font-family:Arial;padding:20px;max-width:800px;margin:0 auto}');
-  win.document.write('h1{color:#006B75}hr{margin:20px 0}</style>');
-  win.document.write('</head><body>');
-  win.document.write('<h1>' + name + '</h1>');
-  win.document.write('<p><strong>Description:</strong> ' + description + '</p>');
-  win.document.write('<p><strong>Ingredients/Method:</strong> ' + ingredients + '</p>');
-  win.document.write('<hr><p><em>Kisii University SDA - Medical Missionary Department</em></p>');
-  win.document.write('<p><small>This information is for educational purposes. Consult a healthcare professional.</small></p>');
-  
-  win.print();
 }
 
 function loadResources() {
@@ -674,113 +713,38 @@ function loadResources() {
   if (!container) return;
   var html = '';
   for (var i = 0; i < resourcesData.length; i++) {
-    var res = resourcesData[i];
+    var r = resourcesData[i];
     html += '<div class="resource-card">';
-    html += '<i class="' + res.icon + '"></i>';
-    html += '<div style="flex:1"><h5>' + res.name + '</h5><small class="text-muted">' + res.pages + ' pages | ' + res.size + '</small>';
-    html += '<div><button class="download-btn" onclick="downloadPDF(\'' + res.filename + '\', \'' + res.name.replace(/'/g, "\\'") + '\')"><i class="fas fa-download"></i> Download PDF</button></div></div>';
+    html += '<i class="' + r.icon + '"></i>';
+    html += '<div><h5>' + r.name + '</h5><small class="text-muted">' + r.pages + ' pages | ' + r.size + '</small>';
+    html += '<div><button class="download-btn" onclick="downloadResource(\'' + r.name + '\')"><i class="fas fa-download"></i> Download PDF</button></div></div>';
     html += '</div>';
   }
   container.innerHTML = html;
 }
 
-// ==================== PDF DOWNLOAD FUNCTION ====================
-// This function attempts to download PDF files from the 'pdfs' folder
-// Create a folder named 'pdfs' in your project root and place your PDF files there
-function downloadPDF(filename, displayName) {
-  // Path to your PDF files - UPDATE THIS PATH IF NEEDED
-  var pdfPath = 'pdfs/' + filename;
-  
-  // Create an anchor element and trigger download
-  var link = document.createElement('a');
-  link.href = pdfPath;
-  link.download = filename;
-  link.style.display = 'none';
-  
-  document.body.appendChild(link);
-  
-  // Try to download the file
-  link.onclick = function() {
-    // Check if file exists by making a HEAD request
-    fetch(pdfPath, { method: 'HEAD' })
-      .then(function(response) {
-        if (!response.ok) {
-          throw new Error('PDF not found');
-        }
-      })
-      .catch(function(error) {
-        console.error('PDF not found:', error);
-        alert('PDF file not found. Please ensure "' + filename + '" exists in the "pdfs" folder.\n');
-        link.remove();
-      });
-  };
-  
-  link.click();
-  
-  // Small delay before removing the link
-  setTimeout(function() {
-    document.body.removeChild(link);
-  }, 100);
-  
-  // Show download started message
-  console.log('Downloading: ' + displayName);
-}
-
-// Alternative download function using iframe (fallback)
-function downloadPDFWithIframe(filename, displayName) {
-  var pdfPath = 'pdfs/' + filename;
-  var iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  iframe.src = pdfPath;
-  document.body.appendChild(iframe);
-  
-  setTimeout(function() {
-    document.body.removeChild(iframe);
-  }, 5000);
-}
-
-// ==================== COUNTDOWN ====================
 function updateCountdown() {
-  var nextCamp = new Date(2026, 5, 25, 8, 0, 0);
   var now = new Date();
+  var nextCamp = new Date(now.getFullYear(), now.getMonth() + 1, 14, 8, 0, 0);
+  if (nextCamp <= now) nextCamp.setMonth(nextCamp.getMonth() + 1);
   var diff = nextCamp - now;
   if (diff <= 0) {
-    var timerDiv = document.getElementById('countdownTimer');
-    if (timerDiv) timerDiv.innerHTML = '<div class="countdown-box"><div class="countdown-number">Event</div><div>Live Now!</div></div>';
+    if (document.getElementById('countdownTimer')) {
+      document.getElementById('countdownTimer').innerHTML = '<div class="countdown-box"><div class="countdown-number">Live</div><div>Now!</div></div>';
+    }
     return;
   }
   var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((diff % (86400000)) / 3600000);
+  var hours = Math.floor((diff % 86400000) / 3600000);
   var minutes = Math.floor((diff % 3600000) / 60000);
   var seconds = Math.floor((diff % 60000) / 1000);
-  if (document.getElementById('days')) document.getElementById('days').innerText = (days < 10 ? '0' : '') + days;
-  if (document.getElementById('hours')) document.getElementById('hours').innerText = (hours < 10 ? '0' : '') + hours;
-  if (document.getElementById('minutes')) document.getElementById('minutes').innerText = (minutes < 10 ? '0' : '') + minutes;
-  if (document.getElementById('seconds')) document.getElementById('seconds').innerText = (seconds < 10 ? '0' : '') + seconds;
+  if (document.getElementById('days')) document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+  if (document.getElementById('hours')) document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+  if (document.getElementById('minutes')) document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+  if (document.getElementById('seconds')) document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
 }
 
-// ==================== MODAL FUNCTIONS ====================
-function openBookingModal() {
-  document.getElementById('appointmentModal').classList.add('active');
-}
-
-function closeModal() {
-  document.getElementById('appointmentModal').classList.remove('active');
-}
-
-function toggleFaq(element) {
-  var faqItem = element.closest('.faq-item');
-  faqItem.classList.toggle('active');
-  var icon = element.querySelector('.faq-icon');
-  icon.textContent = faqItem.classList.contains('active') ? '-' : '+';
-}
-
-function closeDisclaimer() {
-  document.getElementById('disclaimerBanner').style.display = 'none';
-  localStorage.setItem('disclaimerClosed', 'true');
-}
-
-// ==================== INITIALIZATION ====================
+// Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', function() {
   loadLeaders();
   renderRemedies();
@@ -824,9 +788,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  if (localStorage.getItem('disclaimerClosed') !== 'true') {
-    var banner = document.getElementById('disclaimerBanner');
-    if (banner) banner.style.display = 'flex';
+  var banner = document.getElementById('disclaimerBanner');
+  if (banner && localStorage.getItem('disclaimerClosed') !== 'true') {
+    banner.style.display = 'flex';
   }
 });
 </script>
