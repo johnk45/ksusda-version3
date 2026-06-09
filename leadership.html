@@ -6,23 +6,19 @@
     <title>Kisii University SDA Church | Official Leadership Directory</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="../images/kisiilogo.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
-  
-  
+    <link rel="stylesheet" href="css/styles.css">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; scroll-behavior: smooth; }
-        h1, h2, h3, h4, .heading-font { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif }
+        h1, h2, h3, h4, .heading-font { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
         .gold-accent { color: #084138; }
         .bg-sda-blue { background-color: #1E3A5F; }
         .text-sda-blue { color: #1E3A5F; }
@@ -124,7 +120,7 @@
         .rotate-icon { transition: transform 0.3s; }
         .rotate-icon.expanded { transform: rotate(90deg); }
         
-        /* Document Card Styles */
+        /* Document Card Styles - Enhanced */
         .doc-card {
             transition: all 0.3s;
             cursor: pointer;
@@ -153,205 +149,89 @@
         .modal-container::-webkit-scrollbar { width: 6px; }
         .modal-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
         .modal-container::-webkit-scrollbar-thumb { background: #D4A017; border-radius: 10px; }
+        
+        /* File type badge */
+        .file-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        .file-pdf { background: #dc2626; color: white; }
+        .file-word { background: #2563eb; color: white; }
+        .file-generic { background: #6b7280; color: white; }
+        
+        /* Admin Upload Section */
+        .admin-upload {
+            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+            border: 2px dashed #D4A017;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .upload-area {
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .upload-area:hover, .upload-area.drag-over {
+            border-color: #D4A017;
+            background: rgba(212,160,23,0.05);
+        }
     </style>
 </head>
 <body>
     
-  <!-- ===== HEADER ===== -->
-  <header class="site-header" role="banner">
-    <!-- Top bar: Logo + Giving + Social -->
-    <div class="header-top">
-      <div class="header-logo">
-        <a href="index.html" aria-label="Kisii University SDA Church Home">
-          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
-          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
-        </a>
-      </div>
-      <div class="header-right-top">
-        <a href="giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">
-          ❤️ Giving
-        </a>
-        
-        <div class="header-social-icons">
-          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@Ksusdachurch2025" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+        <div class="header-top">
+            <div class="header-logo">
+                <a href="index.html" aria-label="Kisii University SDA Church Home">
+                    <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
+                    <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
+                </a>
+            </div>
+            <div class="header-right-top">
+                <a href="giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">❤️ Giving</a>
+                <div class="header-social-icons">
+                    <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.youtube.com/@Ksusdachurch2025" target="_blank"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- Navigation bar -->
-    <nav class="header-nav" aria-label="Primary Navigation">
-      <div class="desktop-nav">
-        <div class="nav-item">
-          <a href="about/index.html">About Us <span class="chevron-down">▾</span></a>
-          <div class="desktop-dropdown">
-            <a href="about/giving.html">Giving</a>
-            <a href="about/history.html">History</a>
-            <a href="about/in-the-news.html">In the News</a>
-            <a href="about/our-pastor.html">Our Pastor</a>
-            <a href="about/sabbath-services.html">Sabbath Services</a>
-            <a href="about/what-sda-believe.html">What SDAs Believe</a>
-            <a href="about/worship-with-us.html">Worship With Us</a>
-            <a href="about/potluck.html">Potluck & Fellowship</a>
-            <a href="about/special-events.html">Special Events</a>
-            <a href="about/schools.html">Schools & Education</a>
-            <a href="about/nearby-churches.html">Nearby SDA Churches</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <a href="resources/index.html">Resources <span class="chevron-down">▾</span></a>
-          <div class="desktop-dropdown">
-            <a href="resources/index.html">All Resources</a>
-            <a href="resources/churchblog.html">Church Blog</a>
-            <a href="resources/bible-study-guides.html">Bible Study Guides</a>
-            <a href="resources/health-guides.html">Health &amp; Wellness</a>
-            <a href="resources/devotional.html">Daily Devotional</a>
-            <a href="resources/downloads.html">Downloads &amp; Forms</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <a href="events.html">Calendar</a>
-        </div>
-         <div class="nav-item">
-          <a href="sermons.php">Sermons</a>
-        </div>
-        <div class="nav-item">
-          <a href="ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
-          <div class="desktop-dropdown">
-            <a href="../ministries/health.html">Health Ministry</a>
-              <a href="../ministries/new-zion.html">New Zion</a>
-            <a href="../ministries/christ-messengers.html">Christ Messengers</a>
-            <a href="../ministries/first-fruits.html">First Fruits</a>
-            <a href="../ministries/youth-and-children.html">Children Ministry</a>
-          </div>
-        </div>
-        
-        <div class="nav-item">
-          <a href="giving.html">Online Giving</a>
-        </div>
-        <div class="nav-item">
-          <a href="contact.html">Contact Us</a>
-        </div>
-      </div>
-      <div class="nav-actions">
-        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-      </div>
-      <!-- Inline Search -->
-      <div class="header-search-inline" role="search">
-        <form action="search.html" method="get">
-          <input type="text" name="s" placeholder="Search..." aria-label="Search">
-          <button type="submit" aria-label="Search">🔍</button>
-        </form>
-      </div>
-    </nav>
-  </header>
+        <nav class="header-nav" aria-label="Primary Navigation">
+            <div class="desktop-nav">
+                <div class="nav-item"><a href="about/index.html">About Us <span class="chevron-down">▾</span></a><div class="desktop-dropdown"><a href="about/giving.html">Giving</a><a href="about/history.html">History</a><a href="about/our-pastor.html">Our Pastor</a><a href="about/sabbath-services.html">Sabbath Services</a></div></div>
+                <div class="nav-item"><a href="events.html">Calendar</a></div>
+                <div class="nav-item"><a href="sermons.php">Sermons</a></div>
+                <div class="nav-item"><a href="ministries/index.html">Ministries <span class="chevron-down">▾</span></a><div class="desktop-dropdown"><a href="../ministries/health.html">Health Ministry</a><a href="../ministries/new-zion.html">New Zion</a><a href="../ministries/christ-messengers.html">Christ Messengers</a></div></div>
+                <div class="nav-item"><a href="giving.html">Online Giving</a></div>
+                <div class="nav-item"><a href="contact.html">Contact Us</a></div>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+                <button class="nav-icon-btn header-search-btn" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+            </div>
+            <div class="header-search-inline"><form action="search.html" method="get"><input type="text" name="s" placeholder="Search..."><button type="submit">🔍</button></form></div>
+        </nav>
+    </header>
 
-  <!-- ===== SLIDE-IN MENU ===== -->
-  <div class="menu-overlay" aria-hidden="true"></div>
-  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
-    <div class="menu-header">
-      <button class="menu-close-btn" aria-label="Close Menu">&times;</button>
-    </div>
-    <div class="menu-search">
-      <form action="search.html" method="get">
-        <input type="text" name="s" placeholder="Search..." aria-label="Search">
-        <button type="submit" aria-label="Search">🔍</button>
-      </form>
-    </div>
-    <div class="menu-giving">
-      <a href="giving.html" class="giving-pill">❤️ Giving</a>
-    </div>
-    <div class="menu-nav">
-      <div class="menu-nav-item">
-        <div class="menu-nav-link">
-          <a href="about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a>
-          <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
-        </div>
-        <div class="menu-submenu">
-          <a href="about/giving.html">Giving</a>
-          <a href="about/history.html">History</a>
-          <a href="about/in-the-news.html">In the News</a>
-          <a href="about/our-pastor.html">Our Pastor</a>
-          <a href="about/sabbath-services.html">Sabbath Services</a>
-          <a href="about/what-sda-believe.html">What SDAs Believe</a>
-          <a href="about/worship-with-us.html">Worship With Us</a>
-          <a href="about/potluck.html">Potluck & Fellowship</a>
-          <a href="about/special-events.html">Special Events</a>
-          <a href="about/schools.html">Schools & Education</a>
-          <a href="about/nearby-churches.html">Nearby SDA Churches</a>
-        </div>
-      </div>
-      <div class="menu-nav-item">
-        <a href="events.html" class="menu-nav-link">Calendar</a>
-      </div>
-      <div class="menu-nav-item">
-        <div class="menu-nav-link">
-          <a href="ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a>
-          <button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button>
-        </div>
-        <div class="menu-submenu">
-         <a href="../ministries/health.html">Health Ministry</a>
-              <a href="../ministries/new-zion.html">New Zion</a>
-            <a href="../ministries/christ-messengers.html">Christ Messengers</a>
-            <a href="../ministries/first-fruits.html">First Fruits</a>
-            <a href="../ministries/youth-and-children.html">Children Ministry</a>
-        </div>
-      </div>
-      <div class="menu-nav-item">
-        <a href="giving.html" class="menu-nav-link">Online Giving</a>
-      </div>
-      <div class="menu-nav-item">
-        <a href="contact.html" class="menu-nav-link">Contact Us</a>
-      </div>
-      <div class="menu-nav-item">
-        <div class="menu-nav-link">
-          <a href="events.html" style="color:inherit;text-decoration:none;flex:1;">Events</a>
-          <button class="menu-chevron" aria-label="Expand Events submenu">▼</button>
-        </div>
-        <div class="menu-submenu">
-          <a href="events.html">Upcoming Events</a>
-          <a href="about/special-events.html">Special Events</a>
-        </div>
-      </div>
-      <div class="menu-nav-item">
-        <a href="announcements.html" class="menu-nav-link">Announcements</a>
-      </div>
-      <div class="menu-nav-item">
-        <a href="livestream.html" class="menu-nav-link">Livestream</a>
-      </div>
-      <div class="menu-nav-item">
-        <a href="bulletin.html" class="menu-nav-link">Bulletin</a>
-      </div>
-      <div class="menu-nav-item">
-        <a href="food.html" class="menu-nav-link">Food Assistance</a>
-      </div>
-    </div>
-    <div class="menu-footer">
-      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-      </a>
-    </div>
-  </nav>
+    <!-- ===== SLIDE-IN MENU ===== -->
+    <div class="menu-overlay" aria-hidden="true"></div>
+    <nav class="slide-menu"><div class="menu-header"><button class="menu-close-btn">&times;</button></div><div class="menu-search"><form action="search.html"><input type="text" name="s" placeholder="Search..."><button type="submit">🔍</button></form></div><div class="menu-giving"><a href="giving.html" class="giving-pill">❤️ Giving</a></div><div class="menu-nav"><div class="menu-nav-item"><div class="menu-nav-link"><a href="about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a><button class="menu-chevron">▼</button></div><div class="menu-submenu"><a href="about/giving.html">Giving</a><a href="about/history.html">History</a><a href="about/our-pastor.html">Our Pastor</a></div></div><div class="menu-nav-item"><a href="events.html" class="menu-nav-link">Calendar</a></div><div class="menu-nav-item"><a href="ministries/index.html" class="menu-nav-link">Ministries</a></div><div class="menu-nav-item"><a href="giving.html" class="menu-nav-link">Online Giving</a></div><div class="menu-nav-item"><a href="contact.html" class="menu-nav-link">Contact Us</a></div></div></nav>
 
     <!-- HERO SECTION -->
     <section class="relative min-h-[550px] bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.55)), url('images/church\ audotorium.jpg');">
         <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 h-full min-h-[550px]">
             <div class="max-w-4xl">
                 <h1 class="text-5xl md:text-7xl font-bold text-white mb-5 heading-font drop-shadow-lg" data-aos="fade-up">Church Leadership</h1>
-                <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="150">
-                    Meet the dedicated leaders serving the Kisii University Seventh-day Adventist Church through spiritual guidance, ministry, and service.
-                </p>
+                <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="150">Meet the dedicated leaders serving the Kisii University Seventh-day Adventist Church through spiritual guidance, ministry, and service.</p>
                 <div class="mt-10 flex gap-4 justify-center flex-wrap" data-aos="fade-up" data-aos-delay="300">
                     <a href="#leadership-directory" class="bg-[#D4A017] hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition shadow-lg"><i class="fas fa-users mr-2"></i>Meet Our Leaders</a>
                     <a href="#documents" class="bg-white/20 backdrop-blur-sm border border-white/40 text-white px-8 py-3 rounded-full font-semibold transition hover:bg-white/30"><i class="fas fa-folder-open mr-2"></i>Documents Repository</a>
@@ -361,97 +241,32 @@
         </div>
     </section>
 
-    <!-- PROFESSIONAL SPIRITUAL HIERARCHY -->
+    <!-- PROFESSIONAL SPIRITUAL HIERARCHY (keep existing) -->
     <section class="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-[#D4A017] font-semibold tracking-wide uppercase text-sm">Spiritual Authority & Structure</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-sda-blue mt-2 heading-font">Organizational Hierarchy</h2>
-                <div class="w-24 h-1 bg-[#D4A017] mx-auto mt-4 rounded-full"></div>
-            </div>
-            <div class="org-chart">
-                <div class="org-card primary shadow-xl" data-aos="zoom-in">
-                    <i class="fas fa-church org-icon"></i>
-                    <div class="org-title font-bold text-sda-blue">Senior Pastor</div>
-                    <div class="org-name text-sm text-gray-600">Pr.Dr. Clifford Ratemo</div>
-                </div>
-                <div class="connector-down"></div>
-                <div class="org-level" data-aos="fade-up">
-                    <div class="org-card"><i class="fas fa-users"></i><div class="org-title font-semibold">Associate Pastor</div><div class="org-name text-xs">Pr. Dr. John Yambo</div></div>
-                    <div class="org-card"><i class="fas fa-chalkboard-user org-icon"></i><div class="org-title font-semibold">Assistant Pastor</div><div class="org-name text-xs">Pr. David Omondi</div></div>
-                </div>
-                <div class="connector-branch flex justify-center gap-8 mt-2 mb-4"><div class="branch-line"></div><div class="branch-line"></div><div class="branch-line"></div></div>
-                <div class="org-level gap-8" data-aos="fade-up">
-                    <div class="org-card"><i class="fas fa-users-cog org-icon"></i><div class="org-title">Elders Board</div><div class="org-name text-xs">12+ Members</div></div>
-                    <div class="org-card"><i class="fas fa-chalkboard-user org-icon"></i><div class="org-title">Dept. Ministries</div><div class="org-name text-xs">12+ Leaders</div></div>
-                    <div class="org-card"><i class="fas fa-hands-helping org-icon"></i><div class="org-title">Deacon/Deaconess</div><div class="org-name text-xs">35+ Members</div></div>
-                     <div class="org-card"><i class="fas fa-users org-icon"></i><div class="org-title">Patrons</div><div class="org-name text-xs">12+ Patrons</div></div>
-                     
-                </div>
-            </div>
+            <div class="text-center mb-16"><span class="text-[#D4A017] font-semibold tracking-wide uppercase text-sm">Spiritual Authority & Structure</span><h2 class="text-3xl md:text-4xl font-bold text-sda-blue mt-2 heading-font">Organizational Hierarchy</h2><div class="w-24 h-1 bg-[#D4A017] mx-auto mt-4 rounded-full"></div></div>
+            <div class="org-chart"><div class="org-card primary shadow-xl" data-aos="zoom-in"><i class="fas fa-church org-icon"></i><div class="org-title font-bold text-sda-blue">Senior Pastor</div><div class="org-name text-sm text-gray-600">Pr.Dr. Clifford Ratemo</div></div><div class="connector-down"></div><div class="org-level" data-aos="fade-up"><div class="org-card"><i class="fas fa-users"></i><div class="org-title font-semibold">Associate Pastor</div><div class="org-name text-xs">Pr. Dr. John Yambo</div></div><div class="org-card"><i class="fas fa-chalkboard-user org-icon"></i><div class="org-title font-semibold">Assistant Pastor</div><div class="org-name text-xs">Pr. David Omondi</div></div></div><div class="connector-branch flex justify-center gap-8 mt-2 mb-4"><div class="branch-line"></div><div class="branch-line"></div><div class="branch-line"></div></div><div class="org-level gap-8" data-aos="fade-up"><div class="org-card"><i class="fas fa-users-cog org-icon"></i><div class="org-title">Elders Board</div><div class="org-name text-xs">12+ Members</div></div><div class="org-card"><i class="fas fa-chalkboard-user org-icon"></i><div class="org-title">Dept. Ministries</div><div class="org-name text-xs">12+ Leaders</div></div><div class="org-card"><i class="fas fa-hands-helping org-icon"></i><div class="org-title">Deacon/Deaconess</div><div class="org-name text-xs">35+ Members</div></div><div class="org-card"><i class="fas fa-users org-icon"></i><div class="org-title">Patrons</div><div class="org-name text-xs">12+ Patrons</div></div></div></div>
         </div>
     </section>
 
     <!-- SEARCH & FILTER SECTION -->
     <section id="leadership-directory" class="py-12 px-6 bg-white border-b">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
-                <div class="relative flex-1 max-w-md">
-                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" id="searchInput" placeholder="Search by name, position, or department..." class="search-input w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none">
-                </div>
-                <div class="flex gap-3 flex-wrap">
-                    <button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition active-filter" data-filter="all">All</button>
-                    <button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition" data-filter="pastors">Pastors</button>
-                    <button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition" data-filter="elders">Elders</button>
-                    <button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition" data-filter="departments">Departments</button>
-                </div>
-            </div>
-        </div>
+        <div class="max-w-7xl mx-auto"><div class="flex flex-col md:flex-row gap-6 items-center justify-between"><div class="relative flex-1 max-w-md"><i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i><input type="text" id="searchInput" placeholder="Search by name, position, or department..." class="search-input w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none"></div><div class="flex gap-3 flex-wrap"><button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition active-filter" data-filter="all">All</button><button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition" data-filter="pastors">Pastors</button><button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition" data-filter="elders">Elders</button><button class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition" data-filter="departments">Departments</button></div></div></div>
     </section>
 
     <!-- PASTORAL TEAM SECTION -->
-    <section class="py-16 px-6 bg-white" id="pastors-section">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-sda-blue heading-font">Pastoral Team</h2>
-                <div class="w-20 h-1 bg-[#D4A017] mx-auto mt-3 rounded-full"></div>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="pastoral-cards"></div>
-        </div>
-    </section>
+    <section class="py-16 px-6 bg-white" id="pastors-section"><div class="max-w-7xl mx-auto"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-sda-blue heading-font">Pastoral Team</h2><div class="w-20 h-1 bg-[#D4A017] mx-auto mt-3 rounded-full"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="pastoral-cards"></div></div></section>
 
     <!-- ELDERS SECTION -->
-    <section class="py-16 px-6 bg-gray-50" id="elders-section">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-sda-blue heading-font">Church Elders</h2>
-                <div class="w-20 h-1 bg-[#D4A017] mx-auto mt-3 rounded-full"></div>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7" id="elders-cards"></div>
-        </div>
-    </section>
+    <section class="py-16 px-6 bg-gray-50" id="elders-section"><div class="max-w-7xl mx-auto"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-sda-blue heading-font">Church Elders</h2><div class="w-20 h-1 bg-[#D4A017] mx-auto mt-3 rounded-full"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7" id="elders-cards"></div></div></section>
 
     <!-- DEPARTMENT LEADERS SECTION -->
-    <section class="py-16 px-6 bg-white" id="departments-section">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-sda-blue heading-font">Departmental Ministries</h2>
-                <div class="w-20 h-1 bg-[#D4A017] mx-auto mt-3 rounded-full"></div>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="dept-cards"></div>
-        </div>
-    </section>
+    <section class="py-16 px-6 bg-white" id="departments-section"><div class="max-w-7xl mx-auto"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-sda-blue heading-font">Departmental Ministries</h2><div class="w-20 h-1 bg-[#D4A017] mx-auto mt-3 rounded-full"></div></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="dept-cards"></div></div></section>
 
     <!-- DEACONS & DEACONESSES -->
-    <section class="py-16 px-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-            <div class="rounded-2xl shadow-lg bg-white p-8"><div class="flex items-center gap-3 mb-6 border-b pb-3"><i class="fas fa-tools text-3xl text-[#D4A017]"></i><h3 class="text-2xl font-bold text-sda-blue">Deacons</h3></div><div id="deacons-list" class="space-y-5"></div></div>
-            <div class="rounded-2xl shadow-lg bg-white p-8"><div class="flex items-center gap-3 mb-6 border-b pb-3"><i class="fas fa-hands-helping text-3xl text-[#D4A017]"></i><h3 class="text-2xl font-bold text-sda-blue">Deaconesses</h3></div><div id="deaconesses-list" class="space-y-5"></div></div>
-        </div>
-    </section>
+    <section class="py-16 px-6 bg-gray-50"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10"><div class="rounded-2xl shadow-lg bg-white p-8"><div class="flex items-center gap-3 mb-6 border-b pb-3"><i class="fas fa-tools text-3xl text-[#D4A017]"></i><h3 class="text-2xl font-bold text-sda-blue">Deacons</h3></div><div id="deacons-list" class="space-y-5"></div></div><div class="rounded-2xl shadow-lg bg-white p-8"><div class="flex items-center gap-3 mb-6 border-b pb-3"><i class="fas fa-hands-helping text-3xl text-[#D4A017]"></i><h3 class="text-2xl font-bold text-sda-blue">Deaconesses</h3></div><div id="deaconesses-list" class="space-y-5"></div></div></div></section>
 
-    <!-- ========== NEW: LEADERSHIP DOCUMENTS REPOSITORY ========== -->
+    <!-- ========== LEADERSHIP DOCUMENTS REPOSITORY (UPDATED) ========== -->
     <section id="documents" class="py-24 px-6 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12" data-aos="fade-up">
@@ -483,210 +298,174 @@
     </section>
 
     <!-- INTERACTIVE TREE -->
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12"><h2 class="text-3xl font-bold text-sda-blue heading-font">Interactive Leadership Tree</h2><p class="text-gray-600">Click on any branch to explore the full hierarchy.</p></div>
-            <div class="bg-gray-50 rounded-2xl shadow-xl p-8" id="interactive-tree"></div>
-        </div>
-    </section>
+    <section class="py-20 px-6 bg-white"><div class="max-w-5xl mx-auto"><div class="text-center mb-12"><h2 class="text-3xl font-bold text-sda-blue heading-font">Interactive Leadership Tree</h2><p class="text-gray-600">Click on any branch to explore the full hierarchy.</p></div><div class="bg-gray-50 rounded-2xl shadow-xl p-8" id="interactive-tree"></div></div></section>
 
     <!-- STATISTICS -->
-    <section class="py-20 bg-sda-blue text-white">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12 heading-font">Leadership at a Glance</h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-                <div><div class="text-4xl font-extrabold counter-number" id="stat-pastors">0</div><div class="text-sm uppercase tracking-wide mt-2">Pastors</div></div>
-                <div><div class="text-4xl font-extrabold counter-number" id="stat-elders">0</div><div class="text-sm uppercase tracking-wide mt-2">Elders</div></div>
-                <div><div class="text-4xl font-extrabold counter-number" id="stat-dept">0</div><div class="text-sm uppercase tracking-wide mt-2">Dept. Leaders</div></div>
-                <div><div class="text-4xl font-extrabold counter-number" id="stat-deacons">0</div><div class="text-sm uppercase tracking-wide mt-2">Deacons</div></div>
-                <div><div class="text-4xl font-extrabold counter-number" id="stat-deaconesses">0</div><div class="text-sm uppercase tracking-wide mt-2">Deaconesses</div></div>
-            </div>
-        </div>
-    </section>
+    <section class="py-20 bg-sda-blue text-white"><div class="max-w-6xl mx-auto px-6 text-center"><h2 class="text-3xl font-bold mb-12 heading-font">Leadership at a Glance</h2><div class="grid grid-cols-2 md:grid-cols-5 gap-8"><div><div class="text-4xl font-extrabold counter-number" id="stat-pastors">0</div><div class="text-sm uppercase tracking-wide mt-2">Pastors</div></div><div><div class="text-4xl font-extrabold counter-number" id="stat-elders">0</div><div class="text-sm uppercase tracking-wide mt-2">Elders</div></div><div><div class="text-4xl font-extrabold counter-number" id="stat-dept">0</div><div class="text-sm uppercase tracking-wide mt-2">Dept. Leaders</div></div><div><div class="text-4xl font-extrabold counter-number" id="stat-deacons">0</div><div class="text-sm uppercase tracking-wide mt-2">Deacons</div></div><div><div class="text-4xl font-extrabold counter-number" id="stat-deaconesses">0</div><div class="text-sm uppercase tracking-wide mt-2">Deaconesses</div></div></div></div></section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden md:flex">
-            <div class="bg-sda-blue p-10 md:w-2/5 text-white"><i class="fas fa-church text-4xl mb-4 text-[#D4A017]"></i><h3 class="text-2xl font-bold mb-2">Leadership Office</h3><p class="text-white/80">Kisii University SDA Church, Kisii, Kenya</p><div class="mt-8 space-y-4"><p><i class="fas fa-envelope w-6 text-[#D4A017]"></i> leadership@kisiiunisda.org</p><p><i class="fas fa-phone-alt w-6 text-[#D4A017]"></i> +254 712 345 678</p><p><i class="fas fa-clock w-6 text-[#D4A017]"></i> Mon–Fri: 9am – 4pm</p></div></div>
-            <div class="p-10 md:w-3/5"><h4 class="text-2xl font-bold text-sda-blue">Connect With Us</h4><p class="text-gray-600 mt-2">Need prayer or spiritual guidance? Reach out.</p><form class="mt-8 space-y-5"><input type="text" placeholder="Your name" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D4A017] outline-none"><input type="email" placeholder="Email address" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D4A017] outline-none"><textarea rows="4" placeholder="Message..." class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D4A017] outline-none"></textarea><button type="button" class="bg-sda-blue hover:bg-blue-800 text-white px-8 py-3 rounded-full transition font-semibold">Send Message</button></form></div>
-        </div>
-    </section>
+    <section id="contact" class="py-24 px-6 bg-gray-50"><div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden md:flex"><div class="bg-sda-blue p-10 md:w-2/5 text-white"><i class="fas fa-church text-4xl mb-4 text-[#D4A017]"></i><h3 class="text-2xl font-bold mb-2">Leadership Office</h3><p class="text-white/80">Kisii University SDA Church, Kisii, Kenya</p><div class="mt-8 space-y-4"><p><i class="fas fa-envelope w-6 text-[#D4A017]"></i> leadership@kisiiunisda.org</p><p><i class="fas fa-phone-alt w-6 text-[#D4A017]"></i> +254 712 345 678</p><p><i class="fas fa-clock w-6 text-[#D4A017]"></i> Mon–Fri: 9am – 4pm</p></div></div><div class="p-10 md:w-3/5"><h4 class="text-2xl font-bold text-sda-blue">Connect With Us</h4><p class="text-gray-600 mt-2">Need prayer or spiritual guidance? Reach out.</p><form class="mt-8 space-y-5"><input type="text" placeholder="Your name" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D4A017] outline-none"><input type="email" placeholder="Email address" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D4A017] outline-none"><textarea rows="4" placeholder="Message..." class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D4A017] outline-none"></textarea><button type="button" class="bg-sda-blue hover:bg-blue-800 text-white px-8 py-3 rounded-full transition font-semibold">Send Message</button></form></div></div></section>
 
-    <!-- ===== FOOTER ===== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-info">
-          <h4>Kisii University Seventh-day Adventist Church</h4>
-          <p>
-            <a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br>
-            <a href="tel:+254794487419">+254 794 487 419</a>
-          </p>
-          <p style="margin-top: 0.25rem;">
-            <a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a>
-          </p>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook
-            </a>
-            <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube
-            </a>
-            <a href="https://tiktok.ksusda."><i class="fab fa-tiktok"></i></a> Tiktok
-          </div>
-        </div>
-        <div class="footer-sda-logo">
-          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;">
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
-        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
-      </div>
-    </div>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="site-footer"><div class="container"><div class="footer-main"><div class="footer-info"><h4>Kisii University Seventh-day Adventist Church</h4><p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254794487419">+254 794 487 419</a></p><p><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p><div class="footer-social"><a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank"> Facebook</a><a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank"> YouTube</a></div></div><div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div></div><div class="footer-bottom"><p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p><p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p></div></div></footer>
 
     <!-- MODAL TEMPLATE -->
-    <div id="leadershipModal" class="modal-overlay">
-        <div class="modal-container">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-                <img id="modalImage" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-lg object-cover" src="" alt="">
-                <h3 id="modalName" class="text-2xl font-bold mt-4"></h3>
-                <p id="modalPosition" class="text-[#D4A017] font-semibold"></p>
-            </div>
-            <div class="modal-body">
-                <div class="mb-4"><h4 class="font-bold text-sda-blue">Biography</h4><p id="modalBio" class="text-gray-600 mt-1 leading-relaxed"></p></div>
-                <div class="mb-4"><h4 class="font-bold text-sda-blue">Ministry Focus</h4><p id="modalFocus" class="text-gray-600 mt-1"></p></div>
-                <div class="mb-4"><h4 class="font-bold text-sda-blue">Contact</h4><p id="modalEmail" class="text-gray-600"><i class="fas fa-envelope mr-2 text-[#D4A017]"></i><span id="modalEmailText"></span></p><p id="modalPhone" class="text-gray-600 mt-2"><i class="fas fa-phone-alt mr-2 text-[#D4A017]"></i><span id="modalPhoneText"></span></p></div>
-            </div>
-        </div>
-    </div>
+    <div id="leadershipModal" class="modal-overlay"><div class="modal-container"><div class="modal-header"><button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button><img id="modalImage" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-lg object-cover" src=""><h3 id="modalName" class="text-2xl font-bold mt-4"></h3><p id="modalPosition" class="text-[#D4A017] font-semibold"></p></div><div class="modal-body"><div class="mb-4"><h4 class="font-bold text-sda-blue">Biography</h4><p id="modalBio" class="text-gray-600 mt-1 leading-relaxed"></p></div><div class="mb-4"><h4 class="font-bold text-sda-blue">Ministry Focus</h4><p id="modalFocus" class="text-gray-600 mt-1"></p></div><div class="mb-4"><h4 class="font-bold text-sda-blue">Contact</h4><p id="modalEmail" class="text-gray-600"><i class="fas fa-envelope mr-2 text-[#D4A017]"></i><span id="modalEmailText"></span></p><p id="modalPhone" class="text-gray-600 mt-2"><i class="fas fa-phone-alt mr-2 text-[#D4A017]"></i><span id="modalPhoneText"></span></p></div></div></div></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 });
 
-        // Enhanced Leadership Data
-        const churchData = {
-            pastors: [
-                { name: "Pr. Dr.Clifford Ratemo", position: "Senior Pastor", bio: "Doctor of Ministry from Andrews University. Over 20 years of pastoral experience.", focus: "Vision casting, theological education", email: "pastor.clifford@kisiiunisda.org", phone: "+254 722 111 222", img: "https://images.unsplash.com/photo-1748518146535-496827244df0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-                { name: "Pr. Dr. John Yambo", position: "Associate Pastor", bio: "Master of Arts in Pastoral Counseling. Certified Christian counselor.", focus: "Discipleship, pastoral counseling", email: "john.a@kisiiunisda.org", phone: "+254 711 223 344", img: "https://media.istockphoto.com/id/1443625215/photo/black-congregation-attend-black-baptist-church-service.webp?a=1&b=1&s=612x612&w=0&k=20&c=Wr63qCdSUYSR3iEiZy15qXxr6d4azeIEqc5ElDsegZQ=" },
-                { name: "Pr. David Omondi", position: "Assistant Pastor", bio: "Bachelor of Theology. Dynamic youth speaker.", focus: "Youth & campus ministry", email: "david.omondi@kisiiunisda.org", phone: "+254 700 990 112", img: "https://images.unsplash.com/photo-1582115422763-db7417d14db2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFmcmljYW4lMjBwYXN0b3JzfGVufDB8fDB8fHww" }
-            ],
-            elders: [
-                 { name: "Elder Rowling's Mathews", position: "First Elder", bio: "Coordinator for church outreaches,evangelism and community services", focus: "Incharge of Personal Ministry", email: "mathew45@gmail.com", phone: "+254 745 161 871", img: "images/leaders/Mathews.jpeg" },
-                { name: "Elder Awiti Felix", position: "Second Elder", bio: "He is responsible to members in their spiritual growth.", focus: "Incharge of Nurture & Rentention, Welfare and Communication", email: "awiti45@church.org", phone: "+254 794 487 419", img: "images/leaders/Awiti.jpeg" },
-                { name: "Elder Lawrence Otieno", position: "Elder", bio: "Community development expert.", focus: "Incharge of Medical Missionary", email: "lawrence345@church.org", phone: "+254 723 987 654", img: "images/leaders/luky.jpeg" },
-                 { name: "Elder John Maroa", position: "Elder", bio: "Spiritual Mentorship and discipleship", focus: "Incharge of Master guide &amp;  Deaconry", email: "maroa675@church.org", phone: "+254 723 987 654", img: "images/leaders/maroa.jpeg" },
-                  { name: "Elder Ezra Albert", position: "Elder", bio: "Responsible in spreading the word of God", focus: "Incharge of Evangelism", email: "albert56@church.org", phone: "+254 723 987 654", img: "images/leaders/ezra.jpeg" },
-                   { name: "Elder Joel Nyamweya", position: "Elder", bio: "Organizes VOP studies and Camp Meeting", focus: "Incharge of Voice of Prophecy &amp; Camp Meeting", email: "joel45@church.org", phone: "+254 723 987 654", img: "images/leaders/jpel.jpeg" },
-                    { name: "Elder Kwembur Robert", position: "Elder", bio: "Organizes development project in Church", focus: "Elder Incharge of Church Development", email: "kwembur563@church.org", phone: "+254 723 987 654", img: "images/leaders/robert.jpeg" }
-            ],
-            departments: [
-                { name: "Development", leader: "Bro. Kennedy Walucho", desc: "Church development and growth initiatives.", icon: "fas fa-bolt" },
-                { name: "Stewardship", leader: "Bro. Kiuki Andrew", desc: "Financial stewardship and management.", icon: "fas fa-hand-holding-usd" },
-                { name: "Public Address", leader: "Bro. Fredrick Maranga", desc: "Public speaking and communication.", icon: "fas fa-microphone" },
-                { name: "Pianist", leader: "Bro. Phinneas Matwere", desc: "Piano ministry and worship leadership.", icon: "fas fa-keyboard" },
-                { name: "Publishing", leader: "Bro. Kevin Kibet", desc: "Church publication and communication.", icon: "fas fa-book" },
-                { name: "Religious Liberty", leader: "Bro. Orenge Wilfred", desc: "Advocating for religious freedom and rights.", icon: "fas fa-scale-balanced" },
-                { name: "Family Life", leader: "Elder. Davis Ong'ombe", desc: "Marriage & family enrichment.", icon: "fas fa-home" },
-                { name: "Education", leader: "Bro. Ouma Vincet", desc: "Church Educational initiatives and programs.", icon: "fas fa-graduation-cap" },
-                { name: "Health Ministries", leader: "Bro. Misiani Moffat", desc: "Wellness and health evangelism.", icon: "fas fa-heartbeat" },
-                { name: "Communication", leader: "Bro. Davis Omari", desc: "Media & digital outreach.", icon: "fas fa-bullhorn" },
-                { name: "Music Ministry", leader: "Mary Kemunto", desc: "Worship and choir coordination.", icon: "fas fa-music" },
-                { name: "Personal Ministry", leader: "Bro. Richard Okoth", desc: "Individual spiritual guidance and support.", icon: "fas fa-user-friends" }
-            ],
-            deacons: [
-                { name: "Mamalwa Michael", position: "Head Deacon", duties: "Coordinates maintenance, logistics, member welfare" },
-                { name: "Godwill Mahlon", position: "Deacon", duties: "Ushering & communion setup" },
-                { name: "Slyvester Owaki", position: "Deacon", duties: "Facilities & security" },   
-                { name: "Hillstone Rolex", position: "Deacon", duties: "Facilities & security" },
-                { name: "Meshack Jimmy", position: "Deacon", duties: "Facilities & security" }, 
-                { name: "Sabbath Okello", position: "Deacon", duties: "Facilities & security" }, 
-                { name: "Jeremiah Nyanamba", position: "Deacon", duties: "Facilities & security" }, 
-                { name: "Prestone Odhiambo", position: "Deacon", duties: "Facilities & security" }, 
-                { name: "George Otieno", position: "Deacon", duties: "Facilities & security" },
-            ],
-            deaconesses: [
-                { name: "Violet Jill", position: "Head Deaconess", duties: "Leads women welfare, baptism preparation" },
-                { name: "Ayana Kerubo", position: "Deaconess", duties: "Hospitality & sanctuary care" },
-                { name: "Movinter Obiny", position: "Deaconess", duties: "Visitation & prayer support" },
-                { name: "Faith Rioba", position: "Deacon", duties: "Facilities & security" },
-                { name: "Faridah Momanyi", position: "Deacon", duties: "Facilities & security" },
-                { name: "Dina Kerubo", position: "Deacon", duties: "Facilities & security" },
-                { name: "Claire Bilia", position: "Deacon", duties: "Facilities & security" },
-                { name: "Dina Kerubo", position: "Deacon", duties: "Facilities & security" },
-                { name: "Lavenia Omondi", position: "Deacon", duties: "Facilities & security" },
-            ]
-        };
-
-        // Documents Repository Data
+        // ==================== DOCUMENTS DATA WITH FILE PATHS ====================
+        // Update these paths to point to your actual files in the 'pdfs' folder
+        // Example structure: /pdfs/leadership.docx, /pdfs/constitution.pdf
+        
         const documents = [
-            { id: 1, name: "Church Constitution & Bylaws", category: "governance", date: "2024-01-15", size: "1.2 MB", icon: "fas fa-gavel", description: "Official governing document outlining church structure, doctrine, and operational procedures." },
-            { id: 2, name: "Elder's Handbook & Duties", category: "governance", date: "2024-02-10", size: "850 KB", icon: "fas fa-book", description: "Comprehensive guide for church elders including responsibilities and spiritual guidelines." },
-           
-            { id: 3, name: "Full Leadership List", category: "forms", date: "2024-03-05", size: "320 KB", icon: "fas fa-file-alt", description: "Official list of all church leadership positions and individuals." }
-             
+            { 
+                id: 1, 
+                name: "Church Constitution & Bylaws", 
+                category: "governance", 
+                date: "2024-01-15", 
+                size: "1.2 MB", 
+                icon: "fas fa-gavel", 
+                fileType: "pdf",
+                filePath: "pdfs/constitution.pdf",  // <-- Update with your actual file path
+                description: "Official governing document outlining church structure, doctrine, and operational procedures." 
+            },
+            { 
+                id: 2, 
+                name: "Elder's Handbook & Duties", 
+                category: "governance", 
+                date: "2024-02-10", 
+                size: "850 KB", 
+                icon: "fas fa-book", 
+                fileType: "pdf",
+                filePath: "pdfs/elders-handbook.pdf",  // <-- Update with your actual file path
+                description: "Comprehensive guide for church elders including responsibilities and spiritual guidelines." 
+            },
+            { 
+                id: 3, 
+                name: "Full Leadership List", 
+                category: "forms", 
+                date: "2024-03-05", 
+                size: "320 KB", 
+                icon: "fas fa-file-alt", 
+                fileType: "docx",
+                filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx",  // <-- Update with your actual file path
+                description: "Official list of all church leadership positions and individuals." 
+            },
+            { 
+                id: 4, 
+                name: "Annual Ministry Report 2025", 
+                category: "ministry", 
+                date: "2025-01-20", 
+                size: "2.4 MB", 
+                icon: "fas fa-chart-line", 
+                fileType: "pdf",
+                filePath: "pdfs/annual-report-2025.pdf",  // <-- Add your file
+                description: "Comprehensive report of all ministry activities and achievements for the year 2025." 
+            },
+            { 
+                id: 5, 
+                name: "Deacon/Deaconess Training Manual", 
+                category: "forms", 
+                date: "2024-06-15", 
+                size: "1.1 MB", 
+                icon: "fas fa-hands-helping", 
+                fileType: "docx",
+                filePath: "pdfs/deacon-training.docx",  // <-- Add your file
+                description: "Training material for deacons and deaconesses including duties and spiritual preparation." 
+            },
+            { 
+                id: 6, 
+                name: "Sermon Archive - 1st Quarter 2026", 
+                category: "sermons", 
+                date: "2026-04-01", 
+                size: "5.3 MB", 
+                icon: "fas fa-church", 
+                fileType: "pdf",
+                filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx",  // <-- Add your file
+                description: "Collection of sermons preached during the first quarter of 2026." 
+            }
         ];
 
         let downloadCount = 0;
 
-        // Function to show download notification
-        function showDownloadNotification(docName) {
+        // Helper function to get file icon and badge
+        function getFileBadge(fileType) {
+            if (fileType === 'pdf') {
+                return '<span class="file-badge file-pdf"><i class="fas fa-file-pdf"></i> PDF</span>';
+            } else if (fileType === 'docx') {
+                return '<span class="file-badge file-word"><i class="fas fa-file-word"></i> Word</span>';
+            }
+            return '<span class="file-badge file-generic"><i class="fas fa-file"></i> Document</span>';
+        }
+
+        // Download function - directly links to actual files
+        window.downloadDocument = function(docId, filePath, docName) {
+            if (!filePath) {
+                alert('Document file not available. Please contact the church office.');
+                return;
+            }
+            
+            // Create an anchor element and trigger download
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = docName.replace(/\s/g, '_') + (filePath.endsWith('.pdf') ? '.pdf' : '.docx');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Update download counter
             downloadCount++;
-            document.getElementById('download-count').innerText = downloadCount;
+            const downloadCountElem = document.getElementById('download-count');
+            if (downloadCountElem) downloadCountElem.innerText = downloadCount;
+            
+            // Show notification
             const notification = document.createElement('div');
             notification.className = 'download-toast';
             notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i> Downloading: ${docName}`;
             document.body.appendChild(notification);
             setTimeout(() => notification.remove(), 3000);
-        }
+        };
 
         // Render Documents
         function renderDocuments(category = 'all') {
             const grid = document.getElementById('documents-grid');
+            if (!grid) return;
+            
             const filtered = category === 'all' ? documents : documents.filter(doc => doc.category === category);
-            document.getElementById('doc-count').innerText = filtered.length;
+            const docCountElem = document.getElementById('doc-count');
+            if (docCountElem) docCountElem.innerText = filtered.length;
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-500"><i class="fas fa-folder-open text-4xl mb-3"></i><p>No documents found in this category.</p></div>';
+                return;
+            }
             
             grid.innerHTML = filtered.map(doc => `
                 <div class="doc-card bg-white rounded-xl shadow-md p-6 border-l-4 border-[#D4A017] hover:shadow-xl transition-all" data-category="${doc.category}">
                     <div class="flex items-start gap-4">
                         <div class="text-3xl text-[#D4A017]"><i class="${doc.icon}"></i></div>
                         <div class="flex-1">
-                            <h3 class="font-bold text-sda-blue text-lg">${doc.name}</h3>
+                            <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+                                <h3 class="font-bold text-sda-blue text-lg">${doc.name}</h3>
+                                ${getFileBadge(doc.fileType)}
+                            </div>
                             <p class="text-gray-500 text-sm mt-1">${doc.description}</p>
                             <div class="flex gap-4 mt-3 text-xs text-gray-400">
                                 <span><i class="far fa-calendar-alt mr-1"></i> ${doc.date}</span>
                                 <span><i class="fas fa-database mr-1"></i> ${doc.size}</span>
                             </div>
-                            <button onclick="downloadDocument('${doc.name.replace(/'/g, "\\'")}', ${doc.id})" class="mt-3 text-[#D4A017] hover:text-amber-600 text-sm font-semibold transition">
-                                <i class="fas fa-download mr-1"></i> Download PDF
+                            <button onclick="downloadDocument(${doc.id}, '${doc.filePath}', '${doc.name.replace(/'/g, "\\'")}')" class="mt-3 bg-[#D4A017] hover:bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                                <i class="fas fa-download mr-1"></i> Download ${doc.fileType.toUpperCase()}
                             </button>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
-
-        // Download function (simulated)
-        window.downloadDocument = function(docName, docId) {
-            showDownloadNotification(docName);
-            // In production, this would link to actual PDF files
-            // For demo, we create a blob with sample content
-            const content = `This is a sample document: ${docName}\n\nOfficial document from Kisii University SDA Church Leadership.\n\nFor demonstration purposes. In production, this would be the actual PDF file.`;
-            const blob = new Blob([content], { type: 'application/pdf' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${docName.replace(/\s/g, '_')}.pdf`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        };
 
         // Document Tab Switching
         document.querySelectorAll('.doc-tab-btn').forEach(btn => {
@@ -705,7 +484,60 @@
         // Initialize documents
         renderDocuments('all');
 
-        // Modal Functions
+        // ==================== CHURCH LEADERS DATA (keep existing) ====================
+        const churchData = {
+            pastors: [
+                { name: "Pr. Dr.Clifford Ratemo", position: "Senior Pastor", bio: "Doctor of Ministry from Andrews University. Over 20 years of pastoral experience.", focus: "Vision casting, theological education", email: "pastor.clifford@kisiiunisda.org", phone: "+254 722 111 222", img: "https://images.unsplash.com/photo-1748518146535-496827244df0?w=600&fit=crop" },
+                { name: "Pr. Dr. John Yambo", position: "Associate Pastor", bio: "Master of Arts in Pastoral Counseling. Certified Christian counselor.", focus: "Discipleship, pastoral counseling", email: "john.a@kisiiunisda.org", phone: "+254 711 223 344", img: "https://media.istockphoto.com/id/1443625215/photo/black-congregation-attend-black-baptist-church-service.webp?w=600" },
+                { name: "Pr. David Omondi", position: "Assistant Pastor", bio: "Bachelor of Theology. Dynamic youth speaker.", focus: "Youth & campus ministry", email: "david.omondi@kisiiunisda.org", phone: "+254 700 990 112", img: "https://images.unsplash.com/photo-1582115422763-db7417d14db2?w=600" }
+            ],
+            elders: [
+                { name: "Elder Rowling's Mathews", position: "First Elder", bio: "Coordinator for church outreaches", focus: "Personal Ministry", email: "mathew45@gmail.com", phone: "+254 745 161 871", img: "images/leaders/Mathews.jpeg" },
+                { name: "Elder Awiti Felix", position: "Second Elder", bio: "Responsible for members' spiritual growth", focus: "Nurture & Retention", email: "awiti45@church.org", phone: "+254 794 487 419", img: "images/leaders/Awiti.jpeg" },
+                { name: "Elder Lawrence Otieno", position: "Elder", bio: "Community development expert", focus: "Medical Missionary", email: "lawrence345@church.org", phone: "+254 723 987 654", img: "images/leaders/luky.jpeg" },
+                { name: "Elder John Maroa", position: "Elder", bio: "Spiritual mentorship", focus: "Master Guide & Deaconry", email: "maroa675@church.org", phone: "+254 723 987 654", img: "images/leaders/maroa.jpeg" },
+                { name: "Elder Ezra Albert", position: "Elder", bio: "Evangelism coordinator", focus: "Evangelism", email: "albert56@church.org", phone: "+254 723 987 654", img: "images/leaders/ezra.jpeg" },
+                { name: "Elder Joel Nyamweya", position: "Elder", bio: "VOP coordinator", focus: "Voice of Prophecy & Camp Meeting", email: "joel45@church.org", phone: "+254 723 987 654", img: "images/leaders/jpel.jpeg" },
+                { name: "Elder Kwembur Robert", position: "Elder", bio: "Development projects", focus: "Church Development", email: "kwembur563@church.org", phone: "+254 723 987 654", img: "images/leaders/robert.jpeg" }
+            ],
+            departments: [
+                { name: "Development", leader: "Bro. Kennedy Walucho", desc: "Church development and growth initiatives.", icon: "fas fa-bolt" },
+                { name: "Stewardship", leader: "Bro. Kiuki Andrew", desc: "Financial stewardship and management.", icon: "fas fa-hand-holding-usd" },
+                { name: "Public Address", leader: "Bro. Fredrick Maranga", desc: "Public speaking and communication.", icon: "fas fa-microphone" },
+                { name: "Pianist", leader: "Bro. Phinneas Matwere", desc: "Piano ministry and worship leadership.", icon: "fas fa-keyboard" },
+                { name: "Publishing", leader: "Bro. Kevin Kibet", desc: "Church publication and communication.", icon: "fas fa-book" },
+                { name: "Religious Liberty", leader: "Bro. Orenge Wilfred", desc: "Religious freedom advocacy.", icon: "fas fa-scale-balanced" },
+                { name: "Family Life", leader: "Elder. Davis Ong'ombe", desc: "Marriage & family enrichment.", icon: "fas fa-home" },
+                { name: "Education", leader: "Bro. Ouma Vincet", desc: "Church educational initiatives.", icon: "fas fa-graduation-cap" },
+                { name: "Health Ministries", leader: "Bro. Misiani Moffat", desc: "Wellness and health evangelism.", icon: "fas fa-heartbeat" },
+                { name: "Communication", leader: "Bro. Davis Omari", desc: "Media & digital outreach.", icon: "fas fa-bullhorn" },
+                { name: "Music Ministry", leader: "Mary Kemunto", desc: "Worship and choir coordination.", icon: "fas fa-music" },
+                { name: "Personal Ministry", leader: "Bro. Richard Okoth", desc: "Individual spiritual guidance.", icon: "fas fa-user-friends" }
+            ],
+            deacons: [
+                { name: "Mamalwa Michael", position: "Head Deacon", duties: "Coordinates maintenance, logistics, member welfare" },
+                { name: "Godwill Mahlon", position: "Deacon", duties: "Ushering & communion setup" },
+                { name: "Slyvester Owaki", position: "Deacon", duties: "Facilities & security" },
+                { name: "Hillstone Rolex", position: "Deacon", duties: "Facilities & security" },
+                { name: "Meshack Jimmy", position: "Deacon", duties: "Facilities & security" },
+                { name: "Sabbath Okello", position: "Deacon", duties: "Facilities & security" },
+                { name: "Jeremiah Nyanamba", position: "Deacon", duties: "Facilities & security" },
+                { name: "Prestone Odhiambo", position: "Deacon", duties: "Facilities & security" },
+                { name: "George Otieno", position: "Deacon", duties: "Facilities & security" }
+            ],
+            deaconesses: [
+                { name: "Violet Jill", position: "Head Deaconess", duties: "Leads women welfare, baptism preparation" },
+                { name: "Ayana Kerubo", position: "Deaconess", duties: "Hospitality & sanctuary care" },
+                { name: "Movinter Obiny", position: "Deaconess", duties: "Visitation & prayer support" },
+                { name: "Faith Rioba", position: "Deaconess", duties: "Facilities & security" },
+                { name: "Faridah Momanyi", position: "Deaconess", duties: "Facilities & security" },
+                { name: "Dina Kerubo", position: "Deaconess", duties: "Facilities & security" },
+                { name: "Claire Bilia", position: "Deaconess", duties: "Facilities & security" },
+                { name: "Lavenia Omondi", position: "Deaconess", duties: "Facilities & security" }
+            ]
+        };
+
+        // Render functions for leaders (keep existing)
         function openModal(leader) {
             document.getElementById('modalImage').src = leader.img || 'https://via.placeholder.com/112';
             document.getElementById('modalName').innerText = leader.name;
@@ -716,53 +548,37 @@
             document.getElementById('modalPhoneText').innerText = leader.phone || "Not available";
             document.getElementById('leadershipModal').classList.add('active');
         }
-        window.closeModal = function() { document.getElementById('leadershipModal').classList.remove('active'); }
-        document.getElementById('leadershipModal').addEventListener('click', (e) => { if(e.target === document.getElementById('leadershipModal')) closeModal(); });
+        
+        window.closeModal = function() { 
+            document.getElementById('leadershipModal').classList.remove('active'); 
+        };
+        
+        document.getElementById('leadershipModal').addEventListener('click', (e) => { 
+            if(e.target === document.getElementById('leadershipModal')) closeModal(); 
+        });
 
         // Render Pastoral Cards
         const pastorsContainer = document.getElementById('pastoral-cards');
         churchData.pastors.forEach(p => {
-            pastorsContainer.innerHTML += `
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-b-4 border-[#D4A017] card-hover cursor-pointer" onclick='openModal(${JSON.stringify(p)})' data-aos="fade-up" data-category="pastors">
-                    <div class="p-7 flex flex-col items-center text-center">
-                        <img src="${p.img}" class="w-28 h-28 rounded-full object-cover border-4 border-gray-100 shadow-md">
-                        <h3 class="text-xl font-bold mt-4 text-sda-blue">${p.name}</h3>
-                        <p class="text-[#D4A017] font-semibold text-sm">${p.position}</p>
-                        <p class="text-gray-600 text-sm mt-3 px-2">${p.bio.substring(0, 100)}...</p>
-                        <div class="mt-4"><button class="text-sm text-sda-blue hover:text-[#D4A017] font-semibold">View Full Profile →</button></div>
-                    </div>
-                </div>`;
+            pastorsContainer.innerHTML += `<div class="bg-white rounded-2xl shadow-xl overflow-hidden border-b-4 border-[#D4A017] card-hover cursor-pointer" onclick='openModal(${JSON.stringify(p)})' data-aos="fade-up" data-category="pastors"><div class="p-7 flex flex-col items-center text-center"><img src="${p.img}" class="w-28 h-28 rounded-full object-cover border-4 border-gray-100 shadow-md"><h3 class="text-xl font-bold mt-4 text-sda-blue">${p.name}</h3><p class="text-[#D4A017] font-semibold text-sm">${p.position}</p><p class="text-gray-600 text-sm mt-3 px-2">${p.bio.substring(0, 100)}...</p><div class="mt-4"><button class="text-sm text-sda-blue hover:text-[#D4A017] font-semibold">View Full Profile →</button></div></div></div>`;
         });
 
         // Render Elders
         const eldersContainer = document.getElementById('elders-cards');
         churchData.elders.forEach(e => {
-            eldersContainer.innerHTML += `
-                <div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#D4A017] card-hover cursor-pointer" onclick='openModal(${JSON.stringify(e)})' data-category="elders">
-                    <div class="flex gap-4 items-center">
-                        <img src="${e.img}" class="w-16 h-16 rounded-full object-cover shadow">
-                        <div><h4 class="font-bold text-sda-blue text-lg">${e.name}</h4><p class="text-[#D4A017] text-sm font-medium">${e.position}</p></div>
-                    </div>
-                    <p class="text-gray-600 text-sm mt-3"><i class="fas fa-tasks mr-1"></i> ${e.focus}</p>
-                    <div class="mt-2 text-xs text-gray-500"><i class="fas fa-envelope"></i> ${e.email}</div>
-                </div>`;
+            eldersContainer.innerHTML += `<div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#D4A017] card-hover cursor-pointer" onclick='openModal(${JSON.stringify(e)})' data-category="elders"><div class="flex gap-4 items-center"><img src="${e.img}" class="w-16 h-16 rounded-full object-cover shadow"><div><h4 class="font-bold text-sda-blue text-lg">${e.name}</h4><p class="text-[#D4A017] text-sm font-medium">${e.position}</p></div></div><p class="text-gray-600 text-sm mt-3"><i class="fas fa-tasks mr-1"></i> ${e.focus}</p><div class="mt-2 text-xs text-gray-500"><i class="fas fa-envelope"></i> ${e.email}</div></div>`;
         });
 
         // Render Departments
         const deptContainer = document.getElementById('dept-cards');
         churchData.departments.forEach(d => {
-            deptContainer.innerHTML += `
-                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-all border border-gray-100 text-center" data-category="departments">
-                    <i class="${d.icon} text-3xl text-[#D4A017] mb-3"></i>
-                    <h3 class="font-bold text-sda-blue text-lg">${d.name}</h3>
-                    <p class="text-sm font-semibold text-gray-700 mt-1">${d.leader}</p>
-                    <p class="text-gray-500 text-xs mt-2">${d.desc}</p>
-                </div>`;
+            deptContainer.innerHTML += `<div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-all border border-gray-100 text-center" data-category="departments"><i class="${d.icon} text-3xl text-[#D4A017] mb-3"></i><h3 class="font-bold text-sda-blue text-lg">${d.name}</h3><p class="text-sm font-semibold text-gray-700 mt-1">${d.leader}</p><p class="text-gray-500 text-xs mt-2">${d.desc}</p></div>`;
         });
 
         // Deacons & Deaconesses
         const deaconsDiv = document.getElementById('deacons-list');
         churchData.deacons.forEach(d => { deaconsDiv.innerHTML += `<div class="bg-gray-50 rounded-xl p-4 shadow-sm"><span class="font-bold text-sda-blue">${d.position}:</span> ${d.name}<div class="text-gray-500 text-sm mt-1"><i class="fas fa-tasks mr-1"></i> ${d.duties}</div></div>`; });
+        
         const deaconessesDiv = document.getElementById('deaconesses-list');
         churchData.deaconesses.forEach(d => { deaconessesDiv.innerHTML += `<div class="bg-gray-50 rounded-xl p-4 shadow-sm"><span class="font-bold text-sda-blue">${d.position}:</span> ${d.name}<div class="text-gray-500 text-sm mt-1"><i class="fas fa-heart mr-1"></i> ${d.duties}</div></div>`; });
 
@@ -799,13 +615,14 @@
             name: "Senior Pastor", title: "Pr. Clifford Ratemo",
             children: [
                 { name: "Pastoral Team", children: [{name:"Senior Pastor: Pr. Clifford Ratemo"}, { name: "Associate Pastor: Pr. Dr. Yambo" }, { name: "Assistant Pastor: Pr. David" }] },
-                    { name: "Elders Board", children: [{ name: "Pastor. Clifford Ratemo" }, { name: "Pastor. John Yambo" }, { name: "Elder Rowling's Mathews" },{ name: "Elder Awiti Felix" },{ name: "Elder Ezra Albert"},{ name: "Elder John Maroa"},{ name: "Elder Joel Nyamweya"},{ name: "Elder Samuel Kirui"},{ name: "Bro. Zifion Ndege"},{ name: " Sis. Faith Rioba"},{ name: "Sis. Nicole Hellen"},{ name: "Bro. Richard Okoth"},{ name: "Bro. Davis Omari"},{ name: "Bro. Lameck Kabuna"},{ name: "Bro.Samuel Omosa"},{ name: "Sis. Nicole Hellen"},{ name: "Sis. Phinneas Matwere"},] },
-                     { name: "Patrons", children: [{ name: "Nature & Rentention: Mdm. Lilian Gisesa" }, { name: "Elders: Dr.Erick Oyaro" },{ name: "CM & Deaconry: Nyamboga Yobesh" },{name:"New Zion: Dr. Eziekiel Omwenga"},{name:"First Fruits: Dr. Peter Mose"},{name:"ALO: Dr. Rose Otieno"},{name:"AMO: Dr. Ongwae Jared"},{name:"VOP: Dr. Douglas Ochora"},{name:"Health Ministries: Dr. Teresa Omoyo"},{name:"Evangelism: Dr. John Yambo"},{name:"Music: Dr. George Areba"},{name:"Camp Meeting: Dr. Peter Nyansera"}] },
+                { name: "Elders Board", children: [{ name: "Pastor. Clifford Ratemo" }, { name: "Pastor. John Yambo" }, { name: "Elder Rowling's Mathews" },{ name: "Elder Awiti Felix" },{ name: "Elder Ezra Albert"},{ name: "Elder John Maroa"},{ name: "Elder Joel Nyamweya"}] },
+                { name: "Patrons", children: [{ name: "Nurture & Retention: Mdm. Lilian Gisesa" }, { name: "Elders: Dr.Erick Oyaro" },{ name: "CM & Deaconry: Nyamboga Yobesh" }] },
                 { name: "Departmental Ministries", children: [{ name: "12 Departments" }] },
-                { name: "Deacon Corps", children: [{ name: "Head Deacon: Mamalwa Michael" }, { name: "Deacons: Godwill Mahlon, Vincent" }] },
-                { name: "Deaconess Corps", children: [{ name: "Head Deaconess: Violet Jill" }, { name: "Deaconesses: Ayana Kerubo, Movinter Obiny" }] }
+                { name: "Deacon Corps", children: [{ name: "Head Deacon: Mamalwa Michael" }] },
+                { name: "Deaconess Corps", children: [{ name: "Head Deaconess: Violet Jill" }] }
             ]
         };
+        
         function buildTree(node) {
             const hasChildren = node.children && node.children.length;
             const div = document.createElement('div');
