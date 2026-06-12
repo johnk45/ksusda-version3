@@ -283,138 +283,13 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
             .container { max-width: 1320px; }
         }
         /* header styles*/
-         header {
-            background: linear-gradient(135deg, #098507 0%, #094612 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-}
+         
 
         
-        /* Navbar Styles */
-        .logo-text {
-            margin-left: 1rem;
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-        }
-        .logo-text:hover {
-            background: linear-gradient(135deg, #089cf1 0%, #f37406 50%, #07f068 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color:transparent;
-
-        }
-
-       
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: -8px;
-            left: 0;
-            border-radius: 3px;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .btn {
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(58, 124, 165, 0.05);
-        }
-
-        .btn-accent {
-            background-color: var(--secondary);
-            color: white;
-        }
-
-        .btn-accent:hover {
-            background-color: #ff8c29;
-            transform: translateY(-2px);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #fff;
-            cursor: pointer;
-        }
         
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, rgba(22,66,91,0.85) 0%, rgba(22,66,91,0.9) 100%),url('');
+            background: linear-gradient(135deg, #0d3b3f 0%, #005A63 100%),url('images/church audotorium.jpg');
             color: white;
             padding: 80px 0;
             position: relative;
@@ -471,7 +346,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
         }
         
         .event-date-badge {
-            background: linear-gradient(135deg, #060e34 0%, #0f172a 100%);
+            background: linear-gradient(135deg, #008C99 0%, #005A63 100%);
             color: white;
             padding: 15px;
             text-align: center;
@@ -518,7 +393,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
         }
         
         .btn-register {
-            background: linear-gradient(135deg, #09133d 0%, #0b0421 100%);
+            background: linear-gradient(135deg, #005A63 0%, #0a6870 100%);
             color: white;
             border: none;
             padding: 8px 20px;
@@ -606,7 +481,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
         .section-title .divider {
             width: 60px;
             height: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0c6a72 0%, #005A63 100%);
             margin: 0 auto;
         }
         
@@ -616,7 +491,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
         }
         
         .modal-header {
-            background: linear-gradient(135deg, #0c184d 0%, #150623 100%);
+            background: linear-gradient(135deg, #005A63 0%, #15828c 100%);
             color: white;
             border-radius: 15px 15px 0 0;
         }
@@ -886,7 +761,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
 }
 
 .btn-register {
-    background: linear-gradient(135deg, #13246d 0%, #160229 100%);
+    background: linear-gradient(135deg, #057b86 0%, #005A63 100%);
 }
 
 .btn-register:hover {
@@ -981,7 +856,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
                     <i class="fas fa-user-plus"></i> Register Now
                 </button>
                 
-                <div class="countdown-timer" id="countdown">
+                <div class="countdown-timer" id="countdowns">
                     <h6>Event Starts In:</h6>
                     <div class="row text-center">
                         <div class="col-3">
@@ -1003,7 +878,7 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
                     </div>
                 </div>
             </div>
-            <div class="col-md-5" style="background: linear-gradient(135deg, #091443 0%, #0f172a 100%); min-height: 300px;">
+            <div class="col-md-5" style="background: linear-gradient(135deg, #0a6971 0%, #005A63 100%); min-height: 300px;">
                 <div class="d-flex align-items-center justify-content-center h-100">
                     <i class="fas fa-calendar-check" style="font-size: 100px; color: rgba(255,255,255,0.8);"></i>
                 </div>
@@ -1203,16 +1078,6 @@ $featured_event = !empty($upcoming_events) ? $upcoming_events[0] : null;
 
 <script>
 
-    //menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-
-    mobileMenuBtn.addEventListener('click',()=>{
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
-          ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-    });
 // Countdown timer for featured event
 <?php if($featured_event): ?>
 function updateCountdown() {
@@ -1221,7 +1086,7 @@ function updateCountdown() {
     const distance = eventDate - now;
     
     if(distance < 0) {
-        document.getElementById('countdown').innerHTML = '<h6>Event has started!</h6>';
+        document.getElementById('countdowns').innerHTML = '<h6>Event has started!</h6>';
         return;
     }
     

@@ -580,6 +580,26 @@
     </div>
   </section>
 
+  <!--Church Cleak and Assistant Church cleark-->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+      <div class="rounded-2xl shadow-lg bg-white p-8">
+        <div class="flex items-center gap-3 mb-6 border-b pb-3">
+          <i class="fas fa-clipboard-list text-3xl text-[#000]"></i>
+          <h3 class="text-2xl font-bold text-[#004950] heading-font">Church Clerk</h3>
+        </div>
+        <div id="church-clerk-list" class="space-y-3"></div>
+      </div>
+      <div class="rounded-2xl shadow-lg bg-white p-8">
+        <div class="flex items-center gap-3 mb-6 border-b pb-3">
+          <i class="fas fa-clipboard text-3xl text-[#000]"></i>
+          <h3 class="text-2xl font-bold text-[#004950] heading-font">Assistant Church Clerk</h3>
+        </div>
+        <div id="assistant-church-clerk-list" class="space-y-3"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ELDERS SECTION -->
   <section class="py-16 px-6 bg-gray-50" id="elders-section">
     <div class="max-w-7xl mx-auto">
@@ -813,6 +833,28 @@
       { id: 3, name: "Full Leadership Directory 2026", category: "forms", date: "2024-03-05", size: "320 KB", icon: "fas fa-file-alt", fileType: "docx", filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx", description: "Official list of all church leadership positions and individuals." },
       { id: 4, name: "Annual Ministry Report 2025", category: "ministry", date: "2025-01-20", size: "2.4 MB", icon: "fas fa-chart-line", fileType: "docx", filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx", description: "Comprehensive report of all ministry activities and achievements for the year 2025." }
     ];
+
+    const churchClerks = [
+      { name: "Elder Felix Awiti", email: "felix.awiti@kisiiunisda.org", position: "Church Clerk" },
+      { name: "Sis. Faridah Momanyi", email: "faridah.momanyi@kisiiunisda.org", position: "Assistant Church Clerk" }
+    ];
+const clerk = document.getElementById('church-clerk-list');
+const assistantClerk = document.getElementById('assistant-church-clerk-list');
+    if (clerk) {
+      const clerkData = churchClerks.find(c => c.position === "Church Clerk");
+      if (clerkData) {
+        clerk.innerHTML = `<div class="flex items-center gap-3"><i class="fas fa-user-circle text-2xl text-[#006B75]"></i><div><p class="font-bold text-[#004950]">${clerkData.name}</p><p class="text-sm text-gray-600">${clerkData.email}</p></div></div>`;
+      }
+    }
+    if (assistantClerk) {
+      const assistantData = churchClerks.find(c => c.position === "Assistant Church Clerk");
+      if (assistantData) {
+        assistantClerk.innerHTML = `<div class="flex items-center gap-3"><i class="fas fa-user-circle text-2xl text-[#006B75]"></i><div><p class="font-bold text-[#004950]">${assistantData.name}</p><p class="text-sm text-gray-600">${assistantData.email}</p></div></div>`;
+      }
+    }
+
+
+
 
     let downloadCount = 0;
 
