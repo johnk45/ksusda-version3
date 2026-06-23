@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Kisii University SDA Church | Departments & Ministries</title>
-  <!-- Google Fonts (Cormorant + Noto Sans for elegance) -->
+  <!-- Google Fonts (Cormorant + Noto Sans) -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -51,7 +52,7 @@
     .bg-teal-dark { background-color: var(--teal-dark); }
     .border-teal { border-color: var(--teal); }
 
-    /* Department card – variant styles like SHA website but with our teal/cream palette */
+    /* Department card – clean, no photos, rich detail */
     .dept-card {
       background: var(--white);
       border-radius: var(--radius);
@@ -69,40 +70,34 @@
       box-shadow: var(--shadow-hover);
       border-color: var(--teal-light);
     }
-    /* each card gets a subtle accent border-left based on category */
+    /* accent border based on category */
     .dept-card[data-category="core"] { border-left: 5px solid #0a7e8c; }
     .dept-card[data-category="outreach"] { border-left: 5px solid #b8860b; }
     .dept-card[data-category="support"] { border-left: 5px solid #2a6f6f; }
     .dept-card[data-category="worship"] { border-left: 5px solid #8b5a2b; }
 
+    /* header area without photo – just an icon gradient */
     .dept-icon-wrapper {
       background: linear-gradient(135deg, var(--cream) 0%, rgba(0,107,117,0.06) 100%);
       padding: 1.2rem 0;
       text-align: center;
       border-bottom: 1px solid var(--border-light);
-      transition: var(--transition);
-      min-height: 100px;
+      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    /* PHOTO STYLES: circular images instead of icons */
-    .dept-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    .dept-icon-wrapper i {
+      font-size: 2.4rem;
+      color: var(--teal);
+      opacity: 0.7;
       transition: var(--transition);
-      background: #e9f0ef;
-      display: block;
     }
-    .dept-card:hover .dept-photo {
-      transform: scale(1.04);
-      border-color: var(--teal-light);
-      box-shadow: 0 6px 16px rgba(0,107,117,0.15);
+    .dept-card:hover .dept-icon-wrapper i {
+      opacity: 1;
+      transform: scale(1.05);
     }
+
     .dept-content {
       padding: 1.5rem;
       flex: 1;
@@ -129,8 +124,19 @@
     .dept-description {
       color: var(--text-muted);
       font-size: 0.88rem;
-      line-height: 1.55;
-      margin-bottom: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.9rem;
+    }
+    /* detailed description – expanded */
+    .dept-detail {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--text-body);
+      background: var(--off-white);
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      margin: 0.5rem 0 1rem;
+      border-left: 3px solid var(--teal-light);
     }
     .dept-focus {
       display: flex;
@@ -151,7 +157,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
-      margin: 0.9rem 0 0.5rem;
+      margin: 0.7rem 0 0.3rem;
       align-items: center;
     }
     .contact-action-btn {
@@ -242,7 +248,7 @@
       .dept-title { font-size: 1.2rem; }
       .dept-content { padding: 1.2rem; }
     }
-    /* breadcrumb, footer, header are consistent */
+    /* breadcrumb, footer, header styles */
     .breadcrumb { padding: 1rem 0; font-size: 0.8rem; color: var(--text-muted); }
     .breadcrumb a { color: var(--teal); text-decoration: none; }
     .hero { background: linear-gradient(transparent, rgba(50,53,57,0.85)), url('images/church\ audotorium.jpg'); background-size: cover; background-position: center; }
@@ -295,11 +301,10 @@
     .footer-social { display: flex; gap: 1rem; margin-top: 0.5rem; }
     .footer-social a { display: inline-flex; align-items: center; gap: 0.3rem; color: rgba(255,255,255,0.6); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1.5rem; padding-top: 1rem; text-align: center; font-size: 0.8rem; }
-    .dept-card .dept-icon-wrapper i { display: none; }
   </style>
 </head>
 <body>
-  <!-- header identical to original, compressed for brevity -->
+  <!-- header -->
   <header class="site-header" role="banner">
     <div class="header-top">
       <div class="header-logo"><a href="index.html"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="SDA Logo" class="sda-logo-img"><span class="logo-text">Kisii University SDA</span></a></div>
@@ -339,29 +344,133 @@
   <script>
     AOS.init({ duration: 700, once: true, offset: 50 });
 
-    // ----- DEPARTMENT DATA with actual PHOTO placeholders (unique per dept) -----
+    // ----- DEPARTMENT DATA (no photos, detailed descriptions) -----
     const departmentsData = [
-      { name: "Development Department", leader: "Bro. Kennedy Walucho", category: "support", description: "Oversees church growth, infrastructure, resource mobilization, and strategic planning. Drives sustainable development projects and fundraising campaigns.", focus: "Infrastructure, Fundraising, Strategic Growth", photo: "https://randomuser.me/api/portraits/men/32.jpg", contactEmail: "development@kisiiunisda.org", contactPhone: "+254722111234", whatsapp: "+254722111234", officeHours: "Wed 4pm-6pm | Sat after service" },
-      { name: "Stewardship Department", leader: "Bro. Kiuki Andrew", category: "support", description: "Educates members on biblical stewardship, financial management, and faithful giving. Manages church treasury and investment initiatives.", focus: "Financial Literacy, Tithes & Offerings, Budgeting", photo: "https://randomuser.me/api/portraits/men/45.jpg", contactEmail: "stewardship@kisiiunisda.org", contactPhone: "+254722456789", whatsapp: "+254722456789", officeHours: "Tue 5pm-6:30pm | Sun 10am-12pm" },
-      { name: "Public Address & Media", leader: "Bro. Fredrick Maranga", category: "support", description: "Ensures high-quality sound, live streaming, and technical support for all services and events. Manages digital evangelism platforms.", focus: "Audio Engineering, Livestream, Social Media", photo: "https://randomuser.me/api/portraits/men/67.jpg", contactEmail: "media@kisiiunisda.org", contactPhone: "+254733123456", whatsapp: "+254733123456", officeHours: "Flexible | Contact via WhatsApp" },
-      { name: "Pianist & Worship Music", leader: "Bro. Phinneas Matwere", category: "worship", description: "Coordinates instrumental worship, piano ministry, and music enrichment for congregational singing and special music.", focus: "Instrumental Worship, Rehearsals, Training", photo: "https://randomuser.me/api/portraits/men/12.jpg", contactEmail: "music@kisiiunisda.org", contactPhone: "+254712345098", whatsapp: "+254712345098", officeHours: "Thu 5pm-7pm (Music Hall)" },
-      { name: "Publishing Ministry", leader: "Bro. Kevin Kibet", category: "outreach", description: "Produces church bulletins, newsletters, and evangelistic literature. Manages distribution of Adventist publications and spiritual books.", focus: "Editorial, Literature Evangelism, Design", photo: "https://randomuser.me/api/portraits/men/52.jpg", contactEmail: "publishing@kisiiunisda.org", contactPhone: "+254723456111", whatsapp: "+254723456111", officeHours: "Mon 3pm-5pm | Fri 10am-12pm" },
-      { name: "Religious Liberty", leader: "Bro. Orenge Wilfred", category: "outreach", description: "Advocates for religious freedom, organizes seminars on human rights, and represents the church in interfaith platforms.", focus: "Advocacy, Legal Awareness, Community Dialogues", photo: "https://randomuser.me/api/portraits/men/76.jpg", contactEmail: "liberty@kisiiunisda.org", contactPhone: "+254734567890", whatsapp: "+254734567890", officeHours: "By appointment (Sat evenings)" },
-      { name: "Family Life Ministry", leader: "Elder Davis Ong'ombe", category: "core", description: "Strengthens marriages, parenting, and family relationships through seminars, counseling, and retreats.", focus: "Marriage Enrichment, Parenting, Counseling", photo: "https://randomuser.me/api/portraits/men/38.jpg", contactEmail: "family@kisiiunisda.org", contactPhone: "+254745678123", whatsapp: "+254745678123", officeHours: "Sun 2pm-4pm (Church parlor)" },
-      { name: "Education Department", leader: "Bro. Ouma Vincent", category: "core", description: "Supports Adventist education, tutoring programs, and scholarship initiatives for members and community students.", focus: "Academic Support, Scholarships, Sabbath School", photo: "https://randomuser.me/api/portraits/men/55.jpg", contactEmail: "education@kisiiunisda.org", contactPhone: "+254756789234", whatsapp: "+254756789234", officeHours: "Wed 3pm-5pm | Sat 10am-11am" },
-      { name: "Health Ministries", leader: "Bro. Misiani Moffat", category: "outreach", description: "Promotes whole-person wellness through health talks, lifestyle workshops, medical camps, and vegetarian cooking classes.", focus: "Wellness, Community Health, Lifestyle Medicine", photo: "https://randomuser.me/api/portraits/men/22.jpg", contactEmail: "health@kisiiunisda.org", contactPhone: "+254767890345", whatsapp: "+254767890345", officeHours: "Fri 2pm-4pm | Health Seminars monthly" },
-      { name: "Communication Department", leader: "Bro. Davis Omari", category: "support", description: "Manages church website, social media, announcements, and branding. Ensures clear internal and external communication.", focus: "Digital Outreach, Graphic Design, Public Relations", photo: "https://randomuser.me/api/portraits/men/84.jpg", contactEmail: "comm@kisiiunisda.org", contactPhone: "+254778901456", whatsapp: "+254778901456", officeHours: "Online daily | Office Wed 4pm-6pm" },
-      { name: "Music Ministry (Choir)", leader: "Mary Kemunto", category: "worship", description: "Leads congregational singing, choir performances, and special musical programs that enhance worship experience.", focus: "Choir Coordination, Hymns, Praise Teams", photo: "https://randomuser.me/api/portraits/women/44.jpg", contactEmail: "choir@kisiiunisda.org", contactPhone: "+254789012567", whatsapp: "+254789012567", officeHours: "Fri 6pm-8pm (Choir Room)" },
-      { name: "Personal Ministries", leader: "Bro. Richard Okoth", category: "core", description: "Equips members for personal witnessing, small group Bible studies, and one-on-one evangelism.", focus: "Soul Winning, Discipleship, Prayer Groups", photo: "https://randomuser.me/api/portraits/men/91.jpg", contactEmail: "personalmin@kisiiunisda.org", contactPhone: "+254790123678", whatsapp: "+254790123678", officeHours: "Tue 5pm-6:30pm | Sat afternoon" },
-      { name: "Children's Ministry", leader: "Sis. Lydia Moraa", category: "core", description: "Nurtures faith in children through Sabbath School, Vacation Bible School, and creative storytelling.", focus: "Children's Church, VBS, Mentorship", photo: "https://randomuser.me/api/portraits/women/68.jpg", contactEmail: "children@kisiiunisda.org", contactPhone: "+254701234789", whatsapp: "+254701234789", officeHours: "Sat 9:30am-12pm | Wed 4pm" },
-      { name: "Youth & Campus Ministry", leader: "Bro. Victor Ochieng", category: "core", description: "Engages university students and young adults through fellowships, retreats, evangelism training, and leadership development.", focus: "Campus Outreach, Conferences, Mentorship", photo: "https://randomuser.me/api/portraits/men/3.jpg", contactEmail: "youth@kisiiunisda.org", contactPhone: "+254712345890", whatsapp: "+254712345890", officeHours: "Fri 6pm-8pm (Fellowship Hall)" },
-      { name: "Nurture & Retention", leader: "Bro. Samuel Ommosa", category: "support", description: "Provides pastoral care, visitation, and support for the sick, elderly, and bereaved members.", focus: "Visitation, Counseling, Support Groups", photo: "https://randomuser.me/api/portraits/men/17.jpg", contactEmail: "omosa45@gmail.com", contactPhone: "+254723456789", whatsapp: "+254723456789", officeHours: "On-call | Visitation Sat mornings" },
-      { name: "Evangelism & Outreach", leader: "Elder Ezra Albert", category: "outreach", description: "Coordinates city-wide evangelism campaigns, public evangelism series, and follow-up of new believers.", focus: "Crusades, Baptismal Classes, Visitation", photo: "https://randomuser.me/api/portraits/men/60.jpg", contactEmail: "evangelism@kisiiunisda.org", contactPhone: "+254723456901", whatsapp: "+254723456901", officeHours: "Sun 3pm-5pm | Evangelism training" },
-      { name: "Adventist Women's Organization", leader: "Mama Risper Ondiek", category: "core", description: "Empowers women spiritually and socially through retreats, skills training, and fellowship programs.", focus: "Women Empowerment, Seminars, Prayer Breakfast", photo: "https://randomuser.me/api/portraits/women/29.jpg", contactEmail: "women@kisiiunisda.org", contactPhone: "+254734567012", whatsapp: "+254734567012", officeHours: "Thu 2pm-4pm (Women's Wing)" },
-      { name: "Adventist Men's Organisation", leader: "Bro. Zachariah Mose", category: "core", description: "Strengthens men's spiritual leadership, accountability groups, and community service projects.", focus: "Discipleship, Fatherhood, Service", photo: "https://randomuser.me/api/portraits/men/41.jpg", contactEmail: "men@kisiiunisda.org", contactPhone: "+254745678123", whatsapp: "+254745678123", officeHours: "Sat 4pm-5:30pm | Men's breakfast monthly" },
-      { name: "Deacon / Deaconess Corps", leader: "Head Deacon: Mamalwa Michael / Head Deaconess: Violet Jill", category: "support", description: "Serves practical needs of the church: communion, hospitality, ushering, welfare assistance, and sanctuary preparation.", focus: "Service, Hospitality, Member Care", photo: "https://randomuser.me/api/portraits/men/77.jpg", contactEmail: "deacon@kisiiunisda.org", contactPhone: "+254756789234", whatsapp: "+254756789234", officeHours: "On-call | Service coordination Sat mornings" },
-      { name: "Special Needs Department", leader: "Sis. Doreen Obuya", category: "support", description: "Provides inclusive ministry for members with disabilities, offering accessible worship, support groups, and advocacy.", focus: "Accessibility, Support, Advocacy", photo: "https://randomuser.me/api/portraits/women/50.jpg", contactEmail: "obuyadoreen45@gmail.com", contactPhone: "+254767890345", whatsapp: "+254767890345", officeHours: "By appointment | Contact via WhatsApp" },
-      { name: "Prayer & Worship Department", leader: "Bro. Peter Oloo", category: "worship", description: "Organizes corporate prayer meetings, worship nights, and intercessory prayer chains to deepen spiritual life.", focus: "Prayer Meetings, Worship Nights, Intercession", photo: "https://randomuser.me/api/portraits/men/18.jpg", contactEmail: "prayer@kisiiunisda.org", contactPhone: "+254778901456", whatsapp: "+254778901456", officeHours: "Wed 6pm-8pm | Prayer meetings" }
+      { name: "Development Department", leader: "Bro. Kennedy Walucho", category: "support", 
+        description: "Oversees church growth, infrastructure, resource mobilization, and strategic planning. Drives sustainable development projects and fundraising campaigns.",
+        detail: "This department is the engine behind church expansion. It manages capital projects, partners with local and international stakeholders, and ensures that the church's physical and financial resources are used effectively. The team also provides training on project management and stewardship for other ministries.",
+        focus: "Infrastructure, Fundraising, Strategic Growth", 
+        contactEmail: "development@kisiiunisda.org", contactPhone: "+254722111234", whatsapp: "+254722111234", officeHours: "Wed 4pm-6pm | Sat after service" },
+        
+      { name: "Stewardship Department", leader: "Bro. Kiuki Andrew", category: "support",
+        description: "Educates members on biblical stewardship, financial management, and faithful giving. Manages church treasury and investment initiatives.",
+        detail: "The Stewardship Department offers financial literacy workshops, budgeting seminars, and one-on-one counseling on faithful giving. It oversees the church's offerings, tithes, and investment portfolios, ensuring transparency and accountability. The team also produces quarterly financial reports and organizes stewardship campaigns.",
+        focus: "Financial Literacy, Tithes & Offerings, Budgeting",
+        contactEmail: "stewardship@kisiiunisda.org", contactPhone: "+254722456789", whatsapp: "+254722456789", officeHours: "Tue 5pm-6:30pm | Sun 10am-12pm" },
+
+      { name: "Public Address & Media", leader: "Bro. Fredrick Maranga", category: "support",
+        description: "Ensures high-quality sound, live streaming, and technical support for all services and events. Manages digital evangelism platforms.",
+        detail: "This department runs the audio-visual team, livestream operations, and social media outreach. It provides technical training for volunteers, maintains equipment, and produces weekly podcasts and video content for the church's YouTube channel. The team also supports off-site events with portable PA systems.",
+        focus: "Audio Engineering, Livestream, Social Media",
+        contactEmail: "media@kisiiunisda.org", contactPhone: "+254733123456", whatsapp: "+254733123456", officeHours: "Flexible | Contact via WhatsApp" },
+
+      { name: "Pianist & Worship Music", leader: "Bro. Phinneas Matwere", category: "worship",
+        description: "Coordinates instrumental worship, piano ministry, and music enrichment for congregational singing and special music.",
+        detail: "The piano ministry is central to worship at Kisii University SDA. This department trains pianists, organists, and instrumentalists for Sabbath services, weddings, and special events. It also hosts workshops on music theory and worship leading, and maintains a library of sheet music and hymn arrangements.",
+        focus: "Instrumental Worship, Rehearsals, Training",
+        contactEmail: "music@kisiiunisda.org", contactPhone: "+254712345098", whatsapp: "+254712345098", officeHours: "Thu 5pm-7pm (Music Hall)" },
+
+      { name: "Publishing Ministry", leader: "Bro. Kevin Kibet", category: "outreach",
+        description: "Produces church bulletins, newsletters, and evangelistic literature. Manages distribution of Adventist publications and spiritual books.",
+        detail: "This ministry is responsible for all printed and digital publications. It designs the weekly bulletin, monthly newsletter, and seasonal evangelistic materials. The team also coordinates literature distribution during outreach campaigns and maintains a church library with Adventist classics and contemporary resources.",
+        focus: "Editorial, Literature Evangelism, Design",
+        contactEmail: "publishing@kisiiunisda.org", contactPhone: "+254723456111", whatsapp: "+254723456111", officeHours: "Mon 3pm-5pm | Fri 10am-12pm" },
+
+      { name: "Religious Liberty", leader: "Bro. Orenge Wilfred", category: "outreach",
+        description: "Advocates for religious freedom, organizes seminars on human rights, and represents the church in interfaith platforms.",
+        detail: "This department champions the cause of religious freedom in the region. It organizes public seminars, dialogues with government officials, and collaborates with other faith groups to protect religious rights. The team also produces educational materials on the church's historic stance on liberty of conscience.",
+        focus: "Advocacy, Legal Awareness, Community Dialogues",
+        contactEmail: "liberty@kisiiunisda.org", contactPhone: "+254734567890", whatsapp: "+254734567890", officeHours: "By appointment (Sat evenings)" },
+
+      { name: "Family Life Ministry", leader: "Elder Davis Ong'ombe", category: "core",
+        description: "Strengthens marriages, parenting, and family relationships through seminars, counseling, and retreats.",
+        detail: "Family Life Ministry offers pre-marital counseling, marriage enrichment retreats, and parenting workshops. It also provides support for families in crisis, hosts family camp meetings, and trains couples to mentor others. The department's goal is to build strong, Christ-centered families that reflect God's love.",
+        focus: "Marriage Enrichment, Parenting, Counseling",
+        contactEmail: "family@kisiiunisda.org", contactPhone: "+254745678123", whatsapp: "+254745678123", officeHours: "Sun 2pm-4pm (Church parlor)" },
+
+      { name: "Education Department", leader: "Bro. Ouma Vincent", category: "core",
+        description: "Supports Adventist education, tutoring programs, and scholarship initiatives for members and community students.",
+        detail: "This department promotes academic excellence within the church and community. It organizes after-school tutoring, SAT/college prep workshops, and coordinates scholarships for deserving students. The team also partners with local schools to offer Adventist religious education and character development programs.",
+        focus: "Academic Support, Scholarships, Sabbath School",
+        contactEmail: "education@kisiiunisda.org", contactPhone: "+254756789234", whatsapp: "+254756789234", officeHours: "Wed 3pm-5pm | Sat 10am-11am" },
+
+      { name: "Health Ministries", leader: "Bro. Misiani Moffat", category: "outreach",
+        description: "Promotes whole-person wellness through health talks, lifestyle workshops, medical camps, and vegetarian cooking classes.",
+        detail: "Health Ministries runs a comprehensive wellness program that includes monthly health talks, free medical check-up camps, and plant-based cooking classes. It also organizes walking clubs, stress management seminars, and health expos. The department works closely with local health professionals and Adventist hospitals.",
+        focus: "Wellness, Community Health, Lifestyle Medicine",
+        contactEmail: "health@kisiiunisda.org", contactPhone: "+254767890345", whatsapp: "+254767890345", officeHours: "Fri 2pm-4pm | Health Seminars monthly" },
+
+      { name: "Communication Department", leader: "Bro. Davis Omari", category: "support",
+        description: "Manages church website, social media, announcements, and branding. Ensures clear internal and external communication.",
+        detail: "This department is the voice of the church. It maintains the church website, posts updates on social media, designs flyers and banners, and manages internal communication channels. The team also produces a weekly video recap of church activities and coordinates press releases for major events.",
+        focus: "Digital Outreach, Graphic Design, Public Relations",
+        contactEmail: "comm@kisiiunisda.org", contactPhone: "+254778901456", whatsapp: "+254778901456", officeHours: "Online daily | Office Wed 4pm-6pm" },
+
+      { name: "Music Ministry (Choir)", leader: "Mary Kemunto", category: "worship",
+        description: "Leads congregational singing, choir performances, and special musical programs that enhance worship experience.",
+        detail: "The Choir Department is the heartbeat of worship. It coordinates multiple choirs, including youth choir, mass choir, and ensemble groups. The team holds weekly rehearsals, prepares special music for Sabbath and holidays, and organizes an annual music festival. It also trains choir leaders and song directors.",
+        focus: "Choir Coordination, Hymns, Praise Teams",
+        contactEmail: "choir@kisiiunisda.org", contactPhone: "+254789012567", whatsapp: "+254789012567", officeHours: "Fri 6pm-8pm (Choir Room)" },
+
+      { name: "Personal Ministries", leader: "Bro. Richard Okoth", category: "core",
+        description: "Equips members for personal witnessing, small group Bible studies, and one-on-one evangelism.",
+        detail: "This department trains members in effective personal evangelism. It organizes outreach training, Bible study guides, and small group leadership development. The team also coordinates door-to-door campaigns, street evangelism, and follow-up on interest cards from public meetings.",
+        focus: "Soul Winning, Discipleship, Prayer Groups",
+        contactEmail: "personalmin@kisiiunisda.org", contactPhone: "+254790123678", whatsapp: "+254790123678", officeHours: "Tue 5pm-6:30pm | Sat afternoon" },
+
+      { name: "Children's Ministry", leader: "Sis. Lydia Moraa", category: "core",
+        description: "Nurtures faith in children through Sabbath School, Vacation Bible School, and creative storytelling.",
+        detail: "Children's Ministry offers a vibrant program for kids ages 3-12. It includes age-appropriate Sabbath School classes, monthly VBS sessions, and holiday camps. The team uses creative storytelling, crafts, and music to teach biblical truths. It also trains children's leaders and produces child-friendly devotional materials.",
+        focus: "Children's Church, VBS, Mentorship",
+        contactEmail: "children@kisiiunisda.org", contactPhone: "+254701234789", whatsapp: "+254701234789", officeHours: "Sat 9:30am-12pm | Wed 4pm" },
+
+      { name: "Youth & Campus Ministry", leader: "Bro. Victor Ochieng", category: "core",
+        description: "Engages university students and young adults through fellowships, retreats, evangelism training, and leadership development.",
+        detail: "This ministry is the bridge between the church and the university campus. It organizes weekly fellowships, annual youth retreats, and leadership conferences. The team also runs peer counseling programs, mission trips, and community service projects. It aims to develop young leaders who will serve the church and society.",
+        focus: "Campus Outreach, Conferences, Mentorship",
+        contactEmail: "youth@kisiiunisda.org", contactPhone: "+254712345890", whatsapp: "+254712345890", officeHours: "Fri 6pm-8pm (Fellowship Hall)" },
+
+      { name: "Nurture & Retention", leader: "Bro. Samuel Ommosa", category: "support",
+        description: "Provides pastoral care, visitation, and support for the sick, elderly, and bereaved members.",
+        detail: "This department focuses on member care. It coordinates hospital and home visits, provides meals for grieving families, and offers counseling for those facing life challenges. The team also organizes care groups for widows, single parents, and the elderly, ensuring no member is left behind.",
+        focus: "Visitation, Counseling, Support Groups",
+        contactEmail: "omosa45@gmail.com", contactPhone: "+254723456789", whatsapp: "+254723456789", officeHours: "On-call | Visitation Sat mornings" },
+
+      { name: "Evangelism & Outreach", leader: "Elder Ezra Albert", category: "outreach",
+        description: "Coordinates city-wide evangelism campaigns, public evangelism series, and follow-up of new believers.",
+        detail: "This department is the frontline of mission. It plans and executes evangelism series, crusades, and public meetings. The team trains speakers, organizes logistics, and manages follow-up for new converts. It also works with other churches to host city-wide evangelism events and community festivals.",
+        focus: "Crusades, Baptismal Classes, Visitation",
+        contactEmail: "evangelism@kisiiunisda.org", contactPhone: "+254723456901", whatsapp: "+254723456901", officeHours: "Sun 3pm-5pm | Evangelism training" },
+
+      { name: "Adventist Women's Organization", leader: "Mama Risper Ondiek", category: "core",
+        description: "Empowers women spiritually and socially through retreats, skills training, and fellowship programs.",
+        detail: "The women's organization runs a vibrant program of prayer breakfasts, skills workshops, and retreats. It focuses on spiritual growth, economic empowerment, and community service. The team also organizes women's health forums, mentorship circles, and annual women's congresses that bring together women from across the region.",
+        focus: "Women Empowerment, Seminars, Prayer Breakfast",
+        contactEmail: "women@kisiiunisda.org", contactPhone: "+254734567012", whatsapp: "+254734567012", officeHours: "Thu 2pm-4pm (Women's Wing)" },
+
+      { name: "Adventist Men's Organisation", leader: "Bro. Zachariah Mose", category: "core",
+        description: "Strengthens men's spiritual leadership, accountability groups, and community service projects.",
+        detail: "This ministry helps men grow in faith and leadership. It organizes weekly accountability groups, monthly breakfast meetings, and community service projects. The team also hosts fatherhood seminars, men's retreats, and sports evangelism events. It aims to raise godly men who lead their families and communities.",
+        focus: "Discipleship, Fatherhood, Service",
+        contactEmail: "men@kisiiunisda.org", contactPhone: "+254745678123", whatsapp: "+254745678123", officeHours: "Sat 4pm-5:30pm | Men's breakfast monthly" },
+
+      { name: "Deacon / Deaconess Corps", leader: "Head Deacon: Mamalwa Michael / Head Deaconess: Violet Jill", category: "support",
+        description: "Serves practical needs of the church: communion, hospitality, ushering, welfare assistance, and sanctuary preparation.",
+        detail: "The deacon/deaconess corps is the servant arm of the church. They prepare for communion, welcome members and visitors, assist with offering, and ensure the sanctuary is ready for worship. This team also coordinates welfare distribution, visits the sick, and provides practical support during church events.",
+        focus: "Service, Hospitality, Member Care",
+        contactEmail: "deacon@kisiiunisda.org", contactPhone: "+254756789234", whatsapp: "+254756789234", officeHours: "On-call | Service coordination Sat mornings" },
+
+      { name: "Special Needs Department", leader: "Sis. Doreen Obuya", category: "support",
+        description: "Provides inclusive ministry for members with disabilities, offering accessible worship, support groups, and advocacy.",
+        detail: "This department ensures that members with disabilities are fully included in church life. It provides sign language interpretation, wheelchair-friendly seating, and adapted materials. The team also runs support groups for families of children with disabilities and advocates for accessibility in church facilities and programs.",
+        focus: "Accessibility, Support, Advocacy",
+        contactEmail: "obuyadoreen45@gmail.com", contactPhone: "+254767890345", whatsapp: "+254767890345", officeHours: "By appointment | Contact via WhatsApp" },
+
+      { name: "Prayer & Worship Department", leader: "Bro. Peter Oloo", category: "worship",
+        description: "Organizes corporate prayer meetings, worship nights, and intercessory prayer chains to deepen spiritual life.",
+        detail: "This department is the spiritual engine of the church. It coordinates weekly prayer meetings, all-night vigils, and worship nights. The team maintains a prayer chain for urgent requests, organizes seasonal fasting, and trains members in intercessory prayer. It also plans special worship services and prayer conferences.",
+        focus: "Prayer Meetings, Worship Nights, Intercession",
+        contactEmail: "prayer@kisiiunisda.org", contactPhone: "+254778901456", whatsapp: "+254778901456", officeHours: "Wed 6pm-8pm | Prayer meetings" }
     ];
 
     function getWhatsappUrl(phone) {
@@ -381,18 +490,33 @@
       document.getElementById('leaderCount').innerText = uniqueLeaders.size;
 
       grid.innerHTML = filtered.map(dept => {
+        // choose an icon based on category or name
+        let icon = 'fa-church';
+        if (dept.category === 'outreach') icon = 'fa-hands-helping';
+        else if (dept.category === 'worship') icon = 'fa-music';
+        else if (dept.category === 'support') icon = 'fa-cogs';
+        else if (dept.name.includes('Health')) icon = 'fa-heartbeat';
+        else if (dept.name.includes('Children')) icon = 'fa-child';
+        else if (dept.name.includes('Youth')) icon = 'fa-users';
+        else if (dept.name.includes('Prayer')) icon = 'fa-pray';
+        else if (dept.name.includes('Family')) icon = 'fa-home';
+        else if (dept.name.includes('Education')) icon = 'fa-graduation-cap';
+        else if (dept.name.includes('Publishing')) icon = 'fa-book-open';
+        else if (dept.name.includes('Religious')) icon = 'fa-scale-balanced';
+        
         const emailLink = `mailto:${dept.contactEmail}?subject=Inquiry%20regarding%20${encodeURIComponent(dept.name)}`;
         const phoneLink = `tel:${dept.contactPhone.replace(/[^0-9+]/g, '')}`;
         const whatsappLink = getWhatsappUrl(dept.whatsapp);
         return `
-          <div class="dept-card" data-category="${dept.category}" data-aos="fade-up" data-aos-delay="80">
+          <div class="dept-card" data-category="${dept.category}" data-aos="fade-up" data-aos-delay="60">
             <div class="dept-icon-wrapper">
-              <img src="${dept.photo}" alt="${dept.name}" class="dept-photo" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(dept.name)}&background=006B75&color=fff&size=80'">
+              <i class="fas ${icon}"></i>
             </div>
             <div class="dept-content">
               <h3 class="dept-title">${dept.name}</h3>
               <div class="dept-leader"><i class="fas fa-user-circle text-teal"></i> ${dept.leader}</div>
               <p class="dept-description">${dept.description}</p>
+              <div class="dept-detail"><i class="fas fa-info-circle text-teal mr-1"></i> ${dept.detail}</div>
               <div class="dept-contact-actions">
                 <a href="${whatsappLink}" target="_blank" class="contact-action-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="${phoneLink}" class="contact-action-btn"><i class="fas fa-phone-alt"></i> Call</a>
