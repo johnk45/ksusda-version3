@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Online Giving — Kisii University SDA Church. Tithe, offerings, and donations via M-Pesa.">
+  <title>Online Giving — Kisii University SDA Church</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/giving.css">
+
+   <link rel="icon" type="image/png" href="../images/kisiilogo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="giving-page-body">
+
+  <!-- ===== GIVING HEADER ===== -->
+  <header class="ag-header">
+    <div class="ag-header-inner">
+      <a href="index.html" class="ag-logo">
+        <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Adventist Logo" class="ag-logo-icon">
+        <div class="ag-logo-text">
+          <span class="ag-logo-title">ADVENTIST<span style="font-weight:300">GIVING</span></span>
+          <span class="ag-logo-sub">KISII UNIVERSITY SDA CHURCH</span>
+        </div>
+      </a>
+      <nav class="ag-header-nav">
+        <a href="giving.html" class="ag-nav-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          DONATE
+        </a>
+        <a href="index.html" class="ag-nav-link">BACK TO SITE</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CHURCH NAME BANNER ===== -->
+  <section class="ag-church-banner">
+    <h1 class="ag-church-name">Kisii University SDA Church</h1>
+    <p class="ag-church-address">KISII UNIVERSITY CAMPUS, KISII, KENYA</p>
+  </section>
+
+  <!-- ===== OFFERING OF THE WEEK ===== -->
+  <div class="ag-offering-week">
+    <div class="ag-offering-week-inner">
+      <div class="ag-ow-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.7;margin-right:8px;flex-shrink:0"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+        <strong>OFFERING OF THE WEEK</strong>
+        <span class="ag-ow-desc">Supporting the needs of your local church</span>
+      </div>
+      <a href="#local-offerings" class="ag-ow-link">GO TO LOCAL CHURCH BUDGET <span style="margin-left:4px">↓</span></a>
+    </div>
+  </div>
+
+    <!-- ===== OFFERING OF THE WEEK ===== -->
+  <div class="ag-offering-week">
+    <div class="ag-offering-week-inner">
+      <div class="ag-ow-left">
+       <i class="fas fa-hand-holding-dollar"></i>
+        <strong>SUPPORT GOD'S WORKS</strong>
+        <span class="ag-ow-desc">You can support the work of God directly through our treasury number</span>
+      </div>
+      <a href="#" class="ag-ow-link"><img src="https://www.safaricom.co.ke/images/main.png" height="10" width="70"> BERLY ODHIAMBO  0794637298 <span style="margin-left:4px">↓</span></a>
+    </div>
+  </div>
+
+  <!-- ===== MAIN GIVING LAYOUT ===== -->
+  <main class="ag-main">
+    <div class="ag-layout">
+      <!-- LEFT: Donation form -->
+      <div class="ag-form-col">
+
+        <!-- M-PESA PAYMENT INFO -->
+        <div class="ag-mpesa-section">
+          <div class="ag-mpesa-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/1280px-M-PESA_LOGO-01.svg.png?_=20251215193002" alt="M-Pesa" class="mpesa-logo">
+            <span>Pay with M-Pesa STK Push</span>
+          </div>
+          <div class="ag-mpesa-body">
+            <label for="mpesaPhone">Safaricom Phone Number</label>
+            <div class="mpesa-phone-row">
+              <span class="mpesa-prefix">+254</span>
+              <input type="tel" id="mpesaPhone" placeholder="7XX XXX XXX" maxlength="10" autocomplete="tel">
+            </div>
+            <p class="mpesa-hint">Enter your Safaricom number. An STK push will be sent to your phone to complete payment.</p>
+          </div>
+        </div>
+
+        <!-- TITHE -->
+        <div class="ag-category-card">
+          <div class="ag-category-row ag-tithe-row">
+            <div class="ag-cat-label">
+              <svg class="ag-cat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+              <span class="ag-cat-name">TITHE</span>
+            </div>
+            <div class="ag-amount-input">
+              <span class="ag-currency">KSh</span>
+              <input type="number" min="0" step="1" placeholder="0" data-category="tithe" class="ag-input" aria-label="Tithe amount">
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCAL OFFERINGS -->
+        <div class="ag-category-card" id="local-offerings">
+          <div class="ag-category-header">
+            <svg class="ag-cat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 12.5c-1.1 0-2-.9-2-2 0-1.1.9-2 2-2s2 .9 2 2c0 1.1-.9 2-2 2z"/></svg>
+            <h2>LOCAL OFFERINGS</h2>
+          </div>
+          <div class="ag-category-items">
+            <div class="ag-item-row">
+              <span class="ag-item-label">Church Budget</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Church Budget" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Christian Education</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Christian Education" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Good Samaritan</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Good Samaritan" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Homeless Ministries</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Homeless Ministries" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Local Evangelism</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Local Evangelism" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Love Offering</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Love Offering" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Memorials &amp; Funerals</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Memorials & Funerals" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Women's Ministry - Local</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Women's Ministry - Local" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Youth Ministry</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Youth Ministry" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Church Building Fund</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="local" data-name="Church Building Fund" class="ag-input"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONFERENCE/UNION OFFERINGS -->
+        <div class="ag-category-card">
+          <div class="ag-category-header">
+            <svg class="ag-cat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 11h4V3H1v8zm6 0h4V3H7v8zm6 0h4V3h-4v8zm6-8v8h4V3h-4zM1 21h4v-8H1v8zm6 0h4v-8H7v8zm6 0h4v-8h-4v8zm6 0h4v-8h-4v8z"/></svg>
+            <h2>CONFERENCE/UNION OFFERINGS</h2>
+          </div>
+          <div class="ag-category-items">
+            <div class="ag-item-row">
+              <span class="ag-item-label">Conference Evangelism</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Conference Evangelism" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Conference Advance</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Conference Advance" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Conference Worthy Student Fund</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Conference Worthy Student Fund" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">ECD Camp Meeting</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="ECD Camp Meeting" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Men's Ministry</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Men's Ministry" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Education Endowment</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Education Endowment" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Women's Ministries - Conference</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Women's Ministries - Conference" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Mission Trip</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Mission Trip" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Union Designated – Growing Young Leaders</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="conference" data-name="Union Designated – Growing Young Leaders" class="ag-input"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORLD OFFERINGS -->
+        <div class="ag-category-card">
+          <div class="ag-category-header">
+            <svg class="ag-cat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <h2>WORLD OFFERINGS</h2>
+          </div>
+          <div class="ag-category-items">
+            <div class="ag-item-row">
+              <span class="ag-item-label">World Budget / Presupuesto mundial / Budget mondial</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="world" data-name="World Budget" class="ag-input"></div>
+            </div>
+            <div class="ag-item-row">
+              <span class="ag-item-label">Pentecost and Beyond</span>
+              <div class="ag-amount-input"><span class="ag-currency">KSh</span><input type="number" min="0" step="1" placeholder="0" data-category="world" data-name="Pentecost and Beyond" class="ag-input"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Jump to Category + Total sidebar -->
+      <aside class="ag-sidebar">
+        <div class="ag-sidebar-sticky">
+          <div class="ag-jump-card">
+            <h3 class="ag-jump-title">Jump to Category</h3>
+            <div class="ag-jump-items">
+              <a href="#" class="ag-jump-item" data-jump="tithe">
+                <div class="ag-jump-left">
+                  <div class="ag-jump-bar" style="background:#006B75"></div>
+                  <svg class="ag-jump-icon" viewBox="0 0 24 24" fill="#006B75"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                  <span>TITHE</span>
+                </div>
+                <span class="ag-jump-amount" id="totalTithe">KSh 0</span>
+              </a>
+              <a href="#local-offerings" class="ag-jump-item" data-jump="local">
+                <div class="ag-jump-left">
+                  <div class="ag-jump-bar" style="background:#006B75"></div>
+                  <svg class="ag-jump-icon" viewBox="0 0 24 24" fill="#006B75"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 12.5c-1.1 0-2-.9-2-2 0-1.1.9-2 2-2s2 .9 2 2c0 1.1-.9 2-2 2z"/></svg>
+                  <span>LOCAL OFFERINGS</span>
+                </div>
+                <span class="ag-jump-amount" id="totalLocal">KSh 0</span>
+              </a>
+              <a href="#" class="ag-jump-item" data-jump="conference">
+                <div class="ag-jump-left">
+                  <div class="ag-jump-bar" style="background:#006B75"></div>
+                  <svg class="ag-jump-icon" viewBox="0 0 24 24" fill="#006B75"><path d="M1 11h4V3H1v8zm6 0h4V3H7v8zm6 0h4V3h-4v8zm6-8v8h4V3h-4zM1 21h4v-8H1v8zm6 0h4v-8H7v8zm6 0h4v-8h-4v8zm6 0h4v-8h-4v8z"/></svg>
+                  <span>CONFERENCE/UNION OFFERINGS</span>
+                </div>
+                <span class="ag-jump-amount" id="totalConference">KSh 0</span>
+              </a>
+              <a href="#" class="ag-jump-item" data-jump="world">
+                <div class="ag-jump-left">
+                  <div class="ag-jump-bar" style="background:#006B75"></div>
+                  <svg class="ag-jump-icon" viewBox="0 0 24 24" fill="#006B75"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                  <span>WORLD OFFERINGS</span>
+                </div>
+                <span class="ag-jump-amount" id="totalWorld">KSh 0</span>
+              </a>
+            </div>
+          </div>
+          <!-- Total + CTA -->
+          <div class="ag-total-card">
+            <div class="ag-total-amount">
+              Current Total (KSh): <strong id="grandTotal">KSh 0</strong>
+            </div>
+            <button type="button" id="continueBtn" class="ag-continue-btn">
+              CONTINUE TO DONATE <span style="margin-left:6px">→</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===== STK PUSH MODAL ===== -->
+  <div class="ag-modal-overlay" id="stkModal">
+    <div class="ag-modal">
+      <div class="ag-modal-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/1200px-M-PESA_LOGO-01.svg.png" alt="M-Pesa" style="height:32px">
+        <button class="ag-modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="ag-modal-body" id="modalBody">
+        <!-- Dynamic content filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  https://sandbox.safaricom.co.ke/mpesa/qrcode/v1/generate
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="ag-footer">
+    <div class="ag-footer-inner">
+      <div class="ag-footer-logo">
+        <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Adventist Logo" style="height:36px;filter:brightness(0) invert(1)">
+        <div>
+          <span class="ag-logo-title" style="font-size:0.85rem">ADVENTIST<span style="font-weight:300">GIVING</span></span><br>
+          <span style="font-size:0.65rem;opacity:0.6;letter-spacing:1px">KISII UNIVERSITY SDA CHURCH</span>
+        </div>
+      </div>
+      <div class="ag-footer-links">
+        <a href="index.html">HOMEPAGE</a>
+        <a href="contact.html">CONTACT US</a>
+        <a href="about/giving.html">GIVING INFO</a>
+      </div>
+    </div>
+    <div class="ag-footer-bottom">
+      <p>Copyright &copy;2014-2026. Kisii University SDA Church. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ============================================
+      // BACKEND API CONFIGURATION
+      // Update this to match your server path
+      // ============================================
+      const API_BASE_URL = 'http://localhost/UPGRADED%20KSUSDA%20WEBSITE/giving-backend-php/api/';
+      
+      // ============================================
+      // DOM REFERENCES
+      // ============================================
+      const inputs = document.querySelectorAll('.ag-input');
+      const totalTithe = document.getElementById('totalTithe');
+      const totalLocal = document.getElementById('totalLocal');
+      const totalConference = document.getElementById('totalConference');
+      const totalWorld = document.getElementById('totalWorld');
+      const grandTotal = document.getElementById('grandTotal');
+      const continueBtn = document.getElementById('continueBtn');
+      const modal = document.getElementById('stkModal');
+      const modalBody = document.getElementById('modalBody');
+      const modalClose = document.getElementById('modalClose');
+
+      // ============================================
+      // TOTAL CALCULATION (PRESERVED)
+      // ============================================
+      function sumCategory(category) {
+        let sum = 0;
+        inputs.forEach(inp => {
+          if (inp.dataset.category === category) {
+            const val = parseFloat(inp.value) || 0;
+            sum += val;
+          }
+        });
+        return sum;
+      }
+
+      function getOfferings() {
+        const offerings = [];
+        inputs.forEach(inp => {
+          const amount = parseFloat(inp.value) || 0;
+          if (amount > 0) {
+            offerings.push({
+              category: inp.dataset.category || 'other',
+              name: inp.dataset.name || inp.dataset.category || 'Offering',
+              amount: amount
+            });
+          }
+        });
+        return offerings;
+      }
+
+      function updateTotals() {
+        const tithe = sumCategory('tithe');
+        const local = sumCategory('local');
+        const conference = sumCategory('conference');
+        const world = sumCategory('world');
+        const total = tithe + local + conference + world;
+
+        totalTithe.textContent = 'KSh ' + tithe.toLocaleString();
+        totalLocal.textContent = 'KSh ' + local.toLocaleString();
+        totalConference.textContent = 'KSh ' + conference.toLocaleString();
+        totalWorld.textContent = 'KSh ' + world.toLocaleString();
+        grandTotal.textContent = 'KSh ' + total.toLocaleString();
+        
+        return { tithe, local, conference, world, total };
+      }
+
+      inputs.forEach(inp => inp.addEventListener('input', updateTotals));
+      updateTotals();
+
+      // ============================================
+      // MODAL FUNCTIONS
+      // ============================================
+      function showModal(title, content, isHTML = false) {
+        modalBody.innerHTML = `
+          <h3 style="margin-top: 0; color: #006B75;">${title}</h3>
+          ${isHTML ? content : `<p>${content}</p>`}
+        `;
+        modal.style.display = 'flex';
+      }
+
+      function closeModal() {
+        modal.style.display = 'none';
+      }
+
+      // ============================================
+      // CHECK PAYMENT STATUS
+      // ============================================
+      async function checkPaymentStatus(checkoutRequestId) {
+        try {
+          showModal('⏳ Checking', 'Please wait while we check your payment status...');
+          
+          const response = await fetch(`${API_BASE_URL}/status.php?id=${checkoutRequestId}`);
+          const data = await response.json();
+          
+          if (data.success && data.data) {
+            const result = data.data;
+            const isSuccess = result.ResultCode === 0 || result.status === 'completed';
+            const statusText = isSuccess ? '✅ Completed' : '❌ Failed';
+            const statusColor = isSuccess ? '#4CAF50' : '#f44336';
+            
+            showModal(
+              '📊 Payment Status',
+              `
+                <div style="text-align: center;">
+                  <div style="font-size: 48px; margin: 20px 0; color: ${statusColor}">
+                    ${isSuccess ? '✅' : '❌'}
+                  </div>
+                  <h3 style="color: ${statusColor}">${statusText}</h3>
+                  <p><strong>Checkout Request ID:</strong> ${checkoutRequestId}</p>
+                  <p><strong>Result Code:</strong> ${result.ResultCode ?? 'N/A'}</p>
+                  <p><strong>Result Description:</strong> ${result.ResultDesc ?? result.status ?? 'N/A'}</p>
+                  ${isSuccess ? `
+                    <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                      <p><strong>M-Pesa Receipt:</strong> ${result.mpesaReceiptNumber || 'N/A'}</p>
+                      <p><strong>Transaction Date:</strong> ${result.transactionDate || 'N/A'}</p>
+                      <p><strong>Amount:</strong> KSh ${result.amount || 'N/A'}</p>
+                    </div>
+                  ` : ''}
+                  <button onclick="closeModal()" 
+                          style="background: #006B75; color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; cursor: pointer; margin-top: 10px;">
+                    Close
+                  </button>
+                </div>
+              `,
+              true
+            );
+          } else {
+            throw new Error('Failed to get status');
+          }
+        } catch (error) {
+          console.error('Status check error:', error);
+          showModal('❌ Error', 'Failed to check payment status. Please try again later.');
+        }
+      }
+
+      // Make functions globally accessible
+      window.checkPaymentStatus = checkPaymentStatus;
+      window.closeModal = closeModal;
+
+      // ============================================
+      // PROCESS DONATION - M-PESA ONLY
+      // ============================================
+      async function processDonation() {
+        const totals = updateTotals();
+        const totalAmount = totals.total;
+        
+        if (totalAmount <= 0) {
+          showModal('⚠️ Error', 'Please enter an amount to donate.');
+          return;
+        }
+
+        // Get phone number
+        const phoneInput = document.getElementById('mpesaPhone');
+        const phoneNumber = phoneInput?.value || '';
+        
+        if (!phoneNumber) {
+          showModal('⚠️ Error', 'Please enter your M-Pesa phone number.');
+          return;
+        }
+
+        const offerings = getOfferings();
+        const accountRef = `KISIIU-${Date.now()}`;
+
+        try {
+          // Show processing modal
+          showModal('⏳ Processing', 'Please wait while we initiate your payment...');
+
+          // Send request to backend
+          const response = await fetch(`${API_BASE_URL}/stkpush.php`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              phoneNumber: phoneNumber,
+              amount: totalAmount,
+              accountReference: accountRef,
+              transactionDesc: 'Church Giving - Kisii University SDA',
+              offerings: offerings,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (!data.success) {
+            throw new Error(data.message || 'Payment initiation failed');
+          }
+
+          // ============================================
+          // SUCCESS - Show STK Push Sent
+          // ============================================
+          showModal(
+            '📱 STK Push Sent',
+            `
+              <div style="text-align: center;">
+                <div style="font-size: 48px; margin: 20px 0;">📲</div>
+                <h3>Check Your Phone</h3>
+                <p>An M-Pesa STK push has been sent to <strong>${phoneNumber}</strong></p>
+                <p><strong>Amount:</strong> KSh ${totalAmount.toLocaleString()}</p>
+                <p><strong>Reference:</strong> ${accountRef}</p>
+                <div style="background: #f0f9f9; padding: 15px; border-radius: 8px; margin: 15px 0; text-align: left;">
+                  <p style="margin: 5px 0;">📌 <strong>Checkout Request ID:</strong></p>
+                  <code style="word-break: break-all; background: #e8f0f0; padding: 8px; display: block; border-radius: 4px;">
+                    ${data.data.checkoutRequestId}
+                  </code>
+                </div>
+                <p style="color: #666; font-size: 0.9rem;">
+                  ⏳ Please enter your M-Pesa PIN on your phone to complete the payment.
+                  <br>You will receive a confirmation SMS once the payment is successful.
+                </p>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px;">
+                  <button onclick="checkPaymentStatus('${data.data.checkoutRequestId}')" 
+                          style="background: #006B75; color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; cursor: pointer;">
+                    🔄 Check Payment Status
+                  </button>
+                  <button onclick="closeModal()" 
+                          style="background: #6c757d; color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; cursor: pointer;">
+                    Close
+                  </button>
+                </div>
+              </div>
+            `,
+            true
+          );
+
+          // Save transaction data for status checking
+          window.lastCheckoutId = data.data.checkoutRequestId;
+
+        } catch (error) {
+          console.error('Donation error:', error);
+          showModal('❌ Error', error.message || 'Failed to process donation. Please try again.');
+        }
+      }
+
+      // ============================================
+      // EVENT LISTENERS
+      // ============================================
+      continueBtn.addEventListener('click', processDonation);
+
+      // Modal close
+      modalClose.addEventListener('click', closeModal);
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+
+      console.log('✅ Giving system initialized');
+      console.log('📡 API URL:', API_BASE_URL);
+    })();
+
+
+    
+  </script>
+
+</body>
+</html>

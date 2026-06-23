@@ -1,15 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Livestream — Kisii University Seventh-day Adventist Church. Watch our live Sabbath worship service online.">
-    <title>Kisii University SDA Church | Leadership Directory</title>
+  <meta name="description" content="Kisii University SDA Church Leadership Directory">
+  <title>Kisii University SDA | Leadership Directory</title>
   <link rel="stylesheet" href="css/styles.css">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kisii University Seventh-day Adventist Church - Official Leadership Directory">
-   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="../images/kisiilogo.png">
   
@@ -17,50 +14,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
   
   <style>
     /* ========================================
-       COMPLETE COLOR SYSTEM (Teal Theme)
+       ENHANCED COLOR SYSTEM (Teal + Cream + Warm Beige + Charcoal + Taupe)
     ======================================== */
     :root {
       --teal: #006B75;
       --teal-dark: #005A63;
       --teal-darker: #004950;
       --teal-light: #008C99;
-      --white: #FFFFFF;
       --cream: #F9F5F0;
-      --off-white: #f5f5f5;
-      --text-dark: #222222;
-      --text-body: #444444;
-      --text-muted: #666666;
-      --text-light: #999999;
-      --border-light: #e0e0e0;
-      --shadow: 0 2px 12px rgba(0,0,0,0.08);
-      --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
-      --radius: 16px;
+      --warm-beige: #EBE3D5;
+      --charcoal: #3D3D3D;
+      --taupe: #A89B8D;
+      --white: #FFFFFF;
+      --off-white: #F7F5F2;
+      --text-dark: #2C2C2C;
+      --text-body: #4A4A4A;
+      --text-muted: #7A7A7A;
+      --border-light: #E5E0D8;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,0.10);
+      --radius: 18px;
       --transition: all 0.3s ease;
-      --font-heading: 'Poppins', Georgia, serif;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Noto Sans', 'Lato', sans-serif;
-      --max-width: 1200px;
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-body);
-      background-color: var(--white);
+      background-color: var(--off-white);
       color: var(--text-body);
       scroll-behavior: smooth;
     }
     h1, h2, h3, h4, .heading-font {
-      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       color: var(--text-dark);
     }
     
-    /* Modern Leadership Cards */
+    /* ----- MODERN LEADERSHIP CARDS (SHA-inspired) ----- */
     .leadership-card {
       background: var(--white);
-      border-radius: 20px;
+      border-radius: var(--radius);
       overflow: hidden;
       transition: var(--transition);
       box-shadow: var(--shadow);
@@ -73,8 +72,8 @@
       border-color: var(--teal-light);
     }
     .card-header {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-      padding: 1.5rem 1.5rem 1rem;
+      background: linear-gradient(145deg, var(--teal) 0%, var(--teal-dark) 100%);
+      padding: 1.8rem 1.5rem 1.2rem;
       text-align: center;
       position: relative;
     }
@@ -83,72 +82,81 @@
       height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--white);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: 4px solid var(--cream);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       margin: 0 auto;
-      background: var(--white);
+      background: var(--cream);
     }
     .leader-name {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--white);
       margin-top: 0.75rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
+      font-family: var(--font-heading);
     }
     .leader-position {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       font-weight: 500;
       letter-spacing: 0.5px;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
     }
     .card-body {
-      padding: 1.25rem;
+      padding: 1.25rem 1.25rem 1.5rem;
+      background: var(--white);
     }
     .leader-focus {
       background: var(--cream);
-      padding: 0.5rem 0.75rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 30px;
       font-size: 0.7rem;
       font-weight: 600;
       color: var(--teal-dark);
       display: inline-block;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border-light);
     }
     .contact-phone {
       font-size: 0.8rem;
       color: var(--teal);
       font-weight: 600;
       text-align: center;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding: 0.4rem;
       background: var(--off-white);
       border-radius: 30px;
+      border: 1px solid var(--border-light);
     }
     .contact-buttons {
       display: flex;
       justify-content: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .contact-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
+      gap: 5px;
+      padding: 5px 14px;
       border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
+      border: 1px solid transparent;
     }
     .contact-btn.whatsapp { background: #25D366; color: white; }
     .contact-btn.call { background: var(--teal); color: white; }
-    .contact-btn.email { background: #6c757d; color: white; }
-    .contact-btn:hover { transform: scale(1.02); }
+    .contact-btn.email { background: var(--taupe); color: white; }
+    .contact-btn:hover { transform: scale(1.04); opacity: 0.92; }
     .view-profile-btn {
       width: 100%;
-      background: transparent;
+      background: var(--cream);
       border: 1px solid var(--border-light);
       padding: 8px;
       border-radius: 40px;
@@ -164,7 +172,178 @@
       border-color: var(--teal);
     }
     
-    /* Modal */
+    /* ----- DEPARTMENT CARDS (improved) ----- */
+    .dept-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .dept-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    }
+    .dept-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--teal-light);
+    }
+    .dept-icon { font-size: 2rem; color: var(--teal); margin-bottom: 0.5rem; }
+    .dept-card h3 { font-size: 1.1rem; color: var(--text-dark); }
+    .dept-card .leader-name { font-size: 0.85rem; color: var(--teal); font-weight: 600; }
+    .dept-card .dept-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+    
+    /* ----- DEACON/DEACONESS CARDS (improved) ----- */
+    .deacon-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      transition: var(--transition);
+      border-left: 4px solid var(--teal);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .deacon-card:hover {
+      transform: translateX(6px);
+      background: var(--cream);
+      border-left-color: var(--teal-light);
+    }
+    .deacon-card .deacon-info { flex: 1; }
+    .deacon-card .deacon-name { font-weight: 700; color: var(--text-dark); }
+    .deacon-card .deacon-pos { color: var(--teal); font-weight: 600; font-size: 0.8rem; }
+    .deacon-card .deacon-duties { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .deacon-card .deacon-icon { color: var(--teal); opacity: 0.5; font-size: 1.2rem; }
+    
+    /* ----- CLERK & TREASURER CARDS (new) ----- */
+    .officer-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .officer-card:hover {
+      border-color: var(--teal-light);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .officer-card .officer-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--cream);
+    }
+    .officer-card .officer-details { flex: 1; }
+    .officer-card .officer-name { font-weight: 700; color: var(--text-dark); font-size: 1rem; }
+    .officer-card .officer-title { color: var(--teal); font-weight: 600; font-size: 0.8rem; }
+    .officer-card .officer-email { font-size: 0.75rem; color: var(--text-muted); }
+    
+    /* ----- STATS ----- */
+    .stat-card {
+      background: linear-gradient(145deg, var(--teal), var(--teal-dark));
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      box-shadow: 0 8px 24px rgba(0,107,117,0.15);
+    }
+    .stat-number { font-size: 2.4rem; font-weight: 800; font-family: var(--font-heading); }
+    
+    /* ----- HERO ----- */
+    .hero {
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,75,80,0.8)), url('images/church audotorium.jpg') center/cover;
+    }
+    .hero-content { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; color: white; text-align: center; }
+    .hero-content h1 { font-size: 3.2rem; color: white; font-family: var(--font-heading); }
+    .hero-content h1 span { color: var(--teal-light); }
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-block;
+    }
+    .btn-outline:hover { background: white; color: var(--teal); }
+    
+    /* ----- TREE ----- */
+    .tree-container {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--border-light);
+    }
+    .tree-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--white);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+    }
+    .tree-header:hover { background: var(--cream); border-color: var(--teal); }
+    .tree-icon { color: var(--teal); transition: transform 0.3s; }
+    .tree-icon.expanded { transform: rotate(90deg); }
+    .tree-children {
+      margin-left: 2rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--teal);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .tree-children.open { max-height: 800px; }
+    .tree-leaf {
+      padding: 0.5rem 1rem;
+      margin: 0.25rem 0;
+      background: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border-light);
+    }
+    
+    /* ----- MODAL ----- */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -178,14 +357,11 @@
       visibility: hidden;
       transition: all 0.3s ease;
     }
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
     .modal-container {
       background: var(--white);
-      max-width: 550px;
-      width: 90%;
+      max-width: 520px;
+      width: 92%;
       border-radius: 28px;
       overflow: hidden;
       transform: scale(0.9);
@@ -195,7 +371,7 @@
     }
     .modal-overlay.active .modal-container { transform: scale(1); }
     .modal-header {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      background: linear-gradient(145deg, var(--teal), var(--teal-dark));
       color: white;
       padding: 2rem;
       text-align: center;
@@ -207,7 +383,6 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--white);
-      margin: 0 auto;
     }
     .modal-close {
       position: absolute;
@@ -220,157 +395,51 @@
       height: 36px;
       border-radius: 50%;
       cursor: pointer;
-      transition: all 0.2s;
+      font-size: 1.2rem;
+      transition: 0.2s;
     }
     .modal-close:hover { background: rgba(255,255,255,0.4); transform: rotate(90deg); }
     .modal-body { padding: 2rem; }
-    .info-section {
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-light);
-      padding-bottom: 1rem;
-    }
-    .info-label {
-      font-weight: 700;
-      color: var(--teal);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-    }
-    .info-text { color: var(--text-body); font-size: 0.9rem; line-height: 1.6; }
+    .info-section { margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; }
+    .info-label { font-weight: 700; color: var(--teal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; }
     
-    /* Interactive Tree */
-    .tree-container {
-      background: var(--cream);
-      border-radius: 24px;
-      padding: 2rem;
-    }
-    .tree-node { margin-bottom: 0.5rem; }
-    .tree-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      background: var(--white);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: var(--transition);
-      border: 1px solid var(--border-light);
-    }
-    .tree-header:hover { background: var(--cream); border-color: var(--teal); }
-    .tree-icon { color: var(--teal); font-size: 0.8rem; transition: transform 0.3s; }
-    .tree-icon.expanded { transform: rotate(90deg); }
-    .tree-children {
-      margin-left: 2rem;
-      padding-left: 1rem;
-      border-left: 2px solid var(--teal);
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      max-height: 0;
-    }
-    .tree-children.open { max-height: 800px; }
-    .tree-leaf {
-      padding: 0.5rem 1rem;
-      margin: 0.25rem 0;
-      background: var(--white);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 1px solid var(--border-light);
-    }
-    .tree-leaf i { color: var(--teal); font-size: 0.7rem; }
-    
-    /* Documents Repository */
+    /* ----- DOCUMENT CARDS ----- */
     .doc-card {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: var(--radius);
+      padding: 1.25rem;
       transition: var(--transition);
       border: 1px solid var(--border-light);
-      overflow: hidden;
+      box-shadow: var(--shadow);
     }
     .doc-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-hover);
-      border-color: var(--teal);
+      border-color: var(--teal-light);
     }
     .file-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 3px 10px;
+      gap: 4px;
+      padding: 2px 10px;
       border-radius: 20px;
-      font-size: 0.65rem;
-      font-weight: 600;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
     }
     .file-pdf { background: #dc2626; color: white; }
     .file-word { background: #2563eb; color: white; }
-    .download-toast {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--teal);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      z-index: 1000;
-      animation: slideIn 0.3s ease;
-    }
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
     
-    /* Department Cards */
-    .dept-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-      transition: var(--transition);
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow);
-     
-    }
-    .dept-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--teal-light);
-    }
-    .dept-icon { font-size: 2.2rem; color: var(--teal); margin-bottom: 0.75rem; }
-    
-    /* Deacon Cards */
-    .deacon-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1rem;
-      transition: var(--transition);
-      border-left: 3px solid var(--teal);
-      box-shadow: var(--shadow);
-    }
-    .deacon-card:hover { transform: translateX(5px); background: var(--cream); }
-    
-    /* Search & Filter */
-    .search-input {
-      transition: var(--transition);
-      border: 2px solid var(--border-light);
-      border-radius: 50px;
-      padding: 0.8rem 1rem 0.8rem 2.5rem;
-      width: 100%;
-    }
-    .search-input:focus {
-      border-color: var(--teal);
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0,107,117,0.1);
-    }
+    /* ----- FILTER BUTTONS ----- */
     .filter-btn, .doc-tab-btn {
-      padding: 0.5rem 1.2rem;
+      padding: 0.5rem 1.4rem;
       border-radius: 50px;
       border: 1px solid var(--border-light);
       background: var(--white);
       cursor: pointer;
       transition: var(--transition);
       font-weight: 500;
+      font-size: 0.8rem;
     }
     .filter-btn.active, .filter-btn:hover,
     .doc-tab-btn.active, .doc-tab-btn:hover {
@@ -379,60 +448,41 @@
       border-color: var(--teal);
     }
     
-    /* Stats */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    .stat-card {
-      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
+    /* ----- NEW: PRAYER REQUEST BANNER ----- */
+    .prayer-banner {
+      background: linear-gradient(145deg, var(--teal), var(--teal-darker));
       border-radius: var(--radius);
-    }
-    .stat-number { font-size: 2.2rem; font-weight: 800; }
-    
-    /* Hero */
-    .hero {
-      min-height: 450px;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,75,80,0.75)), url('images/church audotorium.jpg') center/cover;
-    }
-    .hero-content {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
+      padding: 2rem;
       color: white;
       text-align: center;
     }
-    .hero-content h1 { font-size: 3rem; color: white; margin-bottom: 1rem; }
-    .hero-content h1 span { color: var(--teal-light); }
-    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
-    .btn-primary {
-      background: var(--teal);
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
+    .prayer-banner a { color: var(--cream); font-weight: 600; text-decoration: underline; }
+    
+    /* ----- NEW: QUICK LINKS ----- */
+    .quick-link {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border-light);
       transition: var(--transition);
-    }
-    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 50px;
       text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
+      color: var(--text-dark);
     }
-    .btn-outline:hover { background: white; color: var(--teal); }
+    .quick-link:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .quick-link i { font-size: 1.5rem; color: var(--teal); margin-bottom: 0.3rem; display: block; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2rem; }
+      .contact-btn { padding: 4px 10px; font-size: 0.6rem; }
+      .deacon-card { flex-direction: column; align-items: flex-start; }
+      .tree-children { margin-left: 0.5rem; }
+    }
     
     /* Footer */
     footer {
@@ -440,18 +490,25 @@
       color: rgba(255,255,255,0.8);
       padding: 2rem 1.5rem;
       text-align: center;
-      margin-top: 2rem;
     }
-    
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2rem; }
-      .contact-buttons { gap: 0.4rem; }
-      .contact-btn { padding: 4px 10px; font-size: 0.65rem; }
-      .tree-children { margin-left: 1rem; }
-    }
+    .site-header { background: var(--teal-darker); color: white; }
+    /* header styles (minimal) */
+    .header-top { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 2rem; flex-wrap: wrap; }
+    .header-logo a { display: flex; align-items: center; gap: 0.5rem; color: white; text-decoration: none; }
+    .sda-logo-img { height: 40px; }
+    .logo-text { font-weight: 600; font-size: 1rem; }
+    .giving-pill { background: #f5b041; color: #1e2a3a; padding: 0.2rem 1rem; border-radius: 40px; font-weight: 700; font-size: 0.75rem; }
+    .header-nav { background: rgba(0,0,0,0.08); padding: 0.3rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .desktop-nav { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+    .desktop-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .desktop-nav a:hover { color: white; }
+    .hamburger { display: none; background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer; }
+    @media (max-width: 760px) { .desktop-nav { display: none; } .hamburger { display: block; } }
   </style>
 </head>
 <body>
+
+ 
 
   <header class="site-header header-solid" role="banner">
     <div class="header-top">
@@ -535,160 +592,171 @@
   </nav>
 
 
-  
-
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>Church <span>Leadership</span></h1>
-      <p class="lead">Meet the dedicated leaders serving the Kisii University Seventh-day Adventist Church through spiritual guidance, ministry, and service.</p>
-      <div class="hero-btns">
+      <p class="text-white/80 text-lg max-w-2xl mx-auto">Meet the dedicated leaders serving the Kisii University Seventh-day Adventist Church through spiritual guidance, ministry, and service.</p>
+      <div class="flex gap-3 justify-center flex-wrap mt-6">
         <a href="#leadership-directory" class="btn-primary"><i class="fas fa-users mr-2"></i>Meet Our Leaders</a>
-        <a href="#documents" class="btn-outline"><i class="fas fa-folder-open mr-2"></i>Documents Repository</a>
-        <a href="#contact" class="btn-outline"><i class="fas fa-envelope mr-2"></i>Contact Office</a>
+        <a href="#documents" class="btn-outline"><i class="fas fa-folder-open mr-2"></i>Documents</a>
       </div>
     </div>
   </section>
 
-  <!-- SEARCH & FILTER SECTION -->
-  <section id="leadership-directory" class="py-12 px-6 bg-white border-b">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
-        <div class="relative flex-1 max-w-md">
-          <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          <input type="text" id="searchInput" placeholder="Search by name, position, or focus area..." class="search-input">
-        </div>
-        <div class="flex gap-3 flex-wrap">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="pastors">Pastors</button>
-          <button class="filter-btn" data-filter="elders">Elders</button>
-          <button class="filter-btn" data-filter="departments">Departments</button>
-        </div>
+  <!-- QUICK LINKS (NEW FEATURE) -->
+  <section class="py-8 px-6 bg-[var(--cream)] border-b border-[var(--border-light)]">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      <a href="#pastors-section" class="quick-link"><i class="fas fa-praying-hands"></i><span>Pastoral Team</span></a>
+      <a href="#elders-section" class="quick-link"><i class="fas fa-star"></i><span>Elders</span></a>
+      <a href="#departments-section" class="quick-link"><i class="fas fa-chalkboard-user"></i><span>Departments</span></a>
+      <a href="#deacons-section" class="quick-link"><i class="fas fa-hands-helping"></i><span>Deacons</span></a>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTER -->
+  <section id="leadership-directory" class="py-10 px-6 bg-white border-b">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
+      <div class="relative flex-1 max-w-md">
+        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        <input type="text" id="searchInput" placeholder="Search by name, position, or focus..." class="w-full p-3 pl-10 rounded-full border-2 border-[var(--border-light)] focus:border-[var(--teal)] focus:outline-none transition">
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pastors">Pastors</button>
+        <button class="filter-btn" data-filter="elders">Elders</button>
+        <button class="filter-btn" data-filter="departments">Departments</button>
       </div>
     </div>
   </section>
 
-  <!-- PASTORAL TEAM SECTION -->
-  <section class="py-16 px-6 bg-white" id="pastors-section">
+  <!-- PASTORAL TEAM -->
+  <section id="pastors-section" class="py-16 px-6 bg-[var(--off-white)]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#000] heading-font">Pastoral Team</h2>
-        <div class="w-20 h-1 bg-[#006B75] mx-auto mt-3 rounded-full"></div>
-        <p class="text-gray-600 mt-3">Spiritual leaders dedicated to shepherding the congregation</p>
+        <span class="text-[var(--teal)] font-semibold tracking-wide text-sm uppercase"><i class="fas fa-cross mr-2"></i>Spiritual Leaders</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-dark)] heading-font">Pastoral Team</h2>
+        <div class="w-20 h-1 bg-[var(--teal)] mx-auto mt-3 rounded-full"></div>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="pastoral-cards"></div>
     </div>
   </section>
 
-  <!--Church Cleak and Assistant Church cleark-->
-  <section class="py-16 px-6 bg-gray-50">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-      <div class="rounded-2xl shadow-lg bg-white p-8">
-        <div class="flex items-center gap-3 mb-6 border-b pb-3">
-          <i class="fas fa-clipboard-list text-3xl text-[#000]"></i>
-          <h3 class="text-2xl font-bold text-[#004950] heading-font">Church Clerk</h3>
-        </div>
-        <div id="church-clerk-list" class="space-y-3"></div>
+  <!-- CHURCH CLERK & TREASURER (NEW: added Treasurer) -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold heading-font">Church Officers</h2>
+        <div class="w-16 h-1 bg-[var(--teal)] mx-auto mt-3 rounded-full"></div>
       </div>
-      <div class="rounded-2xl shadow-lg bg-white p-8">
-        <div class="flex items-center gap-3 mb-6 border-b pb-3">
-          <i class="fas fa-clipboard text-3xl text-[#000]"></i>
-          <h3 class="text-2xl font-bold text-[#004950] heading-font">Assistant Church Clerk</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Clerk -->
+        <div id="clerk-container" class="bg-[var(--cream)] rounded-2xl p-6 border border-[var(--border-light)]">
+          <h3 class="text-xl font-bold text-[var(--teal)] heading-font mb-4"><i class="fas fa-clipboard-list mr-2"></i>Church Clerk</h3>
+          <div id="church-clerk-list"></div>
         </div>
-        <div id="assistant-church-clerk-list" class="space-y-3"></div>
+        <!-- Treasurer (NEW) -->
+        <div id="treasurer-container" class="bg-[var(--cream)] rounded-2xl p-6 border border-[var(--border-light)]">
+          <h3 class="text-xl font-bold text-[var(--teal)] heading-font mb-4"><i class="fas fa-coins mr-2"></i>Treasurer</h3>
+          <div id="treasurer-list"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ELDERS SECTION -->
-  <section class="py-16 px-6 bg-gray-50" id="elders-section">
+  <!-- ELDERS -->
+  <section id="elders-section" class="py-16 px-6 bg-[var(--off-white)]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#000] heading-font">Church Elders</h2>
-        <div class="w-20 h-1 bg-[#006B75] mx-auto mt-3 rounded-full"></div>
-        <p class="text-gray-600 mt-3">Wise counsel and spiritual oversight for the church community</p>
+        <span class="text-[var(--teal)] font-semibold tracking-wide text-sm uppercase"><i class="fas fa-star mr-2"></i>Spiritual Oversight</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-dark)] heading-font">Church Elders</h2>
+        <div class="w-20 h-1 bg-[var(--teal)] mx-auto mt-3 rounded-full"></div>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="elders-cards"></div>
     </div>
   </section>
 
-  <!-- DEPARTMENT LEADERS SECTION -->
-  <section class="py-16 px-6 bg-white" id="departments-section">
+  <!-- DEPARTMENTS -->
+  <section id="departments-section" class="py-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#000] heading-font">Departmental Ministries</h2>
-        <div class="w-20 h-1 bg-[#006B75] mx-auto mt-3 rounded-full"></div>
-        <p class="text-gray-600 mt-3">Serving through various ministry departments</p>
+        <span class="text-[var(--teal)] font-semibold tracking-wide text-sm uppercase"><i class="fas fa-chalkboard-user mr-2"></i>Ministry Areas</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-dark)] heading-font">Departmental Ministries</h2>
+        <div class="w-20 h-1 bg-[var(--teal)] mx-auto mt-3 rounded-full"></div>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="dept-cards"></div>
     </div>
   </section>
 
   <!-- DEACONS & DEACONESSES -->
-  <section class="py-16 px-6 bg-gray-50">
+  <section id="deacons-section" class="py-16 px-6 bg-[var(--cream)]">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-      <div class="rounded-2xl shadow-lg bg-white p-8">
+      <div class="bg-white rounded-2xl shadow-lg p-8 border border-[var(--border-light)]">
         <div class="flex items-center gap-3 mb-6 border-b pb-3">
-          <i class="fas fa-tools text-3xl text-[#000]"></i>
-          <h3 class="text-2xl font-bold text-[#004950] heading-font">Deacons Corps</h3>
+          <i class="fas fa-tools text-3xl text-[var(--teal)]"></i>
+          <h3 class="text-2xl font-bold text-[var(--text-dark)] heading-font">Deacons Corps</h3>
         </div>
         <div id="deacons-list" class="space-y-3"></div>
       </div>
-      <div class="rounded-2xl shadow-lg bg-white p-8">
+      <div class="bg-white rounded-2xl shadow-lg p-8 border border-[var(--border-light)]">
         <div class="flex items-center gap-3 mb-6 border-b pb-3">
-          <i class="fas fa-hands-helping text-4xl text-[#006B75]"></i>
-          <h3 class="text-3xl font-bold text-[#000] heading-font">Deaconesses Corps</h3>
+          <i class="fas fa-hands-helping text-3xl text-[var(--teal)]"></i>
+          <h3 class="text-2xl font-bold text-[var(--text-dark)] heading-font">Deaconesses Corps</h3>
         </div>
         <div id="deaconesses-list" class="space-y-3"></div>
       </div>
     </div>
   </section>
 
-  <!-- INTERACTIVE HIERARCHY TREE -->
-  <section class="py-20 px-6 bg-white">
+  <!-- PRAYER REQUEST BANNER (NEW FEATURE) -->
+  <section class="py-10 px-6">
+    <div class="max-w-4xl mx-auto prayer-banner">
+      <i class="fas fa-pray text-3xl mb-3"></i>
+      <h3 class="text-2xl font-bold heading-font">Need Prayer?</h3>
+      <p class="text-white/80 mt-2">Our leadership team is here to pray with you. Submit your prayer request online.</p>
+      <a href="#" class="inline-block mt-4 bg-[var(--cream)] text-[var(--teal-dark)] px-6 py-2 rounded-full font-semibold hover:bg-white transition">Submit Prayer Request <i class="fas fa-arrow-right ml-2"></i></a>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TREE -->
+  <section class="py-16 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#000] heading-font">Interactive Leadership Tree</h2>
-        <div class="w-20 h-1 bg-[#006B75] mx-auto mt-3 rounded-full"></div>
-        <p class="text-gray-600 mt-3">Click on any branch to explore the full organizational hierarchy</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-dark)] heading-font">Leadership Structure</h2>
+        <div class="w-20 h-1 bg-[var(--teal)] mx-auto mt-3 rounded-full"></div>
+        <p class="text-gray-600 mt-3">Click to explore the organizational hierarchy</p>
       </div>
       <div class="tree-container" id="interactiveTree"></div>
     </div>
   </section>
 
-  <!-- LEADERSHIP DOCUMENTS REPOSITORY -->
-  <section id="documents" class="py-20 px-6 bg-gray-50">
+  <!-- DOCUMENTS -->
+  <section id="documents" class="py-16 px-6 bg-[var(--off-white)]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <span class="text-[#006B75] font-semibold tracking-wide uppercase text-sm">Institutional Resources</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-[#004950] heading-font mt-2">Leadership Documents Repository</h2>
-        <div class="w-24 h-1 bg-[#006B75] mx-auto mt-4 rounded-full"></div>
-        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Access official church documents, governance materials, and ministry resources for transparency and edification.</p>
+        <span class="text-[var(--teal)] font-semibold tracking-wide text-sm uppercase"><i class="fas fa-folder-open mr-2"></i>Resources</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-dark)] heading-font">Documents Repository</h2>
+        <div class="w-20 h-1 bg-[var(--teal)] mx-auto mt-3 rounded-full"></div>
       </div>
-
       <div class="flex flex-wrap justify-center gap-3 mb-10">
-        <button class="doc-tab-btn active" data-doc-cat="all">All Documents</button>
-        <button class="doc-tab-btn" data-doc-cat="governance">Governance & Bylaws</button>
+        <button class="doc-tab-btn active" data-doc-cat="all">All</button>
+        <button class="doc-tab-btn" data-doc-cat="governance">Governance</button>
         <button class="doc-tab-btn" data-doc-cat="ministry">Ministry Reports</button>
-        <button class="doc-tab-btn" data-doc-cat="forms">Leadership Forms</button>
-        <button class="doc-tab-btn" data-doc-cat="sermons">Sermon Archives</button>
+        <button class="doc-tab-btn" data-doc-cat="forms">Forms</button>
       </div>
-
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="documentsGrid"></div>
-      
-      <div class="mt-12 bg-white rounded-2xl p-6 shadow-md flex justify-around flex-wrap gap-4">
-        <div class="text-center"><i class="fas fa-file-alt text-2xl text-[#006B75]"></i><p class="text-2xl font-bold text-[#004950]" id="docCount">0</p><p class="text-sm text-gray-600">Total Documents</p></div>
-        <div class="text-center"><i class="fas fa-download text-2xl text-[#006B75]"></i><p class="text-2xl font-bold text-[#004950]" id="downloadCount">0</p><p class="text-sm text-gray-600">Downloads (This Session)</p></div>
-        <div class="text-center"><i class="fas fa-calendar-alt text-2xl text-[#006B75]"></i><p class="text-sm font-semibold text-[#004950]">Last Updated: June 2026</p><p class="text-xs text-gray-500">Regularly maintained</p></div>
+      <div class="mt-8 bg-white rounded-2xl p-6 shadow-md flex justify-around flex-wrap gap-4 border border-[var(--border-light)]">
+        <div class="text-center"><i class="fas fa-file-alt text-2xl text-[var(--teal)]"></i><p class="text-2xl font-bold text-[var(--teal-dark)]" id="docCount">0</p><p class="text-sm text-gray-600">Documents</p></div>
+        <div class="text-center"><i class="fas fa-download text-2xl text-[var(--teal)]"></i><p class="text-2xl font-bold text-[var(--teal-dark)]" id="downloadCount">0</p><p class="text-sm text-gray-600">Downloads</p></div>
       </div>
     </div>
   </section>
 
   <!-- STATISTICS -->
-  <section class="py-16 bg-[#004950] text-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-12 heading-font text-white text-5xl">Leadership at a Glance</h2>
-      <div class="stats-grid">
+  <section class="py-16 px-6 bg-[var(--teal-darker)] text-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold heading-font text-white mb-10">Leadership at a Glance</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div class="stat-card"><div class="stat-number" id="stat-pastors">0</div><div>Pastors</div></div>
         <div class="stat-card"><div class="stat-number" id="stat-elders">0</div><div>Elders</div></div>
         <div class="stat-card"><div class="stat-number" id="stat-dept">0</div><div>Departments</div></div>
@@ -698,80 +766,53 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="py-20 px-6 bg-white">
-    <div class="max-w-5xl mx-auto bg-[#F9F5F0] rounded-3xl shadow-2xl overflow-hidden md:flex">
-      <div class="bg-[#006B75] p-10 md:w-2/5 text-white">
-        <i class="fas fa-church text-4xl mb-4 text-[#F9F5F0]"></i>
-        <h3 class="text-2xl font-bold mb-2 heading-font">Leadership Office</h3>
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto bg-[var(--cream)] rounded-3xl shadow-2xl overflow-hidden md:flex border border-[var(--border-light)]">
+      <div class="bg-[var(--teal)] p-10 md:w-2/5 text-white">
+        <i class="fas fa-church text-4xl mb-4 text-[var(--cream)]"></i>
+        <h3 class="text-2xl font-bold heading-font">Leadership Office</h3>
         <p>Kisii University SDA Church, Kisii, Kenya</p>
-        <div class="mt-8 space-y-4">
-          <p><i class="fas fa-envelope w-6"></i> leadership@kisiiunisda.org</p>
-          <p><i class="fas fa-phone-alt w-6"></i> +254 712 345 678</p>
-          <p><i class="fas fa-clock w-6"></i> Mon–Fri: 9am – 4pm</p>
-        </div>
+        <div class="mt-6 space-y-3"><p><i class="fas fa-envelope w-6"></i> leadership@kisiiunisda.org</p><p><i class="fas fa-phone-alt w-6"></i> +254 712 345 678</p><p><i class="fas fa-clock w-6"></i> Mon–Fri: 9am – 4pm</p></div>
       </div>
-      <div class="p-10 md:w-3/5">
-        <h4 class="text-2xl font-bold text-[#004950] heading-font">Connect With Us</h4>
-        <p class="text-gray-600 mt-2">Need prayer or spiritual guidance? Reach out to our leadership team.</p>
-        <form class="mt-6 space-y-4">
-          <input type="text" placeholder="Your name" class="w-full p-4 rounded-xl border border-gray-200">
-          <input type="email" placeholder="Email address" class="w-full p-4 rounded-xl border border-gray-200">
-          <textarea rows="3" placeholder="Message..." class="w-full p-4 rounded-xl border border-gray-200"></textarea>
-          <button type="button" class="bg-[#006B75] hover:bg-[#005A63] text-white px-8 py-3 rounded-full font-semibold transition">Send Message</button>
-        </form>
+      <div class="p-10 md:w-3/5"><h4 class="text-2xl font-bold text-[var(--teal-dark)] heading-font">Connect With Us</h4><p class="text-gray-600 mt-2">Need prayer or spiritual guidance? Reach out to our leadership team.</p>
+        <form class="mt-6 space-y-4"><input type="text" placeholder="Your name" class="w-full p-4 rounded-xl border border-[var(--border-light)]"><input type="email" placeholder="Email address" class="w-full p-4 rounded-xl border border-[var(--border-light)]"><textarea rows="3" placeholder="Message..." class="w-full p-4 rounded-xl border border-[var(--border-light)]"></textarea><button type="button" class="bg-[var(--teal)] hover:bg-[var(--teal-dark)] text-white px-8 py-3 rounded-full font-semibold transition">Send Message</button></form>
       </div>
     </div>
   </section>
 
-    <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-main">
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container max-w-6xl mx-auto">
+      <div class="footer-main flex justify-between flex-wrap gap-4">
         <div class="footer-info">
           <h4>Kisii University Seventh-day Adventist Church</h4>
-          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><i class="fas fa-phone-alt"></i> &nbsp;<a href="tel:+254794 487 419">+254 794 487 419</a></p>
-          <p style="margin-top: 0.25rem;"> <i class="fas fa-envelope"></i>&nbsp;<a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
-            <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a>
-          </div>
+          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank" class="text-white/70 hover:text-white">Kisii University Campus, Kisii, Kenya</a><br><i class="fas fa-phone-alt"></i> <a href="tel:+254794487419" class="text-white/70 hover:text-white">+254 794 487 419</a></p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:info@kisiiuniversitysdachurch.org" class="text-white/70 hover:text-white">info@kisiiuniversitysdachurch.org</a></p>
         </div>
-        <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div>
+        <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px; filter: invert(1);"></div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom border-t border-white/10 mt-4 pt-4 text-center text-white/60 text-sm">
         <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
-        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
       </div>
     </div>
   </footer>
-  <div class="cookie-banner" role="alert">
-    <div class="cookie-inner">
-      <p>This site uses cookies to provide you with the best web experience.</p>
-      <div class="cookie-buttons"><button class="cookie-accept">Accept</button><button class="cookie-reject">Reject</button></div>
-    </div>
-  </div>
-  <script src="js/main.js"></script>
 
   <!-- MODAL -->
   <div id="leadershipModal" class="modal-overlay">
     <div class="modal-container">
-      <div class="modal-header">
-        <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-        <img id="modalImage" class="modal-avatar" src="" alt="">
-        <h3 id="modalName" class="text-2xl font-bold mt-3"></h3>
-        <p id="modalPosition" class="text-[#D4A017] font-semibold"></p>
-      </div>
+      <div class="modal-header"><button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button><img id="modalImage" class="modal-avatar" src=""><h3 id="modalName" class="text-2xl font-bold mt-3"></h3><p id="modalPosition" class="text-[#D4A017] font-semibold"></p></div>
       <div class="modal-body">
-        <div class="info-section"><div class="info-label"><i class="fas fa-user-circle mr-2"></i>Biography</div><p id="modalBio" class="info-text"></p></div>
-        <div class="info-section"><div class="info-label"><i class="fas fa-bullseye mr-2"></i>Ministry Focus</div><p id="modalFocus" class="info-text"></p></div>
-        <div class="info-section"><div class="info-label"><i class="fas fa-envelope mr-2"></i>Email</div><p id="modalEmail" class="info-text"></p></div>
-        <div class="info-section"><div class="info-label"><i class="fas fa-phone-alt mr-2"></i>Phone</div><p id="modalPhone" class="info-text"></p></div>
+        <div class="info-section"><div class="info-label"><i class="fas fa-user-circle mr-2"></i>Biography</div><p id="modalBio" class="text-[var(--text-body)]"></p></div>
+        <div class="info-section"><div class="info-label"><i class="fas fa-bullseye mr-2"></i>Ministry Focus</div><p id="modalFocus" class="text-[var(--text-body)]"></p></div>
+        <div class="info-section"><div class="info-label"><i class="fas fa-envelope mr-2"></i>Email</div><p id="modalEmail" class="text-[var(--text-body)]"></p></div>
+        <div class="info-section"><div class="info-label"><i class="fas fa-phone-alt mr-2"></i>Phone</div><p id="modalPhone" class="text-[var(--text-body)]"></p></div>
       </div>
     </div>
   </div>
 
   <script>
-    // ==================== LEADERS DATA ====================
+    // ==================== DATA (unchanged credentials) ====================
     const pastorsData = [
       { name: "Pr. Dr. Clifford Ratemo", position: "Pastor", bio: "Pastor Clifford Ratemo holds a Master's Degree in Theology from the University of Eastern Africa, Baraton, Kenya. He is passionate about preaching God's Word, nurturing spiritual growth, and serving the church with Christ-centered leadership", focus: "Vision casting, theological education", email: "pastor.clifford@kisiiunisda.org", phone: "+254722778179", img: "../images/leaders/pastor.jpeg", whatsapp: "254722778179" },
       { name: "Pr. Dr. John Yambo", position: "Associate Pastor", bio: "Master of Arts in Pastoral Counseling. Certified Christian counselor.", focus: "Discipleship, pastoral counseling", email: "john.yambo@kisiiunisda.org", phone: "+254711223344", img: "../images/leaders/pastor_john.jpg", whatsapp: "254711223344" },
@@ -782,11 +823,10 @@
       { name: "Elder Rowling's Mathews", position: "First Elder", bio: "Coordinator for church outreaches and evangelism.", focus: "Personal Ministry, Evangelism", email: "rowlings.mathews@kisiiunisda.org", phone: "+254745161871", img: "images/leaders/Mathews.jpeg", whatsapp: "254745161871" },
       { name: "Elder Awiti Felix", position: "Second Elder", bio: "Responsible for members' spiritual growth.", focus: "Nurture & Retention, Welfare", email: "awiti.felix@kisiiunisda.org", phone: "+254794487419", img: "images/leaders/Awiti.jpeg", whatsapp: "254794487419" },
       { name: "Elder Lawrence Otieno", position: "Elder", bio: "Community development expert.", focus: "Medical Missionary", email: "lawrence.otieno@kisiiunisda.org", phone: "+254723987654", img: "images/leaders/luky.jpeg", whatsapp: "254723987654" },
-      { name: "Elder Kwembur Robert", position: "Elder", bio: "Church Programs.", focus: "Coordinatr", email: "joel.nyamweya@kisiiunisda.org", phone: "+254748988195", img: "images/leaders/robert.jpeg", whatsapp: "254748988195" },
+      { name: "Elder Kwembur Robert", position: "Elder", bio: "Church Programs.", focus: "Coordinator", email: "joel.nyamweya@kisiiunisda.org", phone: "+254748988195", img: "images/leaders/robert.jpeg", whatsapp: "254748988195" },
       { name: "Elder John Maroa", position: "Elder", bio: "Spiritual mentor and discipleship coordinator.", focus: "Master Guide, Deaconry", email: "john.maroa@kisiiunisda.org", phone: "+254723987654", img: "images/leaders/maroa.jpeg", whatsapp: "254723987654" },
       { name: "Elder Ezra Albert", position: "Elder", bio: "Evangelism coordinator.", focus: "Evangelism", email: "ezra.albert@kisiiunisda.org", phone: "+254748931403", img: "images/leaders/ezra.jpeg", whatsapp: "254748931403" },
-      { name: "Elder Joel Nyamweya", position: "Elder", bio: "Voice of Prophecy coordinator.", focus: "Voice of Prophecy", email: "joel.nyamweya@kisiiunisda.org", phone: "+254748988195", img: "images/leaders/jpel.jpeg", whatsapp: "254748988195" },
-      
+      { name: "Elder Joel Nyamweya", position: "Elder", bio: "Voice of Prophecy coordinator.", focus: "Voice of Prophecy", email: "joel.nyamweya@kisiiunisda.org", phone: "+254748988195", img: "images/leaders/jpel.jpeg", whatsapp: "254748988195" }
     ];
 
     const departmentsData = [
@@ -810,8 +850,8 @@
       { name: "Slyvester Owaki", position: "Deacon", duties: "Facilities & security" },
       { name: "Hillstone Rolex", position: "Deacon", duties: "Technical & media support" },
       { name: "Meshack Jimmy", position: "Deacon", duties: "Facilities & Security" },
-      {name:"George Otieno", position:"Deacon", duties:"Assists with logistics and member support" },
-      {name:"Sabbath Okello", position:"Deacon", duties:"Assists with ushering and communion setup" }
+      { name: "George Otieno", position: "Deacon", duties: "Assists with logistics and member support" },
+      { name: "Sabbath Okello", position: "Deacon", duties: "Assists with ushering and communion setup" }
     ];
 
     const deaconessesData = [
@@ -820,126 +860,117 @@
       { name: "Movinter Obiny", position: "Deaconess", duties: "Visitation & prayer support" },
       { name: "Faith Rioba", position: "Deaconess", duties: "Women's mentorship" },
       { name: "Faridah Momanyi", position: "Deaconess", duties: "Community outreach" },
-        { name: "Miriam Maangi", position: "Deaconess", duties: "Assists with hospitality and sanctuary care" },
-        { name: "Dorcas Akinyi", position: "Deaconess", duties: "Assists with visitation and prayer support" }
+      { name: "Miriam Maangi", position: "Deaconess", duties: "Assists with hospitality and sanctuary care" },
+      { name: "Dorcas Akinyi", position: "Deaconess", duties: "Assists with visitation and prayer support" }
     ];
 
-    // ==================== DOCUMENTS WITH ACTUAL FILE PATHS ====================
-    // IMPORTANT: Place your actual PDF and DOCX files in the 'pdfs' folder
-    // Update these paths to match your actual file locations
-    const documents = [
-      { id: 1, name: "Church Constitution & Bylaws", category: "governance", date: "2024-01-15", size: "1.2 MB", icon: "fas fa-gavel", fileType: "pdf", filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx", description: "Official governing document outlining church structure, doctrine, and operational procedures." },
-      { id: 2, name: "Elder's Handbook & Duties", category: "governance", date: "2024-02-10", size: "850 KB", icon: "fas fa-book", fileType: "pdf", filePath: "pdfs/elders-handbook.pdf", description: "Comprehensive guide for church elders including responsibilities and spiritual guidelines." },
-      { id: 3, name: "Full Leadership Directory 2026", category: "forms", date: "2024-03-05", size: "320 KB", icon: "fas fa-file-alt", fileType: "docx", filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx", description: "Official list of all church leadership positions and individuals." },
-      { id: 4, name: "Annual Ministry Report 2025", category: "ministry", date: "2025-01-20", size: "2.4 MB", icon: "fas fa-chart-line", fileType: "docx", filePath: "pdfs/KSUSDA CHURCH LEADERS 2026.docx", description: "Comprehensive report of all ministry activities and achievements for the year 2025." }
+    // NEW: Treasurer data
+    const treasurerData = [
+      { name: "Bro. Collins Ochieng", position: "Church Treasurer", email: "collins.ochieng@kisiiunisda.org", phone: "+254712345678", img: "images/leaders/treasurer.jpg" },
+      { name: "Sis. Grace Akinyi", position: "Assistant Treasurer", email: "grace.akinyi@kisiiunisda.org", phone: "+254723456789", img: "images/leaders/asst_treasurer.jpg" }
     ];
 
     const churchClerks = [
-      { name: "Elder Felix Awiti", email: "felix.awiti@kisiiunisda.org", position: "Church Clerk" },
-      { name: "Sis. Faridah Momanyi", email: "faridah.momanyi@kisiiunisda.org", position: "Assistant Church Clerk" }
+      { name: "Elder Felix Awiti", position: "Church Clerk", email: "felix.awiti@kisiiunisda.org", img: "images/leaders/Awiti.jpeg" },
+      { name: "Sis. Faridah Momanyi", position: "Assistant Church Clerk", email: "faridah.momanyi@kisiiunisda.org", img: "images/leaders/faridah.jpg" }
     ];
-const clerk = document.getElementById('church-clerk-list');
-const assistantClerk = document.getElementById('assistant-church-clerk-list');
-    if (clerk) {
-      const clerkData = churchClerks.find(c => c.position === "Church Clerk");
-      if (clerkData) {
-        clerk.innerHTML = `<div class="flex items-center gap-3"><i class="fas fa-user-circle text-2xl text-[#006B75]"></i><div><p class="font-bold text-[#004950]">${clerkData.name}</p><p class="text-sm text-gray-600">${clerkData.email}</p></div></div>`;
-      }
-    }
-    if (assistantClerk) {
-      const assistantData = churchClerks.find(c => c.position === "Assistant Church Clerk");
-      if (assistantData) {
-        assistantClerk.innerHTML = `<div class="flex items-center gap-3"><i class="fas fa-user-circle text-2xl text-[#006B75]"></i><div><p class="font-bold text-[#004950]">${assistantData.name}</p><p class="text-sm text-gray-600">${assistantData.email}</p></div></div>`;
-      }
-    }
 
+    const documents = [
+      { id: 1, name: "Church Constitution & Bylaws", category: "governance", date: "2024-01-15", size: "1.2 MB", icon: "fas fa-gavel", fileType: "pdf", filePath: "pdfs/constitution.pdf", description: "Official governing document outlining church structure." },
+      { id: 2, name: "Elder's Handbook", category: "governance", date: "2024-02-10", size: "850 KB", icon: "fas fa-book", fileType: "pdf", filePath: "pdfs/elders-handbook.pdf", description: "Comprehensive guide for church elders." },
+      { id: 3, name: "Leadership Directory 2026", category: "forms", date: "2024-03-05", size: "320 KB", icon: "fas fa-file-alt", fileType: "docx", filePath: "pdfs/leadership-directory.docx", description: "Official list of all church leadership positions." },
+      { id: 4, name: "Annual Ministry Report 2025", category: "ministry", date: "2025-01-20", size: "2.4 MB", icon: "fas fa-chart-line", fileType: "docx", filePath: "pdfs/ministry-report.docx", description: "Comprehensive report of all ministry activities." }
+    ];
 
-
-
-    let downloadCount = 0;
-
-    function getFileBadge(fileType) {
-      if (fileType === 'pdf') return '<span class="file-badge file-pdf"><i class="fas fa-file-pdf"></i> PDF</span>';
-      if (fileType === 'docx') return '<span class="file-badge file-word"><i class="fas fa-file-word"></i> Word</span>';
-      return '<span class="file-badge file-generic"><i class="fas fa-file"></i> Document</span>';
-    }
-
-    // WORKING DOWNLOAD FUNCTION - Direct file download
-    function downloadDocument(docId, filePath, docName) {
-      if (!filePath) {
-        alert('Document file path not available. Please contact the church office.');
-        return;
-      }
-      
-      // Create an anchor element and trigger download
-      const link = document.createElement('a');
-      link.href = filePath;
-      link.download = docName.replace(/\s/g, '_') + (filePath.endsWith('.pdf') ? '.pdf' : '.docx');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Update download counter
-      downloadCount++;
-      const countElem = document.getElementById('downloadCount');
-      if (countElem) countElem.innerText = downloadCount;
-      
-      // Show toast notification
-      const notification = document.createElement('div');
-      notification.className = 'download-toast';
-      notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i> Downloading: ${docName}`;
-      document.body.appendChild(notification);
-      setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => notification.remove(), 300);
-      }, 2500);
-    }
-
-    function renderDocuments(category = 'all') {
-      const grid = document.getElementById('documentsGrid');
-      if (!grid) return;
-      
-      const filtered = category === 'all' ? documents : documents.filter(doc => doc.category === category);
-      document.getElementById('docCount').innerText = filtered.length;
-      
-      if (filtered.length === 0) {
-        grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-500"><i class="fas fa-folder-open text-4xl mb-3"></i><p>No documents found in this category.</p></div>';
-        return;
-      }
-      
-      grid.innerHTML = filtered.map(doc => `
-        <div class="doc-card bg-white rounded-xl p-5 border-l-4 border-[#006B75]">
-          <div class="flex items-start gap-3">
-            <div class="text-3xl text-[#006B75]"><i class="${doc.icon}"></i></div>
-            <div class="flex-1">
-              <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
-                <h3 class="font-bold text-[#004950] text-lg">${doc.name}</h3>
-                ${getFileBadge(doc.fileType)}
-              </div>
-              <p class="text-gray-500 text-sm">${doc.description}</p>
-              <div class="flex gap-3 mt-2 text-xs text-gray-400">
-                <span><i class="far fa-calendar-alt mr-1"></i> ${doc.date}</span>
-                <span><i class="fas fa-database mr-1"></i> ${doc.size}</span>
-              </div>
-              <button onclick="downloadDocument(${doc.id}, '${doc.filePath}', '${doc.name.replace(/'/g, "\\'")}')" class="mt-3 bg-[#006B75] hover:bg-[#005A63] text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
-                <i class="fas fa-download mr-2"></i> Download ${doc.fileType.toUpperCase()}
-              </button>
-            </div>
-          </div>
+    // ==================== RENDER FUNCTIONS ====================
+    function renderPastors() {
+      document.getElementById('pastoral-cards').innerHTML = pastorsData.map(p => `
+        <div class="leadership-card" data-category="pastors">
+          <div class="card-header"><img src="${p.img}" class="leader-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${p.name.replace(/ /g,'+')}&background=006B75&color=fff&size=110'"><h3 class="leader-name">${p.name}</h3><span class="leader-position">${p.position}</span></div>
+          <div class="card-body"><div class="leader-focus"><i class="fas fa-bullseye"></i> ${p.focus}</div><div class="contact-phone"><i class="fas fa-phone-alt mr-1"></i> ${p.phone}</div>
+          <div class="contact-buttons"><a href="https://wa.me/${p.whatsapp}" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:${p.phone}" class="contact-btn call"><i class="fas fa-phone-alt"></i> Call</a><a href="mailto:${p.email}" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a></div>
+          <button class="view-profile-btn" onclick='openModal(${JSON.stringify(p).replace(/'/g, "&#39;")})'><i class="fas fa-user-circle mr-1"></i> Profile</button></div>
         </div>
       `).join('');
     }
 
-    // ==================== TREE FUNCTIONS ====================
-    function buildTree() {
-      const container = document.getElementById('interactiveTree');
-      const treeHTML = `
-        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-church text-[#006B75]"></i><strong>Senior Leadership</strong></div><div class="tree-children">${pastorsData.map(p => `<div class="tree-leaf"><i class="fas fa-user-circle"></i> ${p.name} - ${p.position}</div>`).join('')}</div></div>
-        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-users text-[#006B75]"></i><strong>Elders Board</strong></div><div class="tree-children">${eldersData.map(e => `<div class="tree-leaf"><i class="fas fa-star"></i> ${e.name} - ${e.position}</div>`).join('')}</div></div>
-        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-chalkboard-user text-[#006B75]"></i><strong>Departmental Ministries</strong></div><div class="tree-children">${departmentsData.map(d => `<div class="tree-leaf"><i class="${d.icon}"></i> ${d.name} - ${d.leader}</div>`).join('')}</div></div>
-        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-hands-helping text-[#006B75]"></i><strong>Deacon & Deaconess Corps</strong></div><div class="tree-children">${deaconsData.map(d => `<div class="tree-leaf"><i class="fas fa-tools"></i> ${d.position}: ${d.name}</div>`).join('')}${deaconessesData.map(d => `<div class="tree-leaf"><i class="fas fa-heart"></i> ${d.position}: ${d.name}</div>`).join('')}</div></div>
+    function renderElders() {
+      document.getElementById('elders-cards').innerHTML = eldersData.map(e => `
+        <div class="leadership-card" data-category="elders">
+          <div class="card-header"><img src="${e.img}" class="leader-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${e.name.replace(/ /g,'+')}&background=006B75&color=fff&size=110'"><h3 class="leader-name">${e.name}</h3><span class="leader-position">${e.position}</span></div>
+          <div class="card-body"><div class="leader-focus"><i class="fas fa-bullseye"></i> ${e.focus}</div><div class="contact-phone"><i class="fas fa-phone-alt mr-1"></i> ${e.phone}</div>
+          <div class="contact-buttons"><a href="https://wa.me/${e.whatsapp}" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:${e.phone}" class="contact-btn call"><i class="fas fa-phone-alt"></i> Call</a><a href="mailto:${e.email}" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a></div>
+          <button class="view-profile-btn" onclick='openModal(${JSON.stringify(e).replace(/'/g, "&#39;")})'><i class="fas fa-user-circle mr-1"></i> Profile</button></div>
+        </div>
+      `).join('');
+    }
+
+    function renderDepartments() {
+      document.getElementById('dept-cards').innerHTML = departmentsData.map(d => `
+        <div class="dept-card" data-category="departments"><i class="${d.icon} dept-icon"></i><h3>${d.name}</h3><p class="leader-name">${d.leader}</p><p class="dept-desc">${d.desc}</p></div>
+      `).join('');
+    }
+
+    function renderDeacons() {
+      document.getElementById('deacons-list').innerHTML = deaconsData.map(d => `
+        <div class="deacon-card"><div class="deacon-info"><span class="deacon-name">${d.name}</span> <span class="deacon-pos">• ${d.position}</span><div class="deacon-duties"><i class="fas fa-tasks mr-1"></i> ${d.duties}</div></div><i class="fas fa-tools deacon-icon"></i></div>
+      `).join('');
+    }
+
+    function renderDeaconesses() {
+      document.getElementById('deaconesses-list').innerHTML = deaconessesData.map(d => `
+        <div class="deacon-card"><div class="deacon-info"><span class="deacon-name">${d.name}</span> <span class="deacon-pos">• ${d.position}</span><div class="deacon-duties"><i class="fas fa-heart mr-1"></i> ${d.duties}</div></div><i class="fas fa-heart deacon-icon"></i></div>
+      `).join('');
+    }
+
+    // Clerk & Treasurer (NEW)
+    function renderClerks() {
+      const clerk = churchClerks.find(c => c.position === "Church Clerk");
+      const assistant = churchClerks.find(c => c.position === "Assistant Church Clerk");
+      document.getElementById('church-clerk-list').innerHTML = `
+        <div class="officer-card"><img src="${clerk.img}" class="officer-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${clerk.name.replace(/ /g,'+')}&background=006B75&color=fff&size=60'"><div class="officer-details"><div class="officer-name">${clerk.name}</div><div class="officer-title">${clerk.position}</div><div class="officer-email"><i class="fas fa-envelope mr-1"></i> ${clerk.email}</div></div></div>
+        <div class="officer-card mt-3"><img src="${assistant.img}" class="officer-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${assistant.name.replace(/ /g,'+')}&background=006B75&color=fff&size=60'"><div class="officer-details"><div class="officer-name">${assistant.name}</div><div class="officer-title">${assistant.position}</div><div class="officer-email"><i class="fas fa-envelope mr-1"></i> ${assistant.email}</div></div></div>
       `;
-      container.innerHTML = treeHTML;
+    }
+
+    function renderTreasurers() {
+      const treasurer = treasurerData[0];
+      const assistant = treasurerData[1];
+      document.getElementById('treasurer-list').innerHTML = `
+        <div class="officer-card"><img src="${treasurer.img}" class="officer-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${treasurer.name.replace(/ /g,'+')}&background=006B75&color=fff&size=60'"><div class="officer-details"><div class="officer-name">${treasurer.name}</div><div class="officer-title">${treasurer.position}</div><div class="officer-email"><i class="fas fa-envelope mr-1"></i> ${treasurer.email}</div><div class="officer-email"><i class="fas fa-phone-alt mr-1"></i> ${treasurer.phone}</div></div></div>
+        <div class="officer-card mt-3"><img src="${assistant.img}" class="officer-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${assistant.name.replace(/ /g,'+')}&background=006B75&color=fff&size=60'"><div class="officer-details"><div class="officer-name">${assistant.name}</div><div class="officer-title">${assistant.position}</div><div class="officer-email"><i class="fas fa-envelope mr-1"></i> ${assistant.email}</div><div class="officer-email"><i class="fas fa-phone-alt mr-1"></i> ${assistant.phone}</div></div></div>
+      `;
+    }
+
+    // Documents
+    let downloadCount = 0;
+    function renderDocuments(category = 'all') {
+      const grid = document.getElementById('documentsGrid');
+      const filtered = category === 'all' ? documents : documents.filter(d => d.category === category);
+      document.getElementById('docCount').innerText = filtered.length;
+      grid.innerHTML = filtered.map(d => `
+        <div class="doc-card"><div class="flex items-start gap-3"><div class="text-3xl text-[var(--teal)]"><i class="${d.icon}"></i></div><div class="flex-1"><div class="flex justify-between items-start flex-wrap gap-2"><h3 class="font-bold text-[var(--text-dark)]">${d.name}</h3><span class="file-badge ${d.fileType === 'pdf' ? 'file-pdf' : 'file-word'}"><i class="fas ${d.fileType === 'pdf' ? 'fa-file-pdf' : 'fa-file-word'}"></i> ${d.fileType.toUpperCase()}</span></div><p class="text-gray-500 text-sm">${d.description}</p><div class="flex gap-3 mt-2 text-xs text-gray-400"><span><i class="far fa-calendar-alt mr-1"></i> ${d.date}</span><span><i class="fas fa-database mr-1"></i> ${d.size}</span></div>
+        <button onclick="downloadDoc('${d.filePath}','${d.name}')" class="mt-3 bg-[var(--teal)] hover:bg-[var(--teal-dark)] text-white px-4 py-2 rounded-lg text-sm font-semibold transition"><i class="fas fa-download mr-2"></i> Download</button></div></div></div>
+      `).join('');
+    }
+
+    function downloadDoc(path, name) {
+      if (!path) return alert('File not available.');
+      const link = document.createElement('a');
+      link.href = path;
+      link.download = name.replace(/\s/g, '_') + (path.endsWith('.pdf') ? '.pdf' : '.docx');
+      document.body.appendChild(link); link.click(); document.body.removeChild(link);
+      downloadCount++; document.getElementById('downloadCount').innerText = downloadCount;
+    }
+
+    // Tree
+    function buildTree() {
+      document.getElementById('interactiveTree').innerHTML = `
+        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-church text-[var(--teal)]"></i><strong>Senior Leadership</strong></div><div class="tree-children">${pastorsData.map(p => `<div class="tree-leaf"><i class="fas fa-user-circle"></i> ${p.name} - ${p.position}</div>`).join('')}</div></div>
+        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-users text-[var(--teal)]"></i><strong>Elders Board</strong></div><div class="tree-children">${eldersData.map(e => `<div class="tree-leaf"><i class="fas fa-star"></i> ${e.name} - ${e.position}</div>`).join('')}</div></div>
+        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-chalkboard-user text-[var(--teal)]"></i><strong>Departments</strong></div><div class="tree-children">${departmentsData.map(d => `<div class="tree-leaf"><i class="${d.icon}"></i> ${d.name} - ${d.leader}</div>`).join('')}</div></div>
+        <div class="tree-node"><div class="tree-header" onclick="toggleNode(this)"><i class="fas fa-chevron-right tree-icon"></i><i class="fas fa-hands-helping text-[var(--teal)]"></i><strong>Deacon & Deaconess Corps</strong></div><div class="tree-children">${deaconsData.map(d => `<div class="tree-leaf"><i class="fas fa-tools"></i> ${d.position}: ${d.name}</div>`).join('')}${deaconessesData.map(d => `<div class="tree-leaf"><i class="fas fa-heart"></i> ${d.position}: ${d.name}</div>`).join('')}</div></div>
+      `;
     }
 
     window.toggleNode = function(header) {
@@ -949,60 +980,17 @@ const assistantClerk = document.getElementById('assistant-church-clerk-list');
       icon.classList.toggle('expanded');
     };
 
-    // ==================== RENDER FUNCTIONS ====================
-    function renderPastors() {
-      const container = document.getElementById('pastoral-cards');
-      container.innerHTML = pastorsData.map(p => `
-        <div class="leadership-card" data-category="pastors">
-          <div class="card-header"><img src="${p.img}" class="leader-avatar"><h3 class="leader-name">${p.name}</h3><p class="leader-position">${p.position}</p></div>
-          <div class="card-body"><div class="leader-focus"><i class="fas fa-bullseye"></i> ${p.focus}</div><div class="contact-phone"><i class="fas fa-phone-alt mr-1"></i> ${p.phone}</div>
-          <div class="contact-buttons"><a href="https://wa.me/${p.whatsapp}" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:${p.phone}" class="contact-btn call"><i class="fas fa-phone-alt"></i> Call</a><a href="mailto:${p.email}" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a></div>
-          <button class="view-profile-btn" onclick='openModal(${JSON.stringify(p).replace(/'/g, "&#39;")})'><i class="fas fa-user-circle mr-1"></i> View Full Profile</button></div>
-        </div>
-      `).join('');
-    }
-
-    function renderElders() {
-      const container = document.getElementById('elders-cards');
-      container.innerHTML = eldersData.map(e => `
-        <div class="leadership-card" data-category="elders">
-          <div class="card-header"><img src="${e.img}" class="leader-avatar"><h3 class="leader-name">${e.name}</h3><p class="leader-position">${e.position}</p></div>
-          <div class="card-body"><div class="leader-focus"><i class="fas fa-bullseye"></i> ${e.focus}</div><div class="contact-phone"><i class="fas fa-phone-alt mr-1"></i> ${e.phone}</div>
-          <div class="contact-buttons"><a href="https://wa.me/${e.whatsapp}" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:${e.phone}" class="contact-btn call"><i class="fas fa-phone-alt"></i> Call</a><a href="mailto:${e.email}" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a></div>
-          <button class="view-profile-btn" onclick='openModal(${JSON.stringify(e).replace(/'/g, "&#39;")})'><i class="fas fa-user-circle mr-1"></i> View Full Profile</button></div>
-        </div>
-      `).join('');
-    }
-
-    function renderDepartments() {
-      const container = document.getElementById('dept-cards');
-      container.innerHTML = departmentsData.map(d => `
-        <div class="dept-card" data-category="departments"><i class="${d.icon} dept-icon"></i><h3 class="font-bold text-lg text-[#004950]">${d.name}</h3><p class="text-sm font-semibold text-[#006B75] mt-1">${d.leader}</p><p class="text-gray-500 text-xs mt-2">${d.desc}</p></div>
-      `).join('');
-    }
-
-    function renderDeacons() {
-      const container = document.getElementById('deacons-list');
-      container.innerHTML = deaconsData.map(d => `<div class="deacon-card"><div class="flex justify-between items-center"><div><span class="font-bold text-[#006B75]">${d.position}:</span> <span class="font-medium">${d.name}</span></div><i class="fas fa-tools text-[#006B75] opacity-50"></i></div><p class="text-gray-500 text-xs mt-1"><i class="fas fa-tasks mr-1"></i> ${d.duties}</p></div>`).join('');
-    }
-
-    function renderDeaconesses() {
-      const container = document.getElementById('deaconesses-list');
-      container.innerHTML = deaconessesData.map(d => `<div class="deacon-card"><div class="flex justify-between items-center"><div><span class="font-bold text-[#006B75]">${d.position}:</span> <span class="font-medium">${d.name}</span></div><i class="fas fa-heart text-[#006B75] opacity-50"></i></div><p class="text-gray-500 text-xs mt-1"><i class="fas fa-heartbeat mr-1"></i> ${d.duties}</p></div>`).join('');
-    }
-
-    // Modal Functions
+    // Modal
     function openModal(leader) {
-      document.getElementById('modalImage').src = leader.img || 'https://via.placeholder.com/112';
+      document.getElementById('modalImage').src = leader.img || 'https://ui-avatars.com/api/?name='+encodeURIComponent(leader.name)+'&background=006B75&color=fff&size=100';
       document.getElementById('modalName').innerText = leader.name;
       document.getElementById('modalPosition').innerText = leader.position;
       document.getElementById('modalBio').innerText = leader.bio || "Dedicated servant of God.";
       document.getElementById('modalFocus').innerText = leader.focus || "Spiritual leadership";
-      document.getElementById('modalEmail').innerHTML = `<i class="fas fa-envelope mr-2 text-[#006B75]"></i> ${leader.email || 'Not available'}`;
-      document.getElementById('modalPhone').innerHTML = `<i class="fas fa-phone-alt mr-2 text-[#006B75]"></i> ${leader.phone || 'Not available'}`;
+      document.getElementById('modalEmail').innerHTML = `<i class="fas fa-envelope mr-2 text-[var(--teal)]"></i> ${leader.email || 'Not available'}`;
+      document.getElementById('modalPhone').innerHTML = `<i class="fas fa-phone-alt mr-2 text-[var(--teal)]"></i> ${leader.phone || 'Not available'}`;
       document.getElementById('leadershipModal').classList.add('active');
     }
-
     window.closeModal = function() { document.getElementById('leadershipModal').classList.remove('active'); };
     document.getElementById('leadershipModal').addEventListener('click', (e) => { if (e.target === document.getElementById('leadershipModal')) closeModal(); });
 
@@ -1010,58 +998,45 @@ const assistantClerk = document.getElementById('assistant-church-clerk-list');
     const searchInput = document.getElementById('searchInput');
     const filterBtns = document.querySelectorAll('.filter-btn');
     let currentFilter = 'all';
-    
     function filterAndSearch() {
-      const searchTerm = searchInput.value.toLowerCase();
-      const allCards = document.querySelectorAll('#pastoral-cards > div, #elders-cards > div, #dept-cards > div');
-      allCards.forEach(card => {
-        const category = card.getAttribute('data-category');
+      const term = searchInput.value.toLowerCase();
+      document.querySelectorAll('#pastoral-cards > div, #elders-cards > div, #dept-cards > div').forEach(card => {
+        const cat = card.getAttribute('data-category');
         const text = card.innerText.toLowerCase();
-        const matchesFilter = currentFilter === 'all' || category === currentFilter;
-        const matchesSearch = text.includes(searchTerm);
-        card.style.display = (matchesFilter && matchesSearch) ? 'block' : 'none';
+        card.style.display = (currentFilter === 'all' || cat === currentFilter) && text.includes(term) ? 'block' : 'none';
       });
     }
-    
     searchInput.addEventListener('input', filterAndSearch);
     filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.getAttribute('data-filter');
-        filterAndSearch();
-      });
+      btn.addEventListener('click', () => { filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentFilter = btn.dataset.filter; filterAndSearch(); });
     });
 
-    // Document Tab Switching
+    // Document tabs
     document.querySelectorAll('.doc-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.doc-tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        renderDocuments(btn.getAttribute('data-doc-cat'));
+        renderDocuments(btn.dataset.docCat);
       });
     });
 
-    // Statistics Counters
-    function animateCounter(elementId, target) {
+    // Stats animation
+    function animateCounter(id, target) {
       let current = 0;
-      const increment = Math.ceil(target / 50);
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) { document.getElementById(elementId).innerText = target; clearInterval(timer); }
-        else { document.getElementById(elementId).innerText = current; }
-      }, 20);
+      const inc = Math.ceil(target / 40);
+      const timer = setInterval(() => { current += inc; if (current >= target) { document.getElementById(id).innerText = target; clearInterval(timer); } else { document.getElementById(id).innerText = current; } }, 25);
     }
 
-    // Initialize Everything
+    // INIT
     renderPastors();
     renderElders();
     renderDepartments();
     renderDeacons();
     renderDeaconesses();
+    renderClerks();
+    renderTreasurers();
     renderDocuments('all');
     buildTree();
-    
     animateCounter('stat-pastors', pastorsData.length);
     animateCounter('stat-elders', eldersData.length);
     animateCounter('stat-dept', departmentsData.length);
@@ -1070,3 +1045,4 @@ const assistantClerk = document.getElementById('assistant-church-clerk-list');
   </script>
 </body>
 </html>
+```

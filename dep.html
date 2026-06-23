@@ -1,0 +1,441 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Kisii University SDA | Departments</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #006B75;
+      --teal-dark: #005A63;
+      --teal-darker: #004950;
+      --teal-light: #008C99;
+      --cream: #F9F5F0;
+      --off-white: #f5f5f5;
+      --radius-xl: 24px;
+      --shadow-card: 0 12px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.02);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', 'Noto Sans', sans-serif;
+      background: #fcfcfc;
+      color: #1e1e1e;
+    }
+    .heading-font { font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+    .text-teal { color: var(--teal); }
+    .bg-teal { background-color: var(--teal); }
+    .bg-teal-dark { background-color: var(--teal-dark); }
+    .border-teal { border-color: var(--teal); }
+
+    /* ----- MODERN DEPARTMENT CARD (SHA style) ----- */
+    .dept-card-modern {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+    .dept-card-modern:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,107,117,0.08), 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    /* upper section: photo + gradient overlay (left side) + description (right) */
+    .dept-card-inner {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100%;
+    }
+    .dept-photo-side {
+      flex: 0 0 38%;
+      min-height: 200px;
+      position: relative;
+      background: linear-gradient(145deg, #e8f0ef 0%, #d4e3e0 100%);
+      overflow: hidden;
+    }
+    .dept-photo-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .dept-card-modern:hover .dept-photo-side img {
+      transform: scale(1.02);
+    }
+    /* gradient overlay on photo side */
+    .dept-photo-side .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,107,117,0.15) 0%, rgba(0,75,80,0.40) 100%);
+      pointer-events: none;
+    }
+    /* category badge floating on photo */
+    .category-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: var(--teal-dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    /* right side: description area */
+    .dept-info-side {
+      flex: 1;
+      padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      min-width: 200px;
+    }
+    .dept-info-side .dept-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      color: #1a2a2a;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+    .dept-info-side .dept-leader {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      background: rgba(0,107,117,0.06);
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 0.5rem;
+    }
+    .dept-info-side .dept-desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #3d4a4a;
+      margin-bottom: 0.75rem;
+      flex: 1;
+    }
+    /* focus tags */
+    .focus-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin: 0.2rem 0 0.6rem;
+    }
+    .focus-tag {
+      background: #f0f5f4;
+      padding: 0.15rem 0.7rem;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #1f3a3a;
+      letter-spacing: 0.2px;
+    }
+    /* contact row with icons */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid #ebefee;
+    }
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #1f3a3a;
+      text-decoration: none;
+      transition: all 0.15s;
+      background: #f5f9f8;
+      padding: 0.2rem 0.6rem 0.2rem 0.4rem;
+      border-radius: 40px;
+    }
+    .contact-item i {
+      font-size: 0.75rem;
+      color: var(--teal);
+      width: 1.1rem;
+      text-align: center;
+    }
+    .contact-item:hover {
+      background: var(--teal);
+      color: white;
+    }
+    .contact-item:hover i { color: white; }
+    .office-hours-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #f2f6f5;
+      padding: 0.15rem 0.7rem;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      color: #2e4a4a;
+    }
+    .office-hours-badge i { color: var(--teal); font-size: 0.65rem; }
+
+    /* For very narrow screens, stack photo on top */
+    @media (max-width: 600px) {
+      .dept-photo-side { flex: 0 0 100%; min-height: 180px; max-height: 220px; }
+      .dept-info-side { padding: 1.2rem; }
+    }
+
+    /* filter & header */
+    .filter-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .filter-btn {
+      background: white;
+      border: 1px solid #dce3e2;
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3a4f4f;
+      transition: all 0.2s;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      box-shadow: 0 4px 12px rgba(0,107,117,0.15);
+    }
+    .stat-card {
+      background: linear-gradient(145deg, var(--teal-dark), var(--teal));
+      border-radius: 28px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0,107,117,0.12);
+    }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 2rem; }
+    .badge {
+      background: var(--cream);
+      color: var(--teal-dark);
+      padding: 0.25rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-block;
+    }
+    /* hero */
+    .hero { background: linear-gradient(transparent, rgba(50,53,57,0.80)), url('images/church\ audotorium.jpg'); background-size: cover; background-position: center; }
+
+    /* header/footer simplified */
+    .site-header { background: var(--teal-darker); color: white; }
+    .header-top { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 2rem; flex-wrap: wrap; }
+    .header-logo a { display: flex; align-items: center; gap: 0.5rem; color: white; text-decoration: none; }
+    .sda-logo-img { height: 40px; }
+    .logo-text { font-weight: 600; font-size: 1rem; letter-spacing: 0.3px; }
+    .giving-pill { background: #f5b041; color: #1e2a3a; padding: 0.2rem 1rem; border-radius: 40px; font-weight: 700; font-size: 0.75rem; }
+    .header-social { display: flex; gap: 0.8rem; align-items: center; }
+    .header-social a { color: rgba(255,255,255,0.7); transition: 0.2s; }
+    .header-social a:hover { color: white; }
+    .header-nav { background: rgba(0,0,0,0.08); padding: 0.3rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .desktop-nav { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+    .desktop-nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.2s; }
+    .desktop-nav a:hover { color: white; }
+    .hamburger { display: none; background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer; }
+    @media (max-width: 760px) { .desktop-nav { display: none; } .hamburger { display: block; } }
+    .site-footer { background: var(--teal-darker); color: rgba(255,255,255,0.7); padding: 2rem 1.5rem; }
+    .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .footer-info a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    .footer-info a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 1.5rem; padding-top: 1rem; text-align: center; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <!-- header -->
+  <header class="site-header" role="banner">
+    <div class="header-top">
+      <div class="header-logo"><a href="#"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="SDA" class="sda-logo-img"><span class="logo-text">Kisii University SDA</span></a></div>
+      <div style="display:flex;align-items:center;gap:1rem;"><a href="#" class="giving-pill">❤️ Giving</a><div class="header-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+    </div>
+    <nav class="header-nav"><div class="desktop-nav"><a href="#">About</a><a href="#">Calendar</a><a href="#">Departments</a><a href="#">Ministries</a><a href="#">Giving</a><a href="#">Contact</a></div><button class="hamburger" aria-label="menu"><i class="fas fa-bars"></i></button></nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="background: linear-gradient(transparent, rgba(50,53,57,0.80)), url('images/church\ audotorium.jpg'); background-size: cover; background-position: center; background-color: #1f3a3a;">
+    <div class="max-w-6xl mx-auto px-6 py-28 md:py-36 text-white">
+      <div data-aos="fade-up" class="max-w-2xl">
+        <span class="text-amber-200 text-sm font-semibold tracking-wider"><i class="fas fa-folder-tree mr-1"></i> OUR MINISTRIES</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mt-3 heading-font text-white">Church Departments<br><span class="text-teal-light" style="color:#5fc3c9;">Service &amp; Stewardship</span></h1>
+        <p class="text-white/80 text-lg mt-4 max-w-xl">Organized for mission — each department advancing the gospel through dedicated leadership.</p>
+        <div class="mt-6"><a href="#departments-main" class="bg-teal hover:bg-teal-dark text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg"><i class="fas fa-arrow-down mr-2"></i>Explore Departments</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main id="departments-main" class="py-16 md:py-24 px-6 bg-[#fcfcfc]">
+    <div class="max-w-7xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <div class="badge"><i class="fas fa-cogs mr-1"></i> Ministries Directory</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 heading-font">Our Departments &amp; Leadership</h2>
+        <div class="w-24 h-1 bg-teal mx-auto mt-4 rounded-full"></div>
+        <p class="text-gray-600 mt-4">Each department is led by dedicated members — reach out directly via the contact icons.</p>
+      </div>
+
+      <!-- filter -->
+      <div class="filter-group" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">All Departments</button>
+        <button class="filter-btn" data-filter="core">Core Ministries</button>
+        <button class="filter-btn" data-filter="outreach">Outreach &amp; Evangelism</button>
+        <button class="filter-btn" data-filter="support">Support &amp; Operations</button>
+        <button class="filter-btn" data-filter="worship">Worship &amp; Music</button>
+      </div>
+
+      <!-- grid -->
+      <div id="departmentsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr"></div>
+
+      <!-- stats -->
+      <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" data-aos="fade-up">
+        <div class="stat-card"><i class="fas fa-church text-2xl mb-2 block"></i><div class="text-3xl font-bold" id="deptCount">0</div><div class="text-sm opacity-90">Active Departments</div></div>
+        <div class="stat-card"><i class="fas fa-user-friends text-2xl mb-2 block"></i><div class="text-3xl font-bold" id="leaderCount">0</div><div class="text-sm opacity-90">Department Leaders</div></div>
+        <div class="stat-card"><i class="fas fa-calendar-week text-2xl mb-2 block"></i><div class="text-xl font-semibold">Weekly Programs</div><div class="text-sm opacity-80">Across all ministries</div></div>
+        <div class="stat-card"><i class="fas fa-hand-sparkles text-2xl mb-2 block"></i><div class="text-xl font-semibold">Community Impact</div><div class="text-sm opacity-80">Kisii University &amp; beyond</div></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CTA -->
+  <section class="py-16 px-6" style="background: var(--cream);">
+    <div class="max-w-5xl mx-auto text-center" data-aos="zoom-in">
+      <i class="fas fa-hands-helping text-4xl text-teal mb-4"></i>
+      <h2 class="text-3xl md:text-4xl font-bold heading-font">Get Involved in Ministry</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mt-3">Every member is a minister. Discover where your gifts align with our departments.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4"><a href="#" class="bg-teal hover:bg-teal-dark text-white px-8 py-3 rounded-full font-semibold transition shadow"><i class="fas fa-envelope mr-2"></i> Contact Church Office</a><a href="#" class="border border-teal text-teal hover:bg-teal hover:text-white px-8 py-3 rounded-full font-semibold transition"><i class="fas fa-calendar-alt mr-2"></i> Volunteer Form</a></div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-info"><h4>Kisii University SDA Church</h4><p><a href="#">Kisii University Campus, Kenya</a><br><a href="tel:+254794487419">+254 794 487 419</a></p><div style="display:flex;gap:1rem;margin-top:0.5rem;"><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a><a href="#"><i class="fab fa-youtube"></i> YouTube</a></div></div>
+      <div><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="SDA" style="height:50px;filter: invert(1);"></div>
+    </div>
+    <div class="footer-bottom"><p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 30 });
+
+    // ----- DEPARTMENT DATA with REAL PHOTOS (deacons/deaconesses, leaders) -----
+    // using high-quality real people photos (unsplash/randomuser) — replace with actual church photos
+    const departmentsData = [
+      { name: "Deacon / Deaconess Corps", leader: "Head Deacon: Mamalwa Michael / Head Deaconess: Violet Jill", category: "support", description: "Serves practical needs: communion, hospitality, ushering, welfare assistance, sanctuary preparation.", focus: "Service, Hospitality, Member Care", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face", contactEmail: "deacon@kisiiunisda.org", contactPhone: "+254756789234", whatsapp: "+254756789234", officeHours: "On-call | Service coordination Sat mornings" },
+      { name: "Development Department", leader: "Bro. Kennedy Walucho", category: "support", description: "Oversees church growth, infrastructure, resource mobilization, and strategic planning.", focus: "Infrastructure, Fundraising, Strategic Growth", photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face", contactEmail: "development@kisiiunisda.org", contactPhone: "+254722111234", whatsapp: "+254722111234", officeHours: "Wed 4pm-6pm | Sat after service" },
+      { name: "Stewardship Department", leader: "Bro. Kiuki Andrew", category: "support", description: "Educates on biblical stewardship, financial management, and faithful giving.", focus: "Financial Literacy, Tithes & Offerings", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face", contactEmail: "stewardship@kisiiunisda.org", contactPhone: "+254722456789", whatsapp: "+254722456789", officeHours: "Tue 5pm-6:30pm | Sun 10am-12pm" },
+      { name: "Public Address & Media", leader: "Bro. Fredrick Maranga", category: "support", description: "High-quality sound, live streaming, technical support. Manages digital evangelism.", focus: "Audio Engineering, Livestream", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face", contactEmail: "media@kisiiunisda.org", contactPhone: "+254733123456", whatsapp: "+254733123456", officeHours: "Flexible | Contact via WhatsApp" },
+      { name: "Pianist & Worship Music", leader: "Bro. Phinneas Matwere", category: "worship", description: "Coordinates instrumental worship, piano ministry, music enrichment.", focus: "Instrumental Worship, Rehearsals", photo: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop&crop=face", contactEmail: "music@kisiiunisda.org", contactPhone: "+254712345098", whatsapp: "+254712345098", officeHours: "Thu 5pm-7pm (Music Hall)" },
+      { name: "Publishing Ministry", leader: "Bro. Kevin Kibet", category: "outreach", description: "Produces bulletins, newsletters, evangelistic literature. Distribution of Adventist publications.", focus: "Editorial, Literature Evangelism", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face", contactEmail: "publishing@kisiiunisda.org", contactPhone: "+254723456111", whatsapp: "+254723456111", officeHours: "Mon 3pm-5pm | Fri 10am-12pm" },
+      { name: "Religious Liberty", leader: "Bro. Orenge Wilfred", category: "outreach", description: "Advocates for religious freedom, seminars on human rights, interfaith platforms.", focus: "Advocacy, Legal Awareness", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face", contactEmail: "liberty@kisiiunisda.org", contactPhone: "+254734567890", whatsapp: "+254734567890", officeHours: "By appointment (Sat evenings)" },
+      { name: "Family Life Ministry", leader: "Elder Davis Ong'ombe", category: "core", description: "Strengthens marriages, parenting, family relationships through seminars and counseling.", focus: "Marriage Enrichment, Parenting", photo: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=400&h=400&fit=crop&crop=face", contactEmail: "family@kisiiunisda.org", contactPhone: "+254745678123", whatsapp: "+254745678123", officeHours: "Sun 2pm-4pm (Church parlor)" },
+      { name: "Education Department", leader: "Bro. Ouma Vincent", category: "core", description: "Supports Adventist education, tutoring, scholarships for members and community.", focus: "Academic Support, Scholarships", photo: "https://images.unsplash.com/photo-1504593811423-6dd665756598?w=400&h=400&fit=crop&crop=face", contactEmail: "education@kisiiunisda.org", contactPhone: "+254756789234", whatsapp: "+254756789234", officeHours: "Wed 3pm-5pm | Sat 10am-11am" },
+      { name: "Health Ministries", leader: "Bro. Misiani Moffat", category: "outreach", description: "Whole-person wellness: health talks, lifestyle workshops, medical camps, vegetarian cooking.", focus: "Wellness, Community Health", photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face", contactEmail: "health@kisiiunisda.org", contactPhone: "+254767890345", whatsapp: "+254767890345", officeHours: "Fri 2pm-4pm | Health Seminars monthly" },
+      { name: "Communication Department", leader: "Bro. Davis Omari", category: "support", description: "Manages website, social media, announcements, branding, internal & external comms.", focus: "Digital Outreach, Graphic Design", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face", contactEmail: "comm@kisiiunisda.org", contactPhone: "+254778901456", whatsapp: "+254778901456", officeHours: "Online daily | Office Wed 4pm-6pm" },
+      { name: "Music Ministry (Choir)", leader: "Mary Kemunto", category: "worship", description: "Leads congregational singing, choir performances, special musical programs.", focus: "Choir Coordination, Hymns", photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face", contactEmail: "choir@kisiiunisda.org", contactPhone: "+254789012567", whatsapp: "+254789012567", officeHours: "Fri 6pm-8pm (Choir Room)" },
+      { name: "Personal Ministries", leader: "Bro. Richard Okoth", category: "core", description: "Equips for personal witnessing, small group Bible studies, one-on-one evangelism.", focus: "Soul Winning, Discipleship", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face", contactEmail: "personalmin@kisiiunisda.org", contactPhone: "+254790123678", whatsapp: "+254790123678", officeHours: "Tue 5pm-6:30pm | Sat afternoon" },
+      { name: "Children's Ministry", leader: "Sis. Lydia Moraa", category: "core", description: "Nurtures faith in children: Sabbath School, Vacation Bible School, storytelling.", focus: "Children's Church, VBS", photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face", contactEmail: "children@kisiiunisda.org", contactPhone: "+254701234789", whatsapp: "+254701234789", officeHours: "Sat 9:30am-12pm | Wed 4pm" },
+      { name: "Youth & Campus Ministry", leader: "Bro. Victor Ochieng", category: "core", description: "Engages students and young adults: fellowships, retreats, evangelism training, leadership.", focus: "Campus Outreach, Conferences", photo: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop&crop=face", contactEmail: "youth@kisiiunisda.org", contactPhone: "+254712345890", whatsapp: "+254712345890", officeHours: "Fri 6pm-8pm (Fellowship Hall)" },
+      { name: "Nurture & Retention", leader: "Bro. Samuel Ommosa", category: "support", description: "Pastoral care, visitation, support for sick, elderly, bereaved members.", focus: "Visitation, Counseling", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face", contactEmail: "omosa45@gmail.com", contactPhone: "+254723456789", whatsapp: "+254723456789", officeHours: "On-call | Visitation Sat mornings" },
+      { name: "Evangelism & Outreach", leader: "Elder Ezra Albert", category: "outreach", description: "Coordinates city-wide evangelism campaigns, public evangelism, follow-up of new believers.", focus: "Crusades, Baptismal Classes", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face", contactEmail: "evangelism@kisiiunisda.org", contactPhone: "+254723456901", whatsapp: "+254723456901", officeHours: "Sun 3pm-5pm | Evangelism training" },
+      { name: "Adventist Women's Org", leader: "Mama Risper Ondiek", category: "core", description: "Empowers women spiritually and socially: retreats, skills training, fellowship.", focus: "Women Empowerment, Seminars", photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face", contactEmail: "women@kisiiunisda.org", contactPhone: "+254734567012", whatsapp: "+254734567012", officeHours: "Thu 2pm-4pm (Women's Wing)" },
+      { name: "Adventist Men's Org", leader: "Bro. Zachariah Mose", category: "core", description: "Strengthens men's spiritual leadership, accountability, community service.", focus: "Discipleship, Fatherhood", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face", contactEmail: "men@kisiiunisda.org", contactPhone: "+254745678123", whatsapp: "+254745678123", officeHours: "Sat 4pm-5:30pm | Men's breakfast monthly" },
+      { name: "Special Needs", leader: "Sis. Doreen Obuya", category: "support", description: "Inclusive ministry for members with disabilities: accessible worship, support groups, advocacy.", focus: "Accessibility, Support", photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face", contactEmail: "obuyadoreen45@gmail.com", contactPhone: "+254767890345", whatsapp: "+254767890345", officeHours: "By appointment | Contact via WhatsApp" },
+      { name: "Prayer & Worship", leader: "Bro. Peter Oloo", category: "worship", description: "Organizes corporate prayer meetings, worship nights, intercessory prayer chains.", focus: "Prayer Meetings, Intercession", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face", contactEmail: "prayer@kisiiunisda.org", contactPhone: "+254778901456", whatsapp: "+254778901456", officeHours: "Wed 6pm-8pm | Prayer meetings" }
+    ];
+
+    function getWhatsappUrl(phone) {
+      let clean = phone.replace(/[^0-9]/g, '');
+      if (!clean.startsWith('254') && clean.length === 10) clean = '254' + clean;
+      if (!clean.startsWith('+')) clean = '+' + clean;
+      return `https://wa.me/${clean.replace('+', '')}`;
+    }
+
+    const grid = document.getElementById('departmentsGrid');
+    let currentFilter = 'all';
+
+    function renderDepartments(filter) {
+      const filtered = filter === 'all' ? departmentsData : departmentsData.filter(d => d.category === filter);
+      document.getElementById('deptCount').innerText = filtered.length;
+      const leaders = new Set(filtered.map(d => d.leader.split('/')[0].trim()));
+      document.getElementById('leaderCount').innerText = leaders.size;
+
+      grid.innerHTML = filtered.map(dept => {
+        const emailLink = `mailto:${dept.contactEmail}?subject=Inquiry%20about%20${encodeURIComponent(dept.name)}`;
+        const phoneLink = `tel:${dept.contactPhone.replace(/[^0-9+]/g, '')}`;
+        const whatsLink = getWhatsappUrl(dept.whatsapp);
+        // category badge label
+        const catMap = { core: 'Core', outreach: 'Outreach', support: 'Support', worship: 'Worship' };
+        const catLabel = catMap[dept.category] || dept.category;
+        return `
+          <div class="dept-card-modern" data-category="${dept.category}" data-aos="fade-up" data-aos-delay="40">
+            <div class="dept-card-inner">
+              <div class="dept-photo-side">
+                <img src="${dept.photo}" alt="${dept.name}" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(dept.name)}&background=006B75&color=fff&size=200'">
+                <div class="photo-overlay"></div>
+                <span class="category-badge"><i class="fas fa-tag mr-1"></i>${catLabel}</span>
+              </div>
+              <div class="dept-info-side">
+                <h3 class="dept-title">${dept.name}</h3>
+                <div class="dept-leader"><i class="fas fa-user-circle text-teal mr-1"></i> ${dept.leader}</div>
+                <p class="dept-desc">${dept.description}</p>
+                <div class="focus-tags">
+                  ${dept.focus.split(',').map(t => `<span class="focus-tag">${t.trim()}</span>`).join('')}
+                </div>
+                <div class="contact-row">
+                  <a href="${whatsLink}" target="_blank" class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                  <a href="${phoneLink}" class="contact-item"><i class="fas fa-phone-alt"></i> Call</a>
+                  <a href="${emailLink}" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
+                  <span class="office-hours-badge"><i class="fas fa-clock"></i> ${dept.officeHours || 'Contact'}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    renderDepartments('all');
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        renderDepartments(this.dataset.filter);
+      });
+    });
+  </script>
+</body>
+</html>
+```

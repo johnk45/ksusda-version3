@@ -87,11 +87,12 @@
     
     /* Hero Section */
     .ministry-hero {
-      background: linear-gradient(135deg, transparent, rgba(30,41,59,0.8)), url('../images/first-fruits/first1.jpeg') no-repeat center center/cover;
+      background: linear-gradient(135deg, transparent, rgba(30,41,59,0.8)), url('../images/first-fruits/first2.jpeg') no-repeat center center/cover;
       color: white;
       padding: 5rem 0;
       text-align: center;
       min-height: 500px;
+      
     }
     
     .ministry-hero h1 {
@@ -284,7 +285,8 @@
     
     .leader-simple-contacts {
       display: flex;
-      flex-direction: column;
+    justify-content:center;
+    align-items:center;
       gap: 0.5rem;
       padding-top: 1rem;
       border-top: 1px solid #e2e8f0;
@@ -316,6 +318,8 @@
     }
     
     .testimony-box {
+      border-left:5px solid purple;
+      border:1px solid purple;
       flex: 0 0 320px;
       background: #f8f9fa;
       border-radius: 16px;
@@ -414,6 +418,23 @@
     }
     }
     
+
+    
+    /* ----- newsletter & whatsapp group ----- */
+    .connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    @media (max-width: 768px) {.ministry-hero{min-height:90vh; margin-top:2rem;} .connect-grid { grid-template-columns: 1fr; } }
+    .connect-box { background: #fff; border-radius: 20px; padding: 1.8rem; border: 1px solid #e1e9f0; text-align: center; transition: 0.25s; }
+    .connect-box:hover { border-color: #02a698; box-shadow: 0 6px 20px rgba(2,166,152,0.06); }
+    .connect-box h4 { color: #0b1a2e; margin-bottom: 0.5rem; }
+    .connect-box p { color: #3b5a78; font-size: 0.9rem; }
+    .newsletter-form { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 0.8rem; }
+    .newsletter-form input { flex: 1; min-width: 180px; padding: 0.6rem 1rem; border: 1px solid #dce4ec; border-radius: 40px; outline: none; }
+    .newsletter-form button { background: #02a698; color: #fff; border: none; padding: 0.6rem 1.6rem; border-radius: 40px; font-weight: 600; transition: 0.2s; }
+    .newsletter-form button:hover { background: #017a6f; }
+    .whatsapp-group-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 0.7rem 1.8rem; border-radius: 40px; text-decoration: none; font-weight: 600; transition: 0.2s; margin-top: 0.8rem; }
+    .whatsapp-group-btn:hover { background: #1da85c; color: #fff; transform: scale(1.02); }
+
+
     /* Back to Top */
     .back-to-top {
       position: fixed;
@@ -563,6 +584,102 @@
     .table-responsive {
       overflow-x: auto;
     }
+
+    
+    /* ----- GALLERY (lightbox) ----- */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .gallery-item { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: 0.3s; cursor: pointer; }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(2,166,152,0.15); }
+    .gallery-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+
+    
+/* BUTTONS */
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    animation:fadeUp 1.4s ease;
+}
+
+.btn{
+  margin:2rem;
+    padding:14px 45px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg, purple,purple);
+    color:white;
+    outline:1px solid white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgb(163, 77, 202);
+}
+
+.btn-outline{
+    border:1px solid purple;
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:purple;
+    outline:1px solid purple;
+}
+
+/* ================= FLOATING CARD ================= */
+.info-card{
+    position:absolute;
+    bottom:25px;
+    right:25px;
+
+    background:rgba(221, 11, 232, 0.1);
+    backdrop-filter:blur(15px);
+    padding:15px 20px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    animation:float 3s ease-in-out infinite;
+}
+
+/* ================= SCROLL ================= */
+.scroll{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    color:white;
+    opacity:.8;
+    animation:bounce 2s infinite;
+    
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(25px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
   </style>
 </head>
 <body>
@@ -597,17 +714,17 @@
         <div class="nav-item">
           <a href="index.html">About Us <span class="chevron-down">▾</span></a>
           <div class="desktop-dropdown">
-            <a href="giving.html">Giving</a>
-            <a href="history.html">History</a>
-            <a href="in-the-news.html">In the News</a>
-            <a href="our-pastor.html">Our Pastor</a>
-            <a href="sabbath-services.html">Sabbath Services</a>
-            <a href="what-sda-believe.html">What SDAs Believe</a>
-            <a href="worship-with-us.html">Worship With Us</a>
-            <a href="potluck.html">Potluck &amp; Fellowship</a>
-            <a href="special-events.html">Special Events</a>
-            <a href="schools.html">Schools &amp; Education</a>
-            <a href="nearby-churches.html">Nearby SDA Churches</a>
+            <a href="../about/giving.html">Giving</a>
+            <a href="../about/history.html">History</a>
+            <a href="../about/in-the-news.html">In the News</a>
+            <a href="../about/our-pastor.html">Our Pastor</a>
+            <a href="../about/sabbath-services.html">Sabbath Services</a>
+            <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="../about/worship-with-us.html">Worship With Us</a>
+            <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+            <a href="../about/special-events.html">Special Events</a>
+            <a href="../about/schools.html">Schools &amp; Education</a>
+            <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
           </div>
         </div>
         <div class="nav-item">
@@ -676,17 +793,17 @@
           <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
         </div>
         <div class="menu-submenu">
-          <a href="giving.html">Giving</a>
-          <a href="history.html">History</a>
-          <a href="in-the-news.html">In the News</a>
-          <a href="our-pastor.html">Our Pastor</a>
-          <a href="sabbath-services.html">Sabbath Services</a>
-          <a href="what-sda-believe.html">What SDAs Believe</a>
-          <a href="worship-with-us.html">Worship With Us</a>
-          <a href="potluck.html">Potluck &amp; Fellowship</a>
-          <a href="special-events.html">Special Events</a>
-          <a href="schools.html">Schools &amp; Education</a>
-          <a href="nearby-churches.html">Nearby SDA Churches</a>
+          <a href="../about/giving.html">Giving</a>
+          <a href="../about/history.html">History</a>
+          <a href="../about/in-the-news.html">In the News</a>
+          <a href="../about/our-pastor.html">Our Pastor</a>
+          <a href="../about/sabbath-services.html">Sabbath Services</a>
+          <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+          <a href="../about/worship-with-us.html">Worship With Us</a>
+          <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+          <a href="../about/special-events.html">Special Events</a>
+          <a href="../about/schools.html">Schools &amp; Education</a>
+          <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
         </div>
       </div>
       <div class="menu-nav-item">
@@ -742,7 +859,7 @@
   <section class="ministry-hero">
     <div class="container">
       <h1>First Fruit Ministry</h1>
-      <p class="lead fs-4">Empowering young people through spiritual growth, fellowship, and leadership development</p>
+      <p class="lead fs-5">Grow spiritually, build leadership, and experience true Christian fellowship in a vibrant campus ministry.First Fruits Ministry is empowering young people through spiritual growth, fellowship, and leadership development</p>
       <div class="icons">
         <a href="https://www.facebook.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -751,6 +868,25 @@
         <a href="https://www.tiktok.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
+
+
+    
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Join Us</a>
+<a href="#about" class="btn btn-outline">Learn More</a>
+</div>
+
+<!-- FLOATING CARD -->
+<div class="info-card">
+<i class="fas fa-praying-hands"></i>
+<div>Weekly Worship</div>
+</div>
+
+<!-- SCROLL -->
+<div class="scroll">
+<i class="fas fa-angle-down"></i>
+<p>Scroll</p>
+</div>
   </section>
 
   <!-- ===== BREADCRUMB ===== -->
@@ -852,11 +988,14 @@
       <h2 class="section-title text-center mb-4">First Fruit Ministry Departments</h2>
       <p class="text-center mb-5" style="max-width: 700px; margin: 0 auto; color: #666;">Learn more about our departments</p>
       <div class="faq-container">
-        <div class="faq-item"><div class="faq-question"><h3>Welfare Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Welfare Department provides support during times of need, organizes social events, and ensures everyone feels cared for in our ministry family.</p></div></div>
-        <div class="faq-item"><div class="faq-question"><h3>Health Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Health Department focuses on physical and mental well-being, offering health education, wellness programs, and support services.</p></div></div>
-        <div class="faq-item"><div class="faq-question"><h3>Spiritual Development Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>This department nurtures spiritual growth through Bible studies, prayer meetings, and activities that deepen faith and connection with God.</p></div></div>
-        <div class="faq-item"><div class="faq-question"><h3>Discipline Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Discipline Department maintains order and ensures all members adhere to the principles and values of our faith.</p></div></div>
-        <div class="faq-item"><div class="faq-question"><h3>Uniform Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>This department manages and distributes ministry uniforms, ensuring quality, proper fit, and uniform etiquette guidance.</p></div></div>
+        <div class="faq-item"><div class="faq-question"><h3><i class="fas fa-heart"> </i> Welfare Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Welfare Department provides support during times of need, organizes social events, and ensures everyone feels cared for in our ministry family.</p></div></div>
+        <div class="faq-item"><div class="faq-question"><h3><i class="fas fa-leaf"></i> Health Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Health Department focuses on physical and mental well-being, offering health education, wellness programs, and support services.</p></div></div>
+        <div class="faq-item"><div class="faq-question"><h3><i class="fas fa-hands-praying"> </i>Spiritual Development Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>This department nurtures spiritual growth through Bible studies, prayer meetings, and activities that deepen faith and connection with God.</p></div></div>
+        <div class="faq-item"><div class="faq-question"><h3><i class="fa fa-gavel"></i>Discipline Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Discipline Department maintains order and ensures all members adhere to the principles and values of our faith.</p></div></div>
+        <div class="faq-item"><div class="faq-question"><h3><i class="fa fa-gavel"></i> <i class="fa-solid fa-shirt"></i>Discipline Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Discipline Department maintains order and ensures all members adhere to the principles and values of our faith.</p></div></div>
+        <div class="faq-item"><div class="faq-question"><h3><i class="fa fa-gavel"></i> <i class="fa-solid fa-shirt"></i>Discipline Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Discipline Department maintains order and ensures all members adhere to the principles and values of our faith.</p></div></div>
+        
+        <div class="faq-item"><div class="faq-question"><h3> <i class="fa-solid fa-shirt"></i> Uniform Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>This department manages and distributes ministry uniforms, ensuring quality, proper fit, and uniform etiquette guidance.</p></div></div>
         <div class="faq-item"><div class="faq-question"><h3>Music Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>The Music Department leads weekly music training on Thursdays (6:30-8:30 PM) and Fridays (5:00-6:30 PM) at LH1.</p></div></div>
         <div class="faq-item"><div class="faq-question"><h3>Gospel Campaign Department</h3><span class="faq-toggle">+</span></div><div class="faq-answer"><p>This department leads evangelism and outreach initiatives, organizing gospel campaigns, revival meetings, and promotional activities.</p></div></div>
       </div>
@@ -882,20 +1021,58 @@
       </div>
     </div>
 
-    <!-- Gallery Section -->
-    <section id="gallery" style="margin: 2rem 0;">
-      <h2 class="section-title">Gallery</h2>
-      <p class="text-center mb-4">Explore moments from our church events and activities</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-        <div class="gallery-img"><img src="../images/first-fruits/first2.jpeg" alt="Church Event"></div>
-        <div class="gallery-img"><img src="../images/first-fruits/first3.jpeg" alt="Choir Performance"></div>
-        <div class="gallery-img"><img src="../images/first-fruits/first4.jpeg" alt="Church Altar"></div>
-        <div class="gallery-img"><img src="../images/first-fruits/first5.jpeg" alt="Ministry Activity"></div>
-      </div>
-      <div style="text-align: center; margin-top: 30px;">
-        <a href="#" class="btn btn-primary" onclick="alert('Gallery page coming soon! Stay tuned.'); return false;" style="background: purple; padding: 10px 24px; border-radius: 30px; color: white; text-decoration: none;">View Full Gallery</a>
+
+    
+    <!-- ===== NEWSLETTER + WHATSAPP GROUP ===== -->
+    <section class="section-card">
+      <h2 class="section-title"><i class="fas fa-plug me-2" style="color:purple;"></i> Stay Connected</h2>
+      <div class="connect-grid">
+        <!-- Newsletter -->
+        <div class="connect-box">
+          <h4><i class="fas fa-envelope me-2" style="color:#02a698;"></i> Newsletter</h4>
+          <p>Subscribe to receive updates, prayer points, and ministry news.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Your email address" required />
+            <button type="submit"><i class="fas fa-paper-plane me-1"></i> Subscribe</button>
+          </form>
+          <small style="color:#6b8aa8;display:block;margin-top:0.4rem;">We respect your privacy. No spam.</small>
+        </div>
+        <!-- WhatsApp Group -->
+        <div class="connect-box">
+          <h4><i class="fab fa-whatsapp me-2" style="color:#25D366;"></i> WhatsApp Group</h4>
+          <p>Join our official WhatsApp group for daily devotionals, announcements, and prayer requests.</p>
+          <a href="https://chat.whatsapp.com/yourgroup" target="_blank" class="whatsapp-group-btn">
+            <i class="fab fa-whatsapp"></i> Join Group
+          </a>
+        </div>
       </div>
     </section>
+
+    <!-- ===== GALLERY with LIGHTBOX ===== -->
+    <section id="gallery" class="section-card">
+      <h2 class="section-title"><i class="fas fa-images me-2" style="color:#02a698;"></i> Gallery</h2>
+      <p class="text-muted mb-3">Click on any image to view larger.</p>
+      <div class="gallery-grid">
+        <a href="../images/first-fruits/first1.jpeg" data-lightbox="ministry-gallery" data-title="Praise & Worship">
+          <div class="gallery-item"><img src="../images/first-fruits/first1.jpeg" alt="Worship" loading="lazy"></div>
+        </a>
+        <a href="../images/first-fruits/first2.jpeg" data-lightbox="ministry-gallery" data-title="Bible Study">
+          <div class="gallery-item"><img src="../images/first-fruits/first2.jpeg" alt="Bible Study" loading="lazy"></div>
+        </a>
+        <a href="../images/first-fruits/first3.jpeg" data-lightbox="ministry-gallery" data-title="Community Outreach">
+          <div class="gallery-item"><img src="../images/first-fruits/first3.jpeg" alt="Outreach" loading="lazy"></div>
+        </a>
+        <a href="../images/first-fruits/first4.jpeg" data-lightbox="ministry-gallery" data-title="Youth Conference">
+          <div class="gallery-item"><img src="../images/first-fruits/first4.jpeg" alt="Youth Conference" loading="lazy"></div>
+        </a>
+        <a href="../images/first-fruits/first5.jpeg" data-lightbox="ministry-gallery" data-title="Praise Team">
+          <div class="gallery-item"><img src="../images/first-fruits/first5.jpeg" alt="Praise Team" loading="lazy"></div>
+        </a>
+       
+        </a>
+      </div>
+    </section>
+
 
     <!-- Testimonies -->
     <section class="py-5" style="background-color: #f8fafc; border-radius: 24px; margin: 2rem 0; padding: 2rem;">
@@ -1037,4 +1214,3 @@
 </script>
 </body>
 </html>
-```

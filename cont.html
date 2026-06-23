@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us — Kisii University SDA Church</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0b6e6b;
+  --accent:#14b8a6;
+  --dark:#0f172a;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.15);
+  --shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+  height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:20px;
+  background:url('images/pagephoto/cross.webp') center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(11,110,107,0.85),rgba(2,6,23,0.9));
+}
+
+.hero-content{
+  position:relative;
+  max-width:800px;
+  animation:fadeUp 1.2s ease;
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,5vw,4rem);
+  font-weight:700;
+  letter-spacing:-1px;
+}
+
+.hero p{
+  margin-top:15px;
+  font-size:1.1rem;
+  opacity:0.85;
+}
+
+/* LAYOUT */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+}
+
+/* GLASS CARDS */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:var(--shadow);
+  transition:0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(20,184,166,0.4);
+}
+
+/* HEADINGS */
+h2{
+  margin-bottom:15px;
+  font-size:1.4rem;
+  color:#e2e8f0;
+}
+
+/* INFO */
+.info p{
+  margin:10px 0;
+  color:#cbd5e1;
+}
+
+/* FORM */
+label{
+  font-size:0.9rem;
+  color:#94a3b8;
+}
+
+input,textarea{
+  width:100%;
+  margin-top:6px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+  outline:none;
+  transition:0.2s;
+}
+
+input:focus,textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(20,184,166,0.2);
+}
+
+button{
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.02);
+}
+
+/* FAQ */
+.faq{
+  margin-top:30px;
+}
+
+.faq-item{
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.faq-q{
+  padding:15px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:500;
+}
+
+.faq-a{
+  display:none;
+  padding:0 15px 15px;
+  color:#cbd5e1;
+}
+
+/* MAP */
+iframe{
+  width:100%;
+  height:300px;
+  border:none;
+  border-radius:16px;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#0f172a;
+  border:1px solid rgba(20,184,166,0.4);
+  padding:14px 18px;
+  border-radius:12px;
+  display:none;
+  box-shadow:var(--shadow);
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Contact & Connect</h1>
+    <p>We’re here for prayer, support, and fellowship. Reach out anytime.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="grid">
+
+    <!-- INFO -->
+    <div class="card info">
+      <h2>Church Information</h2>
+
+      <p>📍 Kisii University Campus, Kenya</p>
+      <p>📞 +254 794 487 419</p>
+      <p>✉️ info@kisiiuniversitysdachurch.org</p>
+      <p>⏰ Mon–Fri: 8:00 AM – 5:00 PM</p>
+
+      <h2 style="margin-top:20px;">Find Us</h2>
+      <iframe loading="lazy"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...">
+      </iframe>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+      <h2>Send a Message</h2>
+
+      <form id="form">
+        <label>Name</label>
+        <input id="name" required>
+
+        <label>Email</label>
+        <input id="email" type="email" required>
+
+        <label>Message</label>
+        <textarea id="msg" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="card faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What are service times? <span>+</span></div>
+      <div class="faq-a">Sabbath worship starts 8:00 AM every Saturday.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I join the church? <span>+</span></div>
+      <div class="faq-a">Attend services and meet the pastoral team.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I send prayer requests? <span>+</span></div>
+      <div class="faq-a">Yes, we pray over all submitted requests confidentially.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Message sent successfully ✓</div>
+
+<script>
+// FAQ
+document.querySelectorAll(".faq-q").forEach(q=>{
+  q.addEventListener("click",()=>{
+    const a=q.nextElementSibling;
+    a.style.display=a.style.display==="block"?"none":"block";
+  });
+});
+
+// FORM
+document.getElementById("form").addEventListener("submit",(e)=>{
+  e.preventDefault();
+
+  document.getElementById("toast").style.display="block";
+
+  setTimeout(()=>{
+    document.getElementById("toast").style.display="none";
+  },3000);
+
+  e.target.reset();
+});
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us — Kisii University SDA Church</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0b6e6b;
+  --accent:#14b8a6;
+  --dark:#0f172a;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.15);
+  --shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+}
+
+/* HERO */
+.hero{
+  height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  background:url('images/pagephoto/cross.webp') center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(11,110,107,0.85),rgba(2,6,23,0.9));
+}
+
+.hero-content{
+  position:relative;
+  max-width:700px;
+}
+
+.hero h1{
+  font-size:clamp(2rem,4vw,3.5rem);
+}
+
+.hero p{
+  opacity:.85;
+  margin-top:10px;
+}
+
+/* LAYOUT */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+}
+
+/* CARDS */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+
+/* FORM */
+input,textarea{
+  width:100%;
+  margin-top:8px;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+}
+
+button{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+  width:100%;
+  margin-top:12px;
+}
+
+/* MAP */
+.map-box{
+  margin-top:30px;
+}
+
+iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  border-radius:16px;
+}
+
+/* MAP ACTION BUTTON */
+.map-actions{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.map-btn{
+  flex:1;
+  text-align:center;
+  padding:10px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:0.9rem;
+  font-weight:600;
+}
+
+.map-btn.primary{
+  background:var(--accent);
+  color:#001b1b;
+}
+
+.map-btn.secondary{
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  text-decoration:none;
+  z-index:999;
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+}
+
+/* TOOLTIP */
+.whatsapp-float::after{
+  content:"Chat with us";
+  position:absolute;
+  right:70px;
+  background:#111;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:0.8rem;
+  opacity:0;
+  transform:translateX(10px);
+  transition:0.3s;
+  white-space:nowrap;
+}
+
+.whatsapp-float:hover::after{
+  opacity:1;
+  transform:translateX(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>We are always ready to connect, pray, and support you.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="grid">
+
+    <!-- INFO -->
+    <div class="card">
+      <h2>Contact Info</h2>
+      <p>📍 Kisii University Campus, Kenya</p>
+      <p>📞 +254 794 487 419</p>
+      <p>✉️ info@kisiiuniversitysdachurch.org</p>
+
+      <div class="map-box">
+        <h3 style="margin-bottom:10px;">Find Us</h3>
+
+        <!-- INTERACTIVE MAP -->
+        <iframe
+          loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...">
+        </iframe>
+
+        <!-- MAP ACTIONS -->
+        <div class="map-actions">
+          <a class="map-btn primary"
+             href="https://www.google.com/maps/dir/?api=1&destination=Kisii+University+Kenya"
+             target="_blank">
+             Get Directions
+          </a>
+
+          <a class="map-btn secondary"
+             href="https://www.google.com/maps/place/Kisii+University/"
+             target="_blank">
+             Open in Maps
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+      <h2>Send Message</h2>
+
+      <form>
+        <label>Name</label>
+        <input required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Message</label>
+        <textarea rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="whatsapp-float"
+   href="https://wa.me/254794487419?text=Hello%20Kisii%20University%20SDA%20Church,%20I%20would%20like%20to%20connect%20with%20you"
+   target="_blank">
+  💬
+</a>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us — Kisii University SDA Church</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0b6e6b;
+  --accent:#14b8a6;
+  --dark:#0f172a;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.15);
+  --shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+}
+
+/* HERO */
+.hero{
+  height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  background:url('images/pagephoto/cross.webp') center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(11,110,107,0.85),rgba(2,6,23,0.9));
+}
+
+.hero-content{
+  position:relative;
+  max-width:700px;
+}
+
+.hero h1{
+  font-size:clamp(2rem,4vw,3.5rem);
+}
+
+.hero p{
+  opacity:.85;
+  margin-top:10px;
+}
+
+/* LAYOUT */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+}
+
+/* CARDS */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+
+/* FORM */
+input,textarea{
+  width:100%;
+  margin-top:8px;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+}
+
+button{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+  width:100%;
+  margin-top:12px;
+}
+
+/* MAP */
+.map-box{
+  margin-top:30px;
+}
+
+iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  border-radius:16px;
+}
+
+/* MAP ACTION BUTTON */
+.map-actions{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.map-btn{
+  flex:1;
+  text-align:center;
+  padding:10px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:0.9rem;
+  font-weight:600;
+}
+
+.map-btn.primary{
+  background:var(--accent);
+  color:#001b1b;
+}
+
+.map-btn.secondary{
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  text-decoration:none;
+  z-index:999;
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+}
+
+/* TOOLTIP */
+.whatsapp-float::after{
+  content:"Chat with us";
+  position:absolute;
+  right:70px;
+  background:#111;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:0.8rem;
+  opacity:0;
+  transform:translateX(10px);
+  transition:0.3s;
+  white-space:nowrap;
+}
+
+.whatsapp-float:hover::after{
+  opacity:1;
+  transform:translateX(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>We are always ready to connect, pray, and support you.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="grid">
+
+    <!-- INFO -->
+    <div class="card">
+      <h2>Contact Info</h2>
+      <p>📍 Kisii University Campus, Kenya</p>
+      <p>📞 +254 794 487 419</p>
+      <p>✉️ info@kisiiuniversitysdachurch.org</p>
+
+      <div class="map-box">
+        <h3 style="margin-bottom:10px;">Find Us</h3>
+
+        <!-- INTERACTIVE MAP -->
+        <iframe
+          loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...">
+        </iframe>
+
+        <!-- MAP ACTIONS -->
+        <div class="map-actions">
+          <a class="map-btn primary"
+             href="https://www.google.com/maps/dir/?api=1&destination=Kisii+University+Kenya"
+             target="_blank">
+             Get Directions
+          </a>
+
+          <a class="map-btn secondary"
+             href="https://www.google.com/maps/place/Kisii+University/"
+             target="_blank">
+             Open in Maps
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+      <h2>Send Message</h2>
+
+      <form>
+        <label>Name</label>
+        <input required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Message</label>
+        <textarea rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="whatsapp-float"
+   href="https://wa.me/254794487419?text=Hello%20Kisii%20University%20SDA%20Church,%20I%20would%20like%20to%20connect%20with%20you"
+   target="_blank">
+  💬
+</a>
+
+</body>
+</html>

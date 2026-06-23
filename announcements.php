@@ -175,7 +175,7 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         /* Hero Section */
         .hero-announcements {
-            background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%),url('https://i.pinimg.com/736x/a9/2a/af/a92aaf7afdcc998ac1f4170d0ce4f3bf.jpg') no-repeat center center;
+            background: linear-gradient(35deg, #3a7ca5 0%, #0f9e99 50%, #2e8b57 100%) no-repeat center center;
             background-size: cover;
             
             color: white;
@@ -189,11 +189,15 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
             font-size: clamp(1.5rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 15px;
+            color:#efe9e0;
         }
         
         .hero-announcements {
             padding: clamp(30px, 8vw, 60px) 0;
             min-height: clamp(35vh, 50vh, 60vh);
+        }
+        .hero-announcements p{
+            font-size:1.1rem;
         }
         
         /* Filter Bar */
@@ -532,8 +536,7 @@ $upcoming = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <section class="hero-announcements">
     <div class="container">
         <h1><i class="fas fa-bullhorn"></i> Church Announcements</h1>
-        <p class="lead mb-0">Get the latest updates and information from our church.</p>
-        <p class="text-muted">Stay connected with upcoming events, ministry news, and important notices.</p>
+        <p>Get the latest updates and information from our church. Stay connected with upcoming events, ministry news, and important notices.</p>
     </div>
 </section>
 

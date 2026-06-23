@@ -27,6 +27,8 @@
             background: #fefefe;
             color: #1e293b;
             line-height: 1.6;
+           
+            
         }
         
         h1, h2, h3, h4 {
@@ -40,6 +42,7 @@
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
+            
         }
          /* social icons subtle glass */
     .social-icon {
@@ -191,6 +194,10 @@
             height: 100%;
             transition: 0.3s;
             border-bottom: 3px solid #38bdf8;
+            
+        }
+        .vm-box:hover{
+            transform:translateY(-10px);
         }
         
         .vm-box i {
@@ -199,6 +206,60 @@
             margin-bottom: 1rem;
         }
         
+/*about -section */
+.about-content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+    align-items:center;
+    background:#fff;
+    padding:1rem 2rem;
+    color:black;
+
+}
+.about-content h2{
+    color:red;
+}
+.about-content p{
+    color:red;
+}
+.about-image{
+    border-radius:1.1rem;
+    overflow:hidden;
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+.about-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    transition:transform 0.5s ease;
+}
+.about-image img:hover{
+    transform:scale(1.05);
+}
+        /* about */
+        .about{
+             background: linear-gradient(-135deg, transparent, black),url('https://i.pinimg.com/1200x/7a/76/1d/7a761d0c69df3858fceff11ef8708f48.jpg') no-repeat center center/cover; 
+                  background-size:cover;
+                  top:70px;
+                  width:100%;
+                  text-align:center;
+                  min-height:50vh;
+        }
+        .about-content h2{
+            color:white;
+            text-align:left;
+            padding:1.5rem ;
+            text-shadow:0 2px solid blue;
+
+        }
+        .about-content p{
+            text-align:left;
+            max-width:70%;
+            color:white;
+
+        }
+        .about
         /* Table Styles */
         .program-table th {
             background: #f1f5f9;
@@ -251,12 +312,12 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #38bdf8, #0ea5e9, #38bdf8);
+            background: linear-gradient(90deg, #38bdf8, rgb(11, 174, 174), teal);
         }
         
         .carousel-item i {
             font-size: 3.5rem;
-            color: #38bdf8;
+            color: teal;
             margin-bottom: 1.5rem;
             filter: drop-shadow(0 4px 8px rgba(56, 189, 248, 0.3));
         }
@@ -358,7 +419,7 @@
         }
         
         .leader-simple-name i {
-            color: #38bdf8;
+            color: teal;
             font-size: 1.4rem;
         }
         
@@ -366,7 +427,7 @@
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            background: linear-gradient(135deg, #38bdf8 0%, teal 100%);
             padding: 0.4rem 1rem;
             border-radius: 20px;
             display: inline-block;
@@ -376,7 +437,8 @@
         
         .leader-simple-contacts {
             display: flex;
-            flex-direction: column;
+            justify-content:center;
+            align-items:center;
             gap: 0.75rem;
             margin-top: auto;
             padding-top: 1.25rem;
@@ -405,25 +467,9 @@
             padding-left: 0.5rem;
         }
         
-        /* Join Form */
-        .join-form-card {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            border-radius: 24px;
-            padding: 2rem;
-        }
+     
         
-        .join-form-card .btn-primary {
-            background: #38bdf8;
-            border: none;
-            font-weight: 600;
-            padding: 0.75rem;
-        }
-        
-        .join-form-card .btn-primary:hover {
-            background: #0ea5e9;
-        }
-        
+    
         /* Footer */
         .footer {
             background: #0f172a;
@@ -479,7 +525,7 @@
         .calendar-item {
             flex-shrink: 0;
             min-width: 280px;
-            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            background: linear-gradient(35deg, #0ea5e9 70%, teal 30%);
             padding: 1.5rem;
             border-radius: 12px;
             color: white;
@@ -761,6 +807,10 @@
         }
         
         @media (max-width: 576px) {
+            .hero{
+                display:grid;
+                grid-template-columns: 1fr;
+            }
             .ministry-hero h1 {
                 font-size: 1.5rem;
             }
@@ -828,6 +878,82 @@
                 max-width: 100%;
             }
         }
+
+        
+    /* ----- newsletter & whatsapp group ----- */
+    .connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    @media (max-width: 768px) {.ministry-hero{min-height:90vh; margin-top:2rem;} .connect-grid { grid-template-columns: 1fr; } }
+    .connect-box { background: #fff; border-radius: 20px; padding: 1.8rem; border: 1px solid #e1e9f0; text-align: center; transition: 0.25s; }
+    .connect-box:hover { border-color: #02a698; box-shadow: 0 6px 20px rgba(2,166,152,0.06); }
+    .connect-box h4 { color: #0b1a2e; margin-bottom: 0.5rem; }
+    .connect-box p { color: #3b5a78; font-size: 0.9rem; }
+    .newsletter-form { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 0.8rem; }
+    .newsletter-form input { flex: 1; min-width: 180px; padding: 0.6rem 1rem; border: 1px solid #dce4ec; border-radius: 40px; outline: none; }
+    .newsletter-form button { background: #02a698; color: #fff; border: none; padding: 0.6rem 1.6rem; border-radius: 40px; font-weight: 600; transition: 0.2s; }
+    .newsletter-form button:hover { background: #017a6f; }
+    .whatsapp-group-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 0.7rem 1.8rem; border-radius: 40px; text-decoration: none; font-weight: 600; transition: 0.2s; margin-top: 0.8rem; }
+    .whatsapp-group-btn:hover { background: #1da85c; color: #fff; transform: scale(1.02); }
+
+
+    /* ----- GALLERY (lightbox) ----- */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .gallery-item { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: 0.3s; cursor: pointer; }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(2,166,152,0.15); }
+    .gallery-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+        /* Testimony Marquee */
+    .testimony-marquee {
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .testimony-track {
+      display: flex;
+      animation: scroll-left 30s linear infinite;
+      gap: 1.5rem;
+    }
+    
+    .testimony-box {
+        border:1px solid teal;
+        border-left:5px solid teal;
+        border-radius:8px;
+        
+      flex: 0 0 320px;
+      background: #f8f9fa;
+      border-radius: 16px;
+      padding: 0.5rem;
+    }
+    
+    .bi-chat-quote {
+      color: darkblue;
+      font-size: 2rem;
+    }
+    
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+        
+
+    
+    /* Resources Section */
+    .resource-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: #f8fafc;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #0f172a;
+      transition: 0.3s;
+    }
+    
+    .resource-link:hover {
+      background: #f1f5f9;
+      transform: translateX(5px);
+    }
+    
 
         /* Chat with Us Floating Button */
         .whatsapp-float {
@@ -914,17 +1040,17 @@
         <div class="nav-item">
           <a href="index.html">About Us <span class="chevron-down">▾</span></a>
           <div class="desktop-dropdown">
-            <a href="giving.html">Giving</a>
-            <a href="history.html">History</a>
-            <a href="in-the-news.html">In the News</a>
-            <a href="our-pastor.html">Our Pastor</a>
-            <a href="sabbath-services.html">Sabbath Services</a>
-            <a href="what-sda-believe.html">What SDAs Believe</a>
-            <a href="worship-with-us.html">Worship With Us</a>
-            <a href="potluck.html">Potluck &amp; Fellowship</a>
-            <a href="special-events.html">Special Events</a>
-            <a href="schools.html">Schools &amp; Education</a>
-            <a href="nearby-churches.html">Nearby SDA Churches</a>
+            <a href="../about/giving.html">Giving</a>
+            <a href="../about/history.html">History</a>
+            <a href="../about/in-the-news.html">In the News</a>
+            <a href="../about/our-pastor.html">Our Pastor</a>
+            <a href="../about/sabbath-services.html">Sabbath Services</a>
+            <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="../about/worship-with-us.html">Worship With Us</a>
+            <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+            <a href="../about/special-events.html">Special Events</a>
+            <a href="../about/schools.html">Schools &amp; Education</a>
+            <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
           </div>
         </div>
         <div class="nav-item">
@@ -988,17 +1114,17 @@
           <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
         </div>
         <div class="menu-submenu">
-          <a href="giving.html">Giving</a>
-          <a href="history.html">History</a>
-          <a href="in-the-news.html">In the News</a>
-          <a href="our-pastor.html">Our Pastor</a>
-          <a href="sabbath-services.html">Sabbath Services</a>
-          <a href="what-sda-believe.html">What SDAs Believe</a>
-          <a href="worship-with-us.html">Worship With Us</a>
-          <a href="potluck.html">Potluck &amp; Fellowship</a>
-          <a href="special-events.html">Special Events</a>
-          <a href="schools.html">Schools &amp; Education</a>
-          <a href="nearby-churches.html">Nearby SDA Churches</a>
+        a href="../about/giving.html">Giving</a>
+            <a href="../about/history.html">History</a>
+            <a href="../about/in-the-news.html">In the News</a>
+            <a href="../about/our-pastor.html">Our Pastor</a>
+            <a href="../about/sabbath-services.html">Sabbath Services</a>
+            <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="../about/worship-with-us.html">Worship With Us</a>
+            <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+            <a href="../about/special-events.html">Special Events</a>
+            <a href="../about/schools.html">Schools &amp; Education</a>
+            <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
         </div>
       </div>
       <div class="menu-nav-item">
@@ -1078,6 +1204,26 @@
     </nav>
   </div>
 
+
+  <!--About Section-->
+  <section class="section-padding" id="about" style="background:#f9f9f9;margin-top:1.2rem;margin-bottom:1rem;">
+    <div class="container">
+        <h2 class="section-title">About Our Ministry</h2>
+        <div class="about-content">
+            <div>
+                <h3 style="color:#0f172a"><marquee>Our Mission & Vision</marquee></h3>
+                <p style="color:black;">New Zion Ministry is a spiritual home for students and staff under <strong><span style="color:#0f172a">Kisii University SeventhDay Adventist</span></strong>, dedicated to nurturing faith through worship, fellowship service. We are fostering to spread the everlasting gospel and empower members to live a christ-centered lives on Campus </p>
+                <p style="color:black">We believe in creating a welcoming environment where everyone can experience God's love, grow in their faith, and use their gifts to serve others.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+            <div class="about-image">
+                <img src="../images/leaders/new-zion/new-zion1.jpeg" alt="church altar" loading="lazy" class="img-fluid">
+            </div>
+        </div>
+    </div>
+  </section>
+  
+
     <div class="container">
         <!-- Vision & Mission Row -->
         <div class="row g-4 mb-4 fade-in mt-4">
@@ -1096,6 +1242,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- Stats Section -->
+    <div class="row g-4 mb-5 text-center">
+      <div class="col-md-3 col-6">
+        <div class="section-card" style="padding: 1.5rem;">
+          <i class="fas fa-users" style="font-size: 2.5rem; color: #38bdf8;"></i>
+          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">150+</h3>
+          <p>Active Members</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="section-card" style="padding: 1.5rem;">
+          <i class="fas fa-church" style="font-size: 2.5rem; color: #38bdf8;"></i>
+          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">5+</h3>
+          <p>Departments</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="section-card" style="padding: 1.5rem;">
+          <i class="fas fa-music" style="font-size: 2.5rem; color: #38bdf8;"></i>
+          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">12+</h3>
+          <p>Songs Learned</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="section-card" style="padding: 1.5rem;">
+          <i class="fas fa-heart" style="font-size: 2.5rem; color: #38bdf8;"></i>
+          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">8+</h3>
+          <p>Outreach Events</p>
+        </div>
+      </div>
+    </div>
+
 
         <!-- Weekly Programs Table -->
         <div class="section-card">
@@ -1116,63 +1295,35 @@
             </div>
         </div>
 
-        <!-- Events Calendar Section -->
-        <section class="events-calendar-section fade-in">
-            <div class="calendar-container">
-                <h2 class="section-title text-center mb-4"><i class="fas fa-calendar-check me-2 text-primary"></i>Upcoming Events</h2>
-                <div class="calendar-wrapper" id="calendarWrapper">
-                    <!-- Event Calendar Items (Duplicated for infinite scroll) -->
-                    
-                    <!-- April Events -->
-                    <div class="calendar-item">
-                        <span class="calendar-event-icon"><i class="fas fa-praise"></i></span>
-                        <div class="calendar-date">15</div>
-                        <div class="calendar-month">April</div>
-                        <div class="calendar-event-title">Ministry Leaders Trainings</div>
-                        <div class="calendar-event-time">6:30 PM - LH 3</div>
-                    </div>
-
-                  
-
-                    
-
-                    <!-- May Events -->
-                    <div class="calendar-item">
-                        <span class="calendar-event-icon"><i class="fas fa-cross"></i></span>
-                        <div class="calendar-date">07</div>
-                        <div class="calendar-month">May</div>
-                        <div class="calendar-event-title">Gospel Campaign</div>
-                        <div class="calendar-event-time">Makueni</div>
-                    </div>
-
-                    <div class="calendar-item">
-                        <span class="calendar-event-icon"><i class="fas fa-heart"></i></span>
-                        <div class="calendar-date">09</div>
-                        <div class="calendar-month">September</div>
-                        <div class="calendar-event-title">Community Outreach</div>
-                        <div class="calendar-event-time">8:00 AM - Nyamira</div>
-                    </div>                   
-
-                    <div class="calendar-item">
-                        <span class="calendar-event-icon"><i class="fas fa-utensils"></i></span>
-                        <div class="calendar-date">22</div>
-                        <div class="calendar-month">October</div>
-                        <div class="calendar-event-title">Common sharing and First Year Orientation</div>
-                        <div class="calendar-event-time">2:00 PM - 4:00 PM LH 3</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <!-- Events Calendar -->
+    <div class="events-calendar-section">
+      <div class="calendar-container">
+        <h2 class="section-title text-center mb-4"><i class="fas fa-calendar-check me-2"></i>Upcoming Events</h2>
+        <div class="calendar-wrapper">
+          <!-- Set 1 -->
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-pray"></i></div><div class="calendar-date">15</div><div class="calendar-month">April</div><div class="calendar-event-title">Ministry Leaders Trainings</div><div class="calendar-event-time">6:30 PM - LH 1</div></div>
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-cross"></i></div><div class="calendar-date">07</div><div class="calendar-month">May</div><div class="calendar-event-title">Gospel Campaign</div><div class="calendar-event-time">Busia - Port Victoria</div></div>
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-heart"></i></div><div class="calendar-date">09</div><div class="calendar-month">September</div><div class="calendar-event-title">Community Outreach</div><div class="calendar-event-time">8:00 AM - Nyamira</div></div>
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-utensils"></i></div><div class="calendar-date">22</div><div class="calendar-month">October</div><div class="calendar-event-title">First Year Orientation</div><div class="calendar-event-time">2:00 PM - LH 1</div></div>
+          <!-- Duplicate for seamless scroll -->
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-pray"></i></div><div class="calendar-date">15</div><div class="calendar-month">April</div><div class="calendar-event-title">Ministry Leaders Trainings</div><div class="calendar-event-time">6:30 PM - LH 1</div></div>
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-cross"></i></div><div class="calendar-date">07</div><div class="calendar-month">May</div><div class="calendar-event-title">Gospel Campaign</div><div class="calendar-event-time">Busia - Port Victoria</div></div>
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-heart"></i></div><div class="calendar-date">09</div><div class="calendar-month">September</div><div class="calendar-event-title">Community Outreach</div><div class="calendar-event-time">8:00 AM - Nyamira</div></div>
+          <div class="calendar-item"><div class="calendar-event-icon"><i class="fas fa-utensils"></i></div><div class="calendar-date">22</div><div class="calendar-month">October</div><div class="calendar-event-title">First Year Orientation</div><div class="calendar-event-time">2:00 PM - LH 1</div></div>
+        </div>
+      </div>
+    </div>
 
         <section class="section fade-in">
             <div class="section-card">
-                <h2 class="section-title"><i class="fas fa-hands-helping me-2 text-primary"></i>Why Join First Fruits?</h2>
+                <h2 class="section-title"><i class="fas fa-hands-helping me-2 text-primary"></i>Why Join New Zion?</h2>
                 <p class="text-muted mb-4">Experience spiritual growth, leadership training, and community service in a welcoming ministry family.</p>
                 <div class="row g-4">
                     <div class="col-sm-6 col-lg-3">
                         <div class="card border-0 shadow-sm h-100">
                             <div class="card-body">
-                                <div class="mb-3 display-6 text-primary"><i class="fas fa-seedling"></i></div>
+                                
                                 <h3 class="h5">Spiritual Growth</h3>
                                 <p class="text-muted">Build your faith through Bible study, prayer, and meaningful worship experiences.</p>
                             </div>
@@ -1210,7 +1361,7 @@
         </section>
 
   <section class="faq-section fade-in">
-    <h2 class="section-title text-center mb-4">First Fruit Ministry Departments</h2>
+    <h2 class="section-title text-center mb-4">New Zion Ministry Departments</h2>
     <p class="text-center mb-5" style="max-width: 700px; margin: 0 auto; color: #666;">See our Departments Information</p>
     
     <div class="faq-container">
@@ -1294,27 +1445,113 @@
             <h2 class="section-title"><i class="fas fa-user-friends me-2 text-primary"></i> New Zion Leadership Team</h2>
             <p class="text-muted mb-3">Meet our dedicated leaders. Feel free to reach out for any ministry inquiries.</p>
             <div class="leader-simple-list">
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Eld.Ezra Albert</span><span class="leader-simple-role">Ministry Chair</span><span class="leader-simple-contacts"><a href="tel:+254712345678"><i class="fas fa-phone"></i> +254712345678</a> <a href="mailto:john.maroa@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254712345678" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Eld.Ezra Albert</span><span class="leader-simple-role">Ministry Chair</span><span class="leader-simple-contacts"><a href="tel:+254748931403"><i class="fas fa-phone"></i> +254748931403</a> <a href="mailto:alert@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/25448931403" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
 
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis.  Momanyi</span><span class="leader-simple-role">Assistant Chair</span><span class="leader-simple-contacts"><a href="tel:+254723456789"><i class="fas fa-phone"></i> +254723456789</a> <a href="mailto:faridah.m@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254723456789" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Hilstone Rolex</span><span class="leader-simple-role">Assistant Chair</span><span class="leader-simple-contacts"><a href="tel:+254723456789"><i class="fas fa-phone"></i> +25470722173</a> <a href="mailto:faridah.m@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/25470722173" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
 
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. John Onesmus</span><span class="leader-simple-role"> Discipline Director</span><span class="leader-simple-contacts"><a href="tel:+254712111222"><i class="fas fa-phone"></i> +254712111222</a> <a href="mailto:caleb.omondi@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254712111222" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
-                  <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis. Grace Mwangi</span><span class="leader-simple-role"> Ass. Discipline Director</span><span class="leader-simple-contacts"><a href="tel:+254712111222"><i class="fas fa-phone"></i> +254712111222</a> <a href="mailto:caleb.omondi@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254712111222" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Preston Odhiambo</span><span class="leader-simple-role"> Discipline Director Gents</span><span class="leader-simple-contacts"><a href="tel:+25470796521"><i class="fas fa-phone"></i> +254707965210</a> <a href="mailto:caleb.omondi@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/25470796521" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                  <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis. Jemimah Kerini</span><span class="leader-simple-role">  Discipline Director Ladies</span><span class="leader-simple-contacts"><a href="tel:+254728445536"><i class="fas fa-phone"></i> +254728445536</a> <a href="mailto:caleb.omondi@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254728445536" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
 
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Samuel Njoroge</span><span class="leader-simple-role">Spiritual Leader</span><span class="leader-simple-contacts"><a href="tel:+254723333444"><i class="fas fa-phone"></i> +254723333444</a> <a href="mailto:eunice.w@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254723333444" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis. Sarah Mwangi</span><span class="leader-simple-role">Welfare Leader</span><span class="leader-simple-contacts"><a href="tel:+254745555666"><i class="fas fa-phone"></i> +254745555666</a> <a href="mailto:evans.m@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254745555666" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis. Lita Akinyi</span><span class="leader-simple-role">Ass. Welfare Leader</span><span class="leader-simple-contacts"><a href="tel:+254788777888"><i class="fas fa-phone"></i> +254788777888</a> <a href="mailto:sarah.a@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254788777888" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Davies Omari</span><span class="leader-simple-role">Communication Leader</span><span class="leader-simple-contacts"><a href="tel:+254701999000"><i class="fas fa-phone"></i> +254701999000</a> <a href="mailto:ian.k@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254701999000" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Fidel Arondo</span><span class="leader-simple-role">Spiritual Leader</span><span class="leader-simple-contacts"><a href="tel:+254707741091"><i class="fas fa-phone"></i> +254707741091</a> <a href="mailto:eunice.w@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254707741091" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Brian Ochieng</span><span class="leader-simple-role">Welfare Leader Gents</span><span class="leader-simple-contacts"><a href="tel:+254703921014"><i class="fas fa-phone"></i> +254703921014</a> <a href="mailto:evans.m@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254703921014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis. Lita Akinyi</span><span class="leader-simple-role">Welfare Leader Ladies</span><span class="leader-simple-contacts"><a href="tel:+254707239874"><i class="fas fa-phone"></i> +254707239874</a> <a href="mailto:sarah.a@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254707239874" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+            
 
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Prof. Joshua Mose</span>
-                    <span class="leader-simple-role">Uniform Director</span><span class="leader-simple-contacts"><a href="tel:+254734222333"><i class="fas fa-phone"></i> +254734222333</a> <a href="mailto:martha.c@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254734222333" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Onyango Macodero</span>
+                    <span class="leader-simple-role">Uniform Director Gents</span><span class="leader-simple-contacts"><a href="tel:+254738290322"><i class="fas fa-phone"></i> +254738290322</a> <a href="mailto:martha.c@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254738290322" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
 
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Sis. Dorine Obuya</span><span class="leader-simple-role">Music Director</span><span class="leader-simple-contacts"><a href="tel:+254798444555"><i class="fas fa-phone"></i> +254798444555</a> <a href="mailto:victor.o@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254798444555" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Richard Okoth</span><span class="leader-simple-role">Music Director</span><span class="leader-simple-contacts"><a href="tel:+254799099162"><i class="fas fa-phone"></i> +254799099162</a> <a href="mailto:victor.o@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254799099162" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
 
                 <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> Bro. Richard</span><span class="leader-simple-role">Assistant Music Director</span><span class="leader-simple-contacts"><a href="tel:+254756666777"><i class="fas fa-phone"></i> +254756666777</a> <a href="mailto:beatrice.n@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254756666777" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
-                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> GC. Michael Wamalwa</span><span class="leader-simple-role">Gospel Compaign Chair</span><span class="leader-simple-contacts"><a href="tel:+254712888999"><i class="fas fa-phone"></i> +254712888999</a> <a href="mailto:daniel.m@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/254712888999" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
+                <div class="leader-simple-item"><span class="leader-simple-name"><i class="fas fa-user-circle me-2"></i> GC. Michael Edwin Emilio</span><span class="leader-simple-role">Gospel Compaign Chair</span><span class="leader-simple-contacts"><a href="tel: +25479399337"><i class="fas fa-phone"></i> +254793993379</a> <a href="mailto:daniel.m@ksusda.org"><i class="fas fa-envelope"></i> Email</a> <a href="https://wa.me/25479399337" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></span></div>
             </div>
         </div>
+
+        
+    
+    <!-- ===== NEWSLETTER + WHATSAPP GROUP ===== -->
+    <section class="section-card">
+      <h2 class="section-title"><i class="fas fa-plug me-2" style="color:#02a698;"></i> Stay Connected</h2>
+      <div class="connect-grid">
+        <!-- Newsletter -->
+        <div class="connect-box">
+          <h4><i class="fas fa-envelope me-2" style="color:#02a698;"></i> Newsletter</h4>
+          <p>Subscribe to receive updates, prayer points, and ministry news.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Your email address" required />
+            <button type="submit"><i class="fas fa-paper-plane me-1"></i> Subscribe</button>
+          </form>
+          <small style="color:#6b8aa8;display:block;margin-top:0.4rem;">We respect your privacy. No spam.</small>
+        </div>
+        <!-- WhatsApp Group -->
+        <div class="connect-box">
+          <h4><i class="fab fa-whatsapp me-2" style="color:#25D366;"></i> WhatsApp Group</h4>
+          <p>Join our official WhatsApp group for daily devotionals, announcements, and prayer requests.</p>
+          <a href="https://chat.whatsapp.com/yourgroup" target="_blank" class="whatsapp-group-btn">
+            <i class="fab fa-whatsapp"></i> Join Group
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ===== GALLERY with LIGHTBOX ===== -->
+    <section id="gallery" class="section-card">
+      <h2 class="section-title"><i class="fas fa-images me-2" style="color:#02a698;"></i> Gallery</h2>
+      <p class="text-muted mb-3">Click on any image to view larger.</p>
+      <div class="gallery-grid">
+        <a href="../images/cm/cm.jpeg" data-lightbox="ministry-gallery" data-title="Praise & Worship">
+          <div class="gallery-item"><img src="../images/church audotorium.jpg" alt="Worship" loading="lazy"></div>
+        </a>
+        <a href="../images/cm/cm.jpeg" data-lightbox="ministry-gallery" data-title="Bible Study">
+          <div class="gallery-item"><img src="../images/first-fruits/first1.jpeg" alt="Bible Study" loading="lazy"></div>
+        </a>
+        <a href="../images/cm/cm.jpeg" data-lightbox="ministry-gallery" data-title="Community Outreach">
+          <div class="gallery-item"><img src="../images/cm/cm.jpeg" alt="Outreach" loading="lazy"></div>
+        </a>
+        <a href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop" data-lightbox="ministry-gallery" data-title="Youth Conference">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Youth Conference" loading="lazy"></div>
+        </a>
+        <a href="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=600&fit=crop" data-lightbox="ministry-gallery" data-title="Praise Team">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=300&fit=crop" alt="Praise Team" loading="lazy"></div>
+        </a>
+       
+        </a>
+      </div>
+    </section>
+
+
+         <!-- Testimonies -->
+    <section class="py-5" style="background-color: #f8fafc; border-radius: 24px; margin: 2rem 0; padding: 2rem;">
+      <div class="text-center mb-4">
+        <h2 class="section-title">Member Testimonies</h2>
+        <p>Hear inspiring stories from our community members about their faith journey</p>
+      </div>
+      <div class="testimony-marquee">
+        <div class="testimony-track d-flex">
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“Joining KSUSDA Church helped me grow spiritually. I learned the value of faithful giving.”</p><strong>- HegiaH O.</strong></div>
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“Through the teachings, my family experienced provision and blessings beyond expectation.”</p><strong>- Sarah W.</strong></div>
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“I now approach finances with clarity and joy, thanks to KSUSDA Church teachings.”</p><strong>- Emmanuel K.</strong></div>
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“I thank God for the transformation in my life through this ministry.”</p><strong>- James O.</strong></div>
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“We witnessed unexpected blessings after committing to KSUSDA Church ministries.”</p><strong>- Sylvester K.</strong></div>
+          <!-- Duplicate for seamless scroll -->
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“Joining KSUSDA Church helped me grow spiritually. I learned the value of faithful giving.”</p><strong>- Hellen S.</strong></div>
+          <div class="testimony-box text-center"><i class="bi bi-chat-quote fs-1"></i><p class="mt-2 fst-italic">“The community support inspired me to mentor others in faith.”</p><strong>- Mercy A.</strong></div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Resources Section -->
+    <div class="section-card">
+      <h2 class="section-title"><i class="fas fa-download me-2"></i> Resources</h2>
+      <div class="row g-3">
+        <div class="col-md-6"><a href="#" class="resource-link"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #dc2626;"></i><div><strong>Weekly Bible Study Guide</strong><br><small>PDF - Download & Study</small></div><i class="fas fa-download" style="margin-left: auto; color: teal;"></i></a></div>
+        <div class="col-md-6"><a href="#" class="resource-link"><i class="fas fa-file-alt" style="font-size: 2rem; color: #10b981;"></i><div><strong>Ministry Handbook</strong><br><small>PDF - Leadership Guidelines</small></div><i class="fas fa-download" style="margin-left: auto; color: teal;"></i></a></div>
+        <div class="col-md-6"><a href="#" class="resource-link"><i class="fas fa-music" style="font-size: 2rem; color: #8b5cf6;"></i><div><strong>Songbook Collection</strong><br><small>PDF - Choir & Worship Songs</small></div><i class="fas fa-download" style="margin-left: auto; color: teal;"></i></a></div>
+        <div class="col-md-6"><a href="#" class="resource-link"><i class="fas fa-calendar" style="font-size: 2rem; color: #f59e0b;"></i><div><strong>2026 Ministry Calendar</strong><br><small>PDF - All Events</small></div><i class="fas fa-download" style="margin-left: auto; color: teal;"></i></a></div>
+      </div>
+    </div>
 
         
         <!-- Join Form -->
@@ -1352,7 +1589,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-main">
-        <div class="footer-info"><h4>Kisii University Seventh-day Adventist Church</h4><p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254700000000">+254 700 000 000</a></p><p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p><div class="footer-social"><a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a><a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a></div></div>
+        <div class="footer-info"><h4>Kisii University Seventh-day Adventist Church</h4><p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254748931403">+254748931403</a></p><p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p><div class="footer-social"><a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a><a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a></div></div>
         <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="Seventh-day Adventist Church" style="height: 55px;"></div>
       </div>
       <div class="footer-bottom"><p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p><p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p></div>
@@ -1411,7 +1648,7 @@
             e.preventDefault();
             const name = document.getElementById('fullName').value.trim();
             if (!name) { alert("Please enter your full name."); return; }
-            alert(`Thank you ${name}! You have successfully expressed interest in joining First Fruit Ministry. A leader will contact you soon. God bless you! .Looking forward to see you in our ministry.`);
+            alert(`Thank you ${name}! You have successfully expressed interest in joining New Zion Ministry. A leader will contact you soon. God bless you! .Looking forward to see you in our ministry.`);
             joinForm.reset();
         });
     }

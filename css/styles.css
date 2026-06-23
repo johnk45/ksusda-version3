@@ -467,7 +467,7 @@ body.has-solid-header { padding-top: var(--header-height); }
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  background: url('https://images.unsplash.com/photo-1595104615356-cbe9c4364513?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJlJTIwZm9yZXN0JTIwc3VubGlnaHR8ZW58MHx8MHx8fDA%3D') center/cover no-repeat;
+  background: url('../images/pagephoto/tree.webp') center/cover no-repeat;
 
 }
 .hero::before {
@@ -1017,11 +1017,16 @@ body.has-solid-header { padding-top: var(--header-height); }
   margin: 1.5rem 0;
   border-radius: var(--radius);
 }
-.pastor-photo { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-.pastor-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pastor-photo { width: 140px; height: auto; overflow: hidden; border-radius:50%;flex-shrink: 0; aspect-ratio:auto;max-width:100%;}
+.pastor-photo img { width: 100%; height: 100%; object-fit: contain; max-width:100%;filter:contrast(1.2) brightness(1.1); }
 .pastor-info h3 { margin-bottom: 0.4rem; }
 .pastor-info p { color: var(--text-muted); font-size: 0.9rem; }
 
+@media(max-width:768px){
+  .pastor-photo{
+    width:100px;height:auto;
+  }
+}
 .breadcrumb { padding: 0.75rem 0; font-size: 0.82rem; color: var(--text-muted); }
 .breadcrumb a { color: var(--teal); }
 .breadcrumb span { margin: 0 0.35rem; color: var(--text-light); }
