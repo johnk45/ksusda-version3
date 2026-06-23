@@ -87,13 +87,322 @@
     
     /* Hero Section */
     .ministry-hero {
-      background: linear-gradient(135deg, transparent, rgba(30,41,59,0.8)), url('../images/first-fruits/first2.jpeg') no-repeat center center/cover;
-      color: white;
-      padding: 5rem 0;
-      text-align: center;
-      min-height: 500px;
+      position: relative;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(0,107,117,0.65)),
+                url('../images/first-fruits/first1.jpeg') center/cover no-repeat;
+            padding: 6rem 1.5rem 4rem;
       
     }
+        /* ===== MODERN HERO ===== */
+        .cm-hero {
+            position: relative;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(117, 0, 99, 0.65)),
+                url('../images/first-fruits/first1.jpeg') center/cover no-repeat;
+            padding: 6rem 1.5rem 4rem;
+        }
+        .cm-hero-inner { max-width: 760px; margin: 0 auto; }
+        .cm-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1rem;
+        }
+        .cm-hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.75rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .cm-lead {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255,255,255,0.9);
+            max-width: 560px;
+            margin: 0 auto 1.75rem;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+        .cm-hero-actions {
+            display: flex;
+            gap: 0.85rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+        .cm-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-family: var(--font-body);
+            border: 2px solid transparent;
+        }
+        .cm-btn-primary {
+            background: purple;
+            color: #fff;
+            border-color: var(--cm-teal);
+        }
+        .cm-btn-primary:hover {
+            background: rgb(50, 1, 50);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(233, 228, 234, 0.35);
+        }
+        .cm-btn-outline {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(115, 5, 117, 0.7);
+        }
+        .cm-btn-outline:hover {
+            background: #fff;
+            color:purple;
+        }
+        .cm-hero-social {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .cm-hero-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+        .cm-hero-social a:hover {
+            background: #fff;
+            color: purple;
+            transform: translateY(-3px);
+        }
+        .cm-hero-anchors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            justify-content: center;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+        .cm-hero-anchors a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .cm-hero-anchors a:hover { color: #fff; }
+        .cm-scroll-hint {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            animation: cmBounce 2s infinite;
+            text-decoration: none;
+        }
+        @keyframes cmBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        
+    /* ----- VISION & MISSION : alternating layout, generous padding, soft shadow ----- */
+    .vision-mission-block {
+      padding: 80px 0; /* generous vertical spacing */
+    }
+    .vm-item {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 80px;
+    }
+    .vm-item:last-child { margin-bottom: 0; }
+    .vm-image {
+      flex: 0 0 48%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease;
+    }
+    .vm-image img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .vm-image:hover { transform: scale(1.01); }
+    .vm-content {
+      flex: 1;
+      padding: 0.5rem 0;
+    }
+    .vm-content h2 {
+      font-size: 2.2rem;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .vm-content p {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .vm-content .badge-teal {
+      display: inline-block;
+      background: purple;
+      color: #fff;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    .btn-outline-teal {
+      border: 2px solid #02a698;
+      color: #02a698;
+      background: transparent;
+      padding: 0.5rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.2s;
+    }
+    .btn-outline-teal:hover {
+      background: #02a698;
+      color: #fff;
+      border-color: #02a698;
+    }
+    /* alternate row: image right, content left */
+    .vm-item.reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 768px) {
+      .vm-item {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 60px;
+      }
+      .vm-item.reverse {
+        flex-direction: column;
+      }
+      .vm-image { flex: 0 0 100%; }
+      .vm-image img { height: 220px; }
+      .vm-content h2 { font-size: 1.8rem; }
+      .ministry-hero h1 { font-size: 2.4rem; }
+      .desktop-nav { display: none; }
+      .hamburger-btn { display: block; }
+      .header-top { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+    }
+    @media (max-width: 576px) {
+      .vm-image img { height: 180px; }
+      .vm-content p { font-size: 0.95rem; }
+    }
+
+    /* ----- other sections (preserved, minimal) ----- */
+    .vm-box {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 1.8rem;
+      text-align: center;
+      height: 100%;
+      border-bottom: 3px solid #02a698;
+      transition: 0.2s;
+    }
+    .vm-box:hover { transform: translateY(-6px); }
+    .vm-box i { font-size: 2.4rem; color: #02a698; margin-bottom: 0.8rem; }
+
+        /* ===== SECTION HEADERS ===== */
+        .cm-section-head {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 3rem;
+        }
+        .cm-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cm-teal);
+            margin-bottom: 0.6rem;
+        }
+        .cm-section-head h2 {
+            font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+            margin-bottom: 0.6rem;
+        }
+        .cm-section-head p {
+            color: var(--cm-muted);
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        /* ===== STICKY NAV ===== */
+        .cm-sticky-nav {
+            position: sticky;
+            top: var(--header-height, 110px);
+            z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0.65rem 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .cm-sticky-nav-inner {
+            display: flex;
+            gap: 0.25rem;
+            justify-content: center;
+            min-width: max-content;
+            padding: 0 1rem;
+        }
+        .cm-sticky-nav a {
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--cm-muted);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .cm-sticky-nav a:hover,
+        .cm-sticky-nav a.active {
+            background: var(--cm-teal);
+            color: #fff;
+        }
+        
     
     .ministry-hero h1 {
       font-size: 3.5rem;
@@ -855,96 +1164,96 @@
 
 
 <main>
-  <!-- Hero Section -->
-  <section class="ministry-hero">
+    <section class="cm-hero" id="top">
+        <div class="cm-hero-inner">
+            <p class="cm-eyebrow">Kisii University SDA Church</p>
+            <h1>First Fruits Ministry</h1>
+            <p class="cm-lead">A family of young believers dedicated to spreading the gospel, making disciples, and serving our campus through worship, music, and evangelism.</p>
+            <div class="cm-hero-actions">
+                <a href="#join" class="cm-btn cm-btn-primary"><i class="fas fa-hand-holding-heart"></i> Join the Mission</a>
+                <a href="#programs" class="cm-btn cm-btn-outline"><i class="fas fa-calendar-week"></i> Weekly Programs</a>
+            </div>
+            <div class="cm-hero-social">
+                <a href="https://www.facebook.com/christmessengersministry" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/christmessengersministry" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/christmessengersministry" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/christmessengersministry" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <nav class="cm-hero-anchors" aria-label="Page sections">
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#events">Events</a>
+                <a href="#departments">Departments</a>
+                <a href="#leaders">Team</a>
+                <a href="#gallery">Gallery</a>
+            </nav>
+        </div>
+        <a href="#about" class="cm-scroll-hint" aria-label="Scroll to content"><i class="fas fa-chevron-down"></i></a>
+    </section>
+
+    <!-- Breadcrumb -->
     <div class="container">
-      <h1>First Fruit Ministry</h1>
-      <p class="lead fs-5">Grow spiritually, build leadership, and experience true Christian fellowship in a vibrant campus ministry.First Fruits Ministry is empowering young people through spiritual growth, fellowship, and leadership development</p>
-      <div class="icons">
-        <a href="https://www.facebook.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.twitter.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.youtube.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.tiktok.com/firstfruitministry" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-      </div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> <span>›</span>
+            <a href="index.html">Ministries</a> <span>›</span>
+            Christ Messengers
+        </nav>
     </div>
 
-
-    
-<div class="hero-buttons">
-<a href="#" class="btn btn-primary">Join Us</a>
-<a href="#about" class="btn btn-outline">Learn More</a>
-</div>
-
-<!-- FLOATING CARD -->
-<div class="info-card">
-<i class="fas fa-praying-hands"></i>
-<div>Weekly Worship</div>
-</div>
-
-<!-- SCROLL -->
-<div class="scroll">
-<i class="fas fa-angle-down"></i>
-<p>Scroll</p>
-</div>
+    <!-- Sticky section nav -->
+    <nav class="cm-sticky-nav" aria-label="In-page navigation">
+        <div class="cm-sticky-nav-inner">
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#events">Events</a>
+            <a href="#departments">Departments</a>
+            <a href="#leaders">Team</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#join">Join</a>
+        </div>
+    </nav>
   </section>
 
-  <!-- ===== BREADCRUMB ===== -->
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a> <span>›</span><a href="../ministries/index.html"> Ministries</a> <span>></span> First Fruits
-    </nav>
-  </div>
-  <div class="container">
-    <!-- Vision & Mission -->
-    <div class="row g-4 mb-4 mt-4">
-      <div class="col-md-6">
-        <div class="section-card vm-box text-center">
-          <i class="fas fa-eye"></i>
-          <h3>Our Vision</h3>
-          <p>To raise a generation of godly young leaders who transform their campuses, churches, and communities through authentic faith and servant leadership.</p>
+
+    <!-- ===== VISION & MISSION : alternating image/text, generous padding, soft corners ===== -->
+    <div class="vision-mission-block">
+
+      <!-- VISION: image left, content right -->
+      <div class="vm-item">
+        <div class="vm-image">
+          <img src="../images/first-fruits/first3.jpeg" alt="Vision — New Zion Ministry" loading="lazy" />
+        </div>
+        <div class="vm-content">
+          <span class="badge-teal"><i class="fas fa-eye me-1"></i> Vision</span>
+          <h2>Our Vision</h2>
+          <p>To raise a generation of godly young leaders who transform their campuses, churches, and communities through authentic faith and servant leadership. We envision a movement of young people fully devoted to Christ, impacting every sphere of life with the gospel.</p>
+          <a href="#join" class="btn-outline-teal">Join the Mission →</a>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="section-card vm-box text-center">
-          <i class="fas fa-bullseye"></i>
-          <h3>Our Mission</h3>
-          <p>To disciple university students through intentional Bible study, prayer, mentorship, and outreach, equipping them to live for Christ and make Him known.</p>
+
+      <!-- MISSION: image right, content left (reverse) -->
+      <div class="vm-item reverse">
+        <div class="vm-image">
+          <img src="../images/first-fruits/first4.jpeg" alt="Mission — New Zion Ministry" loading="lazy" />
+        </div>
+        <div class="vm-content">
+          <span class="badge-teal"><i class="fas fa-bullseye me-1"></i> Mission</span>
+          <h2>Our Mission</h2>
+          <p>To disciple university students through intentional Bible study, prayer, mentorship, and outreach, equipping them to live for Christ and make Him known. We are committed to nurturing faith, building character, and sending out passionate disciples.</p>
+          <a href="#join" class="btn-outline-teal">Get Involved →</a>
         </div>
       </div>
     </div>
 
-    <!-- Stats Section -->
-    <div class="row g-4 mb-5 text-center">
-      <div class="col-md-3 col-6">
-        <div class="section-card" style="padding: 1.5rem;">
-          <i class="fas fa-users" style="font-size: 2.5rem; color: darkblue;"></i>
-          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">150+</h3>
-          <p>Active Members</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="section-card" style="padding: 1.5rem;">
-          <i class="fas fa-church" style="font-size: 2.5rem; color: darkblue;"></i>
-          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">5+</h3>
-          <p>Departments</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="section-card" style="padding: 1.5rem;">
-          <i class="fas fa-music" style="font-size: 2.5rem; color: darkblue;"></i>
-          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">12+</h3>
-          <p>Songs Learned</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="section-card" style="padding: 1.5rem;">
-          <i class="fas fa-heart" style="font-size: 2.5rem; color: darkblue;"></i>
-          <h3 style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">8+</h3>
-          <p>Outreach Events</p>
-        </div>
-      </div>
+    <!-- Stats (preserved) -->
+    <div class="row g-3 text-center my-4">
+      <div class="col-6 col-md-3"><div class="section-card"><i class="fas fa-users" style="font-size:2.2rem;color:#02a698;"></i><h3 class="mt-2">150+</h3><p>Active Members</p></div></div>
+      <div class="col-6 col-md-3"><div class="section-card"><i class="fas fa-church" style="font-size:2.2rem;color:#02a698;"></i><h3 class="mt-2">5+</h3><p>Departments</p></div></div>
+      <div class="col-6 col-md-3"><div class="section-card"><i class="fas fa-music" style="font-size:2.2rem;color:#02a698;"></i><h3 class="mt-2">12+</h3><p>Songs Learned</p></div></div>
+      <div class="col-6 col-md-3"><div class="section-card"><i class="fas fa-heart" style="font-size:2.2rem;color:#02a698;"></i><h3 class="mt-2">8+</h3><p>Outreach Events</p></div></div>
     </div>
+
 
     <!-- Weekly Programs -->
     <div class="section-card">

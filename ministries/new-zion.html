@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New Zion Ministry — Kisii University SDA Church</title>
-  <link rel="icon" href="../images/kisiilogo.png" />
-  <!-- Google Fonts + Bootstrap + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="First Fruit Ministry at Kisii University SDA Church — our tradition of sharing meals and building community.">
+  <title>First Fruit Ministry — Kisii University SDA Church</title>
+  <link rel="icon" type="image/png" href="../images/kisiilogo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <style>
     /* ----- global reset & base ----- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,170 +26,201 @@
     }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-    /* ----- header (preserved) ----- */
-    .site-header {
-      background: #0f172a;
-      color: #fff;
-      padding: 0 1.5rem;
-      border-bottom: 2px solid #1e293b;
-    }
-    .header-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.6rem 0;
-    }
-    .header-logo a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      color: #fff;
-    }
-    .sda-logo-img { height: 40px; width: auto; }
-    .logo-text { font-size: 1rem; font-weight: 600; letter-spacing: 0.3px; }
-    .header-right-top {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-    .giving-pill {
-      background: #02a698;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    .header-social-icons a {
-      color: #cbd5e1;
-      margin-left: 0.6rem;
-      transition: 0.2s;
-    }
-    .header-social-icons a:hover { color: #38bdf8; }
-    .header-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.4rem 0;
-      border-top: 1px solid #2d3a4a;
-    }
-    .desktop-nav {
-      display: flex;
-      gap: 1.8rem;
-    }
-    .desktop-nav .nav-item { position: relative; }
-    .desktop-nav .nav-item > a {
-      color: #e2e8f0;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.3rem 0;
-    }
-    .desktop-nav .nav-item > a:hover { color: #38bdf8; }
-    .desktop-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #1e293b;
-      padding: 0.8rem 0;
-      border-radius: 8px;
-      min-width: 220px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    .nav-item:hover .desktop-dropdown { display: block; }
-    .desktop-dropdown a {
-      display: block;
-      padding: 0.4rem 1.2rem;
-      color: #cbd5e1;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    .desktop-dropdown a:hover { background: #334155; color: #fff; }
-    .nav-actions {
-      display: flex;
-      gap: 0.6rem;
-    }
-    .nav-icon-btn {
-      background: transparent;
-      border: none;
-      color: #e2e8f0;
-      cursor: pointer;
-    }
-    .hamburger-btn { display: none; }
-    .breadcrumb {
-      padding: 0.8rem 0;
-      font-size: 0.9rem;
-      color: #64748b;
-    }
-    .breadcrumb a { color: #0f172a; text-decoration: none; }
-    .breadcrumb a:hover { color: #02a698; }
 
-    /* ----- hero (preserved) ----- */
-    .ministry-hero {
-      background: linear-gradient(135deg, transparent, #1e293b), url('../images/leaders/new-zion/new-zion1.jpeg') no-repeat center center/cover;
-      min-height: 70vh;
-      color: white;
-      padding: 5rem 0;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .ministry-hero h1 {
-      font-size: 3.5rem;
-      color: #f0f4f8;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    }
-    .ministry-hero .lead {
-      color: #d1d9e6;
-      max-width: 700px;
-      margin: 1rem auto;
-    }
-    .icons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .social-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(4px);
-      border-radius: 50%;
-      color: #fff;
-      font-size: 1.2rem;
-      transition: 0.2s;
-      text-decoration: none;
-    }
-    .social-icon:hover {
-      background: #02a698;
-      transform: translateY(-4px);
-    }
+    
+        /* ===== MODERN HERO ===== */
+        .cm-hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(0,107,117,0.65)),
+                url('../images/leaders/new-zion/new-zion1.jpeg') center/cover no-repeat;
+            padding: 6rem 1.5rem 4rem;
+        }
+        .cm-hero-inner { max-width: 760px; margin: 0 auto; }
+        .cm-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1rem;
+        }
+        .cm-hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.75rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .cm-lead {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255,255,255,0.9);
+            max-width: 560px;
+            margin: 0 auto 1.75rem;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+        .cm-hero-actions {
+            display: flex;
+            gap: 0.85rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+        .cm-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-family: var(--font-body);
+            border: 2px solid transparent;
+        }
+        .cm-btn-primary {
+            background: var(--cm-teal);
+            color: #fff;
+            border-color: var(--cm-teal);
+        }
+        .cm-btn-primary:hover {
+            background: var(--cm-teal-dark);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,107,117,0.35);
+        }
+        .cm-btn-outline {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255,255,255,0.7);
+        }
+        .cm-btn-outline:hover {
+            background: #fff;
+            color:teal;
+        }
+        .cm-hero-social {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .cm-hero-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+        .cm-hero-social a:hover {
+            background: #fff;
+            color:teal;
+            transform: translateY(-3px);
+        }
+        .cm-hero-anchors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            justify-content: center;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+        .cm-hero-anchors a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .cm-hero-anchors a:hover { color: #fff; }
+        .cm-scroll-hint {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            animation: cmBounce 2s infinite;
+            text-decoration: none;
+        }
+        @keyframes cmBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
 
-    /* ----- section card (soft, rounded) ----- */
-    .section-card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border: none;
-    }
-    .section-title {
-      font-size: 1.8rem;
-      border-left: 5px solid #02a698;
-      padding-left: 1.2rem;
-      color: #0f172a;
-      margin-bottom: 1.5rem;
-    }
+        /* ===== SECTION HEADERS ===== */
+        .cm-section-head {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 3rem;
+        }
+        .cm-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cm-teal);
+            margin-bottom: 0.6rem;
+        }
+        .cm-section-head h2 {
+            font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+            margin-bottom: 0.6rem;
+        }
+        .cm-section-head p {
+            color: var(--cm-muted);
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        /* ===== STICKY NAV ===== */
+        .cm-sticky-nav {
+            position: sticky;
+            top: var(--header-height, 110px);
+            z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0.65rem 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .cm-sticky-nav-inner {
+            display: flex;
+            gap: 0.25rem;
+            justify-content: center;
+            min-width: max-content;
+            padding: 0 1rem;
+        }
+        .cm-sticky-nav a {
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--cm-muted);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .cm-sticky-nav a:hover,
+        .cm-sticky-nav a.active {
+            background: var(--cm-teal);
+            color: #fff;
+        }
 
     /* ----- VISION & MISSION : alternating layout, generous padding, soft shadow ----- */
     .vision-mission-block {
@@ -588,72 +620,230 @@
 </head>
 <body>
 
-<!-- ===== HEADER (preserved) ===== -->
-<header class="site-header" role="banner">
-  <div class="header-top">
-    <div class="header-logo">
-      <a href="../index.html" aria-label="Kisii University SDA Church Home">
-        <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="SDA Logo" class="sda-logo-img" />
-        <span class="logo-text">Kisii University SDA Church</span>
-      </a>
-    </div>
-    <div class="header-right-top">
-      <a href="../giving.html" class="giving-pill">❤️ Giving</a>
-      <div class="header-social-icons">
-        <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+ <!-- ===== HEADER ===== -->
+  <header class="site-header header-solid" role="banner">
+    <!-- Top bar: Logo + Giving + Social -->
+    <div class="header-top">
+      <div class="header-logo">
+        <a href="../index.html" aria-label="Kisii University SDA Church Home">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
+          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
+        </a>
       </div>
-    </div>
-  </div>
-  <nav class="header-nav" aria-label="Primary Navigation">
-    <div class="desktop-nav">
-      <div class="nav-item"><a href="../index.html">About Us ▾</a>
-        <div class="desktop-dropdown">
-          <a href="../about/giving.html">Giving</a><a href="../about/history.html">History</a>
-          <a href="../about/our-pastor.html">Our Pastor</a><a href="../about/sabbath-services.html">Sabbath Services</a>
-          <a href="../about/what-sda-believe.html">What SDAs Believe</a><a href="../about/potluck.html">Potluck</a>
+      <div class="header-right-top">
+        <a href="../giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">
+          ❤️ Giving
+        </a>
+        <div class="header-social-icons">
+          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="nav-item"><a href="../events.html">Calendar</a></div>
-      <div class="nav-item"><a href="../ministries/index.html">Ministries ▾</a>
-        <div class="desktop-dropdown">
+    </div>
+    <!-- Navigation bar -->
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <div class="desktop-nav">
+        <div class="nav-item">
+          <a href="index.html">About Us <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="../about/giving.html">Giving</a>
+            <a href="../about/history.html">History</a>
+            <a href="../about/in-the-news.html">In the News</a>
+            <a href="../about/our-pastor.html">Our Pastor</a>
+            <a href="../about/sabbath-services.html">Sabbath Services</a>
+            <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="../about/worship-with-us.html">Worship With Us</a>
+            <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+            <a href="../about/special-events.html">Special Events</a>
+            <a href="../about/schools.html">Schools &amp; Education</a>
+            <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="../events.html">Calendar</a>
+        </div>
+        <div class="nav-item">
+          <a href="../ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            
           <a href="../ministries/new-zion.html">New Zion</a>
           <a href="../ministries/christ-messengers.html">Christ Messengers</a>
           <a href="../ministries/first-fruits.html">First Fruits</a>
           <a href="../ministries/health.html">Health Ministry</a>
+            
+          
+            
+            
+          
+           
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="../giving.html">Online Giving</a>
+        </div>
+        <div class="nav-item">
+          <a href="../contact.html">Contact Us</a>
         </div>
       </div>
-      <div class="nav-item"><a href="../giving.html">Online Giving</a></div>
-      <div class="nav-item"><a href="../contact.html">Contact Us</a></div>
-    </div>
-    <div class="nav-actions">
-      <button class="nav-icon-btn hamburger-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
-    </div>
-  </nav>
-</header>
+      <div class="nav-actions">
+        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <!-- Inline Search -->
+      <div class="header-search-inline" role="search">
+        <form action="../search.html" method="get">
+          <input type="text" name="s" placeholder="Search..." aria-label="Search">
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+      </div>
+    </nav>
+  </header>
 
-<!-- ===== BREADCRUMB ===== -->
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../index.html">Home</a> <span>›</span> Ministries <span>›</span> New Zion Ministry
-  </nav>
-</div>
-
-<main>
-  <!-- HERO -->
-  <section class="ministry-hero">
-    <div class="container">
-      <h1>New Zion Ministry</h1>
-      <p class="lead">Empowering young people through spiritual growth, fellowship, and leadership development</p>
-      <div class="icons">
-        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+  <!-- ===== SLIDE-IN MENU ===== -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
+    <div class="menu-header">
+      <button class="menu-close-btn" aria-label="Close Menu">&times;</button>
+    </div>
+    <div class="menu-search">
+      <form action="../search.html" method="get">
+        <input type="text" name="s" placeholder="Search..." aria-label="Search">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+    <div class="menu-giving">
+      <a href="../giving.html" class="giving-pill">❤️ Giving</a>
+    </div>
+    <div class="menu-nav">
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a>
+          <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="../about/giving.html">Giving</a>
+          <a href="../about/history.html">History</a>
+          <a href="../about/in-the-news.html">In the News</a>
+          <a href="../about/our-pastor.html">Our Pastor</a>
+          <a href="../about/sabbath-services.html">Sabbath Services</a>
+          <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+          <a href="../about/worship-with-us.html">Worship With Us</a>
+          <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+          <a href="../about/special-events.html">Special Events</a>
+          <a href="../about/schools.html">Schools &amp; Education</a>
+          <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../events.html" class="menu-nav-link">Calendar</a>
+      </div>
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="../ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a>
+          <button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+         
+         <a href="../ministries/new-zion.html">New Zion</a>
+          <a href="../ministries/christ-messengers.html">Christ Messengers</a>
+          <a href="../ministries/first-fruits.html">First Fruits</a>
+          <a href="../ministries/health.html">Health Ministry</a>
+            
+          
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../giving.html" class="menu-nav-link">Online Giving</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../contact.html" class="menu-nav-link">Contact Us</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../announcements.html" class="menu-nav-link">Announcements</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../livestream.html" class="menu-nav-link">Livestream</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../bulletin.html" class="menu-nav-link">Bulletin</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../food.html" class="menu-nav-link">Food Assistance</a>
       </div>
     </div>
-  </section>
+    <div class="menu-footer">
+      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+</nav>
+    
+    <!-- Bootstrap 5 CSS + Icons + Carousel -->
+   
+
+<main>
+    <!-- Hero -->
+    <section class="cm-hero" id="top">
+        <div class="cm-hero-inner">
+            <p class="cm-eyebrow">Kisii University SDA Church</p>
+            <h1>New Zion Ministry</h1>
+            <p class="cm-lead">A family of young believers dedicated to spreading the gospel, making disciples, and serving our campus through worship, music, and evangelism.</p>
+            <div class="cm-hero-actions">
+                <a href="#join" class="cm-btn cm-btn-primary"><i class="fas fa-hand-holding-heart"></i> Join the Mission</a>
+                <a href="#programs" class="cm-btn cm-btn-outline"><i class="fas fa-calendar-week"></i> Weekly Programs</a>
+            </div>
+            <div class="cm-hero-social">
+                <a href="https://www.facebook.com/christmessengersministry" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/christmessengersministry" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/christmessengersministry" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/christmessengersministry" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <nav class="cm-hero-anchors" aria-label="Page sections">
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#events">Events</a>
+                <a href="#departments">Departments</a>
+                <a href="#leaders">Team</a>
+                <a href="#gallery">Gallery</a>
+            </nav>
+        </div>
+        <a href="#about" class="cm-scroll-hint" aria-label="Scroll to content"><i class="fas fa-chevron-down"></i></a>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> <span>›</span>
+            <a href="index.html">Ministries</a> <span>›</span>
+            Christ Messengers
+        </nav>
+    </div>
+
+    <!-- Sticky section nav -->
+    <nav class="cm-sticky-nav" aria-label="In-page navigation">
+        <div class="cm-sticky-nav-inner">
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#events">Events</a>
+            <a href="#departments">Departments</a>
+            <a href="#leaders">Team</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#join">Join</a>
+        </div>
+    </nav>
+
 
   <div class="container">
 
