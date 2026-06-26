@@ -10,7 +10,172 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   
   <style>
+    body{
+      overflow-x: hidden;
+    }
+    .header-nav{
+  background-color: rgb(3, 3, 16);
+}
+.site-header{background-color: #0c0901;}
+.hero-content{
+  max-width:900px;
+  animation:fadeUp 1.2s ease;
+  z-index:2;
+}
+.hero-tagline{
+  color:#f6c453;
 
+}
+.hero-description{
+  font-size:1rem;
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  opacity:.95;
+}
+.hero-buttons{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:15px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  transition:35s;
+  font-weight:600;
+  font-size:16px;
+}
+.btn-primary{
+  background:teal;
+  transform:translateY(-4px);
+  color:#fff;
+}
+.btn-outline{
+  border:2px solid white;
+  color:white;
+  transform:translateY(-4px);
+}
+.btn-primary:hover{background: rgb(1, 17, 17);}
+.btn-outline:hover{border:2px solid teal;}
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:30px;
+
+    right:20%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    color:white;
+
+    animation:bounce 2s infinite;
+}
+
+.mouse{
+
+    width:28px;
+
+    height:45px;
+
+    border:2px solid white;
+
+    border-radius:20px;
+
+    margin-top:8px;
+
+    position:relative;
+}
+.header-nav{
+  background-color: rgb(3, 3, 16);
+}
+.site-header{background-color: #0c0901;}
+.wheel{
+
+    width:5px;
+
+    height:10px;
+
+    background:white;
+
+    border-radius:10px;
+
+    position:absolute;
+
+    top:8px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    animation:scrollWheel 1.6s infinite;
+}
+@keyframes bounce{
+
+    50%{
+
+        transform:translate(-50%,10px);
+
+    }
+
+}
+
+@keyframes scrollWheel{
+
+    0%{
+
+        opacity:1;
+
+        top:8px;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        top:22px;
+
+    }
+
+}@media(max-width:768px){
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.btn{
+
+width:240px;
+
+text-align:center;
+
+}
+
+}
    
     @media (max-width: 600px) {
       .hero {
@@ -40,6 +205,7 @@
         margin: 0.4rem 0;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -257,7 +423,20 @@
       position: relative;">
     <div class="hero-content">
       <h1 class="hero-title">Welcome to the Kisii University Seventh-day Adventist Church</h1>
+      <p class="hero-description">
+        Growing in Faith &#x2022; Serving With Love &#x2022; Preparing for Christ's Return
+      </p>
     
+    </div>
+    <div class="hero-buttons">
+      <a href="about/worship-with-us.html" class="btn btn-primary">Plan Your Visit</a>
+      <a href="livestream.html" class="btn btn-outline">Watch Live</a>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
     </div>
   </section>
 
