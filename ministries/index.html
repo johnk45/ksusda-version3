@@ -11,14 +11,14 @@
   <link rel="icon" type="image/png" href="../images/kisiilogo.png">
 <style>
   .site-header{
-    background:navy;
+    background:#121a121a;
   }
   </style>
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="site-header header-solid" role="banner" style="background: navy;">
+  <header class="site-header header-solid" role="banner" style="background: rgb(1, 1, 18)">
     <div class="header-top">
       <div class="header-logo">
         <a href="../index.html" aria-label="Kisii University SDA Church Home">
@@ -200,24 +200,24 @@
     </nav>
   </div>
 
-  <!-- ===== PAGE CONTENT ===== -->
-  <section class="page-content">
-    <div class="page-layout">
-      <!-- Sidebar -->
-      <aside class="sidebar" role="complementary">
-        <nav class="sidebar-nav" aria-label="Ministries Navigation">
-          <div class="sidebar-nav-title">Ministries</div>
-           <a href="../ministries/new-zion.html">New Zion</a>
-          <a href="../ministries/christ-messengers.html">Christ Messengers</a>
-          <a href="../ministries/first-fruits.html">First Fruits</a>
-          <a href="../ministries/health.html">Health Ministry</a>
-            
-        </nav>
-      </aside>
+ <section class="section worldwide-section">
+  <div class="container">
+    <h2 class="section-title">BE PART OF A WORLDWIDE MISSION</h2>
+
+    <p>
+      When you volunteer at KSUSDA, you become part of a global family of believers committed to sharing the love of Christ through worship, service, education, health ministry, and community outreach. Every act of service—whether singing in the choir, welcoming visitors, leading children, praying with others, or participating in outreach—helps advance God's mission both on campus and around the world.
+    </p>
+
+    <div class="worldwide-buttons">
+      <a href="../voluteer.html" class="btn btn-primary">Volunteer Today</a>
+      <a href="https://www.adventist.org/en/service/" target="_blank" class="btn btn-outline">Learn About the Global Mission</a>
+    </div>
+  </div>
+</section>
 
       <!-- Main Content -->
-      <main class="page-main" role="main">
-        <h1>Ministries</h1>
+      <main class="page-main" role="main" style="max-width:90%;margin:0 auto;background-color: #fcfcfc;padding:2rem;">
+        <h1 style="text-align:center;margin-top:2rem;">About Our Ministries</h1>
         <p>The people in the Kisii University Seventh-day Adventist Church stay active through many ministries running simultaneously, all offered for community participation and spiritual growth. Join our teams for service, fellowship, fun, and fulfillment!</p>
 
         <p>We believe that God has asked all Christians to take seriously the commission to tell the Good News. Jesus is not willing that any should perish. Your actions often open a conversation — be so loving and kind that people wonder, "Why are they that way?"</p>
@@ -231,8 +231,20 @@
         <p>Click on any ministry below to learn more about how you can get involved.</p>
 
         <div class="card-grid">
+          <!-- Christ Messengers -->
+          <a href="christ-messengers.html" class="card-link">
+            <div class="card">
+              <div class="card-image">
+                <img src="../images/cm/cm.jpeg" alt="Bold ambassadors of the gospel" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>Christ Messengers</h3>
+                <p>Training and deploying bold ambassadors of the gospel across campus and communities through personal evangelism and digital outreach.</p>
+              </div>
+            </div>
+          </a>
           <!-- Community Outreach -->
-          <a href="community-outreach.html" class="card-link">
+          <a href="../voluteer.html" class="card-link">
             <div class="card">
               <div class="card-image">
                 <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" alt="Volunteers helping in the community" loading="lazy">
@@ -256,7 +268,7 @@
             </div>
           </a>
           <!-- Youth & Children -->
-          <a href="youth-and-children.html" class="card-link">
+          <a href="../voluteer.html" class="card-link">
             <div class="card">
               <div class="card-image">
                 <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&q=80" alt="Young people in fellowship" loading="lazy">
@@ -295,7 +307,7 @@
           <a href="new-zion.html" class="card-link">
             <div class="card">
               <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=600&q=80" alt="Spiritual renewal and deep worship" loading="lazy">
+                <img src="../images/leaders/new-zion/new-zion1.jpeg" alt="Spiritual renewal and deep worship" loading="lazy">
               </div>
               <div class="card-body">
                 <h3>New Zion</h3>
@@ -303,18 +315,7 @@
               </div>
             </div>
           </a>
-          <!-- Christ Messengers -->
-          <a href="christ-messengers.html" class="card-link">
-            <div class="card">
-              <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1523803326055-9729b9e02e5a?w=600&q=80" alt="Bold ambassadors of the gospel" loading="lazy">
-              </div>
-              <div class="card-body">
-                <h3>Christ Messengers</h3>
-                <p>Training and deploying bold ambassadors of the gospel across campus and communities through personal evangelism and digital outreach.</p>
-              </div>
-            </div>
-          </a>
+          
           <!-- First Fruits -->
           <a href="first-fruits.html" class="card-link">
             <div class="card">

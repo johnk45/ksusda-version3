@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Serve · KSUSDA Volunteer</title>
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; background: #fff; color: #212121; overflow-x: hidden; }
+    h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.02em; }
+    section { padding: 4.5rem 0; }
+    .bg-light-gray { background: #F5F5F5; }
+    .bg-charcoal { background: #212121; color: #f5f5f5; }
+    .text-charcoal { color: #212121; }
+    .text-medium-gray { color: #424242; }
+
+    /* buttons */
+    .btn-outline-charcoal { border: 1.5px solid #212121; color: #212121; transition: all 0.25s; }
+    .btn-outline-charcoal:hover { background: #212121; color: #fff; transform: scale(1.02); box-shadow: 0 8px 18px rgba(0,0,0,0.08); }
+    .btn-charcoal { background: #212121; color: #fff; border: none; transition: all 0.25s; }
+    .btn-charcoal:hover { background: #424242; transform: scale(1.03); box-shadow: 0 10px 24px rgba(0,0,0,0.15); color: #fff; }
+
+    /* hero slider */
+    .hero-slider { height: 100vh; position: relative; overflow: hidden; }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; background-repeat: no-repeat; }
+    .hero-slide.active { opacity: 1; z-index: 2; }
+    .hero-slide .overlay { position: absolute; inset: 0; background: rgba(33,33,33,0.45); z-index: 1; }
+    .hero-content { position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 1.5rem; }
+    .hero-content h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); font-weight: 600; letter-spacing: -0.02em; }
+    .hero-content p { font-size: clamp(1rem, 2vw, 1.4rem); max-width: 640px; margin: 0.5rem auto 1.5rem; opacity: 0.9; }
+
+    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,0.2); border: none; width: 48px; height: 48px; border-radius: 40px; backdrop-filter: blur(4px); color: #fff; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: 0.2s; cursor: pointer; }
+    .slider-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-50%) scale(1.05); }
+    .slider-btn.prev { left: 20px; }
+    .slider-btn.next { right: 20px; }
+    .slider-indicators { position: absolute; bottom: 30px; left: 0; right: 0; z-index: 10; display: flex; justify-content: center; gap: 14px; }
+    .slider-indicators span { width: 12px; height: 12px; border-radius: 20px; background: rgba(255,255,255,0.4); transition: 0.3s; cursor: pointer; }
+    .slider-indicators span.active { background: #fff; width: 30px; }
+
+    /* Ken burns (slow zoom) */
+    .ken-burns { animation: kenZoom 16s infinite alternate ease-in-out; }
+    @keyframes kenZoom { 0% { transform: scale(1); } 100% { transform: scale(1.12); } }
+
+    /* cards */
+    .ministry-card { border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 6px 22px rgba(0,0,0,0.04); transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); height: 100%; border: 1px solid #f0f0f0; }
+    .ministry-card:hover { transform: translateY(-12px); box-shadow: 0 24px 44px rgba(0,0,0,0.08); }
+    .ministry-card img { transition: transform 0.5s; width: 100%; height: 200px; object-fit: cover; }
+    .ministry-card:hover img { transform: scale(1.08); }
+    .ministry-card .card-body { padding: 1.5rem; }
+
+    /* timeline */
+    .timeline-step { display: flex; flex-direction: column; align-items: center; }
+    .timeline-line { width: 2px; height: 40px; background: #BDBDBD; margin: 0.3rem 0; }
+
+    /* gallery */
+    .gallery-item { position: relative; overflow: hidden; border-radius: 14px; cursor: pointer; }
+    .gallery-item img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item .overlay { position: absolute; inset: 0; background: rgba(33,33,33,0.3); opacity: 0; transition: 0.3s; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.8rem; }
+    .gallery-item:hover .overlay { opacity: 1; }
+
+    /* testimonial carousel */
+    .testimonial-card { background: #fff; border-radius: 20px; padding: 2rem 1.8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f0f0f0; }
+    .testimonial-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 60px; }
+
+    /* form glass */
+    .glass-form { background: rgba(255,255,255,0.75); backdrop-filter: blur(4px); border-radius: 24px; padding: 2rem 2rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.02); }
+    .form-floating > .form-control:focus { border-color: #424242; box-shadow: 0 0 0 0.2rem rgba(66,66,66,0.2); }
+
+    /* footer */
+    footer a { color: #ccc; text-decoration: none; transition: 0.2s; }
+    footer a:hover { color: #fff; }
+
+    /* back to top */
+    .back-top { position: fixed; bottom: 28px; right: 28px; background: #212121; color: #fff; border: none; width: 48px; height: 48px; border-radius: 48px; font-size: 1.4rem; box-shadow: 0 8px 24px rgba(0,0,0,0.12); transition: 0.2s; z-index: 99; display: none; align-items: center; justify-content: center; }
+    .back-top:hover { background: #424242; transform: scale(1.04); }
+
+    /* fade helpers */
+    .fade-in-section { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    /* alt blocks */
+    .alt-block { padding: 2.5rem 0; border-bottom: 1px solid #eee; }
+    .alt-block:last-of-type { border-bottom: none; }
+    .alt-block img { border-radius: 16px; width: 100%; height: 280px; object-fit: cover; transition: transform 0.4s; }
+    .alt-block img:hover { transform: scale(1.02); }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .hero-slider { height: 80vh; }
+      .slider-btn { width: 38px; height: 38px; font-size: 1.2rem; }
+      section { padding: 3rem 0; }
+      .timeline-line { height: 24px; }
+      .alt-block img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Back to top -->
+<button id="backTopBtn" class="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- HERO SLIDER -->
+<section class="hero-slider" id="heroSlider" style="position:relative;">
+  <div class="hero-slide active ken-burns" style="background-image: url('https://i.pinimg.com/736x/42/f1/92/42f1923d74e92071899707bb01801fbd.jpg');">
+    <div class="overlay"></div>
+    <div class="hero-content"><h1>Serve God Through Service</h1><p>Become part of a team making a difference in God's work.</p><a href="#register" class="btn btn-charcoal btn-lg px-5 py-2 rounded-pill">Become a Volunteer</a></div>
+  </div>
+  <div class="hero-slide ken-burns" style="background-image: url('https://i.pinimg.com/1200x/35/78/61/35786173e3fec7d7026151736c1df05b.jpg');">
+    <div class="overlay"></div>
+    <div class="hero-content"><h1>Your Gifts Matter</h1><p>Every talent can be used to glorify God and bless others.</p><a href="#register" class="btn btn-charcoal btn-lg px-5 py-2 rounded-pill">Join Today</a></div>
+  </div>
+  <div class="hero-slide ken-burns" style="background-image: url('https://i.pinimg.com/1200x/0b/cc/68/0bcc68cfd4cc0984a0d7c311d6645938.jpg');">
+    <div class="overlay"></div>
+    <div class="hero-content"><h1>Impact Lives</h1><p>Share Christ's love through acts of service.</p><a href="#register" class="btn btn-charcoal btn-lg px-5 py-2 rounded-pill">Start Serving</a></div>
+  </div>
+  <div class="hero-slide ken-burns" style="background-image: url('https://i.pinimg.com/1200x/df/ca/e3/dfcae3e024072d937d7798c77daacec4.jpg');">
+    <div class="overlay"></div>
+    <div class="hero-content"><h1>Together We Build God's Kingdom</h1><p>Serve alongside passionate believers.</p><a href="#register" class="btn btn-charcoal btn-lg px-5 py-2 rounded-pill">Apply Now</a></div>
+  </div>
+  <button class="slider-btn prev" id="prevSlide" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+  <button class="slider-btn next" id="nextSlide" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+  <div class="slider-indicators" id="sliderIndicators"></div>
+</section>
+
+<!-- 1. Introduction -->
+<section class="bg-white" data-aos="fade-up">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6" data-aos="fade-right"><img src="https://i.pinimg.com/736x/9a/a3/9f/9aa39f8508528233016dc5254b45c733.jpg" alt="Volunteer serving" class="img-fluid rounded-4 shadow-sm" style="width:100%;height:360px;object-fit:cover;"></div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <h2 class="display-5 fw-semibold">Why Volunteer?</h2>
+        <p class="text-medium-gray fs-5">Serving in the church is a beautiful way to grow in faith, connect with others, and discover the purpose God has for you. Your time and talents can change lives.</p>
+        <div class="row mt-4 g-4">
+          <div class="col-4 text-center"><i class="bi bi-heart fs-1 text-charcoal"></i><p class="fw-semibold mt-2">Serve God</p></div>
+          <div class="col-4 text-center"><i class="bi bi-people fs-1 text-charcoal"></i><p class="fw-semibold mt-2">Build Community</p></div>
+          <div class="col-4 text-center"><i class="bi bi-compass fs-1 text-charcoal"></i><p class="fw-semibold mt-2">Discover Purpose</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Opportunities -->
+<section class="bg-light-gray" data-aos="fade-up">
+  <div class="container">
+    <h2 class="display-5 fw-semibold text-center mb-5">Find Your Ministry</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50"><div class="ministry-card"><img src="https://i.pinimg.com/1200x/74/a0/8c/74a08c895c716cbeff13d4e650e25fe6.jpg" alt="Media"><div class="card-body"><h5>Media Team</h5><p class="text-medium-gray">The Media Ministry uses technology and creativity to spread the gospel beyond the church walls. From live streaming and photography to sound management, graphic design, and multimedia presentations, the team ensures that every worship service and church event is communicated clearly and professionally. By serving in this ministry, you help reach both in-person and online audiences with the message of Christ.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4 py-1">Learn More</a></div></div></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80"><div class="ministry-card"><img src="https://i.pinimg.com/1200x/bc/0f/23/bc0f23f88d9896d5aba414169dbc51d2.jpg" alt="Worship"><div class="card-body"><h5>Chorister Team</h5><p class="text-medium-gray">The Chorister Team leads the congregation in meaningful praise and worship through hymns, scripture songs, and spiritual music. By guiding worship with reverence, enthusiasm, and unity, the team helps prepare hearts to receive God's Word and creates an atmosphere of joyful worship.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4 py-1">Learn More</a></div></div></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="110"><div class="ministry-card"><img src="https://i.pinimg.com/1200x/50/ca/1b/50ca1bb49f9bf64ca7b2459179fb0662.jpg" alt="Children"><div class="card-body"><h5>Possiblity Ministry</h5><p class="text-medium-gray">The Possibility Ministry is dedicated to serving and supporting individuals with physical disabilities and other special needs, ensuring they feel welcomed, valued, and fully included in every aspect of church life. Through compassionate care, accessibility, fellowship, and spiritual encouragement, the ministry reflects Christ's love by creating a church where everyone belongs and can grow in faith.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4 py-1">Learn More</a></div></div></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="140"><div class="ministry-card"><img src="https://i.pinimg.com/1200x/ac/34/2b/ac342be4e2f6803b19174465950fb9a0.jpg" alt="Youth"><div class="card-body"><h5>End Time Heralds</h5><p class="text-medium-gray">Join the End Time Heralds and minister through inspiring Seventh-day Adventist hymns and gospel music. Whether you're a first-year student or continuing student, you're welcome to worship, fellowship, and share the hope of Christ's soon return through song.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4 py-1">Learn More</a></div></div></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="170"><div class="ministry-card"><img src="https://i.pinimg.com/736x/57/0c/e3/570ce394db5b1fb3b18dfe7c46f18002.jpg" alt="Hospitality"><div class="card-body"><h5>Welfare Programs</h5><p class="text-medium-gray">The Welfare Ministry reflects Christ's love by caring for the needs of church members and the community through practical support, encouragement, and acts of kindness. Whether assisting those in need, visiting the sick, or organizing welfare initiatives, we strive to be the hands and feet of Jesus. Join us in making a difference through compassionate service.</p>
+
+<p><i>"Carry each other's burdens, and in this way you will fulfill the law of Christ." — Galatians 6:2 (NIV)</i></p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4 py-1">Learn More</a></div></div></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200"><div class="ministry-card"><img src="https://i.pinimg.com/1200x/6a/3e/81/6a3e81fd364b13898981710da7ebd0a2.jpg" alt="Prayer"><div class="card-body"><h5>Prayer Ministry</h5><p class="text-medium-gray">The Prayer Band is a ministry devoted to seeking God's presence through faithful prayer and intercession. We pray for the church, students, families, and the community, believing that God hears and answers every sincere prayer. Join us as we grow in faith and uphold one another before the throne of grace.</p>
+
+<p><i>"Devote yourselves to prayer, being watchful and thankful." — Colossians 4:2 (NIV)</i></p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4 py-1">Learn More</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Alternate blocks -->
+<section class="bg-white" data-aos="fade-up">
+  <div class="container">
+    <div class="alt-block row align-items-center g-4" data-aos="fade-up"><div class="col-md-6"><img src="https://i.pinimg.com/1200x/35/ef/fa/35effa8afa6b54110bfa1ac44e522c4d.jpg" alt="Serve"></div><div class="col-md-6"><h3>Serve with Passion</h3><p class="text-medium-gray">God has uniquely gifted each of us to serve His kingdom and bless others. Discover your calling, use your talents with joy, and let your service bring glory to God and hope to those around you.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4">Get involved</a></div></div>
+    <div class="alt-block row align-items-center g-4 flex-md-row-reverse" data-aos="fade-up"><div class="col-md-6"><img src="https://i.pinimg.com/1200x/d1/59/99/d1599932462ef96d1c03d579264ac657.jpg" alt="Grow"></div><div class="col-md-6"><h3>Serving In Church</h3><p class="text-medium-gray">Serving in the church is more than fulfilling a responsibility—it is an opportunity to worship God through your gifts and make a difference in the lives of others. Join a ministry, grow in faith, and become part of God's mission to share His love with the world.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4">Explore</a></div></div>
+    <div class="alt-block row align-items-center g-4" data-aos="fade-up"><div class="col-md-6"><img src="https://i.pinimg.com/736x/02/9e/d2/029ed24aadf0e0752ccbf394a458f305.jpg" alt="Friendships"></div><div class="col-md-6"><h3>Build Lasting Friendships</h3><p class="text-medium-gray">Church is more than a place of worship—it's a family where meaningful friendships are built. Connect with fellow believers, grow together in faith, encourage one another, and experience the joy of belonging to a Christ-centered community.
+</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4">Join</a></div></div>
+    <div class="alt-block row align-items-center g-4 flex-md-row-reverse" data-aos="fade-up"><div class="col-md-6"><img src="https://i.pinimg.com/1200x/fe/1b/ba/fe1bba533733d9d2ffa6145c8f12ab90.jpg" alt="Community"></div><div class="col-md-6"><h3>Reach the Community</h3><p class="text-medium-gray">Christ calls us to be a light in our communities through love, service, and compassion. Join us as we share the hope of the gospel, meet practical needs, and make a positive impact by reflecting the love of Jesus to those around us.
+</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4">Serve</a></div></div>
+    <div class="alt-block row align-items-center g-4" data-aos="fade-up"><div class="col-md-6"><img src="https://i.pinimg.com/736x/37/e3/7b/37e37bc5568ec15ac04209403944cfd0.jpg" alt="Talents"></div><div class="col-md-6"><h3>Use Your God-Given Talents</h3><p class="text-medium-gray">God has blessed every believer with unique talents and gifts to serve His kingdom. Discover your God-given abilities, use them to glorify Him, and make a meaningful difference in the lives of others through faithful service.</p><a href="#" class="btn btn-outline-charcoal rounded-pill px-4">Discover</a></div></div>
+  </div>
+</section>
+
+<!-- 4. Timeline -->
+<section class="bg-light-gray" data-aos="fade-up">
+  <div class="container">
+    <h2 class="display-5 fw-semibold text-center mb-5">Volunteer Process</h2>
+    <div class="row justify-content-center text-center">
+      <div class="col-6 col-md-3"><div class="timeline-step"><span class="bg-charcoal text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:56px;height:56px;">1</span><h6 class="mt-2">Apply Online</h6><div class="timeline-line"></div></div></div>
+      <div class="col-6 col-md-3"><div class="timeline-step"><span class="bg-charcoal text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:56px;height:56px;">2</span><h6 class="mt-2">Application Review</h6><div class="timeline-line"></div></div></div>
+      <div class="col-6 col-md-3"><div class="timeline-step"><span class="bg-charcoal text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:56px;height:56px;">3</span><h6 class="mt-2">Orientation</h6><div class="timeline-line"></div></div></div>
+      <div class="col-6 col-md-3"><div class="timeline-step"><span class="bg-charcoal text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:56px;height:56px;">4</span><h6 class="mt-2">Start Serving</h6></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Requirements -->
+<section class="bg-white" data-aos="fade-up">
+  <div class="container"><div class="row g-5 align-items-center"><div class="col-md-6"><img src="https://i.pinimg.com/1200x/e7/f3/c8/e7f3c8bbdcdd02e837def8be4264ab2e.jpg" class="img-fluid rounded-4" alt="prayer"></div><div class="col-md-6"><h3>Volunteer Requirements</h3><ul class="list-unstyled fs-5"><li><i class="bi bi-check-lg text-charcoal me-2"></i>Love serving God</li><li><i class="bi bi-check-lg text-charcoal me-2"></i>Team player</li><li><i class="bi bi-check-lg text-charcoal me-2"></i>Positive attitude</li><li><i class="bi bi-check-lg text-charcoal me-2"></i>Willing to learn</li><li><i class="bi bi-check-lg text-charcoal me-2"></i>Commitment</li><li><i class="bi bi-check-lg text-charcoal me-2"></i>Respect church values</li></ul></div></div></div>
+</section>
+
+<!-- 6. Stats -->
+<section class="bg-charcoal text-white" data-aos="zoom-in">
+  <div class="container"><div class="row text-center g-4"><div class="col-6 col-md-3"><span class="display-4 fw-bold counter" data-target="200">0</span><p class="fw-light">Active Volunteers</p></div><div class="col-6 col-md-3"><span class="display-4 fw-bold counter" data-target="15">0</span><p class="fw-light">Ministries</p></div><div class="col-6 col-md-3"><span class="display-4 fw-bold counter" data-target="1200">0</span><p class="fw-light">Hours Served</p></div><div class="col-6 col-md-3"><span class="display-4 fw-bold counter" data-target="500">0</span><p class="fw-light">Lives Impacted</p></div></div></div>
+</section>
+
+<!-- 7. Testimonials -->
+<section class="bg-white" data-aos="fade-up">
+  <div class="container"><h2 class="display-5 fw-semibold text-center mb-4">What Volunteers Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active"><div class="testimonial-card text-center mx-auto" style="max-width:600px;"><img src="https://i.pinimg.com/1200x/7e/be/3b/7ebe3b495bf85e8e026055db28c31c45.jpg" class="rounded-circle mx-auto mb-3" alt="Sarah"><h5>Omosh M.</h5><p class="text-medium-gray">Worship Team</p><div class="text-warning mb-2">★★★★★</div><p class="fst-italic">“Serving has transformed my faith and connected me to a family.”</p></div></div>
+        <div class="carousel-item"><div class="testimonial-card text-center mx-auto" style="max-width:600px;"><img src="https://i.pinimg.com/736x/99/d7/c3/99d7c3f1a2af441ef547631c3ee47aae.jpg" class="rounded-circle mx-auto mb-3" alt="David"><h5>Salome K.</h5><p class="text-medium-gray">Media Team</p><div class="text-warning mb-2">★★★★★</div><p class="fst-italic">“Using my skills for the Kingdom is the most fulfilling thing.”</p></div></div>
+        <div class="carousel-item"><div class="testimonial-card text-center mx-auto" style="max-width:600px;"><img src="https://i.pinimg.com/1200x/d0/8c/e7/d08ce7564ff7321742bc8b2e5697260e.jpg" class="rounded-circle mx-auto mb-3" alt="Grace"><h5>Grace L.</h5><p class="text-medium-gray">Children's Ministry</p><div class="text-warning mb-2">★★★★★</div><p class="fst-italic">“Investing in kids is investing in the future of the church.”</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Gallery -->
+<section class="bg-light-gray" data-aos="fade-up">
+  <div class="container"><h2 class="display-5 fw-semibold text-center mb-4">Gallery</h2><div class="row g-3">
+    <div class="col-6 col-md-4 gallery-item"><img src="https://images.pexels.com/photos/546860/pexels-photo-546860.jpeg?auto=compress&cs=tinysrgb&w=600" alt="gallery1"><div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div></div>
+    <div class="col-6 col-md-4 gallery-item"><img src="https://images.pexels.com/photos/6876767/pexels-photo-6876767.jpeg?auto=compress&cs=tinysrgb&w=600" alt="gallery2"><div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div></div>
+    <div class="col-6 col-md-4 gallery-item"><img src="https://images.pexels.com/photos/5770775/pexels-photo-5770775.jpeg?auto=compress&cs=tinysrgb&w=600" alt="gallery3"><div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div></div>
+    <div class="col-6 col-md-4 gallery-item"><img src="https://images.pexels.com/photos/7034346/pexels-photo-7034346.jpeg?auto=compress&cs=tinysrgb&w=600" alt="gallery4"><div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div></div>
+    <div class="col-6 col-md-4 gallery-item"><img src="https://images.pexels.com/photos/7049710/pexels-photo-7049710.jpeg?auto=compress&cs=tinysrgb&w=600" alt="gallery5"><div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div></div>
+    <div class="col-6 col-md-4 gallery-item"><img src="https://images.pexels.com/photos/7034288/pexels-photo-7034288.jpeg?auto=compress&cs=tinysrgb&w=600" alt="gallery6"><div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div></div>
+  </div></div>
+</section>
+
+<!-- 9. FAQ -->
+<section class="bg-white" data-aos="fade-up">
+  <div class="container"><h2 class="display-5 fw-semibold text-center mb-4">FAQ</h2><div class="accordion" id="faqAccordion">
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">Do I need experience?</button></h2><div id="faq1" class="accordion-collapse collapse"><div class="accordion-body">No, we provide training for every ministry.</div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">How much time is required?</button></h2><div id="faq2" class="accordion-collapse collapse"><div class="accordion-body">It varies per ministry—usually 2–4 hours per week.</div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">Can students volunteer?</button></h2><div id="faq3" class="accordion-collapse collapse"><div class="accordion-body">Absolutely! We have opportunities for students.</div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">Can I join multiple ministries?</button></h2><div id="faq4" class="accordion-collapse collapse"><div class="accordion-body">Yes, many volunteers serve in more than one area.</div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">Is training provided?</button></h2><div id="faq5" class="accordion-collapse collapse"><div class="accordion-body">Yes, comprehensive training is offered for all roles.</div></div></div>
+  </div></div>
+</section>
+
+<!-- 10. Form -->
+<section class="bg-light-gray" id="register" data-aos="fade-up">
+  <div class="container"><div class="row g-5 align-items-center"><div class="col-md-6"><img src="https://i.pinimg.com/1200x/f0/e5/d1/f0e5d110635832c547b38bbcd532eb83.jpg" class="img-fluid rounded-4" alt="volunteer form"></div><div class="col-md-6"><div class="glass-form"><h3 class="mb-3">Volunteer Registration</h3><form id="volForm"><div class="mb-3"><input type="text" class="form-control" placeholder="Full Name" required></div><div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div><div class="mb-3"><input type="tel" class="form-control" placeholder="Phone"></div><div class="mb-3"><input type="number" class="form-control" placeholder="Age"></div><div class="mb-3"><select class="form-select"><option>Gender</option><option>Male</option><option>Female</option></select></div></div><div class="mb-3"><select class="form-select"><option>Ministry Interest</option><option>Media</option><option>Worship</option><option>Children</option><option>Youth</option><option>Hospitality</option></select></div><div class="mb-3"><input type="text" class="form-control" placeholder="Availability"></div><div class="mb-3"><textarea class="form-control" rows="2" placeholder="Skills / Experience"></textarea></div><div class="mb-3"><textarea class="form-control" rows="2" placeholder="Why do you want to volunteer?"></textarea></div><div class="mb-3 form-check"><input type="checkbox" class="form-check-input" id="policyCheck"><label for="policyCheck" class="form-check-label">I agree to church volunteer policies.</label></div><button type="submit" class="btn btn-charcoal w-100 py-2 rounded-pill">Submit Application</button></form></div></div></div></div>
+</section>
+
+<!-- 11. CTA -->
+<section class="position-relative" style="background-image:url('https://i.pinimg.com/1200x/e4/a3/4b/e4a34b8fb6f8ab539184f255dff6d74e.jpg');background-size:cover;background-position:center;padding:6rem 0;" data-aos="zoom-out">
+  <div class="position-absolute inset-0" style="background:rgba(33,33,33,0.6);inset:0;"></div>
+  <div class="container position-relative text-center text-white"><h2 class="display-4 fw-semibold">Ready to Serve?</h2><p class="fs-4 mb-4">God has placed a gift in you—use it to bless others.</p><a href="#register" class="btn btn-charcoal btn-lg px-5 py-2 rounded-pill me-3">Become a Volunteer</a><a href="#" class="btn btn-outline-light btn-lg px-5 py-2 rounded-pill">Contact Ministry Leader</a></div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-charcoal text-white pt-5 pb-3">
+  <div class="container"><div class="row g-4"><div class="col-md-4"><h5>KSUSDA Church</h5><p class="text-light-emphasis">Serving God, serving people.</p><p><i class="bi bi-envelope me-2"></i>volunteer@ksusda.church<br><i class="bi bi-telephone me-2"></i>+1 234 567 8900<br><i class="bi bi-geo-alt me-2"></i>123 Faith Ave, City</p><div><a href="#" class="me-3 fs-5"><i class="bi bi-facebook"></i></a><a href="#" class="me-3 fs-5"><i class="bi bi-instagram"></i></a><a href="#" class="fs-5"><i class="bi bi-youtube"></i></a></div></div><div class="col-md-2"><h6>Quick Links</h6><ul class="list-unstyled"><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Sermons</a></li></ul></div><div class="col-md-3"><h6>Ministries</h6><ul class="list-unstyled"><li><a href="#">Media</a></li><li><a href="#">Worship</a></li><li><a href="#">Children</a></li><li><a href="#">Youth</a></li></ul></div><div class="col-md-3"><h6>Volunteer</h6><ul class="list-unstyled"><li><a href="#register">Apply</a></li><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li></ul></div></div><hr class="border-secondary"><p class="text-center text-light-emphasis small">&copy; 2025 KSUSDA Church. All rights reserved.</p></div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ once: true, duration: 800, easing: 'ease-out', offset: 40 });
+
+  // Hero slider
+  let slides = document.querySelectorAll('.hero-slide');
+  let current = 0; let total = slides.length;
+  const indicators = document.getElementById('sliderIndicators');
+  for (let i = 0; i < total; i++) { let dot = document.createElement('span'); dot.dataset.index = i; indicators.appendChild(dot); }
+  const dots = indicators.querySelectorAll('span');
+  function showSlide(index) { slides.forEach((s, i) => { s.classList.toggle('active', i === index); dots[i].classList.toggle('active', i === index); }); }
+  function nextSlide() { current = (current + 1) % total; showSlide(current); }
+  function prevSlide() { current = (current - 1 + total) % total; showSlide(current); }
+  document.getElementById('nextSlide').addEventListener('click', prevSlide); // swapped for direction
+  document.getElementById('prevSlide').addEventListener('click', nextSlide);
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { current = i; showSlide(current); }));
+  setInterval(nextSlide, 2000);
+  showSlide(0);
+
+  // Counter animation
+  const counters = document.querySelectorAll('.counter');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target; const target = parseInt(el.dataset.target); let count = 0; const step = Math.ceil(target / 50);
+        const timer = setInterval(() => { count += step; if (count >= target) { el.textContent = target; clearInterval(timer); } else el.textContent = count; }, 20);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(c => observer.observe(c));
+
+  // Back to top
+  const backBtn = document.getElementById('backTopBtn');
+  window.addEventListener('scroll', () => { backBtn.style.display = window.scrollY > 300 ? 'flex' : 'none'; });
+  backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Gallery lightbox (simplified)
+  document.querySelectorAll('.gallery-item').forEach(item => item.addEventListener('click', function() { const img = this.querySelector('img'); if(img) window.open(img.src, '_blank'); }));
+
+  // simple form validation
+  document.getElementById('volForm').addEventListener('submit', function(e){ e.preventDefault(); alert('Thank you for your interest! We will contact you soon.'); });
+</script>
+</body>
+</html>
