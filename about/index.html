@@ -9,6 +9,201 @@
  <link rel="icon" type="image/jpg" href="../images/kisiilogo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <link rel="icon" href="../images/kisiilog.png">
+  <style>
+    body{
+
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+
+}
+
+.about-stats{
+
+padding:90px 8%;
+background:#fff;
+
+}
+
+.heading{
+
+text-align:center;
+max-width:800px;
+margin:auto;
+
+}
+
+.heading h5{
+
+color:teal;
+letter-spacing:3px;
+
+}
+
+.heading h2{
+
+font-size:42px;
+color:#333;
+
+}
+
+.heading p{
+
+line-height:1.8;
+color:#666;
+
+}
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:70px;
+
+}
+
+.stat{
+
+background:#f7f7f7;
+padding:40px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.stat:hover{
+
+transform:translateY(-10px);
+
+}
+
+.stat h1{
+
+font-size:60px;
+margin:0;
+color:teal;
+display:inline;
+
+}
+
+.stat span{
+
+font-size:40px;
+color:teal;
+font-weight:bold;
+
+}
+
+.stat h4{
+
+margin-top:15px;
+color:#333;
+
+}
+
+
+
+.about-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:60px;
+padding:90px 8%;
+
+}
+
+.about-grid:nth-child(even){
+
+background:#fafafa;
+
+}
+
+.reverse .about-image{
+
+order:2;
+
+}
+
+.reverse .about-text{
+
+order:1;
+
+}
+
+.about-image{
+
+overflow:hidden;
+border-radius:20px;
+
+}
+
+.about-image img{
+
+width:100%;
+display:block;
+transition:.7s;
+
+}
+
+.about-image:hover img{
+
+transform:scale(1.08);
+
+}
+
+.about-text h2{
+
+font-size:40px;
+color:#333;
+
+}
+
+.about-text p{
+
+line-height:1.9;
+color:#666;
+
+}
+
+.about-text a{
+
+display:inline-block;
+margin-top:25px;
+background:teal;
+color:white;
+padding:15px 30px;
+text-decoration:none;
+border-radius:50px;
+transition:.3s;
+
+}
+
+.about-text a:hover{
+
+background:#005b5b;
+
+}
+
+@media(max-width:900px){
+
+.about-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.reverse .about-image,
+.reverse .about-text{
+
+order:unset;
+
+}
+
+}
+  </style>
 </head>
 <body>
 
@@ -61,16 +256,12 @@
         <div class="nav-item">
           <a href="../ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
           <div class="desktop-dropdown">
-            <a href="../ministries/community-outreach.html">Community Outreach</a>
+            
             <a href="../ministries/health.html">Health Ministry</a>
-            <a href="../ministries/youth-and-children.html">Youth &amp; Children</a>
-            <a href="../ministries/bible-studies.html">Bible Studies</a>
-            <a href="../ministries/evangelism.html">Evangelism</a>
             <a href="../ministries/new-zion.html">New Zion</a>
             <a href="../ministries/christ-messengers.html">Christ Messengers</a>
             <a href="../ministries/first-fruits.html">First Fruits</a>
-            <a href="../ministries/the-sentinels.html">The Sentinels</a>
-            <a href="../ministries/hom.html">HOM — Hands On Mission</a>
+            
           </div>
         </div>
         <div class="nav-item">
@@ -142,16 +333,11 @@
           <button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button>
         </div>
         <div class="menu-submenu">
-          <a href="../ministries/community-outreach.html">Community Outreach</a>
           <a href="../ministries/health.html">Health Ministry</a>
-          <a href="../ministries/youth-and-children.html">Youth &amp; Children</a>
-          <a href="../ministries/bible-studies.html">Bible Studies</a>
-          <a href="../ministries/evangelism.html">Evangelism</a>
           <a href="../ministries/new-zion.html">New Zion</a>
           <a href="../ministries/christ-messengers.html">Christ Messengers</a>
           <a href="../ministries/first-fruits.html">First Fruits</a>
-          <a href="../ministries/the-sentinels.html">The Sentinels</a>
-          <a href="../ministries/hom.html">HOM — Hands On Mission</a>
+         
         </div>
       </div>
       <div class="menu-nav-item">
@@ -183,10 +369,24 @@
     </div>
   </nav>
 
+
   <!-- ===== HERO ===== -->
-  <section class="hero hero-page" style="background-image: url('../images/ksuda.jpeg');" role="banner">
+  <section class="hero hero-page" style="background-image: url('../images/ksuda.jpeg');
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(0,107,117,0.65)),
+                url('../images/ksuda.jpeg') center/cover no-repeat;
+            padding: 6rem 1.5rem 4rem;" role="banner">
     <div class="hero-content">
-      <h1 class="hero-title">About Us</h1>
+      <h1 class="hero-title">About Kisii University Seventh-day Adventist Church</h1>        
+
+<p class="sub-title">Kisii University Seventh-day Adventist Church is a vibrant community of believers committed to knowing Christ, growing in His Word, and serving others with love. We exist to inspire students to develop a personal relationship with Jesus, cultivate Christlike character, and prepare for a life of faithful service. As Ellen G. White wrote, <span style="color:antiquewhite"><em>"Higher than the highest human thought can reach is God's ideal for His children."</em></span> Guided by this vision, we seek to help every member discover their God-given purpose while making a lasting impact on campus and beyond.
+</p>
     </div>
   </section>
 
@@ -196,6 +396,74 @@
       <a href="../index.html">Home</a> <span>›</span> About Us
     </nav>
   </div>
+
+
+  <!-- ================== STATISTICS =================== -->
+
+<section class="about-stats">
+
+<div class="heading">
+<h5>OUR IMPACT</h5>
+<h2>Growing Together in Christ</h2>
+<p>Every number tells a story of lives transformed through worship,
+discipleship, fellowship and service. At KSUSDA we believe every student
+has a place to belong and a purpose to fulfill.</p>
+</div>
+
+<div class="stats">
+<div class="stat">
+<h1 class="counter" data-target="800">0</h1>
+<span>+</span>
+<h4>Church Members</h4>
+</div>
+<div class="stat">
+<h1 class="counter" data-target="9">0</h1>
+<span>+</span>
+<h4>Active Ministries</h4>
+</div>
+<div class="stat">
+<h1 class="counter" data-target="75">0</h1>
+<span>+</span>
+<h4>Student Volunteers</h4>
+</div>
+<div class="stat">
+<h1 class="counter" data-target="35">0</h1>
+<span>+</span>
+<h4>Annual Programs</h4>
+</div>
+</div>
+
+</section>
+
+
+
+<!-- ================== IMAGE SECTION =================== -->
+
+<section class="about-grid">
+<div class="about-image">
+<img src="../images/church/church choir.jpeg">
+</div>
+<div class="about-text">
+<h2>More Than a Church</h2>
+<p>KSUSDA is a home where students grow spiritually,build lifelong friendships and discover God's purpose.Through Bible study, worship, outreach and fellowship,students become leaders prepared to serve both God and society.
+</p>
+<a href="../ministries/index.html">Explore Ministries →</a>
+</div>
+</section>
+
+<!-- ================== IMAGE SECTION =================== -->
+<section class="about-grid reverse">
+<div class="about-image">
+<img src="../images/first-fruits/mission.jpeg">
+</div>
+<div class="about-text">
+<h2>Serving Beyond Campus</h2>
+<p>
+Faith becomes meaningful when lived out.Our members participate in community outreach,medical missions, evangelism and charity,bringing hope wherever God leads.
+</p>
+<a href="../volunteer.html">Become a Volunteer →</a>
+</div>
+</section>
 
   <!-- ===== PAGE CONTENT ===== -->
   <section class="page-content">
@@ -308,8 +576,8 @@
             <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Services begin at <strong>7:30 AM</strong> (Sabbath School) and <strong>11:00 AM</strong> (Divine Worship)</li>
             <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Dress is modest and comfortable — come as you are</li>
             <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">We are located on the Kisii University Campus, Kisii, Kenya</li>
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Visitors receive a warm welcome — our greeters will help you find a seat</li>
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Stay for fellowship lunch on the 1st &amp; 3rd Sabbath</li>
+            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Visitors receive a warm welcome — our deacons & deaconneses will help you find a seat</li>
+            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">We have lunch for both visitors , guests, and regular members.</li>
           </ul>
           <a href="worship-with-us.html" class="btn btn-teal mt-2">Worship With Us →</a>
         </div>
@@ -359,7 +627,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Copyright &copy; 2026 Kisii University Seventh-day Adventist Church.</p>
+        <p>Copyright &copy; <script>document.write(date().getFullYear()); </script> Kisii University Seventh-day Adventist Church.</p>
         <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Copyright Policy</a></p>
       </div>
     </div>
@@ -377,5 +645,64 @@
   </div>
 
   <script src="../js/main.js"></script>
+
+  <script>
+  // Counter Animation
+
+const counters = document.querySelectorAll(".counter");
+const runCounter = (counter) => {
+    const target = +counter.dataset.target;
+    let count = 0;
+    const speed = target / 120;
+    const update = () => {
+        if (count < target) {
+            count += speed;
+            counter.innerText = Math.ceil(count);
+            requestAnimationFrame(update);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    update();
+};
+
+// Trigger when section becomes visible
+
+const statsSection = document.querySelector(".about-stats");
+let started = false;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+            counters.forEach(counter => runCounter(counter));
+            started = true;
+        }
+
+    });
+
+}, {
+    threshold: 0.4
+});
+observer.observe(statsSection);
+
+
+
+// Fade Up Animation
+
+const items = document.querySelectorAll(".stat,.about-image,.about-text");
+const fade = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+}
+});
+},{threshold:.2});
+items.forEach(item=>{
+item.style.opacity="0";
+item.style.transform="translateY(60px)";
+item.style.transition="all .8s ease";
+fade.observe(item);
+});
+</script>
 </body>
 </html>
