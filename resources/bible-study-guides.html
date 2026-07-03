@@ -9,6 +9,857 @@
   <link rel="stylesheet" href="../css/resources.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
    <link rel="icon" type="image/png" href="../images/kisiilogo.png">
+   <style>
+    
+/*=============================
+
+BIBLE STUDY GROUPS
+
+==============================*/
+
+.study-groups{
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+}
+
+.section-header{
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.section-tag{
+  display: inline-block;
+  padding: 8px 22px;
+  background: #dff7f6;
+  color: #008080;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.section-header h2{
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-header p{
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Study Groups Grid */
+.study-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.study-group-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.study-group-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.group-card-header {
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8f1f7 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.group-day-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.group-day-badge.sunday {
+  background: #3498db;
+}
+
+.group-day-badge.tuesday {
+  background: #9b59b6;
+}
+
+.group-day-badge.sabbath {
+  background: #f39c12;
+}
+
+.group-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.group-card-header .group-icon {
+  color: #333;
+}
+
+.group-card-body {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.group-name {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.group-description {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.group-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.detail-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.detail-item i {
+  color: #008080;
+  font-size: 1.2rem;
+  margin-top: 2px;
+  min-width: 20px;
+}
+
+.detail-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  color: #999;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.group-join-btn {
+  background: linear-gradient(135deg, #008080 0%, #006666 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.group-join-btn:hover {
+  background: linear-gradient(135deg, #006666 0%, #004d4d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 128, 128, 0.3);
+}
+
+.group-join-btn:active {
+  transform: translateY(0);
+}
+
+.group-join-btn i {
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .study-groups {
+    padding: 50px 15px;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .study-groups-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .group-details {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+    </style>
+    <style>
+      /* ===== RESOURCE CARDS WITH IMAGES ===== */
+      .resource-cards-section {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin: 60px 0;
+      }
+
+      .resource-card-with-image {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .resource-card-with-image:hover {
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        transform: translateY(-4px);
+      }
+
+      .resource-card-with-image.reverse {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .resource-card-with-image.reverse .card-image-wrapper {
+        order: 2;
+      }
+
+      .resource-card-with-image.reverse .card-content {
+        order: 1;
+      }
+
+      .card-image-wrapper {
+        position: relative;
+        height: 100%;
+        min-height: 400px;
+        overflow: hidden;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .resource-card-with-image:hover .card-image {
+        transform: scale(1.08);
+      }
+
+      .card-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+      }
+
+      .card-content {
+        padding: 40px 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .card-category {
+        display: inline-block;
+        background: #e8f4f8;
+        color: #008080;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        width: fit-content;
+      }
+
+      .card-category i {
+        margin-right: 6px;
+      }
+
+      .card-content h2 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+
+      .card-content > p {
+        color: #666;
+        line-height: 1.8;
+        font-size: 0.95rem;
+        margin: 10px 0;
+      }
+
+      .card-features {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .card-features li {
+        color: #555;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .card-features i {
+        color: #008080;
+        font-size: 0.9rem;
+      }
+
+      .card-cta-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #008080 0%, #006666 100%);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        width: fit-content;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 15px;
+      }
+
+      .card-cta-btn:hover {
+        background: linear-gradient(135deg, #006666 0%, #004d4d 100%);
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(0, 128, 128, 0.3);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .resource-card-with-image {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .resource-card-with-image.reverse .card-image-wrapper {
+          order: 1;
+        }
+
+        .resource-card-with-image.reverse .card-content {
+          order: 2;
+        }
+
+        .card-image-wrapper {
+          min-height: 300px;
+        }
+
+        .card-content {
+          padding: 30px 25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .resource-cards-section {
+          gap: 30px;
+          margin: 40px 0;
+        }
+
+        .card-image-wrapper {
+          min-height: 250px;
+        }
+
+        .card-content {
+          padding: 25px 20px;
+        }
+
+        .card-content h2 {
+          font-size: 1.5rem;
+        }
+
+        .card-content > p {
+          font-size: 0.9rem;
+        }
+
+        .card-features {
+          gap: 8px;
+        }
+
+        .card-features li {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+    <style>
+      /* ===== AVAILABLE SERIES SECTION ===== */
+      .available-series-section {
+        margin: 80px 0;
+        padding: 50px 0;
+      }
+
+      .series-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .series-header h2 {
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .series-header p {
+        color: #666;
+        font-size: 1.05rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .series-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .series-card {
+        background: white;
+        border: 2px solid #008080;
+        border-radius: 12px;
+        padding: 40px 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .series-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 128, 128, 0.2);
+        border-color: #006666;
+      }
+
+      .series-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #008080 0%, #006666 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        margin: 0 auto;
+      }
+
+      .series-card h3 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .series-card p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .series-action {
+        margin-top: 10px;
+      }
+
+      .series-link {
+        display: inline-block;
+        color: #008080;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 10px 20px;
+        border: 2px solid #008080;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .series-link:hover {
+        background: #008080;
+        color: white;
+      }
+
+      /* ===== AFTERNOON PRAYER SECTION ===== */
+      .afternoon-prayer-section {
+        margin: 80px 0;
+        padding: 50px 30px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+        border-radius: 16px;
+      }
+
+      .prayer-container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 50px;
+        align-items: flex-start;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .prayer-header {
+        margin-bottom: 30px;
+      }
+
+      .prayer-badge {
+        display: inline-block;
+        background: #008080;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 15px;
+      }
+
+      .prayer-content h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 15px 0;
+      }
+
+      .prayer-subtitle {
+        color: #008080;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .prayer-quick-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .info-box {
+        background: white;
+        border-left: 4px solid #008080;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .info-icon {
+        font-size: 1.8rem;
+        color: #008080;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .info-text strong {
+        display: block;
+        color: #2c3e50;
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+      }
+
+      .info-text p {
+        color: #666;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .prayer-benefits {
+        margin: 40px 0;
+      }
+
+      .prayer-benefits h3 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+
+      .benefits-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .benefit-item {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        gap: 12px;
+        box-shadow: 0 2px 8px rgba(0, 128, 128, 0.1);
+      }
+
+      .benefit-item i {
+        font-size: 1.5rem;
+        color: #008080;
+        min-width: 35px;
+        text-align: center;
+      }
+
+      .benefit-item strong {
+        display: block;
+        color: #2c3e50;
+        font-size: 0.9rem;
+      }
+
+      .benefit-item p {
+        color: #666;
+        font-size: 0.8rem;
+        margin: 5px 0 0;
+      }
+
+      .prayer-session-flow {
+        margin: 40px 0;
+      }
+
+      .prayer-session-flow h3 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+
+      .flow-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .step {
+        display: flex;
+        gap: 15px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #008080;
+      }
+
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(135deg, #008080 0%, #006666 100%);
+        color: white;
+        border-radius: 50%;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .step-content strong {
+        color: #2c3e50;
+        font-size: 0.95rem;
+      }
+
+      .step-content span {
+        color: #666;
+        font-size: 0.85rem;
+      }
+
+      .prayer-action {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #ddd;
+      }
+
+      .prayer-action h3 {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .prayer-action p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .prayer-action a {
+        color: #008080;
+        text-decoration: none;
+      }
+
+      .prayer-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #008080 0%, #006666 100%);
+        color:#1a1a1a;
+        padding: 12px 30px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .prayer-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 128, 128, 0.3);
+        color:#fff;
+      }
+
+      /* Prayer Visual Cards */
+      .prayer-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .prayer-card {
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        min-height: 200px;
+        justify-content: center;
+      }
+
+      .prayer-card i {
+        font-size: 2.5rem;
+      }
+
+      .prayer-card h4 {
+        font-size: 1.2rem;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .prayer-card p {
+        font-size: 0.9rem;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .prayer-card-primary {
+        background: linear-gradient(135deg, #c9b9a4 0%, #b9b8b8 100%);
+      }
+
+      .prayer-card-secondary {
+        background: linear-gradient(135deg, transparent 0%, teal 100%);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .prayer-card-accent {
+        background: linear-gradient(135deg, cream 0%, transparent 100%);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        color:#000;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .prayer-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .afternoon-prayer-section {
+          padding: 30px 20px;
+          margin: 60px 0;
+        }
+
+        .prayer-content h2 {
+          font-size: 1.6rem;
+        }
+
+        .prayer-quick-info {
+          grid-template-columns: 1fr;
+        }
+
+        .benefits-list {
+          grid-template-columns: 1fr;
+        }
+
+        .series-cards-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
 </head>
 <body class="resources-page has-solid-header" data-resource-page="bible-study-guides">
 
@@ -120,52 +971,492 @@
     </nav>
   </div>
 
-  <div class="resources-layout">
-    <aside class="resources-sidebar-nav" aria-label="Resources menu">
-      <p class="nav-title">Resources</p>
-      <a href="index.html">All Resources</a>
-      <a href="churchblog.html">Church Blog</a>
-      <a href="bible-study-guides.html">Bible Study Guides</a>
-      <a href="health-guides.html">Health &amp; Wellness</a>
-      <a href="devotional.html">Daily Devotional</a>
-      <a href="downloads.html">Downloads &amp; Forms</a>
-    </aside>
+  
 
-    <main class="resources-main" role="main">
+    <main class="resources-main" role="main" style="margin:20px 30px;">
       <h1>Study the Word Together</h1>
       <p>Whether you are new to faith or deepening your walk with Christ, these outlines help you explore Scripture with clarity. Our Bible Studies ministry also offers personal instructors and small groups on campus.</p>
 
-      <div class="resource-cards">
-        <article class="resource-card resource-card-static">
-          <span class="resource-card-icon"><i class="fas fa-book"></i></span>
-          <h2>Foundations of Faith</h2>
-          <p>Seven lessons covering the Sabbath, state of the dead, sanctuary, and the second coming — ideal for new believers.</p>
+      <!-- Redesigned Resource Cards with Alternating Images -->
+      <div class="resource-cards-section">
+        <!-- Card 1: Foundations of Faith -->
+        <article class="resource-card-with-image">
+          <div class="card-image-wrapper">
+            <img src="https://i.pinimg.com/1200x/70/db/04/70db04fe6ba8b80adebdbda421327d04.jpg" alt="Foundations of Faith - Open Bible" class="card-image">
+            <div class="card-image-overlay"></div>
+          </div>
+          
+          <div class="card-content">
+            <span class="card-category">
+              <i class="fas fa-book"></i> Foundations
+            </span>
+            <h2>Foundations of Faith</h2>
+            <p>Seven lessons covering the Sabbath, state of the dead, sanctuary, and the second coming — ideal for new believers. Build a strong spiritual foundation with comprehensive biblical teachings.</p>
+            <ul class="card-features">
+              <li><i class="fas fa-check-circle"></i> 7 Core Lessons</li>
+              <li><i class="fas fa-check-circle"></i> New Believer Friendly</li>
+              <li><i class="fas fa-check-circle"></i> Comprehensive Doctrine</li>
+            </ul>
+            <a href="#" class="card-cta-btn">Start Learning</a>
+          </div>
         </article>
-        <article class="resource-card resource-card-static">
-          <span class="resource-card-icon"><i class="fas fa-fire"></i></span>
-          <h2>Prophecy &amp; Daniel</h2>
-          <p>Understand visions in Daniel and Revelation and how they point to Christ and end-time hope.</p>
+
+        <!-- Card 2: Prophecy & Daniel -->
+        <article class="resource-card-with-image reverse">
+          <div class="card-image-wrapper">
+            <img src="https://i.pinimg.com/736x/0e/77/75/0e7775c06d647d2fd985cfe9d506afbd.jpg" alt="Prophecy & Daniel - Biblical Prophecy" class="card-image">
+            <div class="card-image-overlay"></div>
+          </div>
+          
+          <div class="card-content">
+            <span class="card-category">
+              <i class="fas fa-fire"></i> Prophecy
+            </span>
+            <h2>Prophecy &amp; Daniel</h2>
+            <p>Understand visions in Daniel and Revelation and how they point to Christ and end-time hope. Explore God's divine plan for humanity through ancient prophecies and their modern relevance.</p>
+            <ul class="card-features">
+              <li><i class="fas fa-check-circle"></i> Daniel's Visions</li>
+              <li><i class="fas fa-check-circle"></i> End-Time Insights</li>
+              <li><i class="fas fa-check-circle"></i> Christ-Centered</li>
+            </ul>
+            <a href="#" class="card-cta-btn">Explore Prophecies</a>
+          </div>
         </article>
-        <article class="resource-card resource-card-static">
-          <span class="resource-card-icon"><i class="fas fa-church"></i></span>
-          <h2>Christian Living</h2>
-          <p>Prayer, stewardship, relationships, and holiness — practical topics for university life.</p>
+
+        <!-- Card 3: Christian Living -->
+        <article class="resource-card-with-image">
+          <div class="card-image-wrapper">
+            <img src="https://i.pinimg.com/736x/0c/cc/8c/0ccc8cefe64f6b0a7bbc8e2428670392.jpg" alt="Christian Living - Community Prayer" class="card-image">
+            <div class="card-image-overlay"></div>
+          </div>
+          
+          <div class="card-content">
+            <span class="card-category">
+              <i class="fas fa-cross"></i> Living
+            </span>
+            <h2>Christian Living</h2>
+            <p>Prayer, stewardship, relationships, and holiness — practical topics for university life. Learn how to apply biblical principles to everyday challenges and build a vibrant spiritual life on campus.</p>
+            <ul class="card-features">
+              <li><i class="fas fa-check-circle"></i> Daily Practices</li>
+              <li><i class="fas fa-check-circle"></i> Relationship Building</li>
+              <li><i class="fas fa-check-circle"></i> Campus Living</li>
+            </ul>
+            <a href="#" class="card-cta-btn">Live Your Faith</a>
+          </div>
         </article>
       </div>
 
-      <h2>Available Study Series</h2>
-      <ul class="resource-list">
-        <li><strong>Discover:</strong> Introductory Bible course — request booklets at church or via <a href="../contact.html">contact</a>.</li>
-        <li><strong>It Is Written:</strong> Online lessons at <a href="https://www.itiswritten.com/bible-study" target="_blank" rel="noopener">itiswritten.com/bible-study</a>.</li>
-        <li><strong>Amazing Facts:</strong> <a href="https://www.amazingfacts.org/media/free-resources/bible-study-guides" target="_blank" rel="noopener">Free printed guides</a> on key doctrines.</li>
-        <li><strong>Campus groups:</strong> Join weekly meetings through our <a href="../ministries/bible-studies.html">Bible Studies Ministry</a>.</li>
-      </ul>
+      
+<!-- ===================== BIBLE STUDY GROUPS ===================== -->
+
+<section class="study-groups" id="groups">
+    <div class="section-header">
+        <span class="section-tag">OUR GROUPS</span>
+        <h2>Find a Bible Study Group</h2>
+        <p>
+            Every group provides a welcoming environment where students study God's
+            Word, pray together, encourage one another, and build lasting friendships.
+        </p>
+    </div>
+
+    <div class="study-groups-grid">
+        <!-- Study Group 1: Ministry Bible Study (Sunday) -->
+        <div class="study-group-card" style="border-top: 5px solid #3498db;">
+            <div class="group-card-header">
+                <div class="group-day-badge sunday">Sunday</div>
+                <div class="group-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+
+            <div class="group-card-body">
+                <h3 class="group-name">Ministry Bible Study</h3>
+                <p class="group-description">
+                    Ministry members gather every Sunday to study Scripture, strengthen one another in ministry, and prepare to serve God faithfully throughout the week.
+                </p>
+
+                <div class="group-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="detail-label">Time</span>
+                            <span class="detail-value">2:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="detail-label">Day</span>
+                            <span class="detail-value">Sunday</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="group-join-btn" onclick="alert('Thank you for showing interest, contact your respective  ministry leaders for more clarification! or you can contact the church office for more information.')">
+                    <i class="fas fa-plus-circle"></i> Join This Group
+                </button>
+            </div>
+        </div>
+
+        <!-- Study Group 2: Second Year Bible Study (Tuesday) -->
+        <div class="study-group-card" style="border-top: 5px solid #9b59b6;">
+            <div class="group-card-header">
+                <div class="group-day-badge tuesday">Tuesday</div>
+                <div class="group-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+
+            <div class="group-card-body">
+                <h3 class="group-name">Year Group Bible Study</h3>
+                <p class="group-description">
+                    According to your year of study, join your peers for a focused Bible study that addresses the unique challenges and opportunities of your academic journey.It also helps you grow spiritually while navigating university life.
+                </p>
+
+                <div class="group-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="detail-label">Time</span>
+                            <span class="detail-value">6:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="detail-label">Day</span>
+                            <span class="detail-value">Every Tuesday</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="group-join-btn" onclick="alert('Thank you for showing interest, contact your respective year group leader for more information!')">
+                    <i class="fas fa-plus-circle"></i> Join This Group
+                </button>
+            </div>
+        </div>
+
+        <!-- Study Group 3: Sabbath Afternoon Bible Study (Sabbath) -->
+        <div class="study-group-card" style="border-top: 5px solid #f39c12;">
+            <div class="group-card-header">
+                <div class="group-day-badge sabbath">Sabbath</div>
+                <div class="group-icon">
+                    <i class="fas fa-cross"></i>
+                </div>
+            </div>
+
+            <div class="group-card-body">
+                <h3 class="group-name">Sabbath Afternoon Bible Study</h3>
+                <p class="group-description">
+                    Continue your Sabbath experience after Divine Worship through inspiring Bible discussions that deepen your understanding of God's Word.
+                </p>
+
+                <div class="group-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="detail-label">Time</span>
+                            <span class="detail-value">2:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="detail-label">Venue</span>
+                            <span class="detail-value">Dr. Sagini Hall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="group-join-btn" onclick="alert('Thank you for showing interest, we welcome you!.You can join us at Dr. Sagini Hall after the Divine Worship Service on Sabbath.Incase of any inquiries, please contact the church office.')">
+                    <i class="fas fa-plus-circle"></i> Join This Group
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- Available Study Series - Redesigned -->
+      <section class="available-series-section">
+        <div class="series-header">
+          <h2>Available Study Series</h2>
+          <p>Choose from our curated selection of Bible study resources designed for every learning style and level of spiritual growth.</p>
+        </div>
+
+        <div class="series-cards-grid">
+          <!-- Series 1: Discover -->
+          <div class="series-card">
+            <div class="series-icon-wrapper">
+              <i class="fas fa-compass"></i>
+            </div>
+            <h3>Discover</h3>
+            <p>Introductory Bible course perfect for new believers and those starting their spiritual journey.</p>
+            <div class="series-action">
+              <a href="../contact.html" class="series-link">Request Booklets</a>
+            </div>
+          </div>
+
+          <!-- Series 2: It Is Written -->
+          <div class="series-card">
+            <div class="series-icon-wrapper">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>It Is Written</h3>
+            <p>Access comprehensive online lessons at your own pace from the It Is Written ministry.</p>
+            <div class="series-action">
+              <a href="https://www.itiswritten.com/bible-study" target="_blank" rel="noopener" class="series-link">Start Online</a>
+            </div>
+          </div>
+
+          <!-- Series 3: Amazing Facts -->
+          <div class="series-card">
+            <div class="series-icon-wrapper">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Amazing Facts</h3>
+            <p>Free printed guides covering key Christian doctrines with biblical foundation and spiritual insights.</p>
+            <div class="series-action">
+              <a href="https://www.amazingfacts.org/media/free-resources/bible-study-guides" target="_blank" rel="noopener" class="series-link">Explore Guides</a>
+            </div>
+          </div>
+
+          <!-- Series 4: Campus Groups -->
+          <div class="series-card">
+            <div class="series-icon-wrapper">
+              <i class="fas fa-users-class"></i>
+            </div>
+            <h3>Campus Groups</h3>
+            <p>Join weekly meetings through our Bible Studies Ministry and connect with fellow believers on campus.</p>
+            <div class="series-action">
+              <a href="../ministries/bible-studies.html" class="series-link">Join a Group</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div class="devotional-box">
         <h3>Request a Personal Bible Instructor</h3>
         <p>One-on-one studies are free and confidential. A trained member will meet you at a time and place that works for you.</p>
         <a href="../contact.html" class="btn-primary">Contact Us to Sign Up</a>
       </div>
+
+      <!-- Afternoon Prayer Sessions-->
+      <section class="afternoon-prayer-section" id="prayer-afternoon">
+        <div class="prayer-container">
+          <!-- Left Side: Info -->
+          <div class="prayer-content">
+            <div class="prayer-header">
+              <span class="prayer-badge">Prayer Sessions</span>
+              <h2>Afternoon Prayer at Kisii University</h2>
+              <p class="prayer-subtitle">Connect with God and your faith community every weekday afternoon</p>
+            </div>
+
+            <div class="prayer-quick-info">
+              <div class="info-box">
+                <div class="info-icon">
+                  <i class="fas fa-calendar-days"></i>
+                </div>
+                <div class="info-text">
+                  <strong>Schedule</strong>
+                  <p>Monday–Friday<br>1:00 PM – 2:00 PM</p>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <div class="info-icon">
+                  <i class="fas fa-map-pin"></i>
+                </div>
+                <div class="info-text">
+                  <strong>Location</strong>
+                  <p>Kisii University Campus<br>Fish Ponds</p>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <div class="info-icon">
+                  <i class="fas fa-user-group"></i>
+                </div>
+                <div class="info-text">
+                  <strong>Who's Welcome</strong>
+                  <p>All Students, Faculty<br>& Staff</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="prayer-benefits">
+              <h3>Why Join Afternoon Prayer?</h3>
+              <div class="benefits-list">
+                <div class="benefit-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  <div>
+                    <strong>Academic Support</strong>
+                    <p>Seek God's wisdom for exams and assignments</p>
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-heart"></i>
+                  <div>
+                    <strong>Emotional Strength</strong>
+                    <p>Share burdens and receive encouragement</p>
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-star"></i>
+                  <div>
+                    <strong>Spiritual Growth</strong>
+                    <p>Develop deeper intimacy with God</p>
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-handshake"></i>
+                  <div>
+                    <strong>Community Connection</strong>
+                    <p>Build meaningful friendships with believers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="prayer-session-flow">
+              <h3>What Happens During Prayer</h3>
+              <div class="flow-steps">
+                <div class="step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <strong>Opening Worship</strong>
+                    <span>5–10 minutes of hymns & praise</span>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <strong>Scripture & Reflection</strong>
+                    <span>Read and meditate God's Word</span>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <strong>Prayer Requests</strong>
+                    <span>Share concerns and intercede together</span>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <strong>Silent Prayer Time</strong>
+                    <span>Personal communion with God</span>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <strong>Closing Blessing</strong>
+                    <span>Encouragement & benediction</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="prayer-action">
+              <h3>Ready to Join?</h3>
+              <p>The prayers are open to all. Simply come with an open heart. For prayer requests or information, email <a href="mailto:prayer@kisiiuniversitysdachurch.org">prayer@kisiiuniversitysdachurch.org</a></p>
+              <a href="../contact.html" class="prayer-btn">Get More Information</a>
+            </div>
+          </div>
+
+          <!-- Right Side: Visual -->
+          <div class="prayer-visual">
+            <div class="prayer-card prayer-card-primary">
+              <i class="fas fa-praying-hands"></i>
+              <h4>Prayer Power</h4>
+              <p>Experience the strength of unified intercession and corporate worship</p>
+            </div>
+            <div class="prayer-card prayer-card-secondary">
+              <i class="fas fa-lightbulb"></i>
+              <h4>Spiritual Wisdom</h4>
+              <p>Gain clarity and direction through Scripture and faithful community</p>
+            </div>
+            <div class="prayer-card prayer-card-accent">
+              <i class="fas fa-church"></i>
+              <h4>Community Faith</h4>
+              <p>Build lasting relationships centered on shared spiritual convictions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ellen G. White Quotes Carousel Section -->
+      <section class="egw-quotes-section" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid #e0e0e0;">
+        <h2 style="text-align: center; color: #2c3e50; margin-bottom: 30px; font-size: 1.8rem;">
+          <i class="fas fa-quote-left" style="color: #25076b;"></i> Inspiration from Ellen G. White
+        </h2>
+        
+        <div class="quotes-carousel" id="ellenWhiteCarousel">
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"The greatest want of the world is the want of men—men who will not be bought or sold, men who in their inmost souls are true and honest, men who do not fear to call sin by its right name, men whose conscience is as true to duty as the needle to the pole."</p>
+              <footer>— Ellen G. White, <em>Education</em>, p. 57</footer>
+            </blockquote>
+          </div>
+          
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"Every true disciple is born into the kingdom of God as a missionary. No sooner does one come to Christ than there is born in his heart a desire to make known to others what a precious friend he has found in Jesus."</p>
+              <footer>— Ellen G. White, <em>The Desire of Ages</em>, p. 195</footer>
+            </blockquote>
+          </div>
+          
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"Prayer is the opening of the heart to God as to a friend. Not that it is necessary in order to make known to God what we are, but in order to enable us to receive Him. Prayer does not bring God down to us, but brings us up to Him."</p>
+              <footer>— Ellen G. White, <em>Steps to Christ</em>, p. 93</footer>
+            </blockquote>
+          </div>
+          
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"Christ's method alone will give true success in reaching the people. The Saviour mingled with men as one who desired their good. He showed His sympathy for them, ministered to their needs, and won their confidence. Then He bade them, 'Follow Me.'"</p>
+              <footer>— Ellen G. White, <em>Ministry of Healing</em>, p. 143</footer>
+            </blockquote>
+          </div>
+          
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"It is not the privilege of the Christian to be absorbed in the pursuit of wealth while his fellow human beings are suffering for the wants of life."</p>
+              <footer>— Ellen G. White, <em>Counsels on Stewardship</em>, p. 25</footer>
+            </blockquote>
+          </div>
+          
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"Speak not one to another of the faults of others. This will only strengthen the evil tendencies of each. With all the earnestness of your souls, strive to overcome your own defects of character, and help others to do the same by your example and kind words."</p>
+              <footer>— Ellen G. White, <em>Testimonies for the Church</em>, Vol. 2, p. 485</footer>
+            </blockquote>
+          </div>
+          
+          <div class="quote-container">
+            <blockquote class="egw-quote">
+              <p>"The Bible is a book of great interest to all who desire a knowledge of the God whom we worship. It reveals to us the character of God. It tells us of His dealings with man."</p>
+              <footer>— Ellen G. White, <em>Counsels to Parents, Teachers, and Students</em>, p. 427</footer>
+            </blockquote>
+          </div>
+        </div>
+        
+        <div class="carousel-controls">
+          <button class="carousel-btn prev-quote" id="prevQuote" aria-label="Previous quote">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+          <div class="quote-counter">
+            <span id="quoteNumber">1</span> / <span id="totalQuotes">7</span>
+          </div>
+          <button class="carousel-btn next-quote" id="nextQuote" aria-label="Next quote">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -174,7 +1465,7 @@
       <div class="footer-main">
         <div class="footer-info">
           <h4>Kisii University Seventh-day Adventist Church</h4>
-          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank" rel="noopener">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254700000000">+254 700 000 000</a></p>
+          <p><a href="https://www.google.com/maps/search/Kisii+University+Kenya" target="_blank" rel="noopener">Kisii University Campus, Kisii, Kenya</a><br><a href="tel:+254791234567">+254 79 123 4567</a></p>
           <p style="margin-top: 0.25rem;"><a href="mailto:info@kisiiuniversitysdachurch.org">info@kisiiuniversitysdachurch.org</a></p>
         </div>
         <div class="footer-sda-logo">
@@ -197,5 +1488,83 @@
 
   <script src="../js/main.js"></script>
   <script src="../js/resources-nav.js"></script>
+  <script>
+    // Initialize Ellen G. White Carousel on this page
+    function initEllenWhiteCarousel() {
+      const carousel = document.getElementById('ellenWhiteCarousel');
+      const prevBtn = document.getElementById('prevQuote');
+      const nextBtn = document.getElementById('nextQuote');
+      const quoteCounter = document.getElementById('quoteNumber');
+      const totalQuotes = document.getElementById('totalQuotes');
+
+      if (!carousel || !prevBtn || !nextBtn) return;
+
+      const containers = carousel.querySelectorAll('.quote-container');
+      let currentIndex = 0;
+
+      if (totalQuotes) {
+        totalQuotes.textContent = containers.length;
+      }
+
+      function updateCarousel() {
+        containers.forEach((container, index) => {
+          container.classList.remove('active');
+          if (index === currentIndex) {
+            container.classList.add('active');
+          }
+        });
+
+        if (quoteCounter) {
+          quoteCounter.textContent = currentIndex + 1;
+        }
+      }
+
+      function nextQuote() {
+        currentIndex = (currentIndex + 1) % containers.length;
+        updateCarousel();
+      }
+
+      function prevQuote() {
+        currentIndex = (currentIndex - 1 + containers.length) % containers.length;
+        updateCarousel();
+      }
+
+      prevBtn.addEventListener('click', prevQuote);
+      nextBtn.addEventListener('click', nextQuote);
+
+      // Auto-rotate quotes every 8 seconds
+      setInterval(nextQuote, 8000);
+
+      // Initialize first quote as active
+      updateCarousel();
+
+      // Initialize like buttons for prayer section
+      document.querySelectorAll('.like-btn').forEach((likeBtn) => {
+        const likeCountEl = likeBtn.closest('.like-section')?.querySelector('.like-count-num');
+        if (!likeCountEl) return;
+
+        let liked = false;
+        let count = parseInt(likeCountEl.textContent, 10) || 0;
+
+        likeBtn.addEventListener('click', () => {
+          if (!liked) {
+            count += 1;
+            likeCountEl.textContent = count;
+            likeBtn.innerHTML = '<i class="fas fa-heart"></i> Interested';
+            likeBtn.classList.add('liked');
+            liked = true;
+          } else {
+            count -= 1;
+            likeCountEl.textContent = count;
+            likeBtn.innerHTML = '<i class="far fa-heart"></i> Interested';
+            likeBtn.classList.remove('liked');
+            liked = false;
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initEllenWhiteCarousel);
+  </script>
 </body>
 </html>

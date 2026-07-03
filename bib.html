@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*==========================
+HERO
+==========================*/
+
+.study-hero{
+
+height:100vh;
+
+background:url("images/church\ audotorium.jpg") center center/cover;
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+overflow:hidden;
+
+}
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75));
+
+}
+
+.hero-content{
+
+position:relative;
+
+max-width:850px;
+
+padding:20px;
+
+color:white;
+
+animation:heroFade 1.2s;
+
+}
+
+.hero-tag{
+
+display:inline-block;
+
+background:rgba(255,255,255,.15);
+
+padding:10px 25px;
+
+border-radius:40px;
+
+backdrop-filter:blur(8px);
+
+margin-bottom:25px;
+
+font-weight:600;
+
+}
+
+.hero-content h1{
+
+font-size:4rem;
+
+margin-bottom:20px;
+
+line-height:1.1;
+
+}
+
+.hero-content p{
+
+font-size:1.15rem;
+
+line-height:1.9;
+
+margin-bottom:35px;
+
+opacity:.95;
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+gap:20px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+.btn-primary{
+
+background:teal;
+
+color:white;
+
+padding:16px 35px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.4s;
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-5px);
+
+background:#006d6d;
+
+}
+
+.btn-outline{
+
+border:2px solid white;
+
+color:white;
+
+padding:16px 35px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+.btn-outline:hover{
+
+background:white;
+
+color:#222;
+
+}
+
+.scroll-down{
+
+position:absolute;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+}
+
+.scroll-down span{
+
+display:block;
+
+width:28px;
+
+height:45px;
+
+border:2px solid white;
+
+border-radius:20px;
+
+position:relative;
+
+}
+
+.scroll-down span::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:8px;
+
+width:6px;
+
+height:6px;
+
+background:white;
+
+border-radius:50%;
+
+transform:translateX(-50%);
+
+animation:scroll 1.8s infinite;
+
+}
+
+
+
+/*==========================
+WHY STUDY
+==========================*/
+
+.why-study{
+
+padding:100px 8%;
+
+background:#fff;
+
+}
+
+.study-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.study-image{
+
+overflow:hidden;
+
+border-radius:20px;
+
+}
+
+.study-image img{
+
+width:100%;
+
+display:block;
+
+transition:.7s;
+
+}
+
+.study-image:hover img{
+
+transform:scale(1.08);
+
+}
+
+.section-label{
+
+display:inline-block;
+
+background:#e8f7f7;
+
+color:teal;
+
+padding:8px 20px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+}
+
+.study-content h2{
+
+font-size:2.6rem;
+
+margin-bottom:20px;
+
+color:#222;
+
+}
+
+.study-content p{
+
+line-height:1.9;
+
+color:#666;
+
+}
+
+.features{
+
+margin-top:40px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:25px;
+
+}
+
+.feature{
+
+display:flex;
+
+gap:18px;
+
+padding:20px;
+
+background:#f8f8f8;
+
+border-radius:15px;
+
+transition:.4s;
+
+}
+
+.feature:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.icon{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:teal;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:24px;
+
+flex-shrink:0;
+
+}
+
+
+
+/*==========================
+ANIMATIONS
+==========================*/
+
+@keyframes heroFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+@keyframes scroll{
+
+0%{
+
+opacity:0;
+
+transform:translate(-50%,0);
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translate(-50%,18px);
+
+}
+
+}
+
+@media(max-width:900px){
+
+.study-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-content h1{
+
+font-size:2.7rem;
+
+}
+
+.features{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/*=============================
+
+BIBLE STUDY GROUPS
+
+==============================*/
+
+.study-groups{
+
+padding:100px 8%;
+
+background:#f9fbfb;
+
+}
+
+.section-header{
+
+text-align:center;
+
+max-width:760px;
+
+margin:auto auto 80px;
+
+}
+
+.section-tag{
+
+display:inline-block;
+
+padding:8px 22px;
+
+background:#dff7f6;
+
+color:teal;
+
+border-radius:30px;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+}
+
+.section-header h2{
+
+font-size:42px;
+
+color:#222;
+
+margin-bottom:15px;
+
+}
+
+.section-header p{
+
+color:#666;
+
+line-height:1.8;
+
+}
+
+.group-row{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+
+margin-bottom:100px;
+
+}
+
+.reverse .group-image{
+
+order:2;
+
+}
+
+.reverse .group-content{
+
+order:1;
+
+}
+
+.group-image{
+
+overflow:hidden;
+
+border-radius:20px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.group-image img{
+
+width:100%;
+
+display:block;
+
+transition:.8s;
+
+}
+
+.group-image:hover img{
+
+transform:scale(1.08);
+
+}
+
+.group-day{
+
+display:inline-block;
+
+background:teal;
+
+color:white;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+margin-bottom:20px;
+
+font-weight:600;
+
+}
+
+.group-content h2{
+
+font-size:38px;
+
+margin-bottom:20px;
+
+color:#222;
+
+}
+
+.group-content p{
+
+line-height:1.9;
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+.group-info{
+
+display:flex;
+
+gap:50px;
+
+margin-bottom:35px;
+
+}
+
+.group-info strong{
+
+display:block;
+
+margin-bottom:8px;
+
+color:#222;
+
+}
+
+.group-btn{
+
+display:inline-block;
+
+padding:15px 34px;
+
+background:teal;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:40px;
+
+transition:.4s;
+
+}
+
+.group-btn:hover{
+
+background:#045d5d;
+
+transform:translateY(-5px);
+
+box-shadow:0 12px 30px rgba(0,128,128,.25);
+
+}
+
+@media(max-width:900px){
+
+.group-row{
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.reverse .group-image,
+
+.reverse .group-content{
+
+order:unset;
+
+}
+
+.group-content h2{
+
+font-size:30px;
+
+}
+
+.group-info{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+}
+
+/*============================
+
+FISH PONDS SECTION
+
+=============================*/
+
+.fishponds-prayer{
+
+position:relative;
+
+padding:140px 8%;
+
+background:url("../images/bible-study/fishponds.jpg") center center/cover fixed;
+
+overflow:hidden;
+
+color:white;
+
+text-align:center;
+
+}
+
+.fish-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(rgba(0,60,60,.70),rgba(0,20,20,.82));
+
+}
+
+.fish-content{
+
+position:relative;
+
+max-width:900px;
+
+margin:auto;
+
+z-index:5;
+
+}
+
+.section-tag.light{
+
+background:rgba(255,255,255,.18);
+
+color:white;
+
+backdrop-filter:blur(8px);
+
+}
+
+.fish-content h2{
+
+font-size:3rem;
+
+margin:20px 0;
+
+}
+
+.fish-content p{
+
+font-size:1.1rem;
+
+line-height:2;
+
+opacity:.95;
+
+}
+
+blockquote{
+
+margin:45px auto;
+
+font-size:1.25rem;
+
+font-style:italic;
+
+max-width:700px;
+
+line-height:1.8;
+
+color:#f2f2f2;
+
+}
+
+blockquote span{
+
+display:block;
+
+margin-top:18px;
+
+font-style:normal;
+
+font-weight:bold;
+
+color:#b8ffff;
+
+}
+
+.prayer-details{
+
+display:flex;
+
+justify-content:center;
+
+gap:50px;
+
+margin:50px 0;
+
+flex-wrap:wrap;
+
+}
+
+.detail{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+padding:18px 28px;
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(12px);
+
+border-radius:15px;
+
+}
+
+.detail i{
+
+font-size:28px;
+
+color:#9ef8f8;
+
+}
+
+.btn-prayer{
+
+display:inline-block;
+
+padding:17px 38px;
+
+background:white;
+
+color:teal;
+
+font-weight:600;
+
+border-radius:50px;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+.btn-prayer:hover{
+
+transform:translateY(-6px);
+
+background:#e8ffff;
+
+box-shadow:0 18px 40px rgba(0,0,0,.3);
+
+}
+
+/* Floating Shapes */
+
+.circle{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.08);
+
+animation:float 8s ease-in-out infinite;
+
+}
+
+.one{
+
+width:180px;
+
+height:180px;
+
+top:80px;
+
+left:5%;
+
+}
+
+.two{
+
+width:100px;
+
+height:100px;
+
+bottom:100px;
+
+right:12%;
+
+animation-delay:2s;
+
+}
+
+.three{
+
+width:70px;
+
+height:70px;
+
+top:45%;
+
+right:28%;
+
+animation-delay:4s;
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-25px);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.fish-content h2{
+
+font-size:2.2rem;
+
+}
+
+.prayer-details{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+}
+
+/*====================
+
+VERSE BANNER
+
+=====================*/
+
+.verse-banner{
+
+position:relative;
+
+padding:140px 8%;
+
+background:url("images/pagephoto/tree.webp") center/cover fixed;
+
+overflow:hidden;
+
+text-align:center;
+
+color:white;
+
+}
+
+.verse-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(
+
+rgba(0,70,70,.78),
+
+rgba(0,20,20,.88)
+
+);
+
+}
+
+.verse-content{
+
+position:relative;
+
+max-width:900px;
+
+margin:auto;
+
+z-index:2;
+
+}
+
+.verse-tag{
+
+display:inline-block;
+
+padding:8px 22px;
+
+background:rgba(255,255,255,.15);
+
+border:1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(10px);
+
+border-radius:30px;
+
+margin-bottom:25px;
+
+font-weight:600;
+
+letter-spacing:1px;
+
+}
+
+.verse-content h2{
+
+font-size:3rem;
+
+line-height:1.4;
+
+margin-bottom:15px;
+
+font-weight:700;
+
+}
+
+.scripture{
+
+font-size:1.3rem;
+
+color:#bdf7f5;
+
+font-weight:bold;
+
+margin-bottom:40px;
+
+}
+
+.quote-divider{
+
+width:90px;
+
+height:4px;
+
+background:white;
+
+margin:35px auto;
+
+border-radius:30px;
+
+opacity:.8;
+
+}
+
+.ellen-quote{
+
+font-size:1.25rem;
+
+font-style:italic;
+
+line-height:2;
+
+max-width:760px;
+
+margin:auto;
+
+opacity:.95;
+
+}
+
+.ellen-author{
+
+display:block;
+
+margin-top:25px;
+
+font-size:1rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#bdf7f5;
+
+}
+
+@media(max-width:768px){
+
+.verse-content h2{
+
+font-size:2rem;
+
+}
+
+.ellen-quote{
+
+font-size:1.05rem;
+
+}
+
+}
+    </style>
+</head>
+<body>
+   <!-- ================= HERO ================= -->
+
+<section class="study-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            📖 Growing Together in God's Word
+        </span>
+
+        <h1>
+            Bible Study Groups
+        </h1>
+
+        <p>
+
+            Discover a welcoming community where faith grows through Bible
+            study, prayer and fellowship. Whether you're a first-year student,
+            continuing student or visitor, there is a Bible study group waiting
+            for you at KSUSDA.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#groups" class="btn-primary">
+                Explore Groups
+            </a>
+
+            <a href="contact.html" class="btn-outline">
+                Contact Coordinator
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+
+        <span></span>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY JOIN ================= -->
+
+<section class="why-study reveal">
+
+<div class="container">
+
+<div class="study-grid">
+
+<div class="study-image">
+
+<img src="images/church/church choir.jpeg">
+
+</div>
+
+
+<div class="study-content">
+
+<span class="section-label">
+WHY JOIN?
+</span>
+
+<h2>
+Grow Spiritually Through Bible Study
+</h2>
+
+<p>
+
+Bible study is more than reading Scripture—it's about discovering God's
+purpose, strengthening your faith and building lifelong friendships with
+fellow believers.
+
+At KSUSDA, our Bible study groups provide a welcoming environment where
+students ask questions, learn together and encourage one another in their
+walk with Christ.
+
+</p>
+
+<div class="features">
+
+<div class="feature">
+
+<div class="icon">
+📖
+</div>
+
+<div>
+
+<h4>Know God's Word</h4>
+
+<p>Understand Scripture through meaningful discussion.</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">
+🤝
+</div>
+
+<div>
+
+<h4>Build Friendships</h4>
+
+<p>Connect with students who share your faith journey.</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">
+🙏
+</div>
+
+<div>
+
+<h4>Grow in Prayer</h4>
+
+<p>Experience the power of praying together.</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">
+❤️
+</div>
+
+<div>
+
+<h4>Serve Christ</h4>
+
+<p>Discover opportunities to use your gifts in ministry.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================== BIBLE STUDY GROUPS ===================== -->
+
+<section class="study-groups" id="groups">
+
+    <div class="section-header reveal">
+        <span class="section-tag">OUR GROUPS</span>
+        <h2>Find a Bible Study Group</h2>
+        <p>
+            Every group provides a welcoming environment where students study God's
+            Word, pray together, encourage one another, and build lasting friendships.
+        </p>
+    </div>
+
+    <!-- Sunday -->
+
+    <div class="group-row reveal">
+
+        <div class="group-image">
+            <img src="images/cm/cm.jpeg" alt="">
+        </div>
+
+        <div class="group-content">
+
+            <span class="group-day">
+                Every Sunday
+            </span>
+
+            <h2>Ministry Bible Study</h2>
+
+            <p>
+
+                Ministry members gather every Sunday to study Scripture,
+                strengthen one another in ministry and prepare to serve God
+                faithfully throughout the week.
+
+            </p>
+
+            <div class="group-info">
+
+                <div>
+
+                    <strong>⏰ Time</strong>
+
+                    <p>6:00 PM</p>
+
+                </div>
+
+                <div>
+
+                    <strong>📍 Venue</strong>
+
+                    <p>Church Grounds</p>
+
+                </div>
+
+            </div>
+
+            <a href="#" class="group-btn">
+                Join This Group
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Tuesday -->
+
+    <div class="group-row reverse reveal">
+
+        <div class="group-image">
+            <img src="../images/bible-study/second-year.jpg" alt="">
+        </div>
+
+        <div class="group-content">
+
+            <span class="group-day">
+                Every Tuesday
+            </span>
+
+            <h2>Second Year Bible Study</h2>
+
+            <p>
+
+                Specifically designed for second-year students, this Bible
+                study helps members grow spiritually while building strong
+                Christian friendships during campus life.
+
+            </p>
+
+            <div class="group-info">
+
+                <div>
+
+                    <strong>⏰ Time</strong>
+
+                    <p>6:00 PM</p>
+
+                </div>
+
+                <div>
+
+                    <strong>📍 Venue</strong>
+
+                    <p>Allocated Discussion Room</p>
+
+                </div>
+
+            </div>
+
+            <a href="#" class="group-btn">
+
+                Join This Group
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Sabbath -->
+
+    <div class="group-row reveal">
+
+        <div class="group-image">
+
+            <img src="images/first-fruits/first4.jpeg" alt="">
+
+        </div>
+
+        <div class="group-content">
+
+            <span class="group-day">
+
+                Every Sabbath
+
+            </span>
+
+            <h2>
+
+                Sabbath Afternoon Bible Study
+
+            </h2>
+
+            <p>
+
+                Continue your Sabbath experience after Divine Worship through
+                inspiring Bible discussions that deepen your understanding of
+                God's Word.
+
+            </p>
+
+            <div class="group-info">
+
+                <div>
+
+                    <strong>⏰ Time</strong>
+
+                    <p>2:30 PM</p>
+
+                </div>
+
+                <div>
+
+                    <strong>📍 Venue</strong>
+
+                    <p>Main Sanctuary</p>
+
+                </div>
+
+            </div>
+
+            <a href="#" class="group-btn">
+
+                Join This Group
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================== FISH PONDS PRAYER ===================== -->
+
+<section class="fishponds-prayer">
+
+    <div class="fish-overlay"></div>
+
+    <div class="fish-content reveal">
+
+        <span class="section-tag light">
+            DAILY PRAYER
+        </span>
+
+        <h2>Afternoon Prayer at the Fish Ponds</h2>
+
+        <p>
+            Step away from the noise of campus life and spend a quiet moment in
+            God's presence. Every afternoon, students gather at the Fish Ponds
+            to pray, reflect on Scripture, encourage one another and seek God's
+            guidance for their studies, ministry and daily lives.
+        </p>
+
+        <blockquote>
+            "Do not be anxious about anything, but in every situation,
+            by prayer and petition, with thanksgiving,
+            present your requests to God."
+            <span>— Philippians 4:6</span>
+        </blockquote>
+
+        <div class="prayer-details">
+
+            <div class="detail">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <strong>Time</strong>
+                    <p>Every Afternoon</p>
+                </div>
+            </div>
+
+            <div class="detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>Location</strong>
+                    <p>Fish Ponds, Kisii University</p>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="contact.html" class="btn-prayer">
+            Join Us in Prayer
+        </a>
+
+    </div>
+
+    <!-- Floating circles -->
+
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+
+</section>
+
+<!--=========================
+BIBLE VERSE BANNER
+==========================-->
+
+<section class="verse-banner">
+
+    <div class="verse-overlay"></div>
+
+    <div class="verse-content reveal">
+
+        <span class="verse-tag">
+            God's Word
+        </span>
+
+        <h2>
+            "Your word is a lamp to my feet and a light to my path."
+        </h2>
+
+        <p class="scripture">
+            Psalm 119:105
+        </p>
+
+        <div class="quote-divider"></div>
+
+        <p class="ellen-quote">
+
+            "The Bible is God's voice speaking to us,
+            just as surely as though we could hear it with our ears."
+
+        </p>
+
+        <span class="ellen-author">
+            — Ellen G. White
+        </span>
+
+    </div>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="faq-section">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <span class="section-tag">
+                Frequently Asked Questions
+            </span>
+
+            <h2>Have Questions?</h2>
+
+            <p>
+                Whether you're joining a Bible study for the first time or simply
+                want to learn more, here are answers to some common questions.
+            </p>
+
+        </div>
+
+        <div class="faq-container">
+
+            <div class="faq-item active">
+
+                <button class="faq-question">
+
+                    <span>Can anyone join a Bible study group?</span>
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Absolutely! Our Bible study groups are open to all
+                        students, staff, and visitors regardless of your
+                        biblical knowledge or church background.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>Do I need to bring a Bible?</span>
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Bringing your Bible is encouraged, but if you don't
+                        have one, don't worry. We can provide one during the
+                        study.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>How long does a Bible study session last?</span>
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Most Bible study sessions last between 60 and 90
+                        minutes, allowing enough time for discussion,
+                        questions and prayer.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>I'm a first-year student. Which group should I join?</span>
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        You are welcome to join any Bible study group.
+                        Our leaders will gladly help you find a group where
+                        you can grow spiritually and build friendships.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>Can visitors attend?</span>
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. Visitors are always welcome. Feel free to join
+                        us for Bible study, prayer and fellowship.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>How can I become a Bible study leader?</span>
+
+                    <i class="fas fa-plus"></i>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Speak with the Bible Study Coordinator or Church
+                        Elders. We provide mentorship and training for
+                        members who desire to lead others in studying God's
+                        Word.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="faq-contact">
+    <h3>Still Have Questions?</h3>
+    <p>Our Bible Study team is happy to help you find the right group.</p>
+    <a href="contact.html" class="btn-primary">Contact Us</a>
+</div>
+</body>
+</html>
+
+<script>
+    const reveals=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+},{threshold:.15});
+
+reveals.forEach(el=>{
+
+el.style.opacity="0";
+
+el.style.transform="translateY(70px)";
+
+el.style.transition="all .9s ease";
+
+observer.observe(el);
+
+});
+
+
+
+
+
+
+
+
+
+
+// Gentle button pulse
+
+const prayerButton=document.querySelector(".btn-prayer");
+
+setInterval(()=>{
+
+prayerButton.classList.add("pulse");
+
+setTimeout(()=>{
+
+prayerButton.classList.remove("pulse");
+
+},1000);
+
+},4000);
+
+
+</script>

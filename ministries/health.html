@@ -1,1368 +1,2399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Medical Missionary Department at Kisii University SDA Church — healthcare, natural remedies, community outreach, and spiritual wellness">
-  <title>Medical Missionary | Kisii University SDA Church</title>
-  <link rel="stylesheet" href="../css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Ministry | Natural Remedies & Holistic Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-container{
+            position:relative;
+            z-index:2;
 
-  <style>
-    :root {
-      --teal: #006B75; --teal-dark: #005A63; --teal-darker: #004950;
-      --teal-light: #008C99; --white: #FFFFFF; --cream: #F9F5F0;
-      --off-white: #f8f9fa; --text-dark: #222222; --text-body: #444444;
-      --text-muted: #666666; --border-light: #e0e0e0;
-      --shadow: 0 2px 12px rgba(0,0,0,0.08);
-      --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
-      --radius: 12px; --transition: all 0.3s ease;
-      --font-heading: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Noto Sans', 'Lato', sans-serif;
+        }
+        .hero-description {
+            font-size:1.1rem;
+            color:rgb(240, 237, 233);
+            text-shadow: 1px #fff;
+        }
+
+        /* Video/Image Background Container */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* Video styling */
+        .hero-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Mobile fallback image - hidden by default */
+        .hero-bg .mobile-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark overlay for text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* MOBILE BREAKPOINT: Replace video with image */
+        @media (max-width: 768px) {
+            .hero-bg video {
+                display: none;
+            }
+            
+            .hero-bg .mobile-fallback {
+                display: block;
+            }
+        }
+
+        /* Tablet breakpoint (optional - keep video on tablets) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-bg video {
+                display: block;
+            }
+        }
+
+        /* Content container (rest of your styles) */
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Your existing content styles here... */
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Rest of your CSS remains the same... */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+   
+        .remedy-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .remedy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .remedy-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .remedy-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .remedy-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Remedies Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .remedies {
+            padding: 100px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .remedies-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .remedies-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .remedies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .remedy-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .remedy-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .remedy-img {
+            height: 200px;
+            background-color: var(--light);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .remedy-content {
+            padding: 25px;
+        }
+
+        .remedy-category {
+            display: inline-block;
+            background: rgba(45, 90, 39, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .remedy-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .remedy-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .remedy-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .remedy-link:hover {
+            gap: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 80px 20px 40px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        /* Newsletter Section */
+        .footer-newsletter {
+            background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .footer-newsletter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            color: #333;
+        }
+        
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: white;
+            color: #1877f2;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .footer-col:first-child {
+            grid-column: span 1;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+        }
+        
+        .footer-col p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li i {
+            color: #38bdf8;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #38bdf8;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #38bdf8;
+            color: white;
+            transform: translateY(-3px);
+            border-color: #38bdf8;
+        }
+        
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        
+        .copyright p {
+            margin: 8px 0;
+        }
+
+        .copyright a {
+            color: #38bdf8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .copyright a:hover {
+            color: #0ea5e9;
+            text-decoration: underline;
+        }
+        
+        /* Footer Responsive */
+        @media (max-width: 768px) {
+            footer {
+                padding: 50px 20px 30px;
+            }
+            
+            footer h2 {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            footer {
+                padding: 40px 15px 25px;
+            }
+            
+            footer h2 {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-newsletter {
+                padding: 25px 15px;
+            }
+            
+            .footer-newsletter h3 {
+                font-size: 1.2rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .copyright {
+                font-size: 0.85rem;
+            }
+        
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+        
+            color:#aaa;            
+            width:100%;
+            text-align: center;
+            padding-top: 20px 40px;
+            margin-top: 40px;
+            border-top: 5px solid rgba(222, 63, 63, 0.694);
+            border-radius:8px;
+            font-size: 0.9rem;
+        }
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:var(--font-body); background:var(--white); color:var(--text-body); scroll-behavior:smooth; }
-    h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:700; color:var(--text-dark); }
-    .text-teal { color:var(--teal); }
-    .text-center { text-align:center; }
-    .container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-    .mt-2{margin-top:1rem}.mt-3{margin-top:1rem}.mt-4{margin-top:1.5rem}
-    .mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:1rem}.mb-4{margin-bottom:1.5rem}
-    .py-4{padding-top:1rem;padding-bottom:1rem}
-    .small{font-size:.85rem}.text-muted{color:var(--text-muted)}
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            .hero-btns{
+                display:inline-block;
+                gap:10px;
+            }
+        }
 
-    .btn-teal { background:var(--teal); color:white; padding:.75rem 1.8rem; border-radius:50px; text-decoration:none; font-weight:600; display:inline-block; border:none; cursor:pointer; transition:var(--transition); font-family:var(--font-body); }
-    .btn-teal:hover { background:var(--teal-dark); transform:translateY(-2px); }
-    .btn-outline { background:transparent; border:2px solid white; color:white; padding:.75rem 1.8rem; border-radius:50px; text-decoration:none; font-weight:600; display:inline-block; transition:var(--transition); }
-    .btn-outline:hover { background:white; color:var(--teal); }
-    .section-heading { text-align:center; margin-bottom:2rem; }
-    .section-heading h2 { font-size:2rem; }
-    .section-heading p { color:var(--text-muted); margin-top:.4rem; }
+        @media (max-width: 768px) {
+            .header-container .logo{
+                font-size:14px;
+            }
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 30%;
+                background: white;
+                flex-direction: column;
+                align-items: left;
+                margin-left:5px;
+                padding: 10px 0;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                margin: 7px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            
+            }
+            
+            .hero {
+                padding: 140px 20px 80px;
+                min-height: auto;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.2rem;
+                padding-top:40px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .remedies, .hero {
+                padding: 80px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
 
-    /* ===== GLOBAL SEARCH BAR ===== */
-    .global-search-bar {
-       padding: 1rem 1.5rem;
-      display: flex; align-items: center; justify-content: center; gap: 1rem;
-      position: relative; top: 6.5rem; z-index: 500;
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .remedies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Performance optimizations */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+
+        /* Medical Missionary Section Specific Styles */
+#medical-missionary {
+    background-color: #fcfcfc;
+    padding: 4rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--lighter-gray);
+    border-bottom: 1px solid var(--lighter-gray);
+    width:100%;
+}
+
+#medical-missionary .section-title h2 {
+    color: var(--dark-gray);
+}
+
+#medical-missionary .section-title h2::after {
+    background-color: #d32f2f;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--light-gray);
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0.5rem auto 2rem;
+}
+
+.medical-leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.medical-leader-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.8rem;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--lighter-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.medical-leader-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #d32f2f;
+}
+
+.medical-leader-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.medical-leader-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f0f0f0;
+    margin: 0 auto 1.2rem;
+    transition: var(--transition);
+}
+
+.medical-leader-card:hover .medical-leader-photo {
+    border-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+.medical-leader-name {
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
+}
+
+.medical-leader-role {
+    font-size: 0.95rem;
+    color: #d32f2f;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.medical-leader-qualification {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.medical-leader-specialty {
+    display: inline-block;
+    background-color: #ffeaea;
+    color: #d32f2f;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.medical-leader-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.medical-leader-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: var(--gray);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.medical-leader-social a:hover {
+    transform: translateY(-3px);
+}
+
+.medical-leader-social .fa-facebook:hover {
+    background-color: #1877f2;
+    color: white;
+}
+
+.medical-leader-social .fa-envelope:hover {
+    background-color: #ea4335;
+    color: white;
+}
+
+.medical-leader-social .fa-stethoscope:hover {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.medical-description {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--lighter-gray);
+}
+
+.medical-description h3 {
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.medical-description h3 i {
+    color: #d32f2f;
+}
+
+.medical-description p {
+    color: var(--gray);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.medical-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-item {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    color:white;
+    transition: var(--transition);
+}
+
+.service-item:hover {
+    
+    transform: translateY(-5px);
+}
+
+.service-item i {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.service-item h4 {
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.service-item p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .medical-leaders-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
     }
-    .global-search-wrap { position:relative; max-width:800px; width:100%; }
-    .global-search-wrap i { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); }
-    .global-search-input {
-      width:100%; padding:.65rem 1rem .65rem 2.6rem;
-      border:none; border-radius:50px; font-family:var(--font-body); font-size:.9rem;
-      background:white;
+    
+    .medical-description {
+        padding: 2rem;
     }
-    .global-search-input:focus { outline:3px solid var(--teal-light); }
-    .global-search-results {
-      position:absolute; top:calc(100% + 6px); left:0; right:0;
-      background:white; border-radius:var(--radius); box-shadow:var(--shadow-hover);
-      max-height:320px; overflow-y:auto; z-index:600; display:none;
+    
+    .medical-services {
+        grid-template-columns: 1fr 1fr;
     }
-    .global-search-results.open { display:block; }
-    .sr-item {
-      padding:.75rem 1rem; border-bottom:1px solid var(--border-light);
-      cursor:pointer; display:flex; align-items:flex-start; gap:.8rem;
+   
+}
+
+@media (max-width: 480px) {
+    .logo h2{
+        font-size:1.2rem;
     }
-    .sr-item:last-child { border-bottom:none; }
-    .sr-item:hover { background:var(--cream); }
-    .sr-icon { color:var(--teal); width:22px; flex-shrink:0; margin-top:2px; }
-    .sr-title { font-weight:600; font-size:.9rem; color:var(--text-dark); }
-    .sr-desc { font-size:.78rem; color:var(--text-muted); margin-top:2px; }
-    .sr-section { font-size:.7rem; color:var(--teal); font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
-    .sr-empty { padding:1.2rem; text-align:center; color:var(--text-muted); font-size:.9rem; }
-
-    /* ===== EMERGENCY + TICKER ===== */
-    .emergency-banner { background:#d32f2f; color:white; text-align:center; padding:11px; }
-    .emergency-banner a { color:white; font-weight:bold; }
-    .health-ticker { background:var(--teal); color:white; padding:10px 0; overflow:hidden; white-space:nowrap; }
-    .ticker-content { display:inline-block; animation:tickerScroll 32s linear infinite; padding-left:100%; }
-    .ticker-content span { margin:0 28px; font-size:.85rem; }
-    @keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
-
-    /* ===== HERO ===== */
-    .hero { min-height:80vh; display:flex; align-items:center;
-      background:linear-gradient(135deg,rgba(0,0,0,.65),rgba(0,75,80,.75)),
-      url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&fit=crop') center/cover; margin:1rem;}
-    .hero-content { max-width:100%; margin:0 auto; padding:4rem 1.5rem; color:white; }
-    .hero-content h1 { font-size:3rem; color:white; }
-    .hero-content h1 span { color:var(--teal-light); }
-    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
-
-    /* ===== HEALTH QUOTE ===== */
-    .health-quote { background:#ffffed; color:#555; line-height:1.7; font-style:italic; padding:14px 24px; }
-    .health-quote span { font-weight:700; margin-left:16px; font-style:normal; }
-
-    /* ===== ABOUT ===== */
-    .about-intro { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin:3rem auto; align-items:center; max-width:1200px; padding:0 1.5rem; }
-    .about-content h2 { font-size:2.4rem; color:var(--teal); margin-bottom:1rem; }
-    .about-content p { font-size:1.05rem; line-height:1.8; color:#555; text-align:justify; margin-bottom:.8rem; }
-    .about-image { border-radius:var(--radius); overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.1); height:400px; }
-    .about-image img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
-    .about-image:hover img { transform:scale(1.05); }
-
-    /* ===== STATS ===== */
-    .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem; margin:2rem 0; }
-    .stat-card { background:linear-gradient(135deg,var(--teal),var(--teal-dark)); color:white; text-align:center; padding:1.5rem; border-radius:var(--radius); }
-    .stat-number { font-size:2.5rem; font-weight:800; font-family:var(--font-heading); }
-
-    /* ===== EGW QUOTES ===== */
-    .quotes-section { background:#77acf1; padding:3rem 1.5rem; text-align:center; }
-    .quotes-section h2 { color:white; font-size:2rem; margin-bottom:.4rem; }
-    .quotes-section > p { color:rgba(255,255,255,.7); margin-bottom:2rem; }
-    .quote-carousel { max-width:760px; margin:0 auto; min-height:140px; }
-    .quote-slide { display:none; animation:fadeInQ .5s ease; }
-    .quote-slide.active { display:block; }
-    @keyframes fadeInQ { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-    .quote-text { font-family:var(--font-heading); font-size:1.25rem; font-style:italic; color:rgba(255,255,255,.95); line-height:1.8; margin-bottom:1rem; }
-    .quote-source { color:var(--teal-light); font-weight:600; font-size:.9rem; }
-    .quote-dots { margin-top:1.5rem; display:flex; justify-content:center; gap:8px; }
-    .quote-dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.3); border:none; cursor:pointer; transition:var(--transition); }
-    .quote-dot.active { background:white; }
-
-    /* ===== WEEKLY DEVOTIONAL ===== */
-    .devotional-section { background:linear-gradient(135deg,#fff9e6,#fff3cd); padding:3rem 1.5rem; }
-    .devotional-card {
-      max-width:860px; margin:0 auto; background:white; border-radius:var(--radius);
-      box-shadow:var(--shadow-hover); overflow:hidden;
-      display:grid; grid-template-columns:5px 1fr; 
+    .medical-leaders-grid {
+        grid-template-columns: 1fr;
     }
-    .devotional-stripe { background:var(--teal); }
-    .devotional-body { padding:2rem; }
-    .devotional-meta { display:flex; align-items:center; gap:.6rem; margin-bottom:1rem; flex-wrap:wrap; }
-    .dev-badge { background:var(--teal); color:white; padding:3px 12px; border-radius:20px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
-    .dev-date { font-size:.82rem; color:var(--text-muted); }
-    .devotional-body h3 { font-size:1.5rem; color:var(--teal-dark); margin-bottom:.6rem; }
-    .devotional-verse { background:var(--cream); border-left:3px solid var(--teal); padding:.8rem 1rem; border-radius:0 8px 8px 0; margin:.8rem 0; font-style:italic; color:var(--text-body); font-size:.95rem; }
-    .devotional-text { color:var(--text-body); line-height:1.8; font-size:.95rem; margin-bottom:1rem; }
-    .dev-nav { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; }
-    .dev-nav-btn { background:none; border:1.5px solid var(--teal); color:var(--teal); padding:5px 14px; border-radius:20px; cursor:pointer; font-size:.8rem; font-family:var(--font-body); transition:var(--transition); }
-    .dev-nav-btn:hover { background:var(--teal); color:white; }
-    .print-dev-btn { margin-left:auto; background:var(--off-white); border:none; color:var(--text-muted); padding:5px 14px; border-radius:20px; cursor:pointer; font-size:.8rem; font-family:var(--font-body); transition:var(--transition); }
-    .print-dev-btn:hover { background:var(--teal); color:white; }
-
-    /* ===== NEWSTART ===== */
-    .newstart-section { background:var(--cream); padding:3rem 1.5rem; }
-    .newstart-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; max-width:1200px; margin:0 auto; }
-    .ns-card {
-      background:white; border-radius:var(--radius); padding:1.4rem;
-      box-shadow:var(--shadow); cursor:pointer; transition:var(--transition);
-      border-top:4px solid var(--teal); position:relative; overflow:hidden;
+    
+    .medical-services {
+        grid-template-columns: 1fr;
     }
-    .ns-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); }
-    .ns-icon { font-size:2.2rem; margin-bottom:.8rem; display:block; }
-    .ns-letter { font-family:var(--font-heading); font-size:3.5rem; font-weight:800; color:rgba(0,107,117,.08); position:absolute; right:12px; top:8px; line-height:1; }
-    .ns-card h3 { font-size:1.15rem; color:var(--teal-dark); margin-bottom:.4rem; }
-    .ns-card p { font-size:.88rem; color:var(--text-muted); line-height:1.6; }
-    .ns-expand { display:none; margin-top:.8rem; padding-top:.8rem; border-top:1px solid var(--border-light); font-size:.85rem; color:var(--text-body); line-height:1.7; }
-    .ns-card.open .ns-expand { display:block; }
-    .ns-toggle { font-size:.75rem; color:var(--teal); font-weight:600; margin-top:.6rem; cursor:pointer; display:inline-block; }
-
-    /* ===== LEADERS ===== */
-    .leaders-section { background:var(--cream); padding:3rem 0; }
-    .leaders-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.8rem; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-    .leader-card { background:white; border-radius:var(--radius); text-align:center; padding:1.5rem; box-shadow:var(--shadow); transition:var(--transition); }
-    .leader-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); }
-    .leader-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; margin:0 auto 1rem; border:3px solid var(--teal); display:block; }
-    .leader-card h4 { font-size:1.1rem; margin-bottom:.25rem; }
-    .status-online { background:#4caf50; color:white; display:inline-block; font-size:.7rem; padding:3px 10px; border-radius:20px; }
-    .status-busy { background:#ff9800; color:white; display:inline-block; font-size:.7rem; padding:3px 10px; border-radius:20px; }
-    .book-btn { background:var(--teal); color:white; border:none; padding:7px 16px; border-radius:20px; font-size:.78rem; margin-top:10px; cursor:pointer; transition:var(--transition); font-family:var(--font-body); }
-    .book-btn:hover { background:var(--teal-dark); }
-
-    /* ===== REMEDIES ===== */
-    .remedies-section { padding:3rem 0; background:#f9f9f9; }
-    .remedies-container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-    .search-wrapper { position:relative; max-width:480px; margin:1.5rem auto; }
-    .search-wrapper i { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none; }
-    .search-input { width:100%; padding:.75rem 1rem .75rem 2.5rem; border:2px solid var(--border-light); border-radius:50px; font-family:var(--font-body); font-size:.9rem; }
-    .search-input:focus { border-color:var(--teal); outline:none; }
-    .filter-group { display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin:1.2rem 0 1.8rem; }
-    .filter-btn { padding:.5rem 1.2rem; border-radius:50px; border:1px solid var(--border-light); background:white; cursor:pointer; font-family:var(--font-body); font-size:.88rem; transition:var(--transition); }
-    .filter-btn.active,.filter-btn:hover { background:var(--teal); color:white; border-color:var(--teal); }
-    .remedies-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.6rem; }
-    .remedy-item { background:white; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:var(--transition); opacity:0; transform:translateY(20px); }
-    .remedy-item.visible { opacity:1; transform:translateY(0); transition:opacity .4s ease,transform .4s ease; }
-    .remedy-item:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); }
-    .remedy-img { height:200px; background-size:cover; background-position:center; position:relative; }
-    .print-remedy-btn {
-      position:absolute; top:8px; right:8px; background:rgba(255,255,255,.9);
-      border:none; border-radius:20px; padding:4px 10px; font-size:.72rem;
-      cursor:pointer; color:var(--teal); font-weight:600; transition:var(--transition);
-      display:flex; align-items:center; gap:4px;
+    
+    .service-item {
+        padding: 1.2rem;
     }
-    .print-remedy-btn:hover { background:var(--teal); color:white; }
-    .remedy-content { padding:1.2rem; }
-    .remedy-category { display:inline-block; background:rgba(0,107,117,.12); color:var(--teal); padding:4px 12px; border-radius:20px; font-size:.78rem; margin-bottom:.6rem; font-weight:600; }
-    .remedy-content h3 { font-size:1.2rem; margin-bottom:.5rem; }
-    .remedy-content p { color:var(--text-muted); font-size:.9rem; line-height:1.6; margin-bottom:.8rem; }
-    .remedy-link { color:var(--teal); font-weight:600; text-decoration:none; font-size:.88rem; display:inline-flex; align-items:center; gap:5px; transition:var(--transition); }
-    .remedy-link:hover { gap:10px; }
-    .no-results { text-align:center; grid-column:1/-1; padding:2.5rem; color:var(--text-muted); }
+   .container{
+    width:100%;
+   }
+}
 
-    /* ===== PHOTO GALLERY ===== */
-    .gallery-section { padding:3rem 0; background:var(--off-white); }
-    .gallery-controls { display:flex; justify-content:center; gap:.6rem; margin-bottom:1.5rem; flex-wrap:wrap; }
-    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-    .gallery-item {
-      border-radius:var(--radius); overflow:hidden; cursor:pointer;
-      position:relative; aspect-ratio:4/3; box-shadow:var(--shadow);
-      transition:var(--transition);
+  /* About Intro */
+  .about{
+    margin: 40px auto;
+    width: 100%;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 50px 40px;
+    border-radius: 16px;
+    align-items: center;
+  }
+  .about h2{
+    padding: 10px;
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .about > p{
+    padding: 8px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  /* Statistics Section */
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .stat-card {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  
+  .stat-label {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: center;
+  }
+
+  .about-content h2 {
+    font-size: 2.3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .about-content p {
+    margin-bottom: 18px;
+    color: #555;
+    font-size: 1.05rem;
+    text-align: justify;
+    line-height: 1.7;
+  }
+
+  .about-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    height: 400px;
+    position: relative;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .about-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .content {
+    border: none;
+    border-radius: 12px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    border-left: 4px solid #1877f2;
+  }
+  
+  .content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.35);
+  }
+  
+  .content h2 {
+    font-size: 1.35rem;
+    color: #1877f2;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .content i {
+    font-size: 2.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto 15px;
+    justify-content: center;
+    color: white;
+    height: 55px;
+    width: 55px;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+  }
+  
+  .content i:hover {
+    transform: scale(1.1);
+  }
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+            padding: 50px 0;
+            margin: 40px 0;
+            border-radius: 16px;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .faq-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question {
+            background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+            color: white;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px 25px;
+        }
+        
+        .faq-answer p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Get Involved Section */
+        .get-involved {
+            background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .get-involved h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .get-involved p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .get-involved-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-get-involved {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-get-involved.primary {
+            background: white;
+            color: #1877f2;
+        }
+        
+        .btn-get-involved.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-get-involved.secondary {
+            background: transparent;
+            color: white;
+        }
+        
+        .btn-get-involved.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 50px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            margin: 40px 0;
+            border-radius: 16px;
+        }
+        
+        .testimonials-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .testimonials-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-text {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        @media(max-width:768px){
+            .about-intro, .medical-leaders-grid{
+                display:grid;
+                grid-template-columns:1fr;
+                gap:20px;
+            }
+           
+        }
+
+        
+    /* ---- video library ---- */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
     }
-    .gallery-item:hover { transform:scale(1.02); box-shadow:var(--shadow-hover); }
-    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; }
-    .gallery-overlay {
-      position:absolute; inset:0; background:rgba(0,73,80,.7);
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      opacity:0; transition:var(--transition); color:white; text-align:center; padding:1rem;
+    .video-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid var(--gray-100);
     }
-    .gallery-item:hover .gallery-overlay { opacity:1; }
-    .gallery-overlay i { font-size:2rem; margin-bottom:.5rem; }
-    .gallery-overlay p { font-size:.85rem; }
-    /* Lightbox */
-    .lightbox-overlay {
-      position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:3000;
-      display:flex; align-items:center; justify-content:center;
-      opacity:0; visibility:hidden; transition:var(--transition);
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
     }
-    .lightbox-overlay.active { opacity:1; visibility:visible; }
-    .lightbox-img { max-width:90vw; max-height:80vh; border-radius:8px; object-fit:contain; }
-    .lightbox-caption { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); color:white; font-size:.9rem; background:rgba(0,0,0,.5); padding:6px 16px; border-radius:20px; white-space:nowrap; }
-    .lightbox-close { position:absolute; top:20px; right:24px; color:white; font-size:2rem; cursor:pointer; background:none; border:none; line-height:1; }
-    .lightbox-prev,.lightbox-next { position:absolute; top:50%; transform:translateY(-50%); color:white; font-size:2rem; cursor:pointer; background:rgba(255,255,255,.15); border:none; width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:var(--transition); }
-    .lightbox-prev { left:20px; }
-    .lightbox-next { right:20px; }
-    .lightbox-prev:hover,.lightbox-next:hover { background:rgba(255,255,255,.3); }
-
-    /* ===== VIDEO LIBRARY ===== */
-    .video-section { padding:3rem 0; background:#f1faee;font-family:'Poppins',sans-serif;}
-    .video-section .section-heading h2 { color:#e63945;font-size:2.5rem; }
-    .video-section .section-heading p { color:#000; }
-    .video-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:1.4rem; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-    .video-card { background:rgba(255,255,255,.06); border-radius:var(--radius); overflow:hidden; transition:var(--transition); border:1px solid #28264b; cursor:pointer;color:#555; }
-    .video-card:hover { transform:translateY(-4px); background:rgba(255,255,255,.12); }
-    .video-thumb { position:relative; aspect-ratio:16/9; overflow:hidden; }
-    .video-thumb img { width:100%; height:100%; object-fit:cover; }
-    .play-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:#1a1a1a; transition:var(--transition); }
-    .video-card:hover .play-overlay { background:#0e0d0d; }  
-    .play-btn-icon { width:54px; height:54px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; color:red; font-size:1.4rem; transition:var(--transition); }
-    .video-card:hover .play-btn-icon { transform:scale(1.1); background:rgb(162, 10, 10);color:#fff; }
-    .video-duration { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.75); color:white; font-size:.7rem; padding:2px 7px; border-radius:4px; }
-    .video-info { padding:1rem; }
-    .video-info h4 { color:rgb(12, 12, 12); font-size:1.5rem; margin-bottom:.3rem; }
-    .video-info p { color:#0e0d0d; font-size:1.1rem; }
-    .video-tag { display:inline-block; background:rgba(0,140,153,.3); color:var(--teal-light); font-size:1rem; padding:2px 8px; border-radius:10px; margin-top:.4rem; }
-    /* Video modal */
-    .video-modal-overlay {
-      position:fixed; inset:0; background:rgba(0,0,0,.95); z-index:3000;
-      display:flex; align-items:center; justify-content:center;
-      opacity:0; visibility:hidden; transition:var(--transition);
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #1a1a2e;
     }
-    .video-modal-overlay.active { opacity:1; visibility:visible; }
-    .video-modal-inner { position:relative; width:90vw; max-width:860px; }
-    .video-modal-inner iframe { width:100%; aspect-ratio:16/9; border:none; border-radius:var(--radius); }
-    .video-modal-close { position:absolute; top:-40px; right:0; color:white; font-size:1.8rem; cursor:pointer; background:none; border:none; }
-
-    /* ===== WHATSAPP GROUP ===== */
-    .whatsapp-group-section { background:linear-gradient(135deg,#075e54,#128c7e); padding:2.5rem 1.5rem; text-align:center; color:white; }
-    .whatsapp-group-section h2 { color:white; font-size:1.8rem; margin-bottom:.5rem; }
-    .whatsapp-group-section p { color:rgba(255,255,255,.85); margin-bottom:1.5rem; max-width:600px; margin-left:auto; margin-right:auto; }
-    .wa-group-cards { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.5rem; }
-    .wa-group-card { background:rgba(255,255,255,.12); border-radius:var(--radius); padding:1rem 1.4rem; min-width:180px; border:1px solid rgba(255,255,255,.2); text-align:center; }
-    .wa-group-card i { font-size:1.8rem; margin-bottom:.4rem; display:block; }
-    .wa-group-card h4 { color:white; font-size:.95rem; margin-bottom:.2rem; }
-    .wa-group-card p { font-size:.78rem; color:rgba(255,255,255,.7); margin:0; }
-    .wa-group-btn { background:#25d366; color:white; border:none; padding:.85rem 2rem; border-radius:50px; font-size:1rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; transition:var(--transition); font-family:var(--font-body); }
-    .wa-group-btn:hover { background:#1da851; transform:scale(1.04); color:white; }
-
-    /* ===== COUNTDOWN ===== */
-    .countdown-section { background:orangered; color:white; text-align:center; padding:2.5rem 1.5rem; }
-    .countdown-section h3 { color:white; font-size:2.6rem; margin-bottom:.4rem; font-weight:700;font-family:'Poppins',serif;}
-    .countdown-section > p { color:rgba(255,255,255,.75); margin-bottom:1.2rem; font-size:1.1rem;}
-    .countdown-timers { display:flex; justify-content:center; gap:1.2rem; flex-wrap:wrap; margin-bottom:1.5rem; }
-    .countdown-boxs { background:rgba(255,255,255,.15); padding:1rem 1.4rem; border-radius:var(--radius); text-align:center; min-width:80px; }
-    .countdown-number { font-size:2.2rem; font-weight:800; font-family:var(--font-heading); line-height:1; }
-    .countdown-label { font-size:1.1rem; opacity:.8; margin-top:4px; }
-
-    /* ===== RESOURCES ===== */
-    .resources-section { background:var(--off-white); padding:3rem 0; }
-    .resources-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.4rem; max-width:100%; margin:0 auto; padding:0 1.5rem; }
-    .resource-card { background:white; border-radius:var(--radius); padding:1.3rem; display:flex; align-items:flex-start; gap:1rem; box-shadow:var(--shadow); transition:var(--transition); font-family:Arial, 'Poppins', sans-serif}
-    .resource-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); }
-    .resource-card i { font-size:2rem; color:var(--teal); flex-shrink:0; padding-top:2px; }
-    .resource-info h4 { font-size:1.3rem; margin-bottom:.3rem; }
-    .resource-info .small { display:block; color:var(--text-muted); margin-bottom:.6rem; }
-    .download-btn { background:var(--teal); color:white; border:none; padding:6px 16px; border-radius:20px; font-size:1rem; cursor:pointer; transition:var(--transition); font-family:var(--font-body); }
-    .download-btn:hover { background:var(--teal-dark); }
-
-    /* ===== NEWSLETTER ===== */
-    .newsletter-section { background:linear-gradient(135deg,#0ea2df,#0d6084); padding:3rem 1.5rem; text-align:center; color:white; }
-    .newsletter-section h2 { color:white; font-size:2.5rem; margin-bottom:.5rem;font-weight:700;font-family: 'Poppins',serif; }
-    .newsletter-section p { color:rgba(255,255,255,.8); margin-bottom:1.5rem; font-size:1.1rem;}
-    .newsletter-form { display:flex; gap:.7rem; max-width:480px; margin:0 auto; flex-wrap:wrap; justify-content:center; font-family:1.1rem; }
-    .newsletter-input { flex:1; min-width:220px; padding:.75rem 1.2rem; border:none; border-radius:50px; font-family:var(--font-body); font-size:1.1rem; }
-    .newsletter-input:focus { outline:2px solid white; }
-    .newsletter-success { display:none; margin-top:1rem; font-weight:600;font-size:1.1rem; }
-
-    /* ===== FAQ ===== */
-    .faq-section { padding:3rem 0; }
-    .faq-container { max-width:800px; margin:0 auto; padding:0 1.5rem; }
-    .faq-item { background:white; border-radius:var(--radius); margin-bottom:1rem; overflow:hidden; box-shadow:var(--shadow); }
-    .faq-question { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; cursor:pointer; font-weight:600; font-family:'Poppins',Arial, Helvetica, sans-serif; background:white; border:none; width:100%; text-align:left; font-size:1.1rem; }
-    .faq-question:hover { background:var(--cream); }
-    .faq-icon { font-size:1.3rem; font-weight:bold; color:var(--teal); flex-shrink:0; }
-    .faq-answer { max-height:0; overflow:hidden; padding:0 1.5rem; transition:max-height .35s ease,padding .35s ease; color:var(--text-muted); line-height:1.7; }
-    .faq-item.active .faq-answer { max-height:300px; padding:.2rem 1.5rem 1rem; }
-
-    /* ===== MODAL ===== */
-    .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:2000; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:var(--transition); }
-    .modal-overlay.active { opacity:1; visibility:visible; }
-    .modal-container { background:white; max-width:480px; width:90%; border-radius:20px; padding:2rem; max-height:90vh; overflow-y:auto; }
-    .modal-container h3 { margin-bottom:1.2rem; color:var(--teal); }
-    .form-group { margin-bottom:.8rem; }
-    .form-group label { display:block; font-size:.85rem; font-weight:600; margin-bottom:4px; color:var(--text-dark); }
-    .form-control { width:100%; padding:.65rem .9rem; border:1.5px solid var(--border-light); border-radius:8px; font-family:var(--font-body); font-size:.9rem; }
-    .form-control:focus { border-color:var(--teal); outline:none; }
-    .form-success { display:none; text-align:center; padding:1.5rem 1rem; }
-    .form-success i { font-size:3rem; color:#4caf50; margin-bottom:.8rem; }
-    .modal-btns { display:flex; gap:.7rem; margin-top:1rem; }
-
-    /* ===== FLOATING ===== */
-    .whatsapp-float { position:fixed; bottom:30px; left:30px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.8rem; box-shadow:0 4px 15px rgba(0,0,0,.2); z-index:999; transition:var(--transition); text-decoration:none; }
-    .whatsapp-float:hover { transform:scale(1.1); background:#128C7E; color:white; }
-    #backToTop { position:fixed; bottom:30px; right:30px; background:var(--teal); color:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:1.1rem; box-shadow:var(--shadow); z-index:998; display:none; align-items:center; justify-content:center; transition:var(--transition); }
-    #backToTop.visible { display:flex; }
-    #backToTop:hover { background:var(--teal-dark); transform:translateY(-2px); }
-    .disclaimer-banner { position:fixed; bottom:20px; left:20px; right:100px; background:var(--teal-darker); color:white; padding:12px 20px; border-radius:50px; display:none; justify-content:space-between; align-items:center; z-index:1000; font-size:.85rem; gap:1rem; }
-    .disclaimer-banner button { background:rgba(255,255,255,.2); border:none; color:white; width:30px; height:30px; border-radius:50%; cursor:pointer; flex-shrink:0; }
-
-    /* ===== FOOTER ===== */
-    footer { background:rgb(9,10,10); color:rgba(255,255,255,.8); padding:2rem 1.5rem; margin-top:2rem; }
-    .footer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
-    footer h1,footer h2,footer h3,footer h4 { color:#fff; margin-bottom:.6rem; }
-    footer ul { list-style:none; padding-left:0; }
-    footer ul li { margin-bottom:.4rem; }
-    .footer-grid a { color:rgba(255,255,255,.6); text-decoration:none; }
-    .footer-grid a:hover { color:white; }
-    .border-top { border-top:1px solid rgba(255,255,255,.1); }
-    .pt-3 { padding-top:1rem; }
-
-    /* ===== PRINT STYLES ===== */
-    @media print {
-      .global-search-bar,.health-ticker,.emergency-banner,.hero,.hero-btns,
-      .whatsapp-float,#backToTop,.disclaimer-banner,.newsletter-section,
-      .countdown-section,.video-section,.gallery-section,.whatsapp-group-section,
-      footer,nav,.modal-overlay,.lightbox-overlay,.video-modal-overlay { display:none!important; }
-      body { font-size:12pt; color:#000; }
-      .print-target { display:block!important; }
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    @media print {
-      .remedy-item { break-inside:avoid; opacity:1!important; transform:none!important; }
+    .play-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      transition: var(--transition);
+    }
+    .video-card:hover .play-icon {
+      background: rgba(0,0,0,0.5);
+    }
+    .play-icon i {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .video-info {
+      padding: 1rem;
+    }
+    .video-info h4 {
+      font-size: 1.1rem;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media(max-width:900px) { .about-intro{grid-template-columns:1fr;gap:2rem} .about-image{height:280px} }
-    @media(max-width:600px) {
-      .hero-content h1{font-size:2rem} .hero-btns{flex-direction:column;align-items:flex-start}
-      .countdown-number{font-size:1.6rem} .newsletter-form{flex-direction:column}
-      .newsletter-input{min-width:unset;width:100%} .devotional-card{grid-template-columns:4px 1fr}
-      .lightbox-prev{left:6px} .lightbox-next{right:6px}
-    }
-  </style>
+      
+    </style>
 </head>
 <body>
-
-<!-- ===== HEADER (unchanged) ===== -->
-<header class="site-header header-solid" role="banner">
-  <div class="header-top">
-    <div class="header-logo">
-      <a href="../index.html" aria-label="Kisii University SDA Church Home">
-        <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
-        <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
-      </a>
+    <!-- Loader -->
+    <div id="page-loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Loading KSUSDA MM Department...</div>
     </div>
-    <div class="header-right-top">
-      <a href="../giving.html" class="giving-pill giving-pill-desktop">❤️ Giving</a>
-      <div class="header-social-icons">
-        <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+
+   
+  <!-- ===== HEADER ===== -->
+  <header class="site-header header-solid" role="banner">
+    <!-- Top bar: Logo + Giving + Social -->
+    <div class="header-top">
+      <div class="header-logo">
+        <a href="../index.html" aria-label="Kisii University SDA Church Home">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
+          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
         </a>
       </div>
-    </div>
-  </div>
-  <nav class="header-nav" aria-label="Primary Navigation">
-    <div class="desktop-nav">
-      <div class="nav-item">
-        <a href="../index.html">About Us <span class="chevron-down">▾</span></a>
-        <div class="desktop-dropdown">
-          <a href="../about/giving.html">Giving</a><a href="../about/history.html">History</a>
-          <a href="../about/in-the-news.html">In the News</a><a href="../about/our-pastor.html">Our Pastor</a>
-          <a href="../about/sabbath-services.html">Sabbath Services</a><a href="../about/what-sda-believe.html">What SDAs Believe</a>
-          <a href="../about/worship-with-us.html">Worship With Us</a><a href="../about/potluck.html">Potluck &amp; Fellowship</a>
-          <a href="../about/special-events.html">Special Events</a><a href="../about/schools.html">Schools &amp; Education</a>
-          <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+      <div class="header-right-top">
+        <a href="../giving.html" class="giving-pill giving-pill-desktop" aria-label="Give Online">
+          ❤️ Giving
+        </a>
+        <div class="header-social-icons">
+          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="nav-item"><a href="../events.html">Calendar</a></div>
-      <div class="nav-item">
-        <a href="../ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
-        <div class="desktop-dropdown">
+    </div>
+    <!-- Navigation bar -->
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <div class="desktop-nav">
+        <div class="nav-item">
+          <a href="index.html">About Us <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="../about/giving.html">Giving</a>
+            <a href="../about/history.html">History</a>
+            <a href="../about/in-the-news.html">In the News</a>
+            <a href="../about/our-pastor.html">Our Pastor</a>
+            <a href="../about/sabbath-services.html">Sabbath Services</a>
+            <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+            <a href="../about/worship-with-us.html">Worship With Us</a>
+            <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+            <a href="../about/special-events.html">Special Events</a>
+            <a href="../about/schools.html">Schools &amp; Education</a>
+            <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="../events.html">Calendar</a>
+        </div>
+        <div class="nav-item">
+          <a href="../ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            
           <a href="../ministries/new-zion.html">New Zion</a>
           <a href="../ministries/christ-messengers.html">Christ Messengers</a>
           <a href="../ministries/first-fruits.html">First Fruits</a>
           <a href="../ministries/health.html">Health Ministry</a>
+            
+          
+            
+            
+          
+           
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="../giving.html">Online Giving</a>
+        </div>
+        <div class="nav-item">
+          <a href="../contact.html">Contact Us</a>
         </div>
       </div>
-      <div class="nav-item"><a href="../giving.html">Online Giving</a></div>
-      <div class="nav-item"><a href="../contact.html">Contact Us</a></div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <!-- Inline Search -->
+      <div class="header-search-inline" role="search">
+        <form action="../search.html" method="get">
+          <input type="text" name="s" placeholder="Search..." aria-label="Search">
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== SLIDE-IN MENU ===== -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
+    <div class="menu-header">
+      <button class="menu-close-btn" aria-label="Close Menu">&times;</button>
     </div>
-    <div class="nav-actions">
-      <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-    </div>
-    <div class="header-search-inline" role="search">
+    <div class="menu-search">
       <form action="../search.html" method="get">
         <input type="text" name="s" placeholder="Search..." aria-label="Search">
-        <button type="submit">🔍</button>
+        <button type="submit" aria-label="Search">🔍</button>
       </form>
     </div>
-  </nav>
-</header>
-
-<!-- ===== SLIDE-IN MENU ===== -->
-<div class="menu-overlay" aria-hidden="true"></div>
-<nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
-  <div class="menu-header"><button class="menu-close-btn" aria-label="Close Menu">&times;</button></div>
-  <div class="menu-giving"><a href="../giving.html" class="giving-pill">❤️ Giving</a></div>
-  <div class="menu-nav">
-    <div class="menu-nav-item"><a href="../events.html" class="menu-nav-link">Calendar</a></div>
-    <div class="menu-nav-item"><a href="../giving.html" class="menu-nav-link">Online Giving</a></div>
-    <div class="menu-nav-item"><a href="../contact.html" class="menu-nav-link">Contact Us</a></div>
-    <div class="menu-nav-item"><a href="../announcements.html" class="menu-nav-link">Announcements</a></div>
-    <div class="menu-nav-item"><a href="../livestream.html" class="menu-nav-link">Livestream</a></div>
-    <div class="menu-nav-item"><a href="../food.html" class="menu-nav-link">Food Assistance</a></div>
-  </div>
+    <div class="menu-giving">
+      <a href="../giving.html" class="giving-pill">❤️ Giving</a>
+    </div>
+    <div class="menu-nav">
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a>
+          <button class="menu-chevron" aria-label="Expand About Us submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+          <a href="../about/giving.html">Giving</a>
+          <a href="../about/history.html">History</a>
+          <a href="../about/in-the-news.html">In the News</a>
+          <a href="../about/our-pastor.html">Our Pastor</a>
+          <a href="../about/sabbath-services.html">Sabbath Services</a>
+          <a href="../about/what-sda-believe.html">What SDAs Believe</a>
+          <a href="../about/worship-with-us.html">Worship With Us</a>
+          <a href="../about/potluck.html">Potluck &amp; Fellowship</a>
+          <a href="../about/special-events.html">Special Events</a>
+          <a href="../about/schools.html">Schools &amp; Education</a>
+          <a href="../about/nearby-churches.html">Nearby SDA Churches</a>
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../events.html" class="menu-nav-link">Calendar</a>
+      </div>
+      <div class="menu-nav-item">
+        <div class="menu-nav-link">
+          <a href="../ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a>
+          <button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button>
+        </div>
+        <div class="menu-submenu">
+         
+         <a href="../ministries/new-zion.html">New Zion</a>
+          <a href="../ministries/christ-messengers.html">Christ Messengers</a>
+          <a href="../ministries/first-fruits.html">First Fruits</a>
+          <a href="../ministries/health.html">Health Ministry</a>
+            
+          
+        </div>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../giving.html" class="menu-nav-link">Online Giving</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../contact.html" class="menu-nav-link">Contact Us</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../announcements.html" class="menu-nav-link">Announcements</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../livestream.html" class="menu-nav-link">Livestream</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../bulletin.html" class="menu-nav-link">Bulletin</a>
+      </div>
+      <div class="menu-nav-item">
+        <a href="../food.html" class="menu-nav-link">Food Assistance</a>
+      </div>
+    </div>
+    <div class="menu-footer">
+      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
 </nav>
 
-<!-- ===== GLOBAL SEARCH BAR ===== -->
-<div class="global-search-bar" id="globalSearchBar">
-  <div class="global-search-wrap">
-    <i class="fas fa-search"></i>
-    <input type="text" id="globalSearchInput" class="global-search-input"
-      placeholder="Search remedies, leaders, resources, devotionals, videos…" aria-label="Search all page content"
-      autocomplete="off">
-    <div class="global-search-results" id="globalSearchResults"></div>
-  </div>
-</div>
 
-<!-- ===== HERO ===== -->
+       
+
 <section class="hero">
-  <div class="hero-content">
-    <h1>Bringing Hope Through <span>Medical Mission</span></h1>
-    <p style="font-size:1.2rem;margin:1rem 0">Compassionate care. Restoring health. Serving communities.</p>
-    <p>We provide accessible healthcare, health education, and support to underserved communities.</p>
-    <div class="hero-btns">
-      <a href="#leaders" class="btn-teal"><i class="fas fa-user-md" style="margin-right:6px"></i>Meet Our Team</a>
-      <a href="#remedies" class="btn-outline"><i class="fas fa-leaf" style="margin-right:6px"></i>Natural Remedies</a>
-      <a href="#newstart" class="btn-outline"><i class="fas fa-star" style="margin-right:6px"></i>NEWSTART</a>
-      <a href="#gallery" class="btn-outline"><i class="fas fa-images" style="margin-right:6px"></i>Gallery</a>
+    <!-- Background: Video on desktop, Image on mobile -->
+    <div class="hero-bg">
+        <!-- Desktop Video -->
+        <video autoplay muted loop playsinline class="desktop-video">
+    <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+        
+        <!-- Mobile Fallback Image -->
+        <div class="mobile-fallback" style="background-image: url('https://i.pinimg.com/736x/72/c1/0b/72c10b10ec61319530222bf77075a686.jpg');"></div>
     </div>
-  </div>
+    
+    <!-- Overlay for text contrast -->
+    <div class="hero-overlay"></div>
+    
+   <div class="hero-container">
+    <div class="hero-content">
+        <h1>Bringing Hope Through <span>Medical Mission</span></h1>
+        
+        <p class="hero-lead">Compassionate care. Restoring health. Serving communities.</p>
+        
+        <p class="hero-description">
+            We provide accessible healthcare, health education, and support to underserved communities. 
+            Through medical outreach and preventive care, we aim to restore dignity, promote healing, and bring hope where it is needed most.
+        </p>
+
+        <div class="hero-btns">
+            <a href="#about-intro" class="btn btn-info">Our Mission <i class="fas fa-arrow-right"></i></a>
+            <a href="#about-intro" class="btn btn-secondary">Get Involved</a>
+        </div>
+    </div>
+    
+    <div class="hero-mockup">
+        <!-- Your imagery or impact visuals here -->
+    </div>
+</div>
 </section>
 
-<!-- ===== EMERGENCY BANNER ===== -->
-<div class="emergency-banner">
-  <i class="fas fa-info-circle" style="margin-right:6px"></i>
-  <strong>EDUCATIONAL PURPOSE ONLY:</strong> This site does not replace professional medical advice or emergency care.
-  &nbsp;|&nbsp; <strong>Consultancy:</strong> <a href="tel:0791302316">Call 0791302316</a>
+
+<!-- About Intro -->
+<div class="about">
+    <h2>About Our Department</h2>
+    <p>The Medical Missionary Department at Kisii University SDA Church combines spiritual ministry with healthcare excellence, serving the university and broader community with compassion and professionalism.</p>
+    
+    <!-- Impact Statistics -->
+    <div class="stats-section">
+        <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Lives Impacted Annually</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Active Team Members</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Community Outreaches</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">8</div>
+            <div class="stat-label">Years of Service</div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <section class="about-intro">
+        <div class="about-image">
+            <img src="https://i.pinimg.com/736x/fb/6c/ee/fb6ceedd074c863317d70f1c5202492c.jpg" alt="KSUSDA Church Gathering">
+        </div>
+        <div class="about-content">
+            <h2>Our Mission & Vision</h2>
+            <p><strong>Mission:</strong> To train and equip students and church members in the art of medical missionary work, following the example of Christ who went about doing good and healing all who were oppressed.</p>
+            <p><strong>Vision:</strong> We envision a community where every individual has access to quality healthcare coupled with spiritual hope. We believe that the gospel and health ministry go hand in hand.</p>
+            <p>Our department serves as a bridge between the university's academic excellence and the church's mission to serve humanity in need, creating a holistic approach to wellness.</p>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <h3 style="text-align: center; color: var(--primary); font-size: 2rem; margin-bottom: 30px; margin-top: 40px; font-weight: 700;">Our Core Values</h3>
+    <div class="cards">
+        <div class="content">
+            <i class="fas fa-heart"></i>
+            <h2>Compassion & Care</h2>
+            <p>We provide care with Christ-like love and genuine empathy, treating each person as a valued member of God's family.</p>
+        </div>
+        <div class="content">
+            <i class="fas fa-star"></i>
+            <h2>Excellence</h2>
+            <p>Committed to the highest standards of medical practice, professional ethics, and continuous improvement in all our services.</p>
+        </div>
+        <div class="content">
+            <i class="fas fa-people-group"></i>
+            <h2>Community Focus</h2>
+            <p>Dedicated to serving the needs of our local and global communities, prioritizing underserved and vulnerable populations.</p>
+        </div>
+        <div class="content">
+            <i class="fas fa-graduation-cap"></i>
+            <h2>Education & Training</h2>
+            <p>Equipping the next generation of medical missionaries through comprehensive training, mentorship, and practical experience.</p>
+        </div>
+    </div>
 </div>
 
-<!-- ===== HEALTH TICKER ===== -->
-<div class="health-ticker">
-  <div class="ticker-content">
-    <span><i class="fas fa-apple-alt"></i> Eat fruits daily for better immunity</span>
-    <span><i class="fas fa-walking"></i> Walk 30 minutes daily</span>
-    <span><i class="fas fa-tint"></i> Drink 8 glasses of water daily</span>
-    <span><i class="fas fa-sun"></i> Bask in morning/evening sun 15–30 min</span>
-    <span><i class="fas fa-lungs"></i> Deep breathing reduces stress</span>
-    <span><i class="fas fa-moon"></i> Sleep 7–8 hours for recovery</span>
-    <span><i class="fas fa-bible"></i> Trust in divine power</span>
-    <span><i class="fas fa-carrot"></i> Include vegetables in every meal</span>
-    <span><i class="fas fa-heartbeat"></i> Check your blood pressure regularly</span>
-  </div>
-</div>
+<!-- FAQ Section -->
+<section class="container my-5">
+    <div class="faq-section">
+        <div class="faq-title">
+            <h2>Frequently Asked Questions</h2>
+            <p style="color: #666; font-size: 1.05rem;">Find answers to common questions about our medical missionary programs and services.</p>
+        </div>
+        
+        <div class="container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who can join the Medical Missionary Department?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We welcome all students and church members who have a passion for medical missionary and community service. No medical background is required—we provide comprehensive training for all skill levels. Students from nursing, medicine, public health, and related fields are particularly encouraged to join.</p>
+                </div>
+            </div>
 
-<!-- ===== QUOTE ===== -->
-<div class="health-quote">
-  <p>"One reason we do not enjoy more of the blessings of the Lord is, We do not heed the light which he has been pleased to give us in regard to the laws of life and health."
-    <span>— Counsels on Diet and Foods, Chapter 1</span>
-  </p>
-</div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How often do we conduct medical outreach programs?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We conduct regular outreach programs throughout the year. During the semester, we have training sessions every week on Wednesdays at 6:30 PM. Quarterly medical camps are organized in partnership with local communities, and special health weeks are conducted during specific seasons.</p>
+                </div>
+            </div>
 
-<!-- ===== MISSION & VISION ===== -->
-<section>
-  <div class="about-intro">
-    <div class="about-image">
-      <img src="https://i.pinimg.com/736x/fb/6c/ee/fb6ceedd074c863317d70f1c5202492c.jpg" alt="KSUSDA Church Gathering">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What types of health services do we provide?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our services include: health screening (blood pressure, diabetes, BMI), health education seminars, disease prevention workshops, first aid training, community health camps, home visits for elderly members, and spiritual care. We focus on preventive health using the NEWSTART principles (Nutrition, Exercise, Water, Sunlight, Temperance, Air, Rest, Trust).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a cost to join or participate in programs?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Joining the Medical Missionary Department is free for all students and members. We also provide free health services and training sessions to the community. All our outreach programs are subsidized to ensure accessibility to underserved populations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do we combine spiritual care with medical care?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We believe in holistic health—body, mind, and spirit. While providing medical services, we also offer prayer support, spiritual counseling, and Bible-based health education. Our missionaries are trained to recognize spiritual needs alongside physical health concerns and provide integrated care.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What training opportunities are available?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer training in: First Aid & CPR, Health Communication, Lifestyle Medicine, Disease Prevention, Community Health Assessment, Medical Ethics, Spiritual Care in Healthcare, and Leadership Development. Quarterly seminars feature guest speakers and practical workshops.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="about-content">
-      <h2>Our Mission &amp; Vision</h2>
-      <p><strong>Mission:</strong> To train and equip students and church members in the art of medical missionary work, following the example of Christ who went about doing good and healing all who were oppressed.</p>
-      <p><strong>Vision:</strong> We envision a community where every individual has access to quality healthcare coupled with spiritual hope. We believe that the gospel and health ministry go hand in hand.</p>
-      <p>Our department serves as a bridge between the university's academic excellence and the church's mission to serve humanity, creating a holistic approach to wellness.</p>
+</section>
+
+<!-- Testimonials Section -->
+<section class="container my-5">
+    <div class="testimonials-section">
+        <div class="testimonials-title">
+            <h2>Success Stories & Testimonials</h2>
+            <p style="color: #666; font-size: 1.05rem;">Hear from those whose lives have been touched by our medical missionary work.</p>
+        </div>
+        
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The medical missionary program changed my perspective on healthcare. I learned that true healing goes beyond medicine—it encompasses spiritual care and community compassion."</p>
+                    <div class="testimonial-author">— Sarah K., Nursing Student</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"When I attended the health screening, I was diagnosed with high blood pressure early. The follow-up care and lifestyle guidance helped me prevent serious complications. Thank you!"</p>
+                    <div class="testimonial-author">— James M., Community Member</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The team's compassion during the community outreach was remarkable. They didn't just treat symptoms; they listened, prayed with us, and showed genuine care. Truly Christ-like service."</p>
+                    <div class="testimonial-author">— Mary N., Village Leader</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Get Involved Section -->
+<section class="container my-5">
+    <div class="get-involved">
+        <h2>Be Part of Our Mission</h2>
+        <p>Join us in bringing healthcare and hope to those in need. Whether you're a healthcare professional, student, or passionate community member, you can make a difference.</p>
+        <div class="get-involved-buttons">
+            <a href="#join-ministry" class="btn-get-involved primary">Join Our Team</a>
+            <a href="../voluteer.html" class="btn-get-involved secondary">Volunteer Now</a>
+            <a href="../giving.html" class="btn-get-involved secondary">Support Our Mission</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Bootstrap CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<section class="py-5 bg-light">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Programs & Services</h2>
+      <p class="text-muted">Comprehensive care and training programs designed to serve and empower communities</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Community Health Outreach -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="fw-bold"><i class="fas fa-sterhescope"></i>Community Health Outreach</h5>
+            <p class="text-muted small fs-5">Free medical camps, health screenings, and preventive care in underserved communities</p>
+            <ul class="list-unstyled">
+            <ul class="list-unstyled fs-6">
+  <li><i class="fas fa-check-circle text-success me-2"></i>Teach communities how to take care of their bodies</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Teach how to handle mild infections</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Disease Check-ups</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Supporting communities</li>
+</ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medical Training -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="fw-bold fs-3">Medical Training Programs</h5>
+            <p class="text-muted small fs-5">We conduct comprehensive trainings in every week at the Campus buildings</p>
+                   <ul class="list-unstyled fs-6">
+  <li><i class="fas fa-check-circle text-success me-2"></i>Physiology of the Body</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Blood pressure & diabetes screening</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Health Week</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Medicaly camps</li>
+</ul>
+      
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle Medicine -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="fw-bold fs-3">Lifestyle Medicine</h5>
+            <p class="text-muted small fs-5">Promoting the 8 laws of health (NEWSTART) for disease prevention</p>
+                  <ul class="list-unstyled fs-6">
+  <li><i class="fas fa-check-circle text-success me-2"></i>Semesterly health camp</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Blood pressure & diabetes screening</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Health education seminars</li>
+  <li><i class="fas fa-check-circle text-success me-2"></i>Home visits for elderly</li>
+</ul>
+      
+          </div>
+        </div>
+      </div>
+
+      
+    
+
     </div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<div class="container py-4">
-  <div class="stats-grid">
-    <div class="stat-card"><div class="stat-number">500+</div><div>Lives Impacted</div></div>
-    <div class="stat-card"><div class="stat-number">200+</div><div>Active Members</div></div>
-    <div class="stat-card"><div class="stat-number">18</div><div>Outreaches 2025</div></div>
-    <div class="stat-card"><div class="stat-number">8</div><div>Years of Service</div></div>
-  </div>
-</div>
-
-<!-- ===== EGW QUOTES ===== -->
-<section class="quotes-section">
-  <h2>Ellen G. White on Health</h2>
-  <p>Inspirational guidance from a pioneer of holistic health</p>
-  <div class="quote-carousel" id="quoteCarousel"></div>
-  <div class="quote-dots" id="quoteDots"></div>
-</section>
-
-<!-- ===== WEEKLY DEVOTIONAL ===== -->
-<section class="devotional-section" id="devotional">
-  <div class="section-heading">
-    <h2 style="color:var(--teal-darker)"><i class="fas fa-bible" style="margin-right:8px"></i>Weekly Health Devotional</h2>
-    <p>A short scripture-based health reflection, updated every week</p>
-  </div>
-  <div class="devotional-card" id="devotionalCard">
-    <div class="devotional-stripe"></div>
-    <div class="devotional-body" id="devotionalBody"><!-- injected by JS --></div>
-  </div>
-</section>
-
-<!-- ===== NEWSTART ===== -->
-<section class="newstart-section" id="newstart">
-  <div class="section-heading">
-    <h2 style="color:var(--teal)"><i class="fas fa-star" style="margin-right:8px"></i>The NEWSTART Principles</h2>
-    <p>Eight natural laws of health for complete body, mind, and spirit wellness</p>
-  </div>
-  <div class="newstart-grid" id="newstartGrid"></div>
-</section>
-
-<!-- ===== LEADERS ===== -->
-<section class="leaders-section" id="leaders">
-  <div class="section-heading">
-    <h2>Medical Missionary Leaders</h2>
-    <p>Dedicated individuals combining healthcare with spiritual ministry</p>
-  </div>
-  <div class="leaders-grid" id="leadersGrid"></div>
-</section>
-
-<!-- ===== REMEDIES ===== -->
-<section class="remedies-section" id="remedies">
-  <div class="remedies-container">
-    <div class="section-heading">
-      <h2 style="color:var(--teal)">Natural Remedies Collection</h2>
-      <p>Browse our database of natural remedies for common health issues</p>
+<section class="container leaders-section" id="medical-missionary" style="max-width:99.5%;">
+    <div class="section-title">
+        <h2>Medical Missionary Leaders</h2>
+        <p class="section-subtitle">Dedicated professionals combining healthcare with spiritual ministry</p>
     </div>
-    <div class="search-wrapper">
-      <i class="fas fa-search"></i>
-      <input type="text" id="remedySearch" class="search-input" placeholder="Search remedies…" aria-label="Search remedies">
+    
+    <div class="medical-leaders-grid" id="medicalLeadersContainer">
+        <!-- Medical missionary leader cards will be loaded here -->
     </div>
-    <div class="filter-group" id="filterGroup">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="digestive">Digestive</button>
-      <button class="filter-btn" data-filter="respiratory">Respiratory</button>
-      <button class="filter-btn" data-filter="immune">Immune Boost</button>
-      <button class="filter-btn" data-filter="skin">Skin Care</button>
-      <button class="filter-btn" data-filter="stress">Stress Relief</button>
-    </div>
-    <div class="remedies-grid" id="remediesGrid"></div>
+
+
+
+
+    <!-- Remedies Section -->
+    <section class="remedies" id="remedies">
+        <div class="remedies-container">
+            <div class="section-title fade-in">
+                <h2 style="color:#0ea2df;font-weight: 700;">Natural Remedies Collection</h2>
+                <p>Browse our extensive database of natural remedies for common health issues. Each remedy includes preparation instructions and usage guidelines.</p>
+            </div>
+            
+            <div class="remedies-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All Remedies</button>
+                <button class="filter-btn" data-filter="digestive">Digestive</button>
+                <button class="filter-btn" data-filter="respiratory">Respiratory</button>
+                <button class="filter-btn" data-filter="immune">Immune Boost</button>
+                <button class="filter-btn" data-filter="skin">Skin Care</button>
+                <button class="filter-btn" data-filter="stress">Stress Relief</button>
+            </div>
+            
+            <div class="remedies-grid" id="remediesGrid">
+                <!-- Remedies will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    
+<!-- VIDEOS -->
+<section id="videos" class="container">
+  <div class="text-center">
+    <h2 class="section-title">Health Video Library</h2>
+    <p class="section-sub">Watch health education talks, testimonies, and training</p>
+  </div>
+  <div class="video-grid">
+    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/cqblhZLdYl0/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>Natural Remedies Overview</h4><p>Evidence-based natural health practices.</p></div></div>
+    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/_PZuNSYNdho/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>NEWSTART Lifestyle</h4><p>Deep dive into the 8 laws of health.</p></div></div>
+    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/vKRyv_CyoM4/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>Hydrotherapy at Home</h4><p>Simple water therapy techniques.</p></div></div>
+    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/G5o4ym5in_w/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>Plant-Based Nutrition</h4><p>Meal planning for students.</p></div></div>
+  </div>
+  <div style="text-align:center; margin: 1.5rem 0;">
+    <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" class="btn-primary"><i class="fab fa-youtube" style="color:#ff3b3b;"></i> Visit YouTube Channel</a>
   </div>
 </section>
+    
+    
+    <div class="medical-description">
+        <i class="fas fa-heartbeat"></i>
+        <h3> Training and Education</h3>
+        <p>The Medical Missionary ministry combines healthcare expertise with spiritual guidance to serve both physical and spiritual needs. Our leaders are trained healthcare professionals who provide medical services, health education, and spiritual support to our congregation and community.</p>
+        
+        <div class="medical-services">
+            <div class="service-item" style="background-color: #1877f2;">
+                <i class="fas fa-stethoscope"></i>
+                <h4>Health Screening</h4>
+                <p>Regular health check-ups and screenings</p>
+            </div>
+            <div class="service-item" style="background-color: green;">
+                <i class="fas fa-book-medical"></i>
+                <h4>Health Education</h4>
+                <p>Workshops on preventive healthcare</p>
+            </div>
+            <div class="service-item" style="background-color:#ff7200;">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h4>Community Outreach</h4>
+                <p>Medical services in underserved areas</p>
+            </div>
+            <div class="service-item" style="background-color: beige;color:black;">
+                <i class="fas fa-pray" style="color:#ff7200"></i>
+                <h4>Spiritual Care</h4>
+                <p>Prayer and counseling for patients</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-<!-- ===== PHOTO GALLERY ===== -->
-<section class="gallery-section" id="gallery">
-  <div class="section-heading">
-    <h2><i class="fas fa-images" style="margin-right:8px;color:var(--teal)"></i>Outreach Photo Gallery</h2>
-    <p>Moments from our community medical camps, health education, and outreach programs</p>
-  </div>
-  <div class="gallery-controls" id="galleryControls"></div>
-  <div class="gallery-grid" id="galleryGrid"></div>
-  <div style="text-align:center;margin-top:1.5rem">
-    <button class="btn-teal" id="loadMoreBtn" onclick="loadMorePhotos()">
-      <i class="fas fa-plus" style="margin-right:6px"></i>Load More Photos
+<section class="consultation">
+    <div class="section-title">
+        <h2 style="color:#d32f2f;font-weight: 700;padding-top:10px;">Schedule a Consultation</h2>
+        <p class="section-subtitle">Connect with our medical missionary leaders for personalized health guidance and spiritual support.</p>
+        <div class="button">
+            <a href="live.html" class="btn btn-primary">Contact Us</a>
+        </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h2><i class="fas fa-heartbeat me-2"></i>Kisii University Medical Missionary Department</h2>
+        
+        <!-- Newsletter Section -->
+        <div class="footer-newsletter">
+            <h3>Stay Updated on Health Tips</h3>
+            <p>Subscribe to our newsletter for weekly natural remedies and health education</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!')">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        
+     <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
     </button>
-  </div>
-</section>
 
-<!-- ===== VIDEO LIBRARY ===== -->
-<section class="video-section" id="videos">
-  <div class="section-heading">
-    <h2><i class="fas fa-play-circle" style="margin-right:8px"></i>Health Video Library</h2>
-    <p>Watch health education talks, testimony series, and training sessions</p>
-  </div>
-  <div class="video-grid" id="videoGrid"></div>
-  <div style="text-align:center;margin-top:2rem;">
-    <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" class="btn-teal" style="background:teal;border:2px solid rgba(109, 191, 227, 0.4);color:red;">
-      <i class="fab fa-youtube" style="margin-right:6px;color:red;"></i>View Full YouTube Channel
-    </a>
-  </div>
-</section>
 
-<!-- ===== WHATSAPP GROUP ===== -->
-<section class="whatsapp-group-section" id="whatsapp-group">
-  <h2><i class="fab fa-whatsapp" style="margin-right:8px"></i>Join Our WhatsApp Community</h2>
-  <p>Get real-time health tips, event alerts, prayer requests, and connect with fellow members. Choose the group that fits you best.</p>
-  <div class="wa-group-cards">
-    <div class="wa-group-card">
-      <i class="fas fa-users"></i>
-      <h4>General Members</h4>
-      <p>Health tips &amp; event updates</p>
-    </div>
-    <div class="wa-group-card">
-      <i class="fas fa-user-md"></i>
-      <h4>Health Professionals</h4>
-      <p>Clinical discussions &amp; resources</p>
-    </div>
-    <div class="wa-group-card">
-      <i class="fas fa-graduation-cap"></i>
-      <h4>Student Chapter</h4>
-      <p>Campus activities &amp; training</p>
-    </div>
-  </div>
-  <a href="https://chat.whatsapp.com/KisiiMMDept" target="_blank" class="wa-group-btn">
-    <i class="fab fa-whatsapp" style="font-size:1.3rem"></i> Join the Community Group
-  </a>
-</section>
+        <!-- Footer Content -->
+        <div class="footer-container">
+            <!-- About Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-leaf me-2"></i>Medical Ministry</h3>
+                <p>Empowering students and communities through holistic healthcare combining medical excellence with spiritual care. We're committed to serving humanity and promoting health through natural remedies and health education.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Quick Links Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-link me-2"></i>Quick Links</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="#remedies"><i class="fas fa-leaf"></i>Natural Remedies</a></li>
+                    <li><a href="healthyblog.html"><i class="fas fa-blog"></i>Health Blog</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    <li><a href="#resources"><i class="fas fa-book"></i>Resources</a></li>
+                </ul>
+            </div>
+            
+            <!-- Remedy Categories Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-mortar-pestle me-2"></i>Remedy Categories</h3>
+                <ul>
+                    <li><a href="#" data-filter="digestive"><i class="fas fa-symptoms"></i>Digestive Health</a></li>
+                    <li><a href="#" data-filter="respiratory"><i class="fas fa-lungs"></i>Respiratory Care</a></li>
+                    <li><a href="#" data-filter="immune"><i class="fas fa-shield"></i>Immune System</a></li>
+                    <li><a href="#" data-filter="skin"><i class="fas fa-spa"></i>Skin & Beauty</a></li>
+                    <li><a href="#" data-filter="stress"><i class="fas fa-brain"></i>Stress & Sleep</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-phone me-2"></i>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i><a href="#">Kisii University Main Campus</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+254791302316">+254 791 302 316</a></li>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:mediummissionary@ksusda.org">mediummissionary@ksusda.org</a></li>
+                    <li><i class="fas fa-clock"></i>Wed: 6:30 PM - 8:30 PM</li>
+                    <li><i class="fas fa-calendar"></i>Sunday: 2:00 PM - 4:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2026 Kisii University SDA Church - Medical Missionary Department. All rights reserved.</p>
+                <p>
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Contact Us</a>
+                </p>
+                <p style="color: #64748b; font-size: 0.85rem; margin-top: 12px;">
+                    <i class="fas fa-info-circle me-1"></i>This website is for educational purposes only. Always consult a qualified healthcare professional before trying any remedy.
+                </p>
+            </div>
+        </div>
+    </footer>
 
-<!-- ===== COUNTDOWN ===== -->
-<section class="countdown-section">
-  <h3><i class="fas fa-calendar-alt" style="margin-right:8px"></i>Next Medical Camp</h3>
-  <p>Community Health Outreach — Free Screening &amp; Consultation</p>
-  <div class="countdown-timers">
-    <div class="countdown-boxs"><div class="countdown-number" id="cd-days">00</div><div class="countdown-label">Days</div></div>
-    <div class="countdown-boxs"><div class="countdown-number" id="cd-hours">00</div><div class="countdown-label">Hours</div></div>
-    <div class="countdown-boxs"><div class="countdown-number" id="cd-minutes">00</div><div class="countdown-label">Minutes</div></div>
-    <div class="countdown-boxs"><div class="countdown-number" id="cd-seconds">00</div><div class="countdown-label">Seconds</div></div>
-  </div>
-  <button class="btn-teal" onclick="openModal()"><i class="fas fa-calendar-check" style="margin-right:6px"></i>Register for Camp</button>
-</section>
+    <script src="assests/script.js"></script>
 
-<!-- ===== RESOURCES ===== -->
-<section class="resources-section" id="resources">
-  <div class="section-heading">
-    <h2>Downloadable Resources</h2>
-    <p>Free guides for your wellness journey</p>
-  </div>
-  <div class="resources-grid" id="resourcesGrid"></div>
-</section>
+    <!-- JavaScript - Minimized and Optimized -->
+    <script>
+        // Wait for DOM to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loader after page loads
+            setTimeout(function() {
+                document.getElementById('page-loader').style.opacity = '0';
+                document.getElementById('page-loader').style.visibility = 'hidden';
+            }, 800);
+            
+            // Mobile menu toggle: guard against missing elements to avoid script errors
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
 
-<!-- ===== NEWSLETTER ===== -->
-<section class="newsletter-section">
- 
-  <h2><i class="fas fa-letter-box"></i>Health Tips Newsletter</h2>
-  <p>Weekly health tips, event updates, and natural remedy guides delivered to your inbox.</p>
-  <div class="newsletter-form">
-    <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Enter your email address">
-    <button class="btn-teal" onclick="subscribeNewsletter()" style="background:white;color:var(--teal)">Subscribe Free</button>
-  </div>
-  <p class="newsletter-success" id="newsletterSuccess"><i class="fas fa-check-circle" style="margin-right:6px"></i>You're subscribed!</p>
-</section>
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ?
+                        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
 
-<!-- ===== FAQ ===== -->
-<section class="faq-section">
-  <div class="faq-container">
-    <div class="section-heading"><h2>Frequently Asked Questions</h2></div>
-    <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false"><span>Who can join the Medical Missionary Department?</span><span class="faq-icon">+</span></button>
-      <div class="faq-answer">All students and church members passionate about medical missionary work. No prior medical background is required — just a willing heart.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false"><span>How often are outreach programs held?</span><span class="faq-icon">+</span></button>
-      <div class="faq-answer">Training every Wednesday at 6:30 PM. Quarterly medical camps and special health weeks throughout the year.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false"><span>What services are provided during outreach?</span><span class="faq-icon">+</span></button>
-      <div class="faq-answer">Free health screenings (BP, blood sugar, BMI), health education, first aid training, home visits, community camps, and spiritual care.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false"><span>Are natural remedies safe to use?</span><span class="faq-icon">+</span></button>
-      <div class="faq-answer">Natural remedies complement wellness but are for educational purposes only. Always consult a healthcare provider before use, especially if pregnant, nursing, or on medication.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false"><span>How can I book an appointment?</span><span class="faq-icon">+</span></button>
-      <div class="faq-answer">Click "Book Appointment" on any leader's card, or contact us via WhatsApp at +254 791 302 316 or email medical@ksusda.org.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== APPOINTMENT MODAL ===== -->
-<div class="modal-overlay" id="appointmentModal" role="dialog" aria-modal="true">
-  <div class="modal-container">
-    <div id="formView">
-      <h3><i class="fas fa-calendar-plus" style="margin-right:8px"></i>Book a Consultation</h3>
-      <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" class="form-control" placeholder="Your full name"></div>
-      <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" class="form-control" placeholder="+254 7XX XXX XXX"></div>
-      <div class="form-group"><label>Email</label><input type="email" id="email" class="form-control" placeholder="you@example.com"></div>
-      <div class="form-group"><label>Type of Consultation</label>
-        <select id="consultationType" class="form-control">
-          <option>General Health Check</option><option>Natural Remedies Advice</option>
-          <option>Nutrition Counseling</option><option>Spiritual &amp; Mental Wellness</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Preferred Date</label><input type="date" id="preferredDate" class="form-control"></div>
-      <div class="form-group"><label>Notes</label><textarea id="notes" class="form-control" rows="2" style="resize:vertical" placeholder="Any specific concerns…"></textarea></div>
-      <div class="modal-btns">
-        <button class="btn-teal" style="flex:1" onclick="submitAppointment()"><i class="fas fa-paper-plane" style="margin-right:6px"></i>Send Request</button>
-        <button class="btn-teal" style="background:#6c757d;flex:1" onclick="closeModal()">Cancel</button>
-      </div>
-    </div>
-    <div class="form-success" id="successView">
-      <i class="fas fa-check-circle" style="font-size:3rem;color:#4caf50;display:block;margin-bottom:.8rem"></i>
-      <h4>Request Sent!</h4><p>Our team will contact you within 24 hours.</p>
-      <button class="btn-teal mt-3" onclick="closeModal()">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- ===== LIGHTBOX ===== -->
-<div class="lightbox-overlay" id="lightboxOverlay">
-  <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
-  <button class="lightbox-prev" onclick="lightboxNav(-1)"><i class="fas fa-chevron-left"></i></button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-  <button class="lightbox-next" onclick="lightboxNav(1)"><i class="fas fa-chevron-right"></i></button>
-  <div class="lightbox-caption" id="lightboxCaption"></div>
-</div>
-
-<!-- ===== VIDEO MODAL ===== -->
-<div class="video-modal-overlay" id="videoModal">
-  <div class="video-modal-inner">
-    <button class="video-modal-close" onclick="closeVideoModal()">&#10005;</button>
-    <iframe id="videoModalFrame" src="" allowfullscreen allow="autoplay"></iframe>
-  </div>
-</div>
-
-<!-- ===== FLOATING ===== -->
-<a href="https://wa.me/254791302316?text=Hello%20Medical%20Missionary%20Department" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
-<div id="disclaimerBanner" class="disclaimer-banner">
-  <span><i class="fas fa-info-circle" style="margin-right:6px"></i>Educational purposes only. Consult a healthcare professional.</span>
-  <button onclick="closeDisclaimer()">✖</button>
-</div>
-
-<!-- ===== FOOTER (unchanged) ===== -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4><i class="fas fa-leaf" style="margin-right:6px"></i>Medical Ministry</h4>
-      <p>Holistic healthcare with spiritual care, serving Kisii University and surrounding communities.</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#leaders">Our Team</a></li><li><a href="#remedies">Natural Remedies</a></li>
-        <li><a href="#newstart">NEWSTART Guide</a></li><li><a href="#gallery">Photo Gallery</a></li>
-        <li><a href="#videos">Video Library</a></li><li><a href="#resources">Resources</a></li>
-        <li><a href="#" onclick="openModal();return false">Book Appointment</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact Us</h4>
-      <ul>
-        <li><i class="fas fa-map-marker-alt" style="margin-right:6px"></i>Kisii University, Kenya</li>
-        <li><i class="fas fa-phone" style="margin-right:6px"></i>+254 791 302 316</li>
-        <li><i class="fas fa-envelope" style="margin-right:6px"></i>medical@ksusda.org</li>
-        <li><i class="fas fa-clock" style="margin-right:6px"></i>Training: Wed 6:30 PM</li>
-      </ul>
-    </div>
-  </div>
-  <div class="text-center pt-3 border-top mt-3">
-    <p>&copy; 2026 Kisii University SDA Church — Medical Missionary Department</p>
-  </div>
-</footer>
-
-<script>
-// ==================== ALL DATA ====================
-
-var leadersData = [
-  { name:"Moffat Omondi",    role:"Head of Department",        qual:"Department Coordinator",   photo:"https://images.unsplash.com/photo-1546525848-3ce03ca516f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eW91bmclMjBhZnJpY2FuJTIwYm95JTIwdGVlbnxlbnwwfHwwfHx8MA%3D%3D",   status:"online" },
-  { name:"Ruth Kemunto",     role:"MM Secretary",              qual:"Minutes & Documentation",  photo:"https://images.unsplash.com/photo-1634710663998-8e790e35543c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNodXJjaCUyMGxhZHklMjBhZnJpY2F8ZW58MHx8MHx8fDA%3D", status:"online" },
-  { name:"John Katana",      role:"MM Deacon",                 qual:"Remedies & Equipment",     photo:"https://media.istockphoto.com/id/1133516734/photo/portrait-of-smiling-male-nurse-with-stethoscope.webp?a=1&b=1&s=612x612&w=0&k=20&c=gBpq_KGopTV_Z43IAUaQkNMC0tan3Pfj-1P1alGhcJM=",   status:"busy"   },
-  { name:"Sarah Muthoni",    role:"Health Education Specialist",qual:"MM Patron",               photo:"https://media.istockphoto.com/id/1214079190/photo/woman-in-official-dress-standing-on-balcony-in-hotel.webp?a=1&b=1&s=612x612&w=0&k=20&c=fMYxo3T_AdEYHSottyqMCKrUU_a2NJDYnmjUbxBSgg4=", status:"online" }
-  
-];
-
-var remediesData = [
-  { id:1,  name:"Ginger Tea for Digestion",      category:"digestive",   description:"Aids digestion by stimulating digestive enzymes, reducing bloating and gas. Its anti-inflammatory properties soothe mild digestive discomfort.", img:"https://media.istockphoto.com/id/1999513380/photo/ginger-tea-with-mint-and-lemon.webp?a=1&b=1&s=612x612&w=0&k=20&c=mfTS7PuUkQum3esb6eI1VVtlhiSFcI_-HdS2i-A6r4w=" },
-  { id:2,  name:"Honey Lemon Cough Syrup",       category:"respiratory", description:"Honey coats irritated throat tissues with antibacterial properties while lemon provides vitamin C to loosen mucus and ease dry cough.", img:"https://media.istockphoto.com/id/645016066/photo/preparing-lemon-infused-water-with-honey-and-ginger.webp?a=1&b=1&s=612x612&w=0&k=20&c=efS4rPenEea8jL2XoMMV-h8zclnsZ1LjGJhIo6nxjkI=" },
-  { id:3,  name:"Echinacea Immune Boost",         category:"immune",      description:"Stimulates white blood cells, strengthens immune response, and may shorten cold duration. Antioxidant and anti-inflammatory properties support recovery.", img:"https://images.unsplash.com/photo-1698493249620-08e456bec714?w=400&h=200&fit=crop" },
-  { id:4,  name:"Aloe Vera Skin Healer",          category:"skin",        description:"Helps minor burns, sunburn, wounds, acne, and mouth ulcers. Aloe vera gel supports healing — use under medical guidance for serious conditions.", img:"https://images.unsplash.com/photo-1683149987617-074429bcd8f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWxvZXZlcmElMjBqZWx8ZW58MHx8MHx8fDA%3D" },
-  { id:5,  name:"Cayenne for Circulation",        category:"immune",      description:"Capsaicin may reduce pain and inflammation, improve circulation, and support immune function. Aids digestion by stimulating gastric juices. Use in moderation.", img:"https://plus.unsplash.com/premium_photo-1723759268094-df26a0e6757c?w=400&h=200&fit=crop" },
-  { id:6,  name:"Peppermint for Headaches",       category:"stress",      description:"Applied to temples, peppermint oil's cooling menthol alleviates tension headaches and relaxes muscles. Use 2–3 drops for 10–15 minutes.", img:"https://images.unsplash.com/photo-1632232812783-c774e55bbbe9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGVwcGVybWludHxlbnwwfHwwfHx8MA%3D%3D" },
-  { id:7,  name:"Turmeric Anti-Inflammatory",     category:"immune",      description:"Curcumin in turmeric powerfully reduces inflammation and joint pain. Supports immune function and digestion. Consult provider if on blood thinners.", img:"https://images.unsplash.com/photo-1583949885751-23b7d1909378?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHR1cm1lcmljfGVufDB8fDB8fHww" },
-  { id:8,  name:"Chamomile Eye Compress",         category:"skin",        description:"Chamomile tea bags reduce puffiness and dark circles. Its flavonoids and terpenoids have anti-inflammatory and antioxidant properties for tired skin.", img:"https://images.unsplash.com/photo-1624041755997-393bd6b31f05?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hhbW9taWxlfGVufDB8fDB8fHww" },
-  { id:9,  name:"Garlic Oil for Ear Infections",  category:"respiratory", description:"Garlic oil's allicin and ajoene compounds have antifungal and antibacterial effects. Apply 2–3 drops in each ear twice daily for 3–5 days.", img:"https://media.istockphoto.com/id/1250580614/photo/garlic-oil.webp?a=1&b=1&s=612x612&w=0&k=20&c=bcHmI5h2O7fOp6Pa2aWWAo4r-Z3te-doS_KG3yVpNvE=" },
-  { id:10, name:"Cinnamon Blood Sugar Control",   category:"digestive",   description:"Cinnamaldehyde improves insulin sensitivity and reduces glucose absorption. Add ½ tsp to daily meals for 2–3 weeks for best results.", img:"https://images.unsplash.com/photo-1622798337764-259682f03741?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2lubmFtb258ZW58MHx8MHx8fDA%3D" },
-  { id:11, name:"Rosemary Memory Boost",          category:"stress",      description:"Aromatic compounds may improve memory and concentration while antioxidants protect brain cells. Inhale directly or diffuse for 10–15 minutes daily.", img:"https://images.unsplash.com/photo-1623249635395-0e03e7449ac8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJvc2VtYXJ5fGVufDB8fDB8fHww" },
-  { id:12, name:"Apple Cider Vinegar Tonic",      category:"digestive",   description:"Aids digestion, supports weight management, balances blood sugar, and supports liver function. Take 1 tsp in warm water before meals.", img:"https://images.unsplash.com/photo-1628602041346-25218c541397?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXBwbGUlMjBjaWRhciUyMHZpbmVnYXJ8ZW58MHx8MHx8fDA%3D" }
-];
-
-var resourcesData = [
-  { name:"Natural Remedies Handbook", icon:"fas fa-book-medical", pages:45, size:"2.1 MB", filename:"natural-remedies-handbook.pdf" },
-  { name:"First Aid Guide",           icon:"fas fa-band-aid",     pages:28, size:"1.5 MB", filename:"natural-remedies.pdf" },
-  { name:"Weekly Healthy Meal Plan",  icon:"fas fa-utensils",     pages:12, size:"0.8 MB", filename:"weekly-meal-plan.pdf" },
-  { name:"NEWSTART Lifestyle Guide",  icon:"fas fa-heartbeat",    pages:38, size:"1.9 MB", filename:"newstart-guide.pdf" }
-];
-
-var egwQuotes = [
-  { text:"Pure air, sunlight, abstemiousness, rest, exercise, proper diet, the use of water, trust in divine power — these are the true remedies.", source:"The Ministry of Healing, p. 127" },
-  { text:"The light God has given in health reform is for our salvation and the salvation of the world. Physicians, ministers, and lay members are to educate the people in health reform principles.", source:"Counsels on Diet and Foods, p. 455" },
-  { text:"In order to have good health, we must have good blood; for the blood is the current of life. It repairs waste and nourishes the body.", source:"The Ministry of Healing, p. 271" },
-  { text:"Temperance in all things of this life is to be practised. Temperance in eating, in drinking, in dressing, in labour, in study — this is what God requires of us.", source:"Testimonies for the Church, Vol. 4, p. 577" },
-  { text:"The relation between the mind and the body is very intimate. When one is affected, the other sympathizes. The condition of the mind affects the health of the physical system.", source:"The Ministry of Healing, p. 241" }
-];
-
-var devotionals = [
-  { week:"June 23–29, 2026", title:"Temperance: Balance in All Things", verse:"\"I discipline my body and keep it under control, so that after preaching to others I myself will not be disqualified.\" — 1 Corinthians 9:27", text:"Temperance is not merely abstaining from harmful substances — it is the balanced use of all good things. Ellen White taught that intemperance in eating, drinking, work, and even recreation undermines both physical and spiritual health. This week, examine one area of your life where excess may be stealing your energy or focus. Whether it is screen time, late-night snacking, or overwork, choose moderation as an act of worship.", action:"Challenge: Identify one habit to moderate this week and track your progress daily." },
-  { week:"June 16–22, 2026", title:"Sunlight: Light for Body and Soul", verse:"\"The Lord God is a sun and shield; the Lord bestows favor and honor.\" — Psalm 84:11", text:"Safe morning sunlight triggers vitamin D production, regulates sleep cycles, and lifts mood. Ellen White encouraged daily exposure to fresh air and sunlight as essential to health. Just 15–30 minutes of morning sun on your skin can make a measurable difference to your energy and immune function. Combine your sun time with prayer or a walk in nature to nourish body and spirit together.", action:"Challenge: Spend 20 minutes in morning sunlight before 10 AM each day this week." },
-  { week:"June 9–15, 2026", title:"Water: The Gift of Life", verse:"\"Jesus answered, 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst.'\" — John 4:13-14", text:"Water is the most essential nutrient for our bodies. Our Creator designed us to need water for virtually every biological process — from digestion to temperature regulation. Ellen White wrote that freely using water internally and externally is one of the simplest and most effective remedies we have. This week, commit to drinking at least 8 glasses of pure water daily. Begin each morning with a glass before breakfast, and notice the difference it makes to your energy and clarity of mind.", action:"Challenge: Track your water intake today. Aim for 8 glasses." },
-  { week:"June 2–8, 2026", title:"Exercise: Moving for God's Glory", verse:"\"Do you not know that your bodies are temples of the Holy Spirit? … Therefore honor God with your bodies.\" — 1 Corinthians 6:19-20", text:"God designed our bodies to move. Exercise increases circulation, strengthens the heart, lifts mood, and sharpens the mind. Ellen White was ahead of her time in advocating physical labour and outdoor activity as essential to health. You don't need a gym — a 30-minute walk in nature, breathing fresh air and enjoying God's creation, is one of the most powerful medicines available to us.", action:"Challenge: Take a 30-minute walk outside this week, every day." },
-  { week:"May 26–June 1, 2026", title:"Rest: The Sabbath Principle", verse:"\"By the seventh day God had finished the work he had been doing; so on the seventh day he rested from all his work.\" — Genesis 2:2", text:"Rest is not laziness — it is a divine command. God Himself modelled rest at creation, and our bodies are built to require regular rest cycles. Chronic sleep deprivation increases risk of diabetes, heart disease, depression, and immune failure. Prioritise 7–8 hours of sleep each night, and honour the Sabbath as a weekly full reset of body, mind, and spirit.", action:"Challenge: Set a consistent bedtime this week and protect it." }
-];
-
-var newstartData = [
-  { letter:"N", emoji:"🥦", title:"Nutrition", short:"Eat whole, plant-based foods", detail:"A diet rich in fruits, vegetables, whole grains, legumes, nuts, and seeds provides all the nutrients the body needs. Avoid processed foods, refined sugars, and excess salt. Ellen White taught that a simple, plant-based diet was God's original design for humanity." },
-  { letter:"E", emoji:"🏃", title:"Exercise", short:"Move your body daily", detail:"Regular physical activity improves cardiovascular health, maintains healthy weight, strengthens bones and muscles, and boosts mental health. Aim for at least 30 minutes of moderate exercise daily — walking, gardening, and stretching all count." },
-  { letter:"W", emoji:"💧", title:"Water", short:"Drink 8 glasses daily", detail:"Water is involved in every cellular process. Proper hydration aids digestion, flushes toxins, regulates temperature, and improves brain function. Hydrotherapy — using water externally — also has powerful healing applications." },
-  { letter:"S", emoji:"☀️", title:"Sunlight", short:"15–30 minutes of sun daily", detail:"Sunlight triggers vitamin D synthesis, essential for bone health, immune function, and mood regulation. Morning sunlight also regulates the circadian rhythm for better sleep. Moderate, safe sun exposure each day has profound health benefits." },
-  { letter:"T", emoji:"🚭", title:"Temperance", short:"Avoid harmful substances", detail:"Temperance means using good things in moderation and completely avoiding harmful ones — tobacco, alcohol, drugs, and harmful foods. It also applies to work, technology, and entertainment. Self-control is a fruit of the Spirit (Galatians 5:23)." },
-  { letter:"A", emoji:"🌿", title:"Air", short:"Breathe fresh, clean air", detail:"Fresh air oxygenates the blood and helps purify it. Deep breathing exercises reduce stress and improve lung capacity. Ventilate your living and sleeping spaces. Spend time outdoors, away from pollution, whenever possible." },
-  { letter:"R", emoji:"😴", title:"Rest", short:"7–8 hours of quality sleep", detail:"Sleep is when the body repairs itself. During deep sleep, the brain flushes out toxins, memory is consolidated, and hormones are regulated. Honour a consistent sleep schedule, and observe the weekly Sabbath rest as a spiritual and physical renewal." },
-  { letter:"T", emoji:"🙏", title:"Trust in God", short:"Spiritual wellness heals", detail:"Faith, hope, and a sense of purpose are powerful medicines. Research confirms that people with strong spiritual lives live longer, recover faster from illness, and have lower stress levels. Prayer, Bible study, and fellowship with believers nourish the soul." }
-];
-
-var galleryData = [
-  { src:"../images/first-fruits/first3.jpeg", caption:"Medical Camp 2024 — Blood Pressure Screening", tag:"medical-camp" },
-  { src:"../images/church audotorium.jpg", caption:"Nutrition Education Session", tag:"education" },
-  { src:"../images/cm/cm.jpeg", caption:"Community First Aid Training", tag:"training" },
-  { src:"../images/first-fruits/first5.jpeg", caption:"Home Visit — Elderly Care", tag:"outreach" },
-  { src:"../images/ksuda.jpeg", caption:"Health Screening Day — Kisii Town", tag:"medical-camp" },
-  { src:"../images/leaders/Awiti.jpeg", caption:"Hygiene Education — Local School", tag:"education" },
-  { src:"../images/first-fruits/first2.jpeg", caption:"Team Debrief After Outreach", tag:"outreach" },
-  { src:"../images/leaders/robert.jpeg", caption:"University Campus Health Week", tag:"education" },
-  { src:"../images/first-fruits/first3.jpeg", caption:"Natural Remedies Workshop", tag:"training" },
-  { src:"../images/leaders/luky.jpeg", caption:"Medical Camp Opening Prayer", tag:"medical-camp" },
-  { src:"../images/leaders/maroa.jpeg", caption:"BMI Screening Station", tag:"medical-camp" },
-  { src:"../images/leaders/new-zion/new-zion.jpeg", caption:"Nutrition Cooking Demo", tag:"training" }
-];
-
-var videosData = [
-  { id:"cqblhZLdYl0", start:1398, title:"Understanding Natural Remedies", desc:"An overview of evidence-based natural health practices.", tag:"Education", duration:"2:24:24" },
-  { id:"_PZuNSYNdho", title:"NEWSTART: 8 Laws of Health", desc:"A deep-dive into the NEWSTART lifestyle principles.", tag:"NEWSTART", duration:"31:05" },
-  { id:"vKRyv_CyoM4", title:"Hydrotherapy at Home", desc:"Simple water therapy techniques you can use daily.", tag:"Training", duration:"14:47" },
-  { id:"G5o4ym5in_w", title:"Plant-Based Nutrition for Students", desc:"Practical meal planning for university students.", tag:"Nutrition", duration:"22:13" },
-  { id:"pPxIQuw0O_k", title:"Prayer & Healing — A Testimony", desc:"Community members share their healing testimonies.", tag:"Testimony", duration:"28:30" },
-  { id:"R3fEWiXr0Nk", title:"First Aid Essentials", desc:"Life-saving first aid skills everyone should know.", tag:"Training", duration:"19:58" }
-];
-
-// ==================== SEARCH INDEX ====================
-var searchIndex = [];
-function buildSearchIndex() {
-  leadersData.forEach(function(l) {
-    searchIndex.push({ title:l.name, desc:l.role + ' — ' + l.qual, section:'Leaders', icon:'fas fa-user', anchor:'#leaders' });
-  });
-  remediesData.forEach(function(r) {
-    searchIndex.push({ title:r.name, desc:r.description.substring(0,90)+'…', section:'Remedies', icon:'fas fa-leaf', anchor:'#remedies', filter:r.category });
-  });
-  resourcesData.forEach(function(r) {
-    searchIndex.push({ title:r.name, desc:r.pages+' pages • '+r.size, section:'Resources', icon:'fas fa-file-pdf', anchor:'#resources' });
-  });
-  newstartData.forEach(function(n) {
-    searchIndex.push({ title:n.title+' (NEWSTART)', desc:n.short+' — '+n.detail.substring(0,70)+'…', section:'NEWSTART', icon:'fas fa-star', anchor:'#newstart' });
-  });
-  videosData.forEach(function(v, i) {
-    searchIndex.push({ title:v.title, desc:v.desc+' ('+v.tag+')', section:'Videos', icon:'fas fa-play-circle', anchor:'#videos', videoIndex:i });
-  });
-  devotionals.forEach(function(d) {
-    searchIndex.push({ title:d.title+' (Devotional)', desc:d.text.substring(0,90)+'…', section:'Devotional', icon:'fas fa-bible', anchor:'#devotional' });
-  });
-  egwQuotes.forEach(function(q) {
-    searchIndex.push({ title:'EGW Quote — '+q.source, desc:q.text.substring(0,90)+'…', section:'Quotes', icon:'fas fa-quote-left', anchor:'#' });
-  });
-  galleryData.forEach(function(g) {
-    searchIndex.push({ title:g.caption, desc:'Photo — '+g.tag, section:'Gallery', icon:'fas fa-image', anchor:'#gallery' });
-  });
-}
-
-function runGlobalSearch(query) {
-  var resultsEl = document.getElementById('globalSearchResults');
-  if (!query || query.length < 2) { resultsEl.classList.remove('open'); return; }
-  var q = query.toLowerCase();
-  var matches = searchIndex.filter(function(item) {
-    return item.title.toLowerCase().indexOf(q) !== -1 || item.desc.toLowerCase().indexOf(q) !== -1 || item.section.toLowerCase().indexOf(q) !== -1;
-  }).slice(0, 8);
-
-  if (matches.length === 0) {
-    resultsEl.innerHTML = '<div class="sr-empty">No results for "'+query+'". Try a different keyword.</div>';
-  } else {
-    resultsEl.innerHTML = matches.map(function(m) {
-      return '<div class="sr-item" onclick="handleSearchClick(\''+m.anchor+'\',\''+(m.filter||'')+'\',\''+(m.videoIndex!=null?m.videoIndex:'')+'\')">'
-        + '<i class="'+m.icon+' sr-icon"></i>'
-        + '<div><div class="sr-section">'+m.section+'</div><div class="sr-title">'+m.title+'</div><div class="sr-desc">'+m.desc+'</div></div>'
-        + '</div>';
-    }).join('');
-  }
-  resultsEl.classList.add('open');
-}
-
-function handleSearchClick(anchor, filter, videoIndex) {
-  document.getElementById('globalSearchResults').classList.remove('open');
-  document.getElementById('globalSearchInput').value = '';
-  if (videoIndex !== '' && videoIndex !== undefined) {
-    var idx = parseInt(videoIndex, 10);
-    if (!isNaN(idx)) { openVideoModal(idx); return; }
-  }
-  if (filter) {
-    currentFilter = filter;
-    document.querySelectorAll('#filterGroup .filter-btn').forEach(function(b){ b.classList.remove('active'); });
-    var fb = document.querySelector('#filterGroup .filter-btn[data-filter="'+filter+'"]');
-    if (fb) fb.classList.add('active');
-    renderRemedies();
-  }
-  var target = document.querySelector(anchor);
-  if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-}
-
-// ==================== LEADERS ====================
-function loadLeaders() {
-  var el = document.getElementById('leadersGrid'); if (!el) return;
-  el.innerHTML = leadersData.map(function(l) {
-    return '<div class="leader-card">'
-      + '<img src="'+l.photo+'" class="leader-photo" alt="'+l.name+'" loading="lazy">'
-      + '<h4>'+l.name+'</h4>'
-      + '<p style="color:var(--teal);font-weight:600;margin-bottom:.2rem">'+l.role+'</p>'
-      + '<p class="small text-muted" style="margin-bottom:.5rem">'+l.qual+'</p>'
-      + '<span class="'+(l.status==='online'?'status-online':'status-busy')+'">'+(l.status==='online'?'Available':'In Meeting')+'</span><br>'
-      + '<button class="book-btn" onclick="openModal()"><i class="fas fa-calendar" style="margin-right:4px"></i>Book Appointment</button>'
-      + '</div>';
-  }).join('');
-}
-
-// ==================== REMEDIES ====================
-var currentFilter = 'all', currentSearch = '';
-function renderRemedies() {
-  var grid = document.getElementById('remediesGrid'); if (!grid) return;
-  var filtered = remediesData.filter(function(r) {
-    return (currentFilter==='all' || r.category===currentFilter) &&
-           (!currentSearch || r.name.toLowerCase().indexOf(currentSearch)!==-1 || r.description.toLowerCase().indexOf(currentSearch)!==-1);
-  });
-  if (!filtered.length) { grid.innerHTML='<div class="no-results"><i class="fas fa-search" style="font-size:2rem;color:var(--border-light);display:block;margin-bottom:.8rem"></i>No remedies found.</div>'; return; }
-  grid.innerHTML = filtered.map(function(r) {
-    var cat = r.category.charAt(0).toUpperCase()+r.category.slice(1);
-    return '<div class="remedy-item" data-id="'+r.id+'">'
-      + '<div class="remedy-img" style="background-image:url(\''+r.img+'\')">'
-      + '<button class="print-remedy-btn" onclick="event.stopPropagation();printRemedy('+r.id+')"><i class="fas fa-print"></i> Print</button>'
-      + '</div>'
-      + '<div class="remedy-content">'
-      + '<span class="remedy-category">'+cat+'</span>'
-      + '<h3>'+r.name+'</h3>'
-      + '<p>'+r.description+'</p>'
-      + '<a href="https://sciencesensei.com/20-natural-remedies-that-actually-work-backed-by-science/" class="remedy-link" target="_blank" rel="noopener">Learn More <i class="fas fa-arrow-right"></i></a>'
-      + '</div></div>';
-  }).join('');
-  requestAnimationFrame(function() {
-    grid.querySelectorAll('.remedy-item').forEach(function(c,i){ setTimeout(function(){ c.classList.add('visible'); }, i*60); });
-  });
-}
-
-// Print a single remedy card
-function printRemedy(id) {
-  var r = remediesData.find(function(x){ return x.id===id; });
-  if (!r) return;
-  var cat = r.category.charAt(0).toUpperCase()+r.category.slice(1);
-  var win = window.open('','_blank','width=700,height=600');
-  win.document.write('<!DOCTYPE html><html><head><title>'+r.name+'</title>'
-    + '<style>body{font-family:Georgia,serif;max-width:600px;margin:2rem auto;color:#333;}'
-    + 'h1{color:#006B75;margin-bottom:.4rem}img{width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:1rem}'
-    + '.cat{display:inline-block;background:#e0f4f6;color:#006B75;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:.8rem}'
-    + 'p{line-height:1.8;margin-bottom:.8rem}.footer{margin-top:2rem;font-size:.75rem;color:#999;border-top:1px solid #ddd;padding-top:.8rem}'
-    + '@media print{body{margin:.5rem}}</style></head><body>'
-    + '<h1>'+r.name+'</h1>'
-    + '<img src="'+r.img+'" alt="'+r.name+'">'
-    + '<span class="cat">'+cat+'</span>'
-    + '<p>'+r.description+'</p>'
-    + '<p><strong>Disclaimer:</strong> This information is for educational purposes only. Always consult a healthcare professional before use.</p>'
-    + + '<div class="footer">Kisii University SDA Church — Medical Missionary Department &bull; medical</div>'
-
-    );
-  ;
-  win.onload = function() { win.print(); };
-}
-
-// ==================== EGW QUOTES ====================
-var currentQuote = 0, quoteTimer = null;
-function renderQuotes() {
-  var car = document.getElementById('quoteCarousel'), dots = document.getElementById('quoteDots');
-  if (!car||!dots) return;
-  car.innerHTML = egwQuotes.map(function(q,i){ return '<div class="quote-slide'+(i===0?' active':'')+'"><p class="quote-text">&ldquo;'+q.text+'&rdquo;</p><p class="quote-source">— '+q.source+'</p></div>'; }).join('');
-  dots.innerHTML = egwQuotes.map(function(_,i){ return '<button class="quote-dot'+(i===0?' active':'')+'" onclick="goToQuote('+i+')" aria-label="Quote '+(i+1)+'"></button>'; }).join('');
-  quoteTimer = setInterval(function(){ goToQuote((currentQuote+1)%egwQuotes.length); }, 5000);
-}
-function goToQuote(i) {
-  var slides = document.querySelectorAll('.quote-slide'), dots = document.querySelectorAll('.quote-dot');
-  slides[currentQuote].classList.remove('active'); dots[currentQuote].classList.remove('active');
-  currentQuote = i;
-  slides[i].classList.add('active'); dots[i].classList.add('active');
-  clearInterval(quoteTimer); quoteTimer = setInterval(function(){ goToQuote((currentQuote+1)%egwQuotes.length); }, 5000);
-}
-
-// ==================== DEVOTIONAL ====================
-var currentDev = 0;
-var monthMap = { january:0,february:1,march:2,april:3,may:4,june:5,july:6,august:7,september:8,october:9,november:10,december:11 };
-
-function getCurrentDevotionalIndex() {
-  var now = new Date();
-  now.setHours(0, 0, 0, 0);
-  for (var i = 0; i < devotionals.length; i++) {
-    var match = devotionals[i].week.match(/(\w+)\s+(\d+)[–-](\d+),\s*(\d+)/);
-    if (!match) continue;
-    var month = monthMap[match[1].toLowerCase()];
-    if (month === undefined) continue;
-    var start = new Date(+match[4], month, +match[2]);
-    var end = new Date(+match[4], month, +match[3]);
-    if (now >= start && now <= end) return i;
-  }
-  return 0;
-}
-
-function renderDevotional() {
-  var body = document.getElementById('devotionalBody'); if (!body) return;
-  var d = devotionals[currentDev];
-  body.innerHTML = '<div class="devotional-meta">'
-    + '<span class="dev-badge"><i class="fas fa-calendar" style="margin-right:4px"></i>'+d.week+'</span>'
-    + '<span class="dev-date">Week '+(currentDev+1)+' of '+devotionals.length+'</span></div>'
-    + '<h3>'+d.title+'</h3>'
-    + '<div class="devotional-verse">'+d.verse+'</div>'
-    + '<p class="devotional-text">'+d.text+'</p>'
-    + '<p style="background:var(--cream);padding:.6rem 1rem;border-radius:8px;font-size:.88rem;color:var(--teal-dark);margin-bottom:1rem"><strong>✅ '+d.action+'</strong></p>'
-    + '<div class="dev-nav">'
-    + (currentDev<devotionals.length-1?'<button class="dev-nav-btn" onclick="changeDevotional(1)"><i class="fas fa-arrow-left" style="margin-right:4px"></i>Previous Week</button>':'')
-    + (currentDev>0?'<button class="dev-nav-btn" onclick="changeDevotional(-1)">Next Week <i class="fas fa-arrow-right" style="margin-left:4px"></i></button>':'')
-    + '<button class="print-dev-btn" onclick="printDevotional()"><i class="fas fa-print" style="margin-right:4px"></i>Print</button>'
-    + '</div>';
-}
-function changeDevotional(dir) {
-  var next = currentDev + dir;
-  if (next>=0 && next<devotionals.length) { currentDev=next; renderDevotional(); }
-}
-function printDevotional() {
-  var d = devotionals[currentDev];
-  var win = window.open('','_blank','width=700,height=700');
-  win.document.write('<!DOCTYPE html><html><head><title>'+d.title+'</title>'
-    + '<style>body{font-family:Georgia,serif;max-width:620px;margin:2rem auto;color:#333}'
-    + 'h1{color:#004950;font-size:1.8rem;margin-bottom:.5rem}'
-    + '.verse{background:#f9f5f0;border-left:4px solid #006B75;padding:.8rem 1rem;margin:1rem 0;font-style:italic}'
-    + '.meta{font-size:.8rem;color:#666;margin-bottom:1rem}'
-    + 'p{line-height:1.9;margin-bottom:.8rem}'
-    + '.action{background:#e0f4f6;padding:.6rem 1rem;border-radius:6px;font-size:.88rem}'
-    + '.footer{margin-top:2rem;font-size:.72rem;color:#aaa;border-top:1px solid #eee;padding-top:.6rem}'
-    + '@media print{body{margin:.5rem}}</style></head><body>'
-    + '<div class="meta">Week of '+d.week+' &bull; Medical Missionary Department, Kisii University SDA Church</div>'
-    + '<h1>'+d.title+'</h1>'
-    + '<div class="verse">'+d.verse+'</div>'
-    + '<p>'+d.text+'</p>'
-    + '<div class="action"><strong>Challenge:</strong> '+d.action+'</div>'
-    + + '<div class="footer">Kisii University SDA Church — Medical Missionary Department &bull; medical</div>'
-    );
- 
-  win.onload = function() { win.print(); };
-}
-
-// ==================== NEWSTART ====================
-function renderNewstart() {
-  var grid = document.getElementById('newstartGrid'); if (!grid) return;
-  grid.innerHTML = newstartData.map(function(n,i) {
-    return '<div class="ns-card" id="ns-'+i+'">'
-      + '<span class="ns-letter">'+n.letter+'</span>'
-      + '<span class="ns-icon">'+n.emoji+'</span>'
-      + '<h3>'+n.title+'</h3>'
-      + '<p>'+n.short+'</p>'
-      + '<div class="ns-expand">'+n.detail+'</div>'
-      + '<span class="ns-toggle" onclick="toggleNs('+i+')">Read more ▾</span>'
-      + '</div>';
-  }).join('');
-}
-function toggleNs(i) {
-  var card = document.getElementById('ns-'+i);
-  var open = card.classList.toggle('open');
-  card.querySelector('.ns-toggle').textContent = open ? 'Show less ▴' : 'Read more ▾';
-}
-
-// ==================== GALLERY ====================
-var galleryFilter = 'all', galleryVisible = 6;
-function renderGallery() {
-  var grid = document.getElementById('galleryGrid'); if (!grid) return;
-  var filtered = galleryData.filter(function(g){ return galleryFilter==='all'||g.tag===galleryFilter; });
-  var visible = filtered.slice(0, galleryVisible);
-  grid.innerHTML = visible.map(function(g,i) {
-    var realIdx = galleryData.indexOf(g);
-    return '<div class="gallery-item" onclick="openLightbox('+realIdx+')">'
-      + '<img src="'+g.src+'" alt="'+g.caption+'" loading="lazy">'
-      + '<div class="gallery-overlay"><i class="fas fa-search-plus"></i><p>'+g.caption+'</p></div>'
-      + '</div>';
-  }).join('');
-  var btn = document.getElementById('loadMoreBtn');
-  if (btn) btn.style.display = visible.length>=filtered.length ? 'none' : 'inline-flex';
-}
-function renderGalleryControls() {
-  var el = document.getElementById('galleryControls'); if (!el) return;
-  var tags = ['all','medical-camp','education','training','outreach'];
-  var labels = { all:'All Photos', 'medical-camp':'Medical Camps', education:'Education', training:'Training', outreach:'Outreach' };
-  el.innerHTML = tags.map(function(t) {
-    return '<button class="filter-btn'+(t==='all'?' active':'')+'" onclick="setGalleryFilter(\''+t+'\')">'+labels[t]+'</button>';
-  }).join('');
-}
-function setGalleryFilter(tag) {
-  galleryFilter = tag; galleryVisible = 6;
-  document.querySelectorAll('#galleryControls .filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  var active = document.querySelector('#galleryControls .filter-btn[onclick*="\''+tag+'\'"]');
-  if (active) active.classList.add('active');
-  renderGallery();
-}
-function loadMorePhotos() { galleryVisible += 6; renderGallery(); }
-
-// Lightbox
-var lightboxIndex = 0;
-function openLightbox(i) {
-  lightboxIndex = i;
-  var img = document.getElementById('lightboxImg'), cap = document.getElementById('lightboxCaption');
-  img.src = galleryData[i].src; img.alt = galleryData[i].caption;
-  cap.textContent = galleryData[i].caption;
-  document.getElementById('lightboxOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightboxOverlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-function lightboxNav(dir) {
-  lightboxIndex = (lightboxIndex + dir + galleryData.length) % galleryData.length;
-  var img = document.getElementById('lightboxImg'), cap = document.getElementById('lightboxCaption');
-  img.src = galleryData[lightboxIndex].src; img.alt = galleryData[lightboxIndex].caption;
-  cap.textContent = galleryData[lightboxIndex].caption;
-}
-
-// ==================== VIDEOS ====================
-function getYoutubeEmbedUrl(video) {
-  var id = typeof video === 'string' ? video : video.id;
-  var start = typeof video === 'object' && video.start ? video.start : 0;
-  return 'https://www.youtube.com/embed/' + id + (start ? '?start=' + start + '&autoplay=1' : '?autoplay=1');
-}
-
-function renderVideos() {
-  var grid = document.getElementById('videoGrid'); if (!grid) return;
-  grid.innerHTML = videosData.map(function(v, i) {
-    return '<div class="video-card" onclick="openVideoModal('+i+')">'
-      + '<div class="video-thumb">'
-      + '<img src="https://img.youtube.com/vi/'+v.id+'/mqdefault.jpg" alt="'+v.title+'" loading="lazy">'
-      + '<div class="play-overlay"><div class="play-btn-icon"><i class="fas fa-play"></i></div></div>'
-      + '<span class="video-duration">'+v.duration+'</span>'
-      + '</div>'
-      + '<div class="video-info"><h4>'+v.title+'</h4><p>'+v.desc+'</p><span class="video-tag">'+v.tag+'</span></div>'
-      + '</div>';
-  }).join('');
-}
-function openVideoModal(videoRef) {
-  var video = typeof videoRef === 'number' ? videosData[videoRef] : videosData.find(function(v){ return v.id === videoRef; }) || { id: videoRef };
-  document.getElementById('videoModalFrame').src = getYoutubeEmbedUrl(video);
-  document.getElementById('videoModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeVideoModal() {
-  document.getElementById('videoModalFrame').src = '';
-  document.getElementById('videoModal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// ==================== RESOURCES ====================
-function loadResources() {
-  var grid = document.getElementById('resourcesGrid'); if (!grid) return;
-  grid.innerHTML = resourcesData.map(function(r) {
-    return '<div class="resource-card">'
-      + '<i class="'+r.icon+'"></i>'
-      + '<div class="resource-info"><h4>'+r.name+'</h4>'
-      + '<span class="small">'+r.pages+' pages &bull; '+r.size+'</span>'
-      + '<br><button class="download-btn" onclick="downloadResource(\''+r.filename+'\',\''+r.name+'\')"><i class="fas fa-download" style="margin-right:5px"></i>Download PDF</button>'
-      + '</div></div>';
-  }).join('');
-}
-function downloadResource(filename, name) {
-  var a = document.createElement('a'); a.href = '../resources/'+filename; a.download = filename; a.target = '_blank';
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-}
-
-// ==================== COUNTDOWN ====================
-function updateCountdown() {
-  var next = new Date(2026,7,25,8,0,0), now = new Date(), diff = next - now;
-  if (diff<=0) {
-    ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el) el.textContent = '—';
-    });
-    var daysEl = document.getElementById('cd-days');
-    if (daysEl) daysEl.textContent = 'Live';
-    var label = document.querySelector('.countdown-section > p');
-    if (label) label.textContent = 'Community Health Outreach is underway — join us today!';
-    return;
-  }
-  function pad(n){ return n<10?'0'+n:''+n; }
-  var d=document.getElementById('cd-days'),h=document.getElementById('cd-hours'),m=document.getElementById('cd-minutes'),s=document.getElementById('cd-seconds');
-  if(d) d.textContent=pad(Math.floor(diff/86400000));
-  if(h) h.textContent=pad(Math.floor((diff%86400000)/3600000));
-  if(m) m.textContent=pad(Math.floor((diff%3600000)/60000));
-  if(s) s.textContent=pad(Math.floor((diff%60000)/1000));
-}
-
-// ==================== MODAL ====================
-function openModal() {
-  document.getElementById('formView').style.display='block';
-  document.getElementById('successView').style.display='none';
-  document.getElementById('appointmentModal').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeModal() {
-  document.getElementById('appointmentModal').classList.remove('active');
-  document.body.style.overflow='';
-}
-function submitAppointment() {
-  var n=document.getElementById('fullName').value.trim(), p=document.getElementById('phone').value.trim();
-  var em=document.getElementById('email').value.trim();
-  var type=document.getElementById('consultationType').value;
-  var date=document.getElementById('preferredDate').value;
-  var notes=document.getElementById('notes').value.trim();
-  if(!n||!p){ alert('Please fill in your name and phone number.'); return; }
-  var msg = 'Hello Medical Missionary Department,\n\n'
-    + 'I would like to book a consultation.\n\n'
-    + 'Name: ' + n + '\n'
-    + 'Phone: ' + p + '\n'
-    + (em ? 'Email: ' + em + '\n' : '')
-    + 'Type: ' + type + '\n'
-    + (date ? 'Preferred Date: ' + date + '\n' : '')
-    + (notes ? 'Notes: ' + notes : '');
-  window.open('https://wa.me/254791302316?text=' + encodeURIComponent(msg), '_blank');
-  document.getElementById('formView').style.display='none';
-  document.getElementById('successView').style.display='block';
-  ['fullName','phone','email','notes','preferredDate'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; });
-}
-
-// ==================== FAQ ====================
-function toggleFaq(btn) {
-  var item = btn.parentElement, isActive = item.classList.contains('active');
-  document.querySelectorAll('.faq-item').forEach(function(el){
-    el.classList.remove('active');
-    var ic=el.querySelector('.faq-icon'), b=el.querySelector('.faq-question');
-    if(ic) ic.textContent='+'; if(b) b.setAttribute('aria-expanded','false');
-  });
-  if(!isActive) { item.classList.add('active'); btn.querySelector('.faq-icon').textContent='−'; btn.setAttribute('aria-expanded','true'); }
-}
-
-// ==================== MISC ====================
-function closeDisclaimer() {
-  var b=document.getElementById('disclaimerBanner'); if(b) b.style.display='none';
-  try{ localStorage.setItem('disclaimerClosed','true'); }catch(e){}
-}
-function subscribeNewsletter() {
-  var inp=document.getElementById('newsletterEmail'), suc=document.getElementById('newsletterSuccess');
-  if(!inp||!inp.value.includes('@')){ if(inp){ inp.style.outline='2px solid red'; inp.focus(); } return; }
-  inp.style.outline=''; inp.value='';
-  if(suc) suc.style.display='block';
-}
-
-// ==================== INIT ====================
-document.addEventListener('DOMContentLoaded', function() {
-  // Render all sections
-  currentDev = getCurrentDevotionalIndex();
-  loadLeaders();
-  renderRemedies();
-  loadResources();
-  renderQuotes();
-  renderDevotional();
-  renderNewstart();
-  renderVideos();
-  renderGallery();
-  renderGalleryControls();
-  buildSearchIndex();
-
-  // Countdown
-  updateCountdown(); setInterval(updateCountdown, 1000);
-
-  // Remedy filter buttons
-  document.querySelectorAll('#filterGroup .filter-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('#filterGroup .filter-btn').forEach(function(b){ b.classList.remove('active'); });
-      this.classList.add('active');
-      currentFilter = this.getAttribute('data-filter');
-      renderRemedies();
-    });
-  });
-
-  // Remedy search
-  var rs = document.getElementById('remedySearch');
-  if(rs) rs.addEventListener('input', function(){ currentSearch=this.value.toLowerCase().trim(); renderRemedies(); });
-
-  // Global search
-  var gs = document.getElementById('globalSearchInput');
-  if(gs) {
-    gs.addEventListener('input', function(){ runGlobalSearch(this.value.trim()); });
-    gs.addEventListener('keydown', function(e){ if(e.key==='Escape'){ this.value=''; document.getElementById('globalSearchResults').classList.remove('open'); } });
-    document.addEventListener('click', function(e){ if(!e.target.closest('.global-search-wrap')){ document.getElementById('globalSearchResults').classList.remove('open'); } });
-  }
-
-  // Modal close on backdrop / Escape
-  document.getElementById('appointmentModal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
-  document.getElementById('lightboxOverlay').addEventListener('click', function(e){ if(e.target===this) closeLightbox(); });
-  document.getElementById('videoModal').addEventListener('click', function(e){ if(e.target===this) closeVideoModal(); });
-  document.addEventListener('keydown', function(e){
-    if(e.key==='Escape'){
-      closeModal(); closeLightbox(); closeVideoModal();
-      document.getElementById('globalSearchResults').classList.remove('open');
-    }
-  });
-
-  // Lightbox keyboard nav
-  document.addEventListener('keydown', function(e){
-    if(!document.getElementById('lightboxOverlay').classList.contains('active')) return;
-    if(e.key==='ArrowLeft') lightboxNav(-1);
-    if(e.key==='ArrowRight') lightboxNav(1);
-  });
-
-  // Back to top
-  window.addEventListener('scroll', function(){
-    var btn=document.getElementById('backToTop');
-    if(btn){ if(window.scrollY>400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-  }, {passive:true});
-
-  // Disclaimer
-  var shown=false; try{ shown=localStorage.getItem('disclaimerClosed')==='true'; }catch(e){}
-  if(!shown){ var db=document.getElementById('disclaimerBanner'); if(db) db.style.display='flex'; }
-});
-</script>
-<script src="../js/main.js"></script>
+                // Close mobile menu when clicking a link
+                document.querySelectorAll('#navMenu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+            }
+            
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // Filter functionality for remedies
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const remedyItems = [];
+            
+            // Sample remedy data (100+ remedies as requested)
+            const remediesData = [
+                { id: 1, name: "Ginger Tea for Digestion", category: "digestive", description: "Ginger tea aids digestion by stimulating digestive enzymes, improving stomach emptying, and reducing bloating and gas. It helps relieve nausea and stomach cramps while supporting smooth movement of food through the digestive tract. Its anti-inflammatory properties also help soothe mild digestive discomfort.", img: "https://unsplash.com/photos/vmE4S1_5kYU/download?force=true" },
+                { id: 2, name: "Honey Lemon Cough Syrup", category: "respiratory", description: "(i).Honey coats and calms irritated throat tissues, reduces coughing, and has mild antibacterial properties.<br>(ii).Lemon provides vitamin C, supports the immune system, and helps loosen mucus.<br>Together, they help reduce throat irritation, ease dry cough, and support the body's natural recovery process.", img: "https://images.unsplash.com/photo-1712056407267-1a38c7024a8f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvbmV5JTIwbGVtb258ZW58MHx8MHx8fDA%3D" },
+                { id: 3, name: "Echinacea Immune Boost", category: "immune", description: "<strong>&bull;</strong> Stimulates white blood cells that help  fight infections.<br>• Strengthens immune system<br>• May shorten cold duration<br>• Antioxidant and anti-inflammatory properties<br>• Supports recovery from mild infections", img: "https://images.unsplash.com/photo-1698493249620-08e456bec714?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RWNoaW5hY2VhfGVufDB8fDB8fHww" },
+                { id: 4, name: "Diseases & Conditions Aloe Vera May Help With ", category: "skin", description: "• Minor burns and sunburn<br>• Wounds and cuts<br>• Skin infections and acne <br>• Constipation <br>• Mouth ulcers and gum inflammation<br><br>⚠️ Notice: Aloe vera supports healing but cannot cure serious diseases. Use under medical guidance.", img: "https://media.istockphoto.com/id/1475314230/photo/aloe-vera-plant.webp?a=1&b=1&s=612x612&w=0&k=20&c=plakNtDKeik0IXwlbzsS7ADWEjGY1PWv3fURKAhJziM=" },
+                { id: 5, name: "Cayenne Benefits", category: "stress", description: "<ul><li>Cayenne pepper contains capsaicin, which may help reduce pain and inflammation.</li><li>It can also improve circulation and support immune function.</li><li> Aids digestion - Stimulates production of digestive enzymes and gastric juices, improving nutrient absorption.</li></ul><br><br>⚠️ Notice: Use in moderation; excessive intake may irritate the gastrointestinal tract or worsen acid reflux.", img: "https://plus.unsplash.com/premium_photo-1723759268094-df26a0e6757c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2F5ZW5uZXxlbnwwfHwwfHx8MA%3D%3D" },
+                { id: 6, name: "Peppermint for Headaches", category: "stress", description: "<strong>Peppermint</strong> oil applied to temples can alleviate tension headaches.Its cooling properties help relax muscles and reduce stress-related tension in the head and neck area.its compound such as <span style='color: #1e3c72;'>menthol</span> has analgesic and anti-inflammatory properties.Consider using 2-3 drops of peppermint oil on temples for 10-15 minutes.", img: "https://media.istockphoto.com/id/2150430113/photo/peppermint-essential-aromatherapy-oil-on-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=eD0NOxwaH9qF5fXkMv4wedRXrG-YBDzG71mtrddN6eA=" },
+                { id: 7, name: "Turmeric Anti-inflammatory", category: "immune", description: "<strong>Turmeric</strong> contains curcumin, a powerful anti-inflammatory compound that may help reduce inflammation and pain.<br>• May improve joint health<br>• Supports immune function<br>• Antioxidant properties<br>• May help with digestive issues.<br><br>⚠️ Notice: Turmeric may interact with certain medications such as<span style='color: #1e3c72;'> blood thinners and antidiabetic drugs such as <span style='color: #1e3c72;'>insulin</span>. Consult a healthcare provider before use.", img: "https://media.istockphoto.com/id/965503302/photo/turmeric-powder-and-roots.webp?a=1&b=1&s=612x612&w=0&k=20&c=qPvZkqSeowmUFeAS2CsHp9o68LbAH51zSZfbN4TDoT8=" },
+                { id: 8, name: "Chamomile Eye Compress", category: "skin", description: "<strong>Chamomile</strong> tea bags reduce puffiness and dark circles around eyes.Its compounds such as <span style='color: #1e3c72;'>chamomile flavonoids and terpenoids</span> have anti-inflammatory and antioxidant properties that soothe irritated skin.", img: "https://media.istockphoto.com/id/2155459786/photo/chamomile-lemon-balm-and-elderberry-herbal-tea-in-a-glass-cup-with-essential-oil-in-a-bottle.webp?a=1&b=1&s=612x612&w=0&k=20&c=gypZljCZAJ868B8pHpOBMnwijWZmQR-tzjLP869bu_M=" },
+                { id: 9, name: "Garlic Ear Infection Remedy", category: "respiratory", description: "<strong>Garlic</strong> oil drops can help fight ear infections naturally.It also has antimicrobial properties that may help reduce pain and swelling. Its compounds such as <span style='color: #1e3c72;'>allicin and ajoene</span> are known for their antifungal and antibacterial effects.You can consider using 2-3 drops of garlic oil in each ear twice daily for 3-5 days.Also, you can apply it on wounds or irritated skin.", img: "https://media.istockphoto.com/id/1250580614/photo/garlic-oil.webp?a=1&b=1&s=612x612&w=0&k=20&c=bcHmI5h2O7fOp6Pa2aWWAo4r-Z3te-doS_KG3yVpNvE=" },
+                { id: 10, name: "Cinnamon Blood Sugar Control", category: "digestive", description: "<strong>Cinnamon</strong> helps regulate blood sugar levels when consumed regularly.Its compunds such as <span style='color: #1e3c72;'>cinnamaldehyde and cinnamate</span> have been shown to improve insulin sensitivity and reduce glucose absorption.<strong>How to use:</strong> Add 1/2 tsp cinnamon to your daily meals.Do this for 2-3 weeks for best results.", img: "https://media.istockphoto.com/id/2154552520/photo/cinnamon-sticks-and-powder.webp?a=1&b=1&s=612x612&w=0&k=20&c=yDBVByQOUj-mjqr6_lYhDF-tauibjt_JuCvWzqisQFU=" },
+                { id: 11, name: "Rosemary Memory Boost", category: "stress", description: "<strong>Rosemary</strong> may improve memory and concentration through its aromatic compounds.It also has antioxidant properties that may help protect brain cells.If you feel stressed or fatigued, try inhaling rosemary essential oil or using it in a diffuser.<strong>How to use:</strong> Inhale directly from a rosemary essential oil bottle or diffuse it in a room.Do this for 10-15 minutes daily for best results.", img: "https://media.istockphoto.com/id/518645615/photo/thick-bush-of-rosemary.webp?a=1&b=1&s=612x612&w=0&k=20&c=KE-0bcIivqSx7DotWfRVzDZdXuPw87InNuf7dH9NW9U=" },
+                { id: 12, name: "Apple Cider Vinegar Tonic", category: "digestive", description: "Benefits include aiding digestion, supporting weight management, and balancing blood sugar levels.It also helps reduce cholesterol and supports liver function.<strong>How to use </strong>1 tsp ACV in 1 cup warm water, taken before meals.Do this for 1-2 weeks for best results.", img: "https://media.istockphoto.com/id/1178300662/photo/apple-cider.webp?a=1&b=1&s=612x612&w=0&k=20&c=fA8nFB15LT3yHnu6KjdQgN_ywbHyugr4hSre1YtAHyY=" }
+            ];
+            
+            // Generate remedy items
+            const remediesGrid = document.getElementById('remediesGrid');
+            
+            function generateRemedyItems(remedies) {
+                remediesGrid.innerHTML = '';
+                
+                remedies.forEach(remedy => {
+                    const remedyItem = document.createElement('div');
+                    remedyItem.className = `remedy-item fade-in ${remedy.category}`;
+                    remedyItem.setAttribute('data-category', remedy.category);
+                    
+                    remedyItem.innerHTML = `
+                        <div class="remedy-img lazy-load" data-bg="${remedy.img}" style="background-image: url('${remedy.img}')"></div>
+                        <div class="remedy-content">
+                            <span class="remedy-category">${remedy.category.charAt(0).toUpperCase() + remedy.category.slice(1)}</span>
+                            <h3>${remedy.name}</h3>
+                            <p>${remedy.description}</p>
+                            <a href="https://sciencesensei.com/20-natural-remedies-that-actually-work-backed-by-science/" class="remedy-link">View Remedy <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    `;
+                    
+                    remediesGrid.appendChild(remedyItem);
+                    remedyItems.push(remedyItem);
+                });
+                
+                // Initialize lazy loading for images
+                initLazyLoading();
+                // Re-initialize fade-in observer for new elements
+                document.querySelectorAll('.remedy-item').forEach(el => observer.observe(el));
+            }
+            
+            // Initialize with all remedies
+            generateRemedyItems(remediesData);
+    
+            // Filter button functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'all') {
+                        generateRemedyItems(remediesData);
+                    } else {
+                        const filteredRemedies = remediesData.filter(remedy => remedy.category === filter);
+                        generateRemedyItems(filteredRemedies);
+                    }
+                });
+            });
+            
+            // Footer category links
+            document.querySelectorAll('.footer-col a[data-filter]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Find and click the corresponding filter button
+                    document.querySelector(`.filter-btn[data-filter="${filter}"]`).click();
+                    
+                    // Scroll to remedies section
+                    document.getElementById('remedies').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Lazy loading for images
+            function initLazyLoading() {
+                const lazyImages = document.querySelectorAll('.lazy-load');
+                
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.hasAttribute('data-bg')) {
+                                img.style.backgroundImage = `url('${img.getAttribute('data-bg')}')`;
+                            }
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // FAQ Toggle Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Toggle current item
+                    if (!wasActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
+<script>
+// Medical Missionary Leaders Data
+const medicalMissionaryLeaders = [
+    {
+        id: 1,
+        name: "Moffat Omondi",
+        role: "Head of Department",
+        qualification: "Manage and Co-ordinate the Department",
+        photo: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face",
+        social: {
+            facebook: "https://facebook.com/drkariuki",
+            email: "dr.kariuki@kisiisda.ac.ke"
+        }
+    },
+    {
+        id: 2,
+        name: "Ruth Kemunto",
+        role: "MM Secretary",
+        qualification: "Write and read minutes of the department meetings",
+        photo: "image/video/visit.jpg",
+        social: {
+            facebook: "https://facebook.com/drgrace",
+            email: "g.wanjiku@kisiisda.ac.ke"
+        }
+    },
+    {
+        id: 3,
+        name: "John Katana",
+        role: "MM Deacon",
+        qualification: "Manage remedies and equipments",
+        photo: "image/victor.jpg",
+        social: {
+            facebook: "https://facebook.com/dromondi",
+            email: "p.katana@kisiisda.ac.ke"
+        }
+    },
+    {
+        id: 4,
+        name: "Caleb Ombiro",
+        role: "Health Education Specialist",
+        qualification: "KSUSDA MM Patron",
+        photo: "image/church audotorium.jpg",
+        social: {
+            facebook: "https://facebook.com/drsarah",
+            email: "s.muthoni@kisiisda.ac.ke"
+        }
+    }
+];
+
+// Function to load medical missionary leaders
+function loadMedicalMissionaryLeaders() {
+    const medicalLeadersContainer = document.getElementById('medicalLeadersContainer');
+    
+    medicalMissionaryLeaders.forEach(leader => {
+        const card = document.createElement('div');
+        card.className = 'medical-leader-card';
+        card.innerHTML = `
+            <img src="${leader.photo}" alt="${leader.name}" class="medical-leader-photo">
+            <h4 class="medical-leader-name">${leader.name}</h4>
+            <p class="medical-leader-role">${leader.role}</p>
+            <p class="medical-qualification">${leader.qualification}</p>
+           
+        
+            <div class="medical-leader-social">
+                <a href="${leader.social.facebook}" target="_blank" rel="noopener noreferrer" 
+                   title="Connect with ${leader.name} on Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:${leader.social.email}" title="Email ${leader.name}">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" title="Medical Profile" class="medical-profile">
+                    <i class="fas fa-stethoscope"></i>
+                </a>
+            </div>
+        `;
+        medicalLeadersContainer.appendChild(card);
+    });
+}
+
+// Update your existing DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing initialization code...
+    
+    // Add this line to load medical missionary leaders
+    loadMedicalMissionaryLeaders();
+    
+    // Your existing setupEventListeners() call...
+
+
+    window.addEventListener('load',()=>{
+        alert("This webpage is for educational purposes only. Consult a healthcare professional or MM Leader before trying any remedy.");
+        
+    });
+});
+
+//back to top functionality
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+//show/hide back to top
+window.addEventListener('scroll',()=>{
+    if(window.pageYOffset > 300){
+        backToTopBtn.classList.add('show');
+        backToTopBtn.classList.remove('hide');
+    }else{
+       backToTopBtn.classList.remove('show');
+       backToTopBtn.classList.add('hide');
+    }
+});
+//smooth scroll to top
+backToTopBtn.addEventListener('click',()=>{
+window.scrollTo({
+    top:0,
+    behavior:'smooth'
+
+});
+});
+
+</script>
+<!-- Optional: Smart loading script for even better performance -->
+<script>
+(function() {
+    // Check if on mobile or slow connection
+    function shouldLoadVideo() {
+        // Don't load video on mobile
+        if (window.innerWidth <= 768) {
+            return false;
+        }
+        
+        // Check for slow connection (if Network Information API is supported)
+        if (navigator.connection && navigator.connection.saveData) {
+            return false; // User has data saver enabled
+        }
+        
+        if (navigator.connection && navigator.connection.effectiveType) {
+            const slowTypes = ['slow-2g', '2g'];
+            if (slowTypes.includes(navigator.connection.effectiveType)) {
+                return false; // Connection is too slow
+            }
+        }
+        
+        return true;
+    }
+    
+    // Lazy load video only if needed
+    const videoElement = document.querySelector('.hero-bg video');
+    if (videoElement && !shouldLoadVideo()) {
+        // Remove video to save bandwidth
+        videoElement.remove();
+        
+        // Ensure fallback image is visible
+        const fallbackImg = document.querySelector('.hero-bg .mobile-fallback');
+        if (fallbackImg) {
+            fallbackImg.style.display = 'block';
+        }
+    } else if (videoElement) {
+        // Load video for desktop
+        videoElement.load();
+        videoElement.play().catch(e => console.log('Autoplay prevented:', e));
+    }
+})();
+
+
+
+// Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+</script>
+

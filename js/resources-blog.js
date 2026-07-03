@@ -161,10 +161,60 @@
     return div.innerHTML;
   }
 
+  function initEllenWhiteCarousel() {
+    const carousel = document.getElementById('ellenWhiteCarousel');
+    const prevBtn = document.getElementById('prevQuote');
+    const nextBtn = document.getElementById('nextQuote');
+    const quoteCounter = document.getElementById('quoteNumber');
+    const totalQuotes = document.getElementById('totalQuotes');
+
+    if (!carousel || !prevBtn || !nextBtn) return;
+
+    const containers = carousel.querySelectorAll('.quote-container');
+    let currentIndex = 0;
+
+    if (totalQuotes) {
+      totalQuotes.textContent = containers.length;
+    }
+
+    function updateCarousel() {
+      containers.forEach((container, index) => {
+        container.classList.remove('active');
+        if (index === currentIndex) {
+          container.classList.add('active');
+        }
+      });
+
+      if (quoteCounter) {
+        quoteCounter.textContent = currentIndex + 1;
+      }
+    }
+
+    function nextQuote() {
+      currentIndex = (currentIndex + 1) % containers.length;
+      updateCarousel();
+    }
+
+    function prevQuote() {
+      currentIndex = (currentIndex - 1 + containers.length) % containers.length;
+      updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', prevQuote);
+    nextBtn.addEventListener('click', nextQuote);
+
+    // Auto-rotate quotes every 8 seconds
+    setInterval(nextQuote, 8000);
+
+    // Initialize first quote as active
+    updateCarousel();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initLikeButtons();
     initShareButtons();
     initCommentForm();
+    initEllenWhiteCarousel();
     setTimeout(showVerseNotification, 2000);
   });
 })();
