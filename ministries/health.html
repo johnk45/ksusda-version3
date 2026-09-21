@@ -12,171 +12,379 @@
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            color: white;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-        .hero-container{
-            position:relative;
-            z-index:2;
+        /* ========== GLOBAL RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        }
-        .hero-description {
-            font-size:1.1rem;
-            color:rgb(240, 237, 233);
-            text-shadow: 1px #fff;
-        }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0d1b2a;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-        /* Video/Image Background Container */
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+/* ========== HERO SECTION ========== */
+.her {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+}
 
-        /* Video styling */
-        .hero-bg video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+/* ========== BACKGROUND CAROUSEL (SWIPE) ========== */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
 
-        /* Mobile fallback image - hidden by default */
-        .hero-bg .mobile-fallback {
-            display: none;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+.hero-bg .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
 
-        /* Dark overlay for text readability */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+.hero-bg .slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
 
-        /* MOBILE BREAKPOINT: Replace video with image */
-        @media (max-width: 768px) {
-            .hero-bg video {
-                display: none;
-            }
-            
-            .hero-bg .mobile-fallback {
-                display: block;
-            }
-        }
+/* ========== DARK OVERLAY (for text readability) ========== */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
 
-        /* Tablet breakpoint (optional - keep video on tablets) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .hero-bg video {
-                display: block;
-            }
-        }
+/* ========== HERO CONTENT ========== */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1000px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+}
 
-        /* Content container (rest of your styles) */
-        .hero-container {
-            position: relative;
-            z-index: 2;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 2rem 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+.hero-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.4rem;
+  border-radius: 50px;
+  background: rgba(230, 126, 34, 0.2);
+  border: 1px solid rgba(230, 126, 34, 0.5);
+  color: #f5b041;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  animation: fadeInDown 1s ease-out;
+}
 
-        /* Your existing content styles here... */
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-        /* Rest of your CSS remains the same... */
-        @media (max-width: 968px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-        }
+/* ========== HEADLINE WITH ROTATING WORDS ========== */
+.hero-headline {
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.02em;
+  animation: fadeInUp 1.2s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-headline .static-line {
+  display: block;
+  color: #ffffff;
+}
+
+.hero-headline .rotating-line {
+  display: block;
+  margin-top: 0.3em;
+}
+
+/* ========== ROTATOR (rotating words) ========== */
+.rotator {
+  position: relative;
+  display: inline-block;
+  min-width: 320px;
+  height: 1.15em;
+  vertical-align: bottom;
+  text-align: left;
+  overflow: visible;
+}
+
+.rotator .word {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateY(30px) rotateX(40deg);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #e67e22;
+  font-weight: 800;
+  white-space: nowrap;
+  text-shadow: 0 0 40px rgba(230, 126, 34, 0.4),
+               2px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.rotator .word.active {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+  position: relative;
+}
+
+.rotator .word.exit {
+  opacity: 0;
+  transform: translateY(-30px) rotateX(-40deg);
+}
+
+/* ========== HERO DESCRIPTION ========== */
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #e8e4df;
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1.2s ease-out 0.4s both;
+}
+
+/* ========== HERO CTA BUTTONS ========== */
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.2s ease-out 0.6s both;
+}
+
+.btn {
+  display: inline-block;
+  background: #e67e22;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2.4rem;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 12px 28px -8px rgba(230, 126, 34, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(100%);
+}
+
+.btn:hover {
+  background: #d35400;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -8px rgba(230, 126, 34, 0.8);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  box-shadow: 0 8px 24px -8px rgba(255, 255, 255, 0.3);
+}
+
+/* ========== SWIPE INDICATOR DOTS ========== */
+.swipe-dots {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.swipe-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  position: relative;
+}
+
+.swipe-dots .dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.swipe-dots .dot.active {
+  background: #e67e22;
+  width: 32px;
+  border-radius: 6px;
+  box-shadow: 0 0 16px rgba(230, 126, 34, 0.6);
+}
+
+/* ========== SCROLL HINT ========== */
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  z-index: 5;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  animation: bounce 2s infinite;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-hint .arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+/* ========== IMAGE CREDIT ========== */
+.image-credit {
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+  z-index: 5;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  opacity: 0.35;
+  text-transform: uppercase;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .rotator {
+    min-width: 200px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .scroll-hint,
+  .image-credit {
+    display: none;
+  }
+
+  .swipe-dots {
+    bottom: 24px;
+  }
+}
+
+/* Mobile adjustments for rotator */
+@media (max-width: 600px) {
+  .rotator {
+    min-width: 180px;
+    display: inline-block;
+  }
+  .rotator .word {
+    white-space: normal;
+  }
+}
+
+/* ========== PAGE CONTENT BELOW HERO ========== */
+.page-content {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #e67e22;
+}
+
+.page-content p {
+  color: #aab8c5;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
         
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        }
-   
-        .remedy-card {
-            background: var(--light);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition);
-        }
-
-        .remedy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .remedy-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .remedy-info h4 {
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .remedy-info p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
         /* Remedies Section */
         .section-title {
             text-align: center;
@@ -700,6 +908,253 @@
         .lazy-load.loaded {
             opacity: 1;
         }
+
+         /* ========== SECTION BASE ========== */
+    .programs-section {
+      background: #f6f7f9;
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+
+    .programs-section h2 {
+      font-weight: 800;
+      color: #1a2b47;
+    }
+
+    .programs-section .lead-text {
+      color: #6c757d;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ========== SWIPE CAROUSEL WRAPPER ========== */
+    .swipe-carousel {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 0 3.5rem;
+    }
+
+    .swipe-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+      padding: 0 1rem;
+    }
+
+    /* ========== PROGRAM CARD ========== */
+    .program-card {
+      flex: 0 0 calc(33.333% - 1rem);
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.28);
+    }
+
+    /* ========== CARD IMAGE ========== */
+    .card-image {
+      position: relative;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .card-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 65%);
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(230, 126, 34, 0.95);
+      color: #fff;
+      font-size: 1.1rem;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      z-index: 2;
+      box-shadow: 0 6px 16px -6px rgba(230, 126, 34, 0.8);
+    }
+
+    .card-icon-badge {
+      position: absolute;
+      bottom: -26px;
+      right: 22px;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: #e67e22;
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.3);
+      z-index: 3;
+    }
+
+    /* ========== CARD BODY ========== */
+    .card-body-custom {
+      padding: 1.6rem 1.5rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body-custom h5 {
+      font-weight: 700;
+      color: #1a2b47;
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-body-custom p.card-desc {
+      color: #6c757d;
+      font-size: 1rem;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .card-body-custom ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem;
+    }
+
+    .card-body-custom ul li {
+      font-size: 0.87rem;
+      color: #495057;
+      padding: 0.28rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+    }
+
+    .card-body-custom ul li i {
+      color: #27ae60;
+      font-size: 0.85rem;
+      margin-top: 0.22rem;
+      flex-shrink: 0;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 0.9rem;
+      border-top: 1px dashed #e5e8ec;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #1a2b47;
+      background: #eef1f5;
+      padding: 0.35rem 0.75rem;
+      border-radius: 50px;
+    }
+
+    .meta-chip i {
+      color: #e67e22;
+      font-size: 0.7rem;
+    }
+
+    /* ========== SWIPE CONTROLS ========== */
+    .swipe-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .swipe-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: #ffffff;
+      color: #1a2b47;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swipe-btn:hover {
+      background: #e67e22;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .swipe-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .swipe-dots .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #c9cfd6;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .swipe-dots .dot.active {
+      background: #e67e22;
+      width: 28px;
+      border-radius: 6px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 991px) {
+      .program-card {
+        flex: 0 0 calc(50% - 0.75rem);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .program-card {
+        flex: 0 0 88%;
+      }
+      .card-image {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .program-card {
+        flex: 0 0 92%;
+      }
+      .swipe-track {
+        gap: 1rem;
+      }
+    }
 
         /* Medical Missionary Section Specific Styles */
 #medical-missionary {
@@ -1323,6 +1778,7 @@
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 2rem;
       padding: 2rem 0;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     }
     .video-card {
       background: white;
@@ -1552,47 +2008,85 @@
 </nav>
 
 
-       
+        <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="her">
 
-<section class="hero">
-    <!-- Background: Video on desktop, Image on mobile -->
-    <div class="hero-bg">
-        <!-- Desktop Video -->
-        <video autoplay muted loop playsinline class="desktop-video">
-    <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-        
-        <!-- Mobile Fallback Image -->
-        <div class="mobile-fallback" style="background-image: url('https://i.pinimg.com/736x/72/c1/0b/72c10b10ec61319530222bf77075a686.jpg');"></div>
+    <!-- BACKGROUND CAROUSEL (images swipe one after another) -->
+    <div class="hero-bg" id="heroBg">
+      <div class="slide active"
+           style="background-image: url('../images/church\ audotorium.jpg');"
+           aria-label="Medical missionary caring for a patient"></div>
+
+      <div class="slide"
+           style="background-image: url('https://i.pinimg.com/1200x/17/3e/3b/173e3b48af4e86243caf109d1f0812d9.jpg');"
+           aria-label="Medical missionary examining a child"></div>
+
+      <div class="slide"
+           style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEY0PYrFfwGQU-mix_QhxY8keLjavCbnuDyazwYatB8d8BEhrah4aR27q0&s=10');"
+           aria-label="Missionary health worker in community"></div>
+
+      <div class="slide"
+           style="background-image: url('https://msf.or.ke/sites/default/files/styles/hero_desktop/public/images/msb162758_medium.jpg?itok=dafhbz2H');"
+           aria-label="Medical missionary with supplies"></div>
     </div>
-    
-    <!-- Overlay for text contrast -->
+
+    <!-- DARK OVERLAY -->
     <div class="hero-overlay"></div>
-    
-   <div class="hero-container">
+
+    <!-- HERO CONTENT -->
     <div class="hero-content">
-        <h1>Bringing Hope Through <span>Medical Mission</span></h1>
-        
-        <p class="hero-lead">Compassionate care. Restoring health. Serving communities.</p>
-        
-        <p class="hero-description">
-            We provide accessible healthcare, health education, and support to underserved communities. 
-            Through medical outreach and preventive care, we aim to restore dignity, promote healing, and bring hope where it is needed most.
-        </p>
+      <div class="hero-badge">Kisii University Medical Missionary Department</div>
 
-        <div class="hero-btns">
-            <a href="#about-intro" class="btn btn-info">Our Mission <i class="fas fa-arrow-right"></i></a>
-            <a href="#about-intro" class="btn btn-secondary">Get Involved</a>
-        </div>
-    </div>
-    
-    <div class="hero-mockup">
-        <!-- Your imagery or impact visuals here -->
-    </div>
-</div>
-</section>
+      <h1 class="hero-headline">
+        <span class="static-line">We bring</span>
+        <span class="rotating-line">
+          <span class="rotator" id="rotator">
+            <span class="word active">healing.</span>
+            <span class="word">hope.</span>
+            <span class="word">dignity.</span>
+            <span class="word">compassion.</span>
+            <span class="word">restoration.</span>
+          </span>
+        </span>
+      </h1>
 
+      <p class="hero-description">
+        To the forgotten corners of the world. Our medical missionaries serve with skill and love —
+        every image tells a story of healing, every word a promise of hope.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#" class="btn">Join the Mission</a>
+        <a href="#" class="btn btn-outline">Read Their Stories</a>
+      </div>
+    </div>
+
+    <!-- SWIPE INDICATOR DOTS -->
+    <div class="swipe-dots" id="swipeDots"></div>
+
+    <!-- SCROLL HINT -->
+    <div class="scroll-hint">
+      Scroll
+      <span class="arrow"></span>
+    </div>
+
+    <!-- IMAGE CREDIT -->
+    <div class="image-credit">Photos · Unsplash</div>
+
+  </section>
+
+  <!-- ============================================================
+       PAGE CONTENT BELOW (to demonstrate scroll)
+       ============================================================ -->
+  <section class="page-content">
+    <h2>Every Image Tells a Story</h2>
+    <p>
+      From remote villages to urban clinics, our medical missionaries bring healing where it's needed most.
+      The images above cycle to reflect the many faces and places of our mission.
+    </p>
+  </section>
 
 <!-- About Intro -->
 <div class="about">
@@ -1778,72 +2272,126 @@
     <!-- Bootstrap CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<section class="py-5 bg-light">
+<!-- =========================================================
+     PROGRAMS & SERVICES SECTION
+     ========================================================= -->
+<section class="programs-section">
   <div class="container">
-    
+
+    <!-- Header -->
     <div class="text-center mb-5">
-      <h2 class="fw-bold">Our Programs & Services</h2>
-      <p class="text-muted">Comprehensive care and training programs designed to serve and empower communities</p>
+      <h2 class="fw-bold mb-2">Our Programs &amp; Services</h2>
+      <p class="lead-text">
+        Weekly, semesterly, and mission-driven activities that nurture faith, health, and community.
+      </p>
     </div>
 
-    <div class="row g-4">
+    <!-- Swipe carousel -->
+    <div class="swipe-carousel" id="programsCarousel">
+      <div class="swipe-track" id="swipeTrack">
 
-      <!-- Community Health Outreach -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="fw-bold"><i class="fas fa-sterhescope"></i>Community Health Outreach</h5>
-            <p class="text-muted small fs-5">Free medical camps, health screenings, and preventive care in underserved communities</p>
-            <ul class="list-unstyled">
-            <ul class="list-unstyled fs-6">
-  <li><i class="fas fa-check-circle text-success me-2"></i>Teach communities how to take care of their bodies</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Teach how to handle mild infections</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Disease Check-ups</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Supporting communities</li>
-</ul>
-            </ul>
+        <!-- ===== CARD 1 · Midweek Vespers ===== -->
+        <div class="program-card">
+          <div class="card-image"
+               style="background-image: url('https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=900&auto=format&fit=crop');">
+            <span class="card-tag">Weekly</span>
+            <div class="card-icon-badge">
+              <i class="fas fa-church"></i>
+            </div>
+          </div>
+          <div class="card-body-custom">
+            <h5>Midweek Vespers</h5>
+            <p class="card-desc">
+              Join us every Wednesday evening for a peaceful hour of prayer, reflection, and worship.
+              Midweek Vespers is a time to pause, refocus, and renew your spirit in the middle of a busy week.
+            </p>
+            <div class="card-meta">
+              <span class="meta-chip"><i class="fas fa-calendar-day"></i>Every Wednesday</span>
+              <span class="meta-chip"><i class="fas fa-clock"></i>6:00 PM</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Medical Training -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="fw-bold fs-3">Medical Training Programs</h5>
-            <p class="text-muted small fs-5">We conduct comprehensive trainings in every week at the Campus buildings</p>
-                   <ul class="list-unstyled fs-6">
-  <li><i class="fas fa-check-circle text-success me-2"></i>Physiology of the Body</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Blood pressure & diabetes screening</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Health Week</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Medicaly camps</li>
-</ul>
-      
+        <!-- ===== CARD 2 · Camp Meeting ===== -->
+        <div class="program-card">
+          <div class="card-image"
+               style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=900&auto=format&fit=crop');">
+            <span class="card-tag">Semester</span>
+            <div class="card-icon-badge">
+              <i class="fas fa-campground"></i>
+            </div>
+          </div>
+          <div class="card-body-custom">
+            <h5>Camp Meeting</h5>
+            <p class="card-desc">
+              Twice a year, we gather for a semesterly camp meeting filled with inspiring sermons,
+              health seminars, group Bible study, and joyful fellowship in a refreshing camp setting.
+            </p>
+            <div class="card-meta">
+              <span class="meta-chip"><i class="fas fa-calendar-week"></i>Every Semester</span>
+              <span class="meta-chip"><i class="fas fa-location-dot"></i>Camp Grounds</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Lifestyle Medicine -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="fw-bold fs-3">Lifestyle Medicine</h5>
-            <p class="text-muted small fs-5">Promoting the 8 laws of health (NEWSTART) for disease prevention</p>
-                  <ul class="list-unstyled fs-6">
-  <li><i class="fas fa-check-circle text-success me-2"></i>Semesterly health camp</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Blood pressure & diabetes screening</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Health education seminars</li>
-  <li><i class="fas fa-check-circle text-success me-2"></i>Home visits for elderly</li>
-</ul>
-      
+        <!-- ===== CARD 3 · Outreach Programs ===== -->
+        <div class="program-card">
+          <div class="card-image"
+               style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=900&auto=format&fit=crop');">
+            <span class="card-tag">Community</span>
+            <div class="card-icon-badge">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+          </div>
+          <div class="card-body-custom">
+            <h5>Outreach Programs</h5>
+            <p class="card-desc">
+              Our outreach team serves nearby communities through free medical camps, health screenings,
+              food distribution, and practical care — bringing hope and healing where it is needed most.
+            </p>
+            <div class="card-meta">
+              <span class="meta-chip"><i class="fas fa-calendar-check"></i>Monthly</span>
+              <span class="meta-chip"><i class="fas fa-people-group"></i>Volunteers Needed</span>
+            </div>
           </div>
         </div>
+
+        <!-- ===== CARD 4 · Missions ===== -->
+        <div class="program-card">
+          <div class="card-image"
+               style="background-image: url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=900&auto=format&fit=crop');">
+            <span class="card-tag">Global</span>
+            <div class="card-icon-badge">
+              <i class="fas fa-globe-africa"></i>
+            </div>
+          </div>
+          <div class="card-body-custom">
+            <h5>Missions</h5>
+            <p class="card-desc">
+              We train and send missionaries to serve in underserved regions — providing medical care,
+              planting churches, distributing literature, and supporting long-term community development.
+            </p>
+            <div class="card-meta">
+              <span class="meta-chip"><i class="fas fa-plane-departure"></i>Field Service</span>
+              <span class="meta-chip"><i class="fas fa-hands-praying"></i>Support Needed</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      
-    
-
     </div>
+
+    <!-- Swipe controls -->
+    <div class="swipe-controls">
+      <button class="swipe-btn" id="prevBtn" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="swipe-dots" id="swipeDots"></div>
+      <button class="swipe-btn" id="nextBtn" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
   </div>
 </section>
 
@@ -1884,20 +2432,64 @@
     </section>
 
     
-<!-- VIDEOS -->
+<!-- ================= VIDEOS ================= -->
 <section id="videos" class="container">
   <div class="text-center">
     <h2 class="section-title">Health Video Library</h2>
     <p class="section-sub">Watch health education talks, testimonies, and training</p>
   </div>
   <div class="video-grid">
-    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/cqblhZLdYl0/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>Natural Remedies Overview</h4><p>Evidence-based natural health practices.</p></div></div>
-    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/_PZuNSYNdho/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>NEWSTART Lifestyle</h4><p>Deep dive into the 8 laws of health.</p></div></div>
-    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/vKRyv_CyoM4/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>Hydrotherapy at Home</h4><p>Simple water therapy techniques.</p></div></div>
-    <div class="video-card"><div class="video-thumb"><img src="https://img.youtube.com/vi/G5o4ym5in_w/mqdefault.jpg" alt="video"><div class="play-icon"><i class="fas fa-play-circle"></i></div></div><div class="video-info"><h4>Plant-Based Nutrition</h4><p>Meal planning for students.</p></div></div>
+
+    <a href="https://www.youtube.com/watch?v=cqblhZLdYl0" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/cqblhZLdYl0/mqdefault.jpg" alt="Natural Remedies Overview">
+        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+      </div>
+      <div class="video-info">
+        <h4>Natural Remedies Overview</h4>
+        <p>Evidence-based natural health practices.</p>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=_PZuNSYNdho" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/_PZuNSYNdho/mqdefault.jpg" alt="NEWSTART Lifestyle">
+        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+      </div>
+      <div class="video-info">
+        <h4>NEWSTART Lifestyle</h4>
+        <p>Deep dive into the 8 laws of health.</p>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=vKRyv_CyoM4" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/vKRyv_CyoM4/mqdefault.jpg" alt="Hydrotherapy at Home">
+        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+      </div>
+      <div class="video-info">
+        <h4>Hydrotherapy at Home</h4>
+        <p>Simple water therapy techniques.</p>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=G5o4ym5in_w" target="_blank" rel="noopener" class="video-card">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/G5o4ym5in_w/mqdefault.jpg" alt="Plant-Based Nutrition">
+        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+      </div>
+      <div class="video-info">
+        <h4>Plant-Based Nutrition</h4>
+        <p>Meal planning for students.</p>
+      </div>
+    </a>
+
   </div>
+
   <div style="text-align:center; margin: 1.5rem 0;">
-    <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" class="btn-primary"><i class="fab fa-youtube" style="color:#ff3b3b;"></i> Visit YouTube Channel</a>
+    <a href="https://youtu.be/gvDMA7uuheI" target="_blank" rel="noopener" class="btn-primary">
+      <i class="fab fa-youtube" style="color:#ff3b3b;"></i> Visit YouTube Channel
+    </a>
   </div>
 </section>
     
@@ -2062,6 +2654,153 @@
                     });
                 });
             }
+
+            (function () {
+  'use strict';
+
+  /* =========================================================
+     PART 1: IMAGE CAROUSEL (swipe effect)
+     ========================================================= */
+  const slides = document.querySelectorAll('.hero-bg .slide');
+  const dotsContainer = document.getElementById('swipeDots');
+  const totalSlides = slides.length;
+  let currentSlide = 0;
+  let carouselInterval = null;
+  const SWIPE_INTERVAL = 5500; // 5.5 seconds per slide
+
+  // --- Build indicator dots dynamically ---
+  if (dotsContainer) {
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (index === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      dot.dataset.index = index;
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetCarouselTimer();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+
+  // --- Navigate to a specific slide ---
+  function goToSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+
+    currentSlide = index;
+  }
+
+  // --- Advance to next slide ---
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  // --- Start auto-rotation ---
+  function startCarousel() {
+    if (carouselInterval) clearInterval(carouselInterval);
+    carouselInterval = setInterval(nextSlide, SWIPE_INTERVAL);
+  }
+
+  // --- Reset timer ---
+  function resetCarouselTimer() {
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+      startCarousel();
+    }
+  }
+
+  // --- Initialize carousel ---
+  goToSlide(0);
+  startCarousel();
+
+  // --- Pause on hover (desktop UX) ---
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', () => {
+      if (carouselInterval) clearInterval(carouselInterval);
+    });
+    heroSection.addEventListener('mouseleave', startCarousel);
+  }
+
+  // --- Touch swipe support (mobile) ---
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (heroSection) {
+    heroSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    heroSection.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchStartX - touchEndX;
+      const SWIPE_THRESHOLD = 50;
+
+      if (Math.abs(swipeDistance) > SWIPE_THRESHOLD) {
+        if (swipeDistance > 0) {
+          nextSlide();
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+        resetCarouselTimer();
+      }
+    }, { passive: true });
+  }
+
+  /* =========================================================
+     PART 2: ROTATING WORDS
+     ========================================================= */
+  const words = document.querySelectorAll('#rotator .word');
+  const ROTATE_INTERVAL = 2400; // 2.4 seconds per word
+  let currentWordIndex = 0;
+
+  function rotateWord() {
+    const currentWord = words[currentWordIndex];
+    currentWord.classList.remove('active');
+    currentWord.classList.add('exit');
+
+    setTimeout(() => {
+      currentWord.classList.remove('exit');
+    }, 700);
+
+    currentWordIndex = (currentWordIndex + 1) % words.length;
+    const nextWord = words[currentWordIndex];
+    nextWord.classList.add('active');
+  }
+
+  // Start rotation after a slight delay
+  if (words.length > 0) {
+    setTimeout(() => {
+      setInterval(rotateWord, ROTATE_INTERVAL);
+    }, 1800);
+  }
+
+  /* =========================================================
+     PART 3: REDUCED MOTION ACCESSIBILITY
+     ========================================================= */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (prefersReducedMotion.matches) {
+    document.querySelectorAll('.slide').forEach(slide => {
+      slide.style.transition = 'opacity 0.3s ease';
+    });
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+      carouselInterval = setInterval(nextSlide, 8000);
+    }
+  }
+
+})();
             
             // Fade-in animation on scroll
             const fadeElements = document.querySelectorAll('.fade-in');
@@ -2395,5 +3134,208 @@ window.scrollTo({
         }
       });
     });
+    
+    (function () {
+  'use strict';
+
+  const track    = document.getElementById('swipeTrack');
+  const prevBtn  = document.getElementById('prevBtn');
+  const nextBtn  = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('swipeDots');
+  const section  = document.querySelector('.programs-section');
+
+  if (!track) return;
+
+  const originalCards = Array.from(track.querySelectorAll('.program-card'));
+  const TOTAL         = originalCards.length;
+
+  const AUTO_INTERVAL = 3200;   // 3.2s per auto swipe
+  const TRANSITION_MS = 900;    // must match CSS on .swipe-track
+
+  let currentIndex = 0;
+  let autoTimer    = null;
+  let isAnimating  = false;
+  let isPaused     = false;
+
+  /* ---------- How many cards are visible? ---------- */
+  function getVisibleCount() {
+    const w = window.innerWidth;
+    if (w >= 992) return 3;
+    if (w >= 768) return 2;
+    return 1;
+  }
+
+  /* ---------- Build infinite clone track ---------- */
+  function buildTrack() {
+    // Clear existing clones
+    track.querySelectorAll('.program-card.clone').forEach(c => c.remove());
+
+    const visible = getVisibleCount();
+
+    // Prepend clones of the LAST `visible` cards
+    for (let i = 0; i < visible; i++) {
+      const idx = (TOTAL - visible + i + TOTAL) % TOTAL;
+      const clone = originalCards[idx].cloneNode(true);
+      clone.classList.add('clone');
+      clone.setAttribute('aria-hidden', 'true');
+      track.insertBefore(clone, track.firstChild);
+    }
+
+    // Append clones of the FIRST `visible` cards
+    for (let i = 0; i < visible; i++) {
+      const clone = originalCards[i % TOTAL].cloneNode(true);
+      clone.classList.add('clone');
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+  }
+
+  /* ---------- Measure card width + gap ---------- */
+  function getStep() {
+    const firstCard = track.querySelector('.program-card');
+    const cardW = firstCard.getBoundingClientRect().width;
+    const gap   = parseFloat(getComputedStyle(track).gap) || 0;
+    return cardW + gap;
+  }
+
+  /* ---------- Shift the track ---------- */
+  function shiftTo(logicalIndex, animate) {
+    const visible = getVisibleCount();
+    const step    = getStep();
+    const positionInTrack = visible + logicalIndex; // offset by prepended clones
+
+    track.style.transition = animate
+      ? `transform ${TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`
+      : 'none';
+
+    track.style.transform = `translateX(-${positionInTrack * step}px)`;
+  }
+
+  /* ---------- Update dots to reflect active card ---------- */
+  function updateDots() {
+    dotsWrap.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  /* ---------- Move to next ---------- */
+  function nextSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    currentIndex++;
+    shiftTo(currentIndex, true);
+    updateDots();
+
+    // If we've moved past the last real card, silently snap back
+    if (currentIndex >= TOTAL) {
+      setTimeout(() => {
+        currentIndex = 0;
+        shiftTo(currentIndex, false);
+        // Force reflow
+        void track.offsetWidth;
+        isAnimating = false;
+        updateDots();
+      }, TRANSITION_MS);
+    } else {
+      setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
+    }
+  }
+
+  /* ---------- Move to previous ---------- */
+  function prevSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    currentIndex--;
+    shiftTo(currentIndex, true);
+    updateDots();
+
+    // If we've moved before the first real card, snap to the end
+    if (currentIndex < 0) {
+      setTimeout(() => {
+        currentIndex = TOTAL - 1;
+        shiftTo(currentIndex, false);
+        void track.offsetWidth;
+        isAnimating = false;
+        updateDots();
+      }, TRANSITION_MS);
+    } else {
+      setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
+    }
+  }
+
+  /* ---------- Build dots ---------- */
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < TOTAL; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        if (isAnimating) return;
+        currentIndex = i;
+        shiftTo(currentIndex, true);
+        updateDots();
+        restartAuto();
+      });
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  /* ---------- Auto-play timer ---------- */
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      if (!isPaused) nextSlide();
+    }, AUTO_INTERVAL);
+  }
+
+  function stopAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  function restartAuto() {
+    startAuto();
+  }
+
+  /* ---------- Arrows ---------- */
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    restartAuto();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    restartAuto();
+  });
+
+  /* ---------- Pause on hover (desktop) & touch (mobile) ---------- */
+  section.addEventListener('mouseenter', () => { isPaused = true;  });
+  section.addEventListener('mouseleave', () => { isPaused = false; });
+  section.addEventListener('touchstart', () => { isPaused = true;  }, { passive: true });
+  section.addEventListener('touchend',   () => { isPaused = false; }, { passive: true });
+
+  /* ---------- Init & resize ---------- */
+  function init() {
+    buildTrack();
+    buildDots();
+    currentIndex = 0;
+    shiftTo(currentIndex, false);
+    // Force reflow so initial transform is applied
+    void track.offsetWidth;
+    startAuto();
+  }
+
+  window.addEventListener('resize', () => {
+    // Snap the track without animation on resize to avoid visual glitches
+    buildTrack();
+    shiftTo(currentIndex, false);
+  });
+
+  window.addEventListener('load', init);
+  init();
+})();
 </script>
 

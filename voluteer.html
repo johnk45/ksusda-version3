@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-  <title>Serve · KSUSDA Volunteer</title>
+  <title>Serve - KSUSDA Volunteer</title>
   <!-- Bootstrap 5 + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -38,7 +38,7 @@
     .btn-charcoal:hover { background: #424242; transform: scale(1.03); box-shadow: 0 10px 24px rgba(0,0,0,0.15); color: #fff; }
 
     /* hero slider */
-    .hero-slider { height: 80vh; position: relative; overflow: hidden; }
+    .hero-slider { height: 90vh; position: relative; overflow: hidden;margin-top:6rem; }
     .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; background-repeat: no-repeat; }
     .hero-slide.active { opacity: 1; z-index: 2; }
     .hero-slide .overlay { position: absolute; inset: 0; background: rgba(33,33,33,0.45); z-index: 1; }
@@ -350,7 +350,7 @@
   document.getElementById('nextSlide').addEventListener('click', prevSlide); // swapped for direction
   document.getElementById('prevSlide').addEventListener('click', nextSlide);
   dots.forEach((dot, i) => dot.addEventListener('click', () => { current = i; showSlide(current); }));
-  setInterval(nextSlide, 2000);
+  setInterval(nextSlide, 4000);
   showSlide(0);
 
   // Counter animation

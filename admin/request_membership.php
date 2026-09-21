@@ -123,12 +123,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_request'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 40px 0;
-        }
+       
         .request-card {
             max-width: 900px;
             margin: 0 auto;
@@ -165,9 +160,74 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_request'])) {
             content: " *";
             color: red;
         }
+        /* Animated mesh container */
+        .mesh-bg{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:1;
+            filter: blur(140px);
+            opacity:0.75;
+            pointer-events: none;
+        }
+        /*Individual light Orbs */
+        .orb{
+position:absolute;
+border-radius:50%;
+mix-blend-mode:screen;
+        }
+        .orb-1{
+            background: radial-gradient(circle,rgba(230,180,100,0.4) 0%,transparent 70%);
+            width:70vw;
+            height:70vw;
+            top:-10%;
+            right:-10%;
+            animation:drift-one 25s infinite ease-in-out alternate;
+        }
+        .orb-2{
+            background:radial-gradient(circle,rgba(100,180,230,0.4) 0%,transparent 70%);
+            width:80vw;
+            height:80vw;
+            bottom:-20%;
+            left:-10%;
+            animation:drift-two 30s infinite ease-in-out alternate;
+        }
+        .orb-3{
+            background:radial-gradient(circle,rgba(100,230,180,0.4) 0%,transparent 70%);
+            width:60vw;
+            height:60vw;
+            top:-15%;
+            left:-15%;
+            animation:drift-three 35s infinite ease-in-out alternate;
+        }
+        @keyframes drift-one{
+            0%{transform:translate(0,0) rotate(0deg);}
+            50%{transform:translate(-10px,20px) rotate(180deg);}
+            100%{transform:translate(-20px,30px) rotate(360deg);}
+}
+        @keyframes drift-two{
+            0%{transform:translate(0,0) rotate(0deg);}
+            50%{transform:translate(20px,-10px) rotate(180deg);}
+            100%{transform:translate(30px,-20px) rotate(360deg);}
+}
+        @keyframes drift-three{
+            0%{transform:translate(0,0) rotate(0deg);}
+            50%{transform:translate(-15px,15px) rotate(180deg);}
+            100%{transform:translate(-30px,30px) rotate(360deg);}
+}
     </style>
 </head>
 <body>
+
+<!---Ambient mesh background-->
+<div class="mesh-bg">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+</div>
     <div class="request-card">
         <div class="request-header">
             <i class="fas fa-user-plus fa-3x mb-3"></i>

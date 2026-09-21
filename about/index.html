@@ -10,198 +10,420 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <link rel="icon" href="../images/kisiilog.png">
   <style>
-    body{
 
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
 
+.org-about {
+  --org-ink: #153f3f;
+  --org-teal: #0b8585;
+  --org-sun: #efbd4c;
+  --org-coral: #c96f62;
+  --org-paper: #f8f5ed;
+  --org-mist: #e8f0ec;
+  color: var(--org-ink);
+  background: var(--org-paper);
+  overflow: hidden;
+  -font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Noto Sans', 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+body{
+ font-family:var(--font-body);
+}
+.org-about * { box-sizing: border-box; }
+
+.about-hero,
+.breadcrumb,
+.about-stats,
+.about-grid,
+.page-content {
+  display: none;
 }
 
-.about-stats{
-
-padding:90px 8%;
-background:#fff;
-
+.org-hero {
+  position: relative;
+  min-height: 80vh;
+  display: grid;
+  align-items: end;
+  padding: clamp(2.5rem, 5vw, 4rem) max(1.25rem, 8%) 3rem;
+  color: #fff;
+  overflow: hidden;
+  background: #111b1d;
+  isolation: isolate;
 }
 
-.heading{
-
-text-align:center;
-max-width:800px;
-margin:auto;
-
+.org-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.82;
+  background: linear-gradient(90deg, rgba(5, 18, 20, 0.82) 0%, rgba(8, 35, 37, 0.58) 48%, rgba(8, 35, 37, 0.28) 100%), url('../images/ksuda.jpeg') center/cover no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%);
 }
 
-.heading h5{
-
-color:teal;
-letter-spacing:3px;
-
+.org-hero::after {
+  content: '';
+  position: absolute;
+  right: 8%;
+  bottom: 3rem;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid rgba(239, 189, 76, 0.55);
+  border-radius: 50%;
+  z-index: -1;
 }
 
-.heading h2{
-
-font-size:42px;
-color:#333;
-
+.org-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  align-items: end;
+  gap: 4rem;
+  width: min(1180px, 100%);
+  margin: 0 auto;
 }
 
-.heading p{
-
-line-height:1.8;
-color:#666;
-
+.org-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.2rem;
+  color: var(--org-sun);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-.stats{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-margin-top:70px;
-
+.org-eyebrow::before {
+  content: '';
+  width: 2.5rem;
+  height: 2px;
+  background: red;
 }
 
-.stat{
-
-background:#f7f7f7;
-padding:40px;
-border-radius:15px;
-text-align:center;
-transition:.4s;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
+.org-hero h1 {
+  max-width: 760px;
+  margin: 20px;
+  color: #fff;
+  font-size: clamp(1.7rem, 4vw, 2rem);
+  line-height: 0.94;
 }
 
-.stat:hover{
-
-transform:translateY(-10px);
-
+.org-hero-lede {
+  max-width: 620px;
+  margin: 1.8rem 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.75;
 }
 
-.stat h1{
-
-font-size:60px;
-margin:0;
-color:teal;
-display:inline;
-
+.org-hero-note {
+  align-self: end;
+  padding: 1.35rem;
+  border-top: 3px solid var(--org-sun);
+  background: rgba(7, 47, 48, 0.48);
+  backdrop-filter: blur(3px);
 }
 
-.stat span{
-
-font-size:40px;
-color:teal;
-font-weight:bold;
-
+.org-hero-note strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--org-sun);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.stat h4{
-
-margin-top:15px;
-color:#333;
-
+.org-hero-note p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
 }
 
-
-
-.about-grid{
-
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-gap:60px;
-padding:90px 8%;
-
+.org-impact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(1180px, calc(100% - 2.5rem));
+  margin: -2.5rem auto 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 14px 30px rgba(21, 63, 63, 0.12);
 }
 
-.about-grid:nth-child(even){
-
-background:#fafafa;
-
+.org-impact-item {
+  min-height: 100px;
+  padding: 0.6rem;
+  background: #fff;
+  border-right: 1px solid rgba(21, 63, 63, 0.12);
 }
 
-.reverse .about-image{
+.org-impact-item:nth-child(2) { background: var(--org-mist); }
+.org-impact-item:nth-child(3) { background: #fff7dd; }
+.org-impact-item:nth-child(4) { background: #f7e8e1; border-right: 0; }
 
-order:2;
-
+.org-impact-item strong {
+  display: block;
+  color: var(--org-teal);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1;
 }
 
-.reverse .about-text{
-
-order:1;
-
+.org-impact-item span {
+  display: block;
+  margin-top: 0.7rem;
+  color: #526462;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.about-image{
-
-overflow:hidden;
-border-radius:20px;
-
+.org-section {
+  padding: clamp(5rem, 9vw, 8rem) max(1.25rem, 8%);
 }
 
-.about-image img{
-
-width:100%;
-display:block;
-transition:.7s;
-
+.org-section-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
 }
 
-.about-image:hover img{
-
-transform:scale(1.08);
-
+.org-section-heading {
+  display: grid;
+  grid-template-columns: 0.42fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 3rem;
 }
 
-.about-text h2{
-
-font-size:40px;
-color:#333;
-
+.org-section-heading span {
+  color: var(--org-coral);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.about-text p{
-
-line-height:1.9;
-color:#666;
-
+.org-section-heading h2 {
+  max-width: 680px;
+  margin: 0;
+  color: var(--org-ink);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1;
 }
 
-.about-text a{
-
-display:inline-block;
-margin-top:25px;
-background:teal;
-color:white;
-padding:15px 30px;
-text-decoration:none;
-border-radius:50px;
-transition:.3s;
-
+.org-story {
+  background: #fff;
 }
 
-.about-text a:hover{
-
-background:#005b5b;
-
+.org-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: center;
 }
 
-@media(max-width:900px){
-
-.about-grid{
-
-grid-template-columns:1fr;
-
+.org-story-image {
+  position: relative;
 }
 
-.reverse .about-image,
-.reverse .about-text{
-
-order:unset;
-
+.org-story-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
+.org-story-image::after {
+  content: 'KISII UNIVERSITY';
+  position: absolute;
+  right: -1rem;
+  bottom: -1rem;
+  padding: 0.65rem 0.8rem;
+  color: var(--org-ink);
+  background: var(--org-sun);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.org-story-copy blockquote {
+  margin: 0 0 1.5rem;
+  color: var(--org-teal);
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.org-story-copy p {
+  max-width: 570px;
+  color: #526462;
+  line-height: 1.85;
+}
+
+.org-story-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: var(--org-ink);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 2px solid var(--org-sun);
+}
+
+.org-programs { background: var(--org-mist); }
+
+.org-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.org-card {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-top: 5px solid var(--org-teal);
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(21, 63, 63, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.org-card:nth-child(2) { border-top-color: var(--org-coral); }
+.org-card:nth-child(3) { border-top-color: var(--org-sun); }
+
+.org-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(21, 63, 63, 0.14);
+}
+
+.org-card-number {
+  color: #90aaa5;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.org-card h3 {
+  margin: 3.5rem 0 0.8rem;
+  color: var(--org-ink);
+  font-size: 1.55rem;
+}
+
+.org-card p {
+  margin: 0;
+  color: #60706d;
+  line-height: 1.7;
+}
+
+.org-card a {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  color: var(--org-teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.org-values { background: #fff; }
+
+.org-values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(21, 63, 63, 0.14);
+}
+
+.org-value {
+  padding: 2rem;
+  background: var(--org-paper);
+}
+
+.org-value:nth-child(2) { background: #fff7dd; }
+.org-value:nth-child(3) { background: #f7e8e1; }
+.org-value:nth-child(4) { background: var(--org-mist); }
+
+.org-value h3 {
+  margin: 0 0 0.7rem;
+  color: var(--org-ink);
+  font-size: 1.3rem;
+}
+
+.org-value p {
+  margin: 0;
+  color: #60706d;
+  line-height: 1.7;
+}
+
+.org-visit {
+  color: #fff;
+  background: #e8f0ec;;
+}
+
+.org-visit .org-section-heading h2 { color: #000;font-size:2rem;font-weight:900; }
+.org-visit .org-section-heading span { color: var(--org-sun); }
+
+.org-visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  
+}
+
+.org-visit-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:teal;
+}
+
+.org-visit-card h3 {
+  margin: 0 0 0.7rem;
+  color:#111b1d;
+  font-size: 1.3rem;
+  font-weight:900;
+}
+
+.org-visit-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.7;
+}
+
+.org-visit-button {
+  display: inline-flex;
+  margin-top: 2rem;
+  padding: 0.9rem 1.2rem;
+  color: var(--org-ink);
+  background: var(--org-sun);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .org-hero { min-height: 760px; }
+  .org-hero { padding-top: 2.5rem; }
+  .org-hero::before { background: linear-gradient(180deg, rgba(5, 18, 20, 0.54), rgba(8, 35, 37, 0.82) 78%), url('../images/ksuda.jpeg') center/cover no-repeat; clip-path: polygon(0 0, 100% 0, 100% 94%, 90% 100%, 0 100%); }
+  .org-hero-inner,
+  .org-story-grid,
+  .org-section-heading { grid-template-columns: 1fr; gap: 1.5rem; }
+  .org-hero-note { max-width: 360px; }
+  .org-card-grid { grid-template-columns: 1fr; }
+  .org-impact { grid-template-columns: 1fr 1fr; }
+  .org-impact-item:nth-child(2) { border-right: 0; }
+  .org-impact-item:nth-child(3) { border-top: 1px solid rgba(21, 63, 63, 0.12); }
+  .org-impact-item:nth-child(4) { border-top: 1px solid rgba(21, 63, 63, 0.12); }
+}
+
+@media (max-width: 520px) {
+  .org-hero { min-height: 820px; padding-bottom: 2.5rem; }
+  .org-hero h1 { font-size: 2rem; }
+  .org-impact { width: calc(100% - 1.5rem); }
+  .org-impact-item { min-height: 125px; padding: 1rem; }
+  .org-impact-item strong { font-size: 1.8rem; }
+  .org-impact-item span { font-size: 0.68rem; }
+  .org-values-grid,
+  .org-visit-grid { grid-template-columns: 1fr; }
+  .org-story-image::after { right: 0.5rem; bottom: -0.5rem; }
 }
   </style>
 </head>
@@ -369,236 +591,80 @@ order:unset;
     </div>
   </nav>
 
+  <main class="org-about" role="main">
+    <section class="org-hero" aria-labelledby="about-title">
+      <div class="org-hero-inner">
+        <div>
+         
+          <h1 id="about-title" style="font-size:3.4rem;">A church for growing faith and brave purpose.</h1>
+          <p class="org-hero-lede">Kisii University Seventh-day Adventist Church is a student-centered community where worship becomes belonging, learning becomes service, and every person is invited to grow.</p>
+        </div>
+        <aside class="org-hero-note">
+          <strong>Our invitation</strong>
+          <p>Come as you are. Find your people. Discover the good work God has placed in you.</p>
+        </aside>
+      </div>
+    </section>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero hero-page" style="background-image: url('../images/ksuda.jpeg');
-            position: relative;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(0,107,117,0.65)),
-                url('../images/ksuda.jpeg') center/cover no-repeat;
-            padding: 6rem 1.5rem 4rem;" role="banner">
-    <div class="hero-content">
-      <h1 class="hero-title">About Kisii University Seventh-day Adventist Church</h1>        
+    <section class="org-impact" aria-label="KSUSDA impact">
+      <div class="org-impact-item"><strong>800+</strong><span>Church members</span></div>
+      <div class="org-impact-item"><strong>09</strong><span>Active ministries</span></div>
+      <div class="org-impact-item"><strong>75+</strong><span>Student volunteers</span></div>
+      <div class="org-impact-item"><strong>35+</strong><span>Annual programs</span></div>
+    </section>
 
-<p class="sub-title">Kisii University Seventh-day Adventist Church is a vibrant community of believers committed to knowing Christ, growing in His Word, and serving others with love. We exist to inspire students to develop a personal relationship with Jesus, cultivate Christlike character, and prepare for a life of faithful service. As Ellen G. White wrote, <span style="color:antiquewhite"><em>"Higher than the highest human thought can reach is God's ideal for His children."</em></span> Guided by this vision, we seek to help every member discover their God-given purpose while making a lasting impact on campus and beyond.
-</p>
-    </div>
-  </section>
-
-  <!-- ===== BREADCRUMB ===== -->
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a> <span>›</span> About Us
-    </nav>
-  </div>
-
-
-  <!-- ================== STATISTICS =================== -->
-
-<section class="about-stats">
-
-<div class="heading">
-<h5>OUR IMPACT</h5>
-<h2>Growing Together in Christ</h2>
-<p>Every number tells a story of lives transformed through worship,
-discipleship, fellowship and service. At KSUSDA we believe every student
-has a place to belong and a purpose to fulfill.</p>
-</div>
-
-<div class="stats">
-<div class="stat">
-<h1 class="counter" data-target="800">0</h1>
-<span>+</span>
-<h4>Church Members</h4>
-</div>
-<div class="stat">
-<h1 class="counter" data-target="9">0</h1>
-<span>+</span>
-<h4>Active Ministries</h4>
-</div>
-<div class="stat">
-<h1 class="counter" data-target="75">0</h1>
-<span>+</span>
-<h4>Student Volunteers</h4>
-</div>
-<div class="stat">
-<h1 class="counter" data-target="35">0</h1>
-<span>+</span>
-<h4>Annual Programs</h4>
-</div>
-</div>
-
-</section>
-
-
-
-<!-- ================== IMAGE SECTION =================== -->
-
-<section class="about-grid">
-<div class="about-image">
-<img src="../images/church/church choir.jpeg">
-</div>
-<div class="about-text">
-<h2>More Than a Church</h2>
-<p>KSUSDA is a home where students grow spiritually,build lifelong friendships and discover God's purpose.Through Bible study, worship, outreach and fellowship,students become leaders prepared to serve both God and society.
-</p>
-<a href="../ministries/index.html">Explore Ministries →</a>
-</div>
-</section>
-
-<!-- ================== IMAGE SECTION =================== -->
-<section class="about-grid reverse">
-<div class="about-image">
-<img src="../images/first-fruits/mission.jpeg">
-</div>
-<div class="about-text">
-<h2>Serving Beyond Campus</h2>
-<p>
-Faith becomes meaningful when lived out.Our members participate in community outreach,medical missions, evangelism and charity,bringing hope wherever God leads.
-</p>
-<a href="../volunteer.html">Become a Volunteer →</a>
-</div>
-</section>
-
-  <!-- ===== PAGE CONTENT ===== -->
-  <section class="page-content">
-    <div class="page-layout">
-      <!-- Sidebar -->
-    
-      <!-- Main Content -->
-      <main class="page-main" role="main">
-        <h1>Welcome to Kisii University SDA Church</h1>
-        <p>We are a vibrant Seventh-day Adventist faith community located on the Kisii University campus in Kisii, Kenya. Whether you're a student, staff member, or a visitor, we warmly invite you to worship with us, grow in faith, and become part of our family.</p>
-
-        <!-- Sabbath Gatherings -->
-        <h2>Sabbath Gatherings</h2>
-        <div class="schedule-block">
-          <h4>Every Sabbath (Saturday)</h4>
-          <div class="schedule-item">
-            <span class="schedule-time">7:30 AM</span>
-            <span class="schedule-desc">Sabbath School — Interactive Bible study in small groups for all ages</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">11:00 AM</span>
-            <span class="schedule-desc">Divine Service — Main worship service with praise, prayer, and preaching</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">After Service</span>
-            <span class="schedule-desc">Fellowship Potluck — 1st &amp; 3rd Sabbath of each month (all are welcome!)</span>
+    <section class="org-section org-story">
+      <div class="org-section-inner">
+        <div class="org-section-heading"><span>01/ Who We Are</span><h2>More than a place to worship.</h2></div>
+        <div class="org-story-grid">
+          <div class="org-story-image"><img src="../images/church/church choir.jpeg" alt="KSUSDA church choir worshipping together" loading="lazy"></div>
+          <div class="org-story-copy">
+            <blockquote>“We are a home where students become grounded, generous, and ready to serve.”</blockquote>
+            <p>KSUSDA brings students, staff, and visitors into a living community shaped by Scripture, prayer, music, fellowship, and practical care. We make room for questions, friendship, leadership, and a faith that meets people in everyday life.</p>
+            <a class="org-story-link" href="what-sda-believe.html">Explore what we believe <span aria-hidden="true">&#8594;</span></a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Upcoming Events -->
-        <h2>Upcoming Events</h2>
-        <div class="schedule-block">
-          <h4>Mark Your Calendar</h4>
-          <div class="schedule-item">
-            <span class="schedule-time">Mar 7, 2026</span>
-            <span class="schedule-desc">Week of Prayer begins — theme: "Walking in His Light"</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">Mar 21, 2026</span>
-            <span class="schedule-desc">Youth Sabbath — Youth-led worship service</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">Apr 4, 2026</span>
-            <span class="schedule-desc">Community Outreach Day — Health screening &amp; food drive</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">Apr 18, 2026</span>
-            <span class="schedule-desc">Evangelism Series begins — "Hope for Today"</span>
-          </div>
+    <section class="org-section org-programs">
+      <div class="org-section-inner">
+        <div class="org-section-heading"><span>02 / How we grow</span><h2>There is a place for your next step.</h2></div>
+        <div class="org-card-grid">
+          <article class="org-card"><span class="org-card-number">01</span><h3>Worship &amp; Word</h3><p>Sabbath worship, Bible study, prayer, and music that help us meet God together and carry hope into the week.</p><a href="sabbath-services.html">See our services <span aria-hidden="true">&#8594;</span></a></article>
+          <article class="org-card"><span class="org-card-number">02</span><h3>Community &amp; Care</h3><p>Small groups, fellowship, health conversations, and practical support that make campus feel more like home.</p><a href="../ministries/index.html">Meet our ministries <span aria-hidden="true">&#8594;</span></a></article>
+          <article class="org-card"><span class="org-card-number">03</span><h3>Service &amp; Leadership</h3><p>Outreach and student-led programs that turn compassion into action across campus and the Kisii community.</p><a href="../volunteer.html">Find a way to serve <span aria-hidden="true">&#8594;</span></a></article>
         </div>
+      </div>
+    </section>
 
-        <!-- Weekly Small Groups -->
-        <h2>Weekly Small Groups</h2>
-        <p>Throughout the week we gather in smaller settings for prayer, study, and fellowship. All are welcome — no prior Bible knowledge needed!</p>
-        <div class="schedule-block">
-          <h4>Midweek Activities</h4>
-          <div class="schedule-item">
-            <span class="schedule-time">Tue 6:00 PM</span>
-            <span class="schedule-desc">Prayer Meeting — A time for united prayer and intercession</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">Wed 6:00 PM</span>
-            <span class="schedule-desc">Bible Study — In-depth exploration of Scripture</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">Thu 6:30 PM</span>
-            <span class="schedule-desc">Book Club — Current read: <em>Steps to Christ</em> by Ellen G. White</span>
-          </div>
-          <div class="schedule-item">
-            <span class="schedule-time">Sabbath AM</span>
-            <span class="schedule-desc">Choir Rehearsal &amp; Youth Programs — Before Sabbath School</span>
-          </div>
+    <section class="org-section org-values">
+      <div class="org-section-inner">
+        <div class="org-section-heading"><span>03 / What guides us</span><h2>Faith with both roots and reach.</h2></div>
+        <div class="org-values-grid">
+          <article class="org-value"><h3>Know Jesus fully</h3><p>We create space for honest questions, Scripture, prayer, and a growing relationship with Christ.</p></article>
+          <article class="org-value"><h3>Reflect His character</h3><p>We practice humility, integrity, kindness, and courage in the way we learn and live together.</p></article>
+          <article class="org-value"><h3>Share joyfully</h3><p>We carry the good news through welcome, music, friendship, outreach, and everyday acts of care.</p></article>
+          <article class="org-value"><h3>Lead with purpose</h3><p>We help students discover gifts that can strengthen the church, the campus, and the wider community.</p></article>
         </div>
+      </div>
+    </section>
 
-        <!-- SDA and Health -->
-        <h2>SDA &amp; Health</h2>
-        <p>Seventh-day Adventists are known worldwide for their emphasis on holistic health — caring for the whole person: body, mind, and spirit.</p>
-        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-          <div class="card">
-            <div class="card-body">
-              <h3><i class="fas fa-running"></i> Physical</h3>
-              <p>Regular exercise, plant-based nutrition, adequate rest, and avoidance of harmful substances.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h3><i class="fas fa-brain"></i> Mental</h3>
-              <p>A positive mental attitude, stress management, lifelong learning, and healthy relationships.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h3><i class="fas fa-pray"></i> Spiritual</h3>
-              <p>Daily devotion, prayer, scripture study, and trust in God's plan for your life.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h3><i class="fas fa-user-md"></i> Whole-Person Approach</h3>
-              <p>True health is the harmonious development of physical, mental, and spiritual powers — reflecting the character of God.</p>
-            </div>
-          </div>
+    <section class="org-section org-visit">
+      <div class="org-section-inner">
+        <div class="org-section-heading"><span>04 / Come be part of it</span><h2>You do not have to find your way alone.</h2></div>
+        <div class="org-visit-grid">
+          <div class="org-visit-card"><h3>Sabbath gatherings</h3><p>Sabbath School begins at 7:30 AM, followed by Divine Worship at 11:00 AM on the Kisii University campus.</p></div>
+          <div class="org-visit-card"><h3>Midweek community</h3><p>Join prayer meeting, Bible study, Mideweek vespers, choir, year's group study programs, and other welcoming spaces throughout the week.</p></div>
         </div>
+        <a class="org-visit-button" href="worship-with-us.html">Plan your visit <span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </section>
+  </main>
 
-        <!-- Coming to Visit -->
-        <h2>Coming to Visit?</h2>
-        <div class="schedule-block">
-          <p style="margin-bottom:1rem;">We'd love to welcome you! Here's what to expect when you visit:</p>
-          <ul style="padding-left:1.5rem;">
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Services begin at <strong>7:30 AM</strong> (Sabbath School) and <strong>11:00 AM</strong> (Divine Worship)</li>
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Dress is modest and comfortable — come as you are</li>
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">We are located on the Kisii University Campus, Kisii, Kenya</li>
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">Visitors receive a warm welcome — our deacons & deaconneses will help you find a seat</li>
-            <li style="list-style:disc; color:var(--text-muted); margin-bottom:0.5rem;">We have lunch for both visitors , guests, and regular members.</li>
-          </ul>
-          <a href="worship-with-us.html" class="btn btn-teal mt-2">Worship With Us →</a>
-        </div>
+ 
 
-        <!-- Pastor Block -->
-        <h2>Our Pastor</h2>
-        <div class="pastor-block">
-          <div class="pastor-photo">
-            <img src="../images/leaders/pastor.jpeg" alt="Pastor photo placeholder" loading="lazy">
-          </div>
-          <div class="pastor-info">
-            <h3>Pastor Clifford Ratemo</h3>
-            <p>Our pastor leads with compassion, biblical depth, and a heart for service. With years of ministry experience, he guides our congregation in spiritual growth, community outreach, and faithful discipleship.</p>
-            <a href="our-pastor.html" class="btn btn-teal btn-sm mt-2">Meet Our Pastor →</a>
-          </div>
-        </div>
-
-      </main>
-    </div>
-  </section>
-
+ 
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer" role="contentinfo">
@@ -646,63 +712,5 @@ Faith becomes meaningful when lived out.Our members participate in community out
 
   <script src="../js/main.js"></script>
 
-  <script>
-  // Counter Animation
-
-const counters = document.querySelectorAll(".counter");
-const runCounter = (counter) => {
-    const target = +counter.dataset.target;
-    let count = 0;
-    const speed = target / 120;
-    const update = () => {
-        if (count < target) {
-            count += speed;
-            counter.innerText = Math.ceil(count);
-            requestAnimationFrame(update);
-        } else {
-            counter.innerText = target;
-        }
-    };
-    update();
-};
-
-// Trigger when section becomes visible
-
-const statsSection = document.querySelector(".about-stats");
-let started = false;
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !started) {
-            counters.forEach(counter => runCounter(counter));
-            started = true;
-        }
-
-    });
-
-}, {
-    threshold: 0.4
-});
-observer.observe(statsSection);
-
-
-
-// Fade Up Animation
-
-const items = document.querySelectorAll(".stat,.about-image,.about-text");
-const fade = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
-}
-});
-},{threshold:.2});
-items.forEach(item=>{
-item.style.opacity="0";
-item.style.transform="translateY(60px)";
-item.style.transition="all .8s ease";
-fade.observe(item);
-});
-</script>
 </body>
 </html>

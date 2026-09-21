@@ -119,11 +119,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_request'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Us — Kisii University Seventh-day Adventist Church. Reach out to us via phone, email, or visit our campus.">
+  <title>Contact Us — Kisii University SDA Church</title>
+  <link rel="stylesheet" href="css/styles.css">
   <meta name="description" content="Request Church Membership — Kisii University Seventh-day Adventist Church">
   <title>Request Membership — Kisii University SDA Church</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="icon" type="image/png" href="../images/kisiilogo.png">
+  <link rel="stylesheet" href="../UPGRADED KSUSDA WEBSITE/css/styles.css">
+  
   <style>
     :root {
       --primary-green: #0f5a35;
@@ -136,83 +141,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_request'])) {
       --gray-dark: #6c757d;
     }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
-      min-height: 100vh;
-    }
-
-    /* Header Styles */
-    .site-header {
-      background: linear-gradient(180deg, var(--primary-green) 0%, var(--secondary-teal) 100%);
-      color: white;
-      position: relative;
-      z-index: 100;
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .header-logo a {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: white;
-    }
-
-    .sda-logo-img {
-      height: 45px;
-      filter: brightness(0) invert(1);
-    }
-
-    .logo-text {
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: -0.3px;
-    }
-
-    .giving-pill {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(5px);
-      border-radius: 40px;
-      padding: 0.5rem 1.25rem;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-
-    .giving-pill:hover {
-      background: var(--accent-gold);
-      color: var(--primary-green);
-    }
-
-    .header-social-icons {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .header-social-icons a {
-      color: white;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .header-social-icons a:hover {
-      opacity: 1;
-    }
-
+    
     /* Request Card */
     .request-card {
       max-width: 950px;
-      margin: 3rem auto;
+      margin: 7rem auto;
       background: white;
       border-radius: 24px;
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
@@ -462,36 +395,89 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_request'])) {
       to { transform: rotate(360deg); }
     }
   </style>
+
 </head>
 <body>
 
-<header class="site-header" role="banner">
-  <div class="header-top">
-    <div class="header-logo">
-      <a href="index.php" aria-label="Kisii University SDA Church Home">
-        <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
-        <span class="logo-text">Kisii University SDA Church</span>
-      </a>
-    </div>
-    <div class="header-right-top">
-      <a href="giving.html" class="giving-pill giving-pill-desktop">❤️ Giving</a>
-      <div class="header-social-icons">
-        <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me/254700000000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <header class="site-header header-solid" role="banner">
+    <div class="header-top">
+      <div class="header-logo">
+        <a href="index.html" aria-label="Kisii University SDA Church Home">
+          <img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-white.svg" alt="Seventh-day Adventist Logo" class="sda-logo-img">
+          <span class="logo-text">Kisii University Seventh-day Adventist Church</span>
+        </a>
+      </div>
+      <div class="header-right-top">
+        <a href="giving.html" class="giving-pill giving-pill-desktop">❤️ Giving</a>
+        <div class="header-social-icons">
+          <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
       </div>
     </div>
-  </div>
-  <nav class="header-nav" style="background: rgba(0,0,0,0.2); padding: 0.5rem 2rem;">
-    <div class="d-flex gap-3">
-      <a href="index.php" style="color: white; text-decoration: none;">Home</a>
-      <a href="about.php" style="color: white; text-decoration: none;">About</a>
-      <a href="sermons.php" style="color: white; text-decoration: none;">Sermons</a>
-      <a href="events.php" style="color: white; text-decoration: none;">Events</a>
-      <a href="contact.php" style="color: white; text-decoration: none;">Contact</a>
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <div class="desktop-nav">
+        <div class="nav-item">
+          <a href="about/index.html">About Us <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="about/giving.html">Giving</a><a href="about/history.html">History</a><a href="about/in-the-news.html">In the News</a><a href="about/our-pastor.html">Our Pastor</a><a href="about/sabbath-services.html">Sabbath Services</a><a href="about/what-sda-believe.html">What SDAs Believe</a><a href="about/worship-with-us.html">Worship With Us</a><a href="about/potluck.html">Potluck &amp; Fellowship</a><a href="about/special-events.html">Special Events</a><a href="about/schools.html">Schools &amp; Education</a><a href="about/nearby-churches.html">Nearby SDA Churches</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="events.html">Calendar</a></div>
+        <div class="nav-item">
+          <a href="ministries/index.html">Ministries <span class="chevron-down">▾</span></a>
+          <div class="desktop-dropdown">
+            <a href="ministries/health.html">Health Ministry</a>
+            <a href="ministries/new-zion.html">New Zion</a>
+            <a href="ministries/christ-messengers.html">Christ Messengers</a>
+            <a href="ministries/first-fruits.html">First Fruits</a>
+           
+          </div>
+        </div>
+        <div class="nav-item"><a href="giving.html">Online Giving</a></div>
+        <div class="nav-item"><a href="contact.html">Contact Us</a></div>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn hamburger-btn" aria-label="Open Menu" title="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <button class="nav-icon-btn header-search-btn" aria-label="Search" title="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      </div>
+      <div class="header-search-inline" role="search">
+        <form action="search.html" method="get"><input type="text" name="s" placeholder="Search..." aria-label="Search"><button type="submit" aria-label="Search">🔍</button></form>
+      </div>
+    </nav>
+  </header>
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <nav class="slide-menu" role="navigation" aria-label="Mobile Navigation">
+    <div class="menu-header"><button class="menu-close-btn" aria-label="Close Menu">&times;</button></div>
+    <div class="menu-search"><form action="search.html" method="get"><input type="text" name="s" placeholder="Search..." aria-label="Search"><button type="submit" aria-label="Search">🔍</button></form></div>
+    <div class="menu-giving"><a href="giving.html" class="giving-pill">❤️ Giving</a></div>
+    <div class="menu-nav">
+      <div class="menu-nav-item">
+        <div class="menu-nav-link"><a href="about/index.html" style="color:inherit;text-decoration:none;flex:1;">About Us</a><button class="menu-chevron" aria-label="Expand About Us submenu">▼</button></div>
+        <div class="menu-submenu"><a href="about/giving.html">Giving</a><a href="about/history.html">History</a><a href="about/in-the-news.html">In the News</a><a href="about/our-pastor.html">Our Pastor</a><a href="about/sabbath-services.html">Sabbath Services</a><a href="about/what-sda-believe.html">What SDAs Believe</a><a href="about/worship-with-us.html">Worship With Us</a><a href="about/potluck.html">Potluck &amp; Fellowship</a><a href="about/special-events.html">Special Events</a><a href="about/schools.html">Schools &amp; Education</a><a href="about/nearby-churches.html">Nearby SDA Churches</a></div>
+      </div>
+      <div class="menu-nav-item"><a href="events.html" class="menu-nav-link">Calendar</a></div>
+      <div class="menu-nav-item">
+        <div class="menu-nav-link"><a href="ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a><button class="menu-chevron" aria-label="Expand Ministries submenu">▼</button></div>
+        <div class="menu-submenu"><a href="ministries/community-outreach.html">Community Outreach</a><a href="ministries/health.html">Health Ministry</a>
+          <a href="ministries/new-zion.html">New Zion</a>
+          <a href="ministries/christ-messengers.html">Christ Messengers</a>
+          <a href="ministries/first-fruits.html">First Fruits</a>
+</div>
+      </div>
+      <div class="menu-nav-item"><a href="giving.html" class="menu-nav-link">Online Giving</a></div>
+      <div class="menu-nav-item"><a href="contact.html" class="menu-nav-link">Contact Us</a></div>
+      <div class="menu-nav-item"><a href="announcements.html" class="menu-nav-link">Announcements</a></div>
+      <div class="menu-nav-item"><a href="livestream.html" class="menu-nav-link">Livestream</a></div>
+      <div class="menu-nav-item"><a href="bulletin.html" class="menu-nav-link">Bulletin</a></div>
+      <div class="menu-nav-item"><a href="food.html" class="menu-nav-link">Food Assistance</a></div>
+    </div>
+    <div class="menu-footer">
+      <a href="https://www.facebook.com/KisiiUniversitySDAChurch" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.youtube.com/@KisiiUniversitySDACHurch" target="_blank" rel="noopener" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
     </div>
   </nav>
-</header>
+
 
 <!-- Loading Spinner -->
 <div id="loadingSpinner" class="loading-spinner">

@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="../css/styles.css">
   
   <style>
+    :root{
+      --font-heading:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+      --font-body:'Noto sans','Lato',-apple-system,BlinkMacSystemFont,serif;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -20,14 +24,15 @@
     }
     
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       background: #fefefe;
       color: #1e293b;
       line-height: 1.6;
+      
     }
     
     h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-heading);
       font-weight: 700;
     }
     
@@ -102,17 +107,34 @@
         /* ===== MODERN HERO ===== */
         .cm-hero {
             position: relative;
+          overflow: hidden;
             min-height: 72vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(117, 0, 99, 0.65)),
-                url('../images/first-fruits/first1.jpeg') center/cover no-repeat;
+            background: #004950;
             padding: 6rem 1.5rem 4rem;
         }
-        .cm-hero-inner { max-width: 760px; margin: 0 auto; }
+          .cm-hero::before {
+            content: '';
+            position: absolute;
+            inset: -3%;
+            z-index: 0;
+            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(117, 0, 99, 0.65)),
+              url('../images/first-fruits/first1.jpeg') center/cover no-repeat;
+            animation: cmHeroZoom 16s ease-in-out infinite alternate;
+            transform-origin: center;
+          }
+          .cm-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+          @keyframes cmHeroZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .cm-hero::before { animation: none; }
+          }
         .cm-eyebrow {
             display: inline-block;
             font-size: 0.72rem;
@@ -250,15 +272,19 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-      transition: transform 0.25s ease;
     }
     .vm-image img {
       width: 100%;
       height: 320px;
       object-fit: cover;
       display: block;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .vm-image:hover { transform: scale(1.01); }
+    .vm-image:hover img { transform: translateX(10px) scale(1.04); }
+    .vm-item.reverse .vm-image:hover img { transform: translateX(-10px) scale(1.04); }
+    @media (prefers-reduced-motion: reduce) {
+      .vm-image img { transition: none; }
+    }
     .vm-content {
       flex: 1;
       padding: 0.5rem 0;

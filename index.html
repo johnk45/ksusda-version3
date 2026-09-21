@@ -21,31 +21,30 @@
   max-width:900px;
   animation:fadeUp 1.2s ease;
   z-index:2;
+  min-height:90vh;
 }
-.hero-tagline{
-  color:#f6c453;
 
-}
 .hero-description{
   font-size:1rem;
   max-width:700px;
   margin:auto;
   line-height:1.8;
   opacity:.95;
+  
 }
 .hero-buttons{
-  margin-top:40px;
+  margin-top:10px;
   display:flex;
   justify-content:center;
   gap:20px;
   flex-wrap:wrap;
 }
 .btn{
-  padding:15px 35px;
-  border-radius:50px;
+  padding:8px 35px;
+  border-radius:12px;
   text-decoration:none;
   transition:35s;
-  font-weight:600;
+  font-weight:800;
   font-size:16px;
 }
 .btn-primary{
@@ -57,6 +56,7 @@
   border:2px solid white;
   color:white;
   transform:translateY(-4px);
+  outline:none;
 }
 .btn-primary:hover{background: rgb(1, 17, 17);}
 .btn-outline:hover{border:2px solid teal;}
@@ -70,94 +70,12 @@
     transform:translateY(0);
   }
 }
-.scroll-indicator{
-
-    position:absolute;
-
-    bottom:30px;
-
-    left:5%;
-
-    transform:translateX(-50%);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    color:white;
-
-    animation:bounce 2s infinite;
-}
-
-.mouse{
-
-    width:28px;
-
-    height:45px;
-
-    border:2px solid white;
-
-    border-radius:20px;
-
-    margin-top:8px;
-
-    position:relative;
-}
 .header-nav{
   background-color: rgb(3, 3, 16);
 }
 .site-header{background-color: #0c0901;}
-.wheel{
 
-    width:5px;
-
-    height:10px;
-
-    background:white;
-
-    border-radius:10px;
-
-    position:absolute;
-
-    top:8px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    animation:scrollWheel 1.6s infinite;
-}
-@keyframes bounce{
-
-    50%{
-
-        transform:translate(-50%,10px);
-
-    }
-
-}
-
-@keyframes scrollWheel{
-
-    0%{
-
-        opacity:1;
-
-        top:8px;
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        top:22px;
-
-    }
-
-}@media(max-width:768px){
+@media(max-width:768px){
 
 .hero-buttons{
 
@@ -180,7 +98,6 @@ text-align:center;
     @media (max-width: 600px) {
       .hero {
         background-position: center;
-        background-image:linear-gradient(transparent,rgba(50, 53, 57, 0.85)), url('images/church\ audotorium.jpg');
         background-size: cover;
         min-height: 40vh;
         backface-visibility: visible;
@@ -209,7 +126,269 @@ text-align:center;
       }
       .btn-primary{padding:4px;}
     }
+
+    .homepage-hero {
+      overflow: hidden;
+      background: #1f252b !important;
+    }
+    .homepage-hero::before {
+      content: '';
+      position: absolute;
+      inset: -3%;
+      z-index: 0;
+      background: linear-gradient(transparent, rgba(12, 12, 12, 0.85)),
+        url('images/church/church\ choir.jpeg') center/cover no-repeat;
+      animation: homepageHeroZoom 16s ease-in-out infinite alternate;
+      transform-origin: center;
+      
+    }
+    .homepage-hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes homepageHeroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .homepage-hero::before { animation: none; }
+    }
     
+   /* ============================================================
+       WEEKLY PROGRAMS SECTION
+       ============================================================ */
+    .weekly-programs-section {
+      background: #f5f0e6;
+      padding: 4rem 0 3rem;
+      overflow: hidden;
+      margin-top:2rem;
+      margin-bottom:2rem;
+    }
+
+    .weekly-programs-section h2 {
+      font-weight: 900;
+      color: #000;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .weekly-programs-section .lead-text {
+      color: #5c6668;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    /* ============================================================
+       SWIPE CAROUSEL WRAPPER
+       ============================================================ */
+    .swipe-carousel {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 0 3rem;
+    }
+
+    /* ---- The track (replaces grid) ---- */
+    .weekly-programs {
+      display: flex;
+      gap: 1.5rem;
+      will-change: transform;
+      padding: 0 1rem;
+    }
+
+    /* ============================================================
+       WEEKLY PROGRAM CARD — YOUR ORIGINAL STYLE
+       ============================================================ */
+    .weekly-program-card {
+      flex: 0 0 calc(33.333% - 1rem);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      min-height: 100%;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(6, 13, 13, 0.1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border-radius: 6px;
+    }
+
+    /* Top colored bar */
+    .weekly-program-card::before {
+      content: '';
+      display: block;
+      height: 7px;
+      background: #0b8585;
+    }
+
+    /* Circular number badge */
+    .weekly-program-card::after {
+      content: attr(data-number);
+      position: absolute;
+      top: 1.3rem;
+      right: 1.2rem;
+      display: grid;
+      width: 2.2rem;
+      height: 2.2rem;
+      place-items: center;
+      border-radius: 50%;
+      background: #0b8585;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 800;
+      z-index: 3;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ---- Color variants per card position ---- */
+    .weekly-program-card:nth-child(2)::before,
+    .weekly-program-card:nth-child(2)::after {
+      background: #d8892f;
+    }
+    .weekly-program-card:nth-child(3)::before,
+    .weekly-program-card:nth-child(3)::after {
+      background: #b94b63;
+    }
+    .weekly-program-card:nth-child(4)::before,
+    .weekly-program-card:nth-child(4)::after {
+      background: #4b75a8;
+    }
+    .weekly-program-card:nth-child(5)::before,
+    .weekly-program-card:nth-child(5)::after {
+      background: #718b3d;
+    }
+    .weekly-program-card:nth-child(6)::before,
+    .weekly-program-card:nth-child(6)::after {
+      background: #7a4b8a;
+    }
+
+    .weekly-program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 30px rgba(18, 38, 38, 0.16);
+    }
+
+    /* ---- Image ---- */
+    .weekly-program-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---- Text ---- */
+    .weekly-program-card h3,
+    .weekly-program-card p {
+      margin-left: 1.15rem;
+      margin-right: 1.25rem;
+    }
+
+    .weekly-program-card h3 {
+      margin-top: 1.2rem;
+      margin-bottom: 0.35rem;
+      color: #075858;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .weekly-program-card p:first-of-type {
+      margin-top: 0;
+      margin-bottom: 0.65rem;
+      color: #1f252b;
+      font-weight: 700;
+    }
+
+    .weekly-program-card p:last-child {
+      margin-top: auto;
+      padding-top: 0.75rem;
+      padding-bottom: 1.25rem;
+      color: #5c6668;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       SWIPE CONTROLS
+       ============================================================ */
+    .swipe-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .swipe-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: #ffffff;
+      color: #075858;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swipe-btn:hover {
+      background: #0b8585;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .swipe-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .swipe-dots .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #c9cfd6;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .swipe-dots .dot.active {
+      background: #0b8585;
+      width: 28px;
+      border-radius: 6px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 991px) {
+      .weekly-program-card {
+        flex: 0 0 calc(50% - 0.75rem);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .weekly-program-card {
+        flex: 0 0 88%;
+      }
+      .weekly-programs {
+        gap: 1rem;
+        padding: 0 0.75rem;
+      }
+      .weekly-program-card img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .weekly-program-card {
+        flex: 0 0 92%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -358,6 +537,7 @@ text-align:center;
       <div class="menu-nav-item">
         <a href="departments.html" class="menu-nav-link">Departments</a>
       </div>
+      
       <div class="menu-nav-item">
         <div class="menu-nav-link">
           <a href="ministries/index.html" style="color:inherit;text-decoration:none;flex:1;">Ministries</a>
@@ -413,7 +593,7 @@ text-align:center;
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" style="background: linear-gradient(transparent, rgba(50, 53, 57, 0.85)), url('images/church\ audotorium.jpg');
+  <section class="hero homepage-hero" style="background: #1f252b;
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -427,7 +607,7 @@ text-align:center;
       text-align: center;
       padding: 2rem;
       position: relative;">
-    <div class="hero-content">
+    <div class="hero-content" style="margin-top:17rem;">
       <h1 class="hero-title">Welcome to the Kisii University Seventh-day Adventist Church</h1>
       <p class="hero-description">
         Growing in Faith &#x2022; Serving With Love &#x2022; Preparing for Christ's Return
@@ -438,11 +618,7 @@ text-align:center;
       <a href="about/worship-with-us.html" class="btn btn-primary">Plan Your Visit</a>
       <a href="livestream.html" class="btn btn-outline">Watch Live</a>
     </div>
-    <div class="scroll-indicator">
-      
-      <div class="mouse">
-        <div class="wheel"></div>
-      </div>
+    
     </div>
   </section>
 
@@ -498,7 +674,7 @@ text-align:center;
           We're so glad you're here. Located on the Kisii University campus, our church is more than just a place of worship — it's a warm and welcoming family of faith. Whether you're a student, staff member, or visitor, we'd love for you to join our community.
         </p>
         <p>
-          To learn more about our beliefs and mission, please visit our <a href="about/index.html">About Us</a> page. Better yet, come experience it in person! We invite you to join us for Bible study, worship, and prayer as we grow together in faith and love.
+          To learn more about our beliefs and mission, please visit our <a href="about/index.html" style="font-weight:900;">About Us</a> page. Better yet, come experience it in person! We invite you to join us for Bible study, worship, and prayer as we grow together in faith and love.
         </p>
       </div>
     </div>
@@ -539,7 +715,7 @@ text-align:center;
     <div class="container">
       <div class="content-block">
         <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem;"><a href="bulletin.html" style="color: var(--text-dark);">Bulletin</a></h4>
-        <p>Weekly Schedule of Gatherings can be Found <a href="about/index.html">Here</a></p>
+        <p>Weekly Schedule of Gatherings can be Found <a href="about/index.html" style="font-weight:900;">Here</a></p>
       </div>
     </div>
   </section>
@@ -553,7 +729,7 @@ text-align:center;
           We're delighted to offer worship services both in person and online to stay connected with you! Join us via <strong>LIVESTREAM</strong> every Sabbath at <strong>10:00 a.m.</strong> — your presence, whether near or far, means so much to us.
         </p>
         <p>
-          Our dedicated pastor and staff are here to support you, even remotely. If you need assistance or have any questions, please visit our <a href="contact.html">Contact Us</a> page or call us at <a href="tel:+254794487419">+254 794 487 419</a>.
+          Our dedicated pastor and staff are here to support you, even remotely. If you need assistance or have any questions, please visit our <a href="contact.html" style="font-weight:900;">Contact Us</a> page or call us at <a href="tel:+254794487419" style="font-weight:900;">+254 794 487 419</a>.
         </p>
         <p>
           Let's come together to worship and grow in faith — we can't wait to share this special time with you!
@@ -587,11 +763,93 @@ text-align:center;
     </div>
   </section>
 
+    
+      <!-- =========================================================
+     WEEKLY PROGRAMS SECTION (AUTO-SWIPE CAROUSEL)
+     ========================================================= -->
+<section class="weekly-programs-section">
+  <div class="container">
+
+    <h2>Weekly Programs</h2>
+    <p class="lead-text">
+      A day-by-day rhythm of worship, study, and fellowship — from Sunday through Friday.
+    </p>
+
+    <!-- Swipe carousel wrapper -->
+    <div class="swipe-carousel" id="weeklyCarousel">
+      <div class="weekly-programs" id="weeklyTrack">
+
+        <!-- ===== Sunday ===== -->
+        <article class="weekly-program-card" data-number="01">
+          <img src="images/church audotorium.jpg" alt="Sunday Service">
+          <h3>Sunday</h3>
+          <p>Ministry and Family Bible Study</p>
+          <p>The church introduced these programs to help members study God's word, share the word and pray together.</p>
+        </article>
+
+        <!-- ===== Monday ===== -->
+        <article class="weekly-program-card" data-number="02">
+          <img src="images/church/church choir.jpeg" alt="Monday VOP">
+          <h3>Monday</h3>
+          <p>Voice of Prophecy (VOP) Teachings</p>
+          <p>The church introduced a VOP programme so that people can learn God's prophecy in accordance to the biblical teachings.</p>
+        </article>
+
+        <!-- ===== Tuesday ===== -->
+        <article class="weekly-program-card" data-number="03">
+          <img src="images/first-fruits/first3.jpeg" alt="Tuesday Bible Study">
+          <h3>Tuesday</h3>
+          <p>Year's Group Bible Study</p>
+          <p>Every year group meets to study God's word and form bonds. A time for accountability, mentorship, and building strong relationships within the university community.</p>
+        </article>
+
+        <!-- ===== Wednesday ===== -->
+        <article class="weekly-program-card" data-number="04">
+          <img src="images/cm/cm.jpeg" alt="Wednesday Vespers">
+          <h3>Wednesday</h3>
+          <p>Midweek Vespers</p>
+          <p>Equipping students with practical health and medical missionary skills to serve communities. Learn how to combine health ministry with the gospel message of hope.</p>
+        </article>
+
+        <!-- ===== Thursday ===== -->
+        <article class="weekly-program-card" data-number="05">
+          <img src="images/church audotorium.jpg" alt="Thursday Choir Practice">
+          <h3>Thursday</h3>
+          <p>Church and Ministry Choir Practice</p>
+          <p>Church choir members and ministry members meet to practice songs and prepare for the Sabbath worship service.</p>
+        </article>
+
+        <!-- ===== Friday ===== -->
+        <article class="weekly-program-card" data-number="06">
+          <img src="images/church audotorium.jpg" alt="Friday Sabbath Prep">
+          <h3>Friday</h3>
+          <p>Sabbath Preparations</p>
+          <p>Final preparations for the Sabbath. A Friday vespers is conducted to welcome the Sabbath with prayer and reflection.</p>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Swipe controls -->
+    <div class="swipe-controls">
+      <button class="swipe-btn" id="prevBtn" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="swipe-dots" id="swipeDots"></div>
+      <button class="swipe-btn" id="nextBtn" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+  </div>
+</section>
+  </section>
+
   <!-- ===== BLESSINGS ===== -->
   <section class="blessings-section">
     <div class="container">
       <h2>May you find many blessings<br>and many friends here.</h2>
-      <p>Also you can explore the church gallery <a href="gallery.html">here</a> and as well enjoying our <a href="music.html">music</a></p>
+      <p>Also you can explore the church gallery <a href="gallery.html "style="font-weight:900;">here</a> and as well enjoying our <a href="music.html" style="font-weight:900;">music</a></p>
     </div>
   </section>
   
@@ -686,28 +944,201 @@ text-align:center;
   <script src="js/main.js"></script>
   <script>
     (function () {
-      var btn = document.getElementById('colorSwitchBtn');
-      var themeKey = 'ksusdaColorMode';
-      function applyMode(mode) {
-        document.documentElement.classList.toggle('theme-alt', mode === 'alt');
-        if (btn) {
-          btn.textContent = mode === 'alt' ? '☀️' : '🎨';
-          btn.setAttribute('aria-label', mode === 'alt' ? 'Use default colors' : 'Use alternate colors');
-        }
-      }
-      function initMode() {
-        var saved = localStorage.getItem(themeKey) || 'default';
-        applyMode(saved);
-      }
-      document.addEventListener('DOMContentLoaded', initMode);
-      if (btn) {
-        btn.addEventListener('click', function () {
-          var next = document.documentElement.classList.contains('theme-alt') ? 'default' : 'alt';
-          localStorage.setItem(themeKey, next);
-          applyMode(next);
-        });
-      }
-    })();
+  'use strict';
+
+  const track    = document.getElementById('weeklyTrack');
+  const prevBtn  = document.getElementById('prevBtn');
+  const nextBtn  = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('swipeDots');
+  const section  = document.querySelector('.weekly-programs-section');
+
+  if (!track) return;
+
+  const originalCards = Array.from(track.querySelectorAll('.weekly-program-card'));
+  const TOTAL         = originalCards.length;
+
+  const AUTO_INTERVAL = 3500;   // 3.5s per auto swipe
+  const TRANSITION_MS = 900;    // must match CSS on .weekly-programs
+
+  let currentIndex = 0;
+  let autoTimer    = null;
+  let isAnimating  = false;
+  let isPaused     = false;
+
+  /* ---------- How many cards are visible? ---------- */
+  function getVisibleCount() {
+    const w = window.innerWidth;
+    if (w >= 992) return 3;
+    if (w >= 601) return 2;
+    return 1;
+  }
+
+  /* ---------- Build infinite clone track ---------- */
+  function buildTrack() {
+    track.querySelectorAll('.weekly-program-card.clone').forEach(c => c.remove());
+
+    const visible = getVisibleCount();
+
+    // Prepend clones of the last `visible` cards
+    for (let i = 0; i < visible; i++) {
+      const idx = (TOTAL - visible + i + TOTAL) % TOTAL;
+      const clone = originalCards[idx].cloneNode(true);
+      clone.classList.add('clone');
+      clone.setAttribute('aria-hidden', 'true');
+      track.insertBefore(clone, track.firstChild);
+    }
+
+    // Append clones of the first `visible` cards
+    for (let i = 0; i < visible; i++) {
+      const clone = originalCards[i % TOTAL].cloneNode(true);
+      clone.classList.add('clone');
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+  }
+
+  /* ---------- Measure card width + gap ---------- */
+  function getStep() {
+    const firstCard = track.querySelector('.weekly-program-card');
+    const cardW = firstCard.getBoundingClientRect().width;
+    const gap   = parseFloat(getComputedStyle(track).gap) || 0;
+    return cardW + gap;
+  }
+
+  /* ---------- Shift the track ---------- */
+  function shiftTo(logicalIndex, animate) {
+    const visible = getVisibleCount();
+    const step    = getStep();
+    const positionInTrack = visible + logicalIndex;
+
+    track.style.transition = animate
+      ? `transform ${TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`
+      : 'none';
+
+    track.style.transform = `translateX(-${positionInTrack * step}px)`;
+  }
+
+  /* ---------- Update dots ---------- */
+  function updateDots() {
+    dotsWrap.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  /* ---------- Next ---------- */
+  function nextSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    currentIndex++;
+    shiftTo(currentIndex, true);
+    updateDots();
+
+    if (currentIndex >= TOTAL) {
+      setTimeout(() => {
+        currentIndex = 0;
+        shiftTo(currentIndex, false);
+        void track.offsetWidth;
+        isAnimating = false;
+        updateDots();
+      }, TRANSITION_MS);
+    } else {
+      setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
+    }
+  }
+
+  /* ---------- Previous ---------- */
+  function prevSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    currentIndex--;
+    shiftTo(currentIndex, true);
+    updateDots();
+
+    if (currentIndex < 0) {
+      setTimeout(() => {
+        currentIndex = TOTAL - 1;
+        shiftTo(currentIndex, false);
+        void track.offsetWidth;
+        isAnimating = false;
+        updateDots();
+      }, TRANSITION_MS);
+    } else {
+      setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
+    }
+  }
+
+  /* ---------- Build dots ---------- */
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < TOTAL; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        if (isAnimating) return;
+        currentIndex = i;
+        shiftTo(currentIndex, true);
+        updateDots();
+        restartAuto();
+      });
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  /* ---------- Auto-play ---------- */
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      if (!isPaused) nextSlide();
+    }, AUTO_INTERVAL);
+  }
+
+  function stopAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  function restartAuto() {
+    startAuto();
+  }
+
+  /* ---------- Arrows ---------- */
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    restartAuto();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    restartAuto();
+  });
+
+  /* ---------- Pause on hover / touch ---------- */
+  section.addEventListener('mouseenter', () => { isPaused = true;  });
+  section.addEventListener('mouseleave', () => { isPaused = false; });
+  section.addEventListener('touchstart', () => { isPaused = true;  }, { passive: true });
+  section.addEventListener('touchend',   () => { isPaused = false; }, { passive: true });
+
+  /* ---------- Init & resize ---------- */
+  function init() {
+    buildTrack();
+    buildDots();
+    currentIndex = 0;
+    shiftTo(currentIndex, false);
+    void track.offsetWidth;
+    startAuto();
+  }
+
+  window.addEventListener('resize', () => {
+    buildTrack();
+    shiftTo(currentIndex, false);
+  });
+
+  window.addEventListener('load', init);
+  init();
+})();
 
 
     

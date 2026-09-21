@@ -1,78 +1,154 @@
-
 [
   {
-    "title": "KSUSDA Choir - I Will Sing",
-    "description": "A powerful worship song by KUSDA Choir.",
+    "title": "Asubuhi ni Karibu",
+    "artist": "KSUSDA Choir",
+    "album": "Morning Worship",
+    "description": "A powerful worship song by KSUSDA Choir.",
     "type": "audio",
-    "file":"image/assetss/asubuhi ni karibu.mp3"
+    "category": "worship",
+    "date": "2025-01-15",
+    "cover": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80",
+    "file": "image/assetss/asubuhi ni karibu.mp3",
+    "featured": true
   },
   {
-    "title": "495 - Near to the Heart of God",
-    "description": "Meditation and Prayer",
+    "title": "Near to the Heart of God",
+    "artist": "SDA Hymnal",
+    "album": "Hymns of Comfort",
+    "description": "Meditation and Prayer — a classic hymn.",
     "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-10",
+    "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80",
     "file": "http://sdahymnals.com/Hymnal/mp3/495%20%E2%80%93%20Near%20to%20the%20Heart%20of%20God.mp3"
   },
   {
-"title": "My Maker and My King",
-"description": "Powerful song by KSUSDA choir",
-"type": "audio",
-"file":"http://sdahymnals.com/Hymnal/mp3/015%20%E2%80%93%20My%20Maker%20and%20My%20King.mp3"
-  },
-  {
-    "title": "KSUSDA Sabbath Live Recording",
-    "description": "A blessing video from last Sabbath.",
-    "type": "video",
-    "file": "http://sdahymnals.com/Hymnal/mp3/633%20%E2%80%93%20When%20We%20All%20Get%20to%20Heaven.mp3"
-  },
-  {
-    "title": "KSUSDA Sabbath Live Recording",
-    "description": "A blessing video from last Sabbath.",
-    "type": "video",
-    "file": "https://sabbathsermons.com/wp-content/uploads/2023/12/20231223-Is-It-Well-With-Your-Soul-MB.mp3"
+    "title": "My Maker and My King",
+    "artist": "KSUSDA Choir",
+    "album": "Praise Collection",
+    "description": "Powerful song by KSUSDA choir.",
+    "type": "audio",
+    "category": "praise",
+    "date": "2025-01-12",
+    "cover": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400&q=80",
+    "file": "http://sdahymnals.com/Hymnal/mp3/015%20%E2%80%93%20My%20Maker%20and%20My%20King.mp3"
   },
   {
     "title": "Tis Almost Time for the Lord to Come",
-    "description": "A blessing video from last Sabbath.",
+    "artist": "SDA Hymnal",
+    "album": "Second Coming",
+    "description": "A blessing from our recent Sabbath service.",
     "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-08",
+    "cover": "https://images.unsplash.com/photo-1507692049790-de58290a4334?w=400&q=80",
     "file": "http://sdahymnals.com/Hymnal/mp3/212%20%E2%80%93%20'Tis%20Almost%20Time%20for%20the%20Lord%20to%20Come.mp3"
-  }
-  ,
+  },
   {
-    "title": "518 – Standing on the Promises",
-    "description": "A blessing video from last Sabbath.",
+    "title": "Standing on the Promises",
+    "artist": "SDA Hymnal",
+    "album": "Faith & Assurance",
+    "description": "A hymn of assurance and faith.",
     "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-06",
+    "cover": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&q=80",
     "file": "http://sdahymnals.com/Hymnal/mp3/518%20%E2%80%93%20Standing%20on%20the%20Promises.mp3"
   },
-   {
-    "title": "618 – Stand Up! Stand Up for Jesus!",
-    "description": "A blessing video from last Sabbath.",
+  {
+    "title": "Stand Up! Stand Up for Jesus!",
+    "artist": "SDA Hymnal",
+    "album": "Courage & Faith",
+    "description": "A call to bold Christian living.",
     "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-05",
+    "cover": "https://images.unsplash.com/photo-1445445290350-fe2d15d5c0f4?w=400&q=80",
     "file": "http://sdahymnals.com/Hymnal/mp3/618%20%E2%80%93%20Stand%20Up!%20Stand%20Up%20for%20Jesus!.mp3"
   },
-    {
-    "title": "493 - Like the woman in the well",
-    "description": "This song was sung by karoke.",
+  {
+    "title": "Fill My Cup Lord",
+    "artist": "SDA Hymnal",
+    "album": "Prayer & Devotion",
+    "description": "Like the woman at the well — a prayer for filling.",
     "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-04",
+    "cover": "https://images.unsplash.com/photo-1499415479124-43c32433a620?w=400&q=80",
     "file": "http://sdahymnals.com/Hymnal/mp3/493%20%E2%80%93%20Fill%20My%20Cup%20Lord.mp3"
   },
   {
-    "title": "341 - To God Be the Glory",
-    "description": "This song was sung by karoke.",
+    "title": "To God Be the Glory",
+    "artist": "SDA Hymnal",
+    "album": "Praise & Thanksgiving",
+    "description": "A hymn of praise and thanksgiving.",
     "type": "audio",
+    "category": "praise",
+    "date": "2025-01-03",
+    "cover": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80",
     "file": "http://sdahymnals.com/Hymnal/mp3/341%20%E2%80%93%20To%20God%20Be%20the%20Glory.mp3"
   },
-    {
-      "title": "343 - Amazing Grace",
-      "description": "This song was sung by karoke.",
-      "type": "audio",
-      "file": "http://sdahymnals.com/Hymnal/mp3/108%20%E2%80%93%20Amazing%20Grace.mp3"
-    },
-      {
-      "title": "388 – Don’t Forget the Sabbath",
-      "description": "This song was sung by karoke.",
-      "type": "audio",
-      "file": "http://sdahymnals.com/Hymnal/mp3/388%20%E2%80%93%20Don%E2%80%99t%20Forget%20the%20Sabbath.mp3"
-    }
-
-  
-  ]
+  {
+    "title": "Amazing Grace",
+    "artist": "SDA Hymnal",
+    "album": "Grace & Mercy",
+    "description": "The beloved hymn of God's saving grace.",
+    "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-02",
+    "cover": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80",
+    "file": "http://sdahymnals.com/Hymnal/mp3/108%20%E2%80%93%20Amazing%20Grace.mp3"
+  },
+  {
+    "title": "Don't Forget the Sabbath",
+    "artist": "SDA Hymnal",
+    "album": "Sabbath Songs",
+    "description": "A Sabbath reminder in song.",
+    "type": "audio",
+    "category": "hymns",
+    "date": "2025-01-01",
+    "cover": "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=400&q=80",
+    "file": "http://sdahymnals.com/Hymnal/mp3/388%20%E2%80%93%20Don%E2%80%99t%20Forget%20the%20Sabbath.mp3"
+  },
+  {
+    "title": "Sabbath Worship Live — Kisii University SDA",
+    "artist": "KSUSDA Church",
+    "album": "Live Sessions",
+    "description": "Full Sabbath worship service recorded live at our campus.",
+    "type": "youtube",
+    "category": "worship",
+    "date": "2025-01-20",
+    "youtubeId": "cqblhZLdYl0",
+    "featured": true
+  },
+  {
+    "title": "Voice of Prophecy — Bible Study Session",
+    "artist": "KSUSDA Church",
+    "album": "VOP Series",
+    "description": "Weekly VOP teaching on biblical prophecy.",
+    "type": "youtube",
+    "category": "training",
+    "date": "2025-01-18",
+    "youtubeId": "_PZuNSYNdho"
+  },
+  {
+    "title": "Choir Practice Highlights",
+    "artist": "KSUSDA Choir",
+    "album": "Behind the Scenes",
+    "description": "Behind the scenes of our choir ministry.",
+    "type": "youtube",
+    "category": "praise",
+    "date": "2025-01-16",
+    "youtubeId": "vKRyv_CyoM4"
+  },
+  {
+    "title": "Health Ministry Talk — NEWSTART",
+    "artist": "Health Ministry",
+    "album": "Health Talks",
+    "description": "The 8 laws of health explained for daily living.",
+    "type": "youtube",
+    "category": "training",
+    "date": "2025-01-14",
+    "youtubeId": "G5o4ym5in_w"
+  }
+]

@@ -31,19 +31,36 @@
     
         /* ===== MODERN HERO ===== */
         .cm-hero {
-          margin-top: 4rem;
+          margin-top: 0rem;
             position: relative;
+            overflow: hidden;
             min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(0,107,117,0.65)),
-                url('../images/leaders/new-zion/new-zion1.jpeg') center/cover no-repeat;
-            padding: 6rem 1.5rem 4rem;
+            background: #004950;
+            padding: 2rem 0.7rem 4rem;
         }
-        .cm-hero-inner { max-width: 760px; margin: 0 auto; }
+          .cm-hero::before {
+            content: '';
+            position: absolute;
+            inset: -3%;
+            z-index: 0;
+            background: linear-gradient(135deg, rgba(0,73,80,0.82), rgba(0,107,117,0.65)),
+              url('../images/leaders/new-zion/new-zion1.jpeg') center/cover no-repeat;
+            animation: cmHeroZoom 16s ease-in-out infinite alternate;
+            transform-origin: center;
+          }
+          .cm-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+          @keyframes cmHeroZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .cm-hero::before { animation: none; }
+          }
         .cm-eyebrow {
             display: inline-block;
             font-size: 0.72rem;
@@ -523,7 +540,7 @@
       100% { transform: translateX(-50%); }
     }
     .join-form-section {
-      background: #f8fafc;
+      background: #006B75;
       border-radius: 24px;
       padding: 2rem;
       margin: 2rem 0;
@@ -539,7 +556,7 @@
       padding: 0.7rem 1rem;
       border: 1px solid #dce4ec;
       border-radius: 12px;
-      background: #fff;
+     
     }
     .join-form-submit { grid-column: 1 / -1; text-align: center; }
     .join-form-submit button {
@@ -550,7 +567,13 @@
       border-radius: 40px;
       font-weight: 600;
       font-size: 1rem;
+    }.join-form-submit button:hover{
+      background: #02535b;
+      border:1px solid #fff;
+      color:#fff;
+
     }
+    
     .site-footer {
       background: rgb(28, 28, 28);
       color: #cbd5e1;
@@ -1011,7 +1034,7 @@
     <!-- Join Form -->
     <div class="join-form-section" id="join">
       <h3><i class="fas fa-hand-holding-heart me-2" style="color:#02a698;"></i> Join New Zion</h3>
-      <p class="text-muted">Every believer is called to be a messenger of Christ. Fill the form to join the mission.</p>
+      <p class="text-muted text-center">Every believer is called to be a messenger of Christ. Fill the form to join the mission.</p>
       <form id="joinMinistryForm" data-ministry="New Zion">
         <div class="join-form-grid">
           <input type="text" id="joinFullName" placeholder="Full Name" required />
@@ -1044,11 +1067,12 @@
       </div>
       <div class="footer-sda-logo"><img src="https://sthelenaca.adventistchurch.org/wp-content/themes/acc-themes/base/assets/images/logo-adventist-black.svg" alt="SDA Logo" style="height:55px;filter:brightness(0) invert(1);" /></div>
     </div>
-    <div class="footer-bottom"><p>Copyright &copy; 2026 Kisii University SDA Church.</p><p><a href="#">Privacy Policy</a> | <a href="#">Copyright Policy</a></p></div>
+    <div class="footer-bottom"><p>Copyright &copy; <script>document.write(date().getFullYear());</script> Kisii University SDA Church.</p><p><a href="#">Privacy Policy</a> | <a href="#">Copyright Policy</a></p></div>
   </div>
 </footer>
 
 <!-- Scripts -->
+ <script src="../js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   // FAQ toggle

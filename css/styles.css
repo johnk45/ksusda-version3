@@ -54,7 +54,9 @@ body {
   background: var(--white);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  
 }
+
 a { color: var(--teal); text-decoration: none; transition: var(--transition); }
 a:hover { color: var(--teal-dark); }
 img { max-width: 100%; height: auto; display: block; }
@@ -460,47 +462,53 @@ body.has-solid-header { padding-top: var(--header-height); }
    ======================================== */
 .hero {
   position: relative;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
+  min-height: 560px;
+  display: grid;
+  align-items: end;
   background-size: cover;
-  background-position: center;
+  background-position: center 42%;
   background-repeat: no-repeat;
   overflow: hidden;
   background: url('../images/pagephoto/tree.webp') center/cover no-repeat;
-
+  isolation: isolate;
 }
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(15, 25, 27, 0.88) 0%, rgba(15, 25, 27, 0.58) 46%, rgba(15, 25, 27, 0.18) 100%), linear-gradient(180deg, rgba(15, 25, 27, 0.05) 45%, rgba(15, 25, 27, 0.76) 100%);
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
 }
 .hero-content {
   position: relative;
   z-index: 1;
   text-align: left;
   color: var(--white);
-  padding: 8rem 1.5rem 3rem;
+  padding: 8rem 1.5rem 4rem;
   max-width: var(--max-width);
   width: 100%;
   margin: 0 auto;
 }
 .hero-title {
-  font-size: 3.2rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-family: var(--font-heading);
   font-weight: 400;
   color: var(--white);
   line-height: 1.15;
-  max-width: 700px;
+  max-width: 760px;
 }
 
 .hero-page {
-  min-height: 350px;
+  min-height: 390px;
   align-items: flex-end;
 }
-.hero-page .hero-content { padding-bottom: 2.5rem; }
-.hero-page .hero-title { font-size: 2.6rem; }
+.hero-page .hero-content { padding-bottom: 3.5rem; }
+.hero-page .hero-title { font-size: clamp(2rem, 4vw, 3rem); }
 
 /* ========================================
    FIND US BAR
@@ -555,7 +563,7 @@ body.has-solid-header { padding-top: var(--header-height); }
 }
 .findus-block h5 {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 0.2rem;
@@ -568,7 +576,7 @@ body.has-solid-header { padding-top: var(--header-height); }
 }
 .findus-block a {
   color: var(--white);
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 .findus-block a:hover { text-decoration: underline; color: var(--white); }
 
@@ -578,7 +586,7 @@ body.has-solid-header { padding-top: var(--header-height); }
   gap: 0.4rem;
   color: var(--white);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   margin-top: 0.4rem;
 }
 .findus-directions:hover { text-decoration: underline; color: var(--white); }
@@ -594,8 +602,8 @@ body.has-solid-header { padding-top: var(--header-height); }
 /* ========================================
    SECTIONS
    ======================================== */
-.section { padding: 3.5rem 0; }
-.section-sm { padding: 2rem 0; }
+.section { padding: 3.5rem 0; background: var(--white); }
+.section-sm { padding: 2rem 0; background: var(--cream); }
 
 .section-title {
   font-family: var(--font-heading);
@@ -606,7 +614,7 @@ body.has-solid-header { padding-top: var(--header-height); }
 }
 .section-subtitle {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   max-width: 700px;
   margin-bottom: 1.5rem;
 }
@@ -622,7 +630,7 @@ body.has-solid-header { padding-top: var(--header-height); }
   background: var(--teal);
   color: var(--white);
   padding: 0.75rem 1.8rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
   margin: 0.75rem 0;
@@ -858,7 +866,7 @@ body.has-solid-header { padding-top: var(--header-height); }
 .testimonial-text { color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
 .testimonial-author { font-weight: 700; color: var(--text-dark); }
 
-.get-involved { background: rgba(0,107,117,0.05); padding: 2rem; border-radius: var(--radius); text-align: center; }
+.get-involved { background: var(--off-white); padding: 2rem; border-radius: var(--radius); text-align: center; }
 .get-involved-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
 .btn-get-involved { display: inline-flex; align-items: center; justify-content: center; min-width: 162px; padding: 0.85rem 1.25rem; border-radius: 999px; font-weight: 700; text-decoration: none; transition: var(--transition); }
 .btn-get-involved.primary { background: var(--teal); color: var(--white); }
@@ -924,9 +932,9 @@ body.has-solid-header { padding-top: var(--header-height); }
 .service-item.blue { background: #1877f2; }
 .service-item.green { background: green; }
 .service-item.orange { background: #ff7200; }
-.service-item.beige { background: beige; color: #000; }
+.service-item.beige { background: var(--cream); color: var(--text-dark); }
 
-.consultation-section { background: rgba(0,107,117,0.05); padding: 2.5rem 0; }
+.consultation-section { background: var(--off-white); padding: 2.5rem 0; }
 .consultation-section .section-title { text-align: center; }
 .consultation-section .section-heading { color: #d32f2f; margin-bottom: 0.75rem; }
 .consultation-section .button { margin-top: 1rem; }
@@ -997,7 +1005,7 @@ body.has-solid-header { padding-top: var(--header-height); }
 
 /* Schedule */
 .schedule-block {
-  background: #f8f8f8;
+  background: var(--off-white);
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0;
   border-left: 3px solid var(--teal);
@@ -1012,7 +1020,7 @@ body.has-solid-header { padding-top: var(--header-height); }
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: #f8f8f8;
+  background: var(--cream);
   padding: 1.5rem;
   margin: 1.5rem 0;
   border-radius: var(--radius);
@@ -1263,9 +1271,12 @@ body.has-solid-header { padding-top: var(--header-height); }
 }
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
-  .hero { min-height: 400px; }
+  .hero { min-height: 460px; background-position: center; }
+  .hero::before { background: linear-gradient(180deg, rgba(15, 25, 27, 0.2) 20%, rgba(15, 25, 27, 0.86) 100%); }
+  .hero::after { display: none; }
+  .hero-content { padding: 7rem 1.25rem 3rem; }
   .hero-title { font-size: 2.2rem; }
-  .hero-page { min-height: 250px; }
+  .hero-page { min-height: 300px; }
   .hero-page .hero-title { font-size: 1.8rem; }
   .header-logo .logo-text { font-size: 0.82rem; max-width: 180px; }
   .giving-pill-desktop { display: none; }
